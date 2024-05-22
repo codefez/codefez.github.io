@@ -1,0 +1,156 @@
+---
+layout: default
+---
+
+<h1 class="text-center text-xl"> TODO List App </h1>
+<br>
+
+<p class="text-center text-l">Here are some programming challenges for 
+  students that include programming tips and ideas to extend them with features or new skills.
+</p>
+
+<br> 
+<hr>
+<br>
+<!-- The top of page card -->
+
+<div class="flex w-full">
+
+    <h1 class="card-title text-2xl font-bold">Task: Build a To-Do List App</h1>
+    
+    <div class="card-body">
+        <h3 class="text-xl font-bold mb-2">Requirements:</h3>
+        <div class="list list-decimal mb-4">
+        <div class="list-item">
+            <span class="font-bold">User Interface (UI):</span>
+            <ul class="list-inside list-disc ml-4">
+            <li>Create a simple command-line interface (CLI) for the app.</li>
+            <li>Display a menu with options for adding tasks, viewing tasks, marking tasks as complete, and quitting the app.</li>
+            </ul>
+        </div>
+        <div class="list-item">
+            <span class="font-bold">Data Storage:</span>
+            <ul class="list-inside list-disc ml-4">
+            <li>Use a list or dictionary to store the tasks.</li>
+            <li>
+                Each task should have the following properties:
+                <ul class="list-inside list-square ml-4">
+                <li>Task name</li>
+                <li>Due date (optional)</li>
+                <li>Priority level (e.g., high, medium, low)</li>
+                <li>Whether done or not done</li>
+                </ul>
+            </li>
+            </ul>
+        </div>
+        <div class="list-item">
+            <span class="font-bold">Functionality:</span>
+            <ul class="list-inside list-disc ml-4">
+            <li>
+                Implement the following features:
+                <ul class="list-inside list-square ml-4">
+                <li>
+                    <strong>Add Task</strong>: Allow users to add new tasks with a name, due date, and priority level.
+                </li>
+                <li>
+                    <strong>View Tasks</strong>: Display all tasks along with their details (name, due date, priority).
+                </li>
+                <li>
+                    <strong>Mark Task as Complete</strong>: Users can mark a task as completed.
+                </li>
+                <li>
+                    <strong>Delete a Task that is selected:</strong>
+                    Users should be able to delete a task from the list if it is chosen.
+                </li>
+                <li>
+                    <strong>Quit</strong>: Exit the app.
+                </li>
+                </ul>
+            </li>
+            </ul>
+        </div>
+        <div class="list-item">
+            <span class="font-bold">Programming Constructs:</span>
+            <ul class="list-inside list-disc ml-4">
+            <li>Use appropriate programming constructs such as loops, conditionals, and functions.</li>
+            <li>Ensure clean and modular code.</li>
+            </ul>
+        </div>
+        <div class="list-item">
+            <span class="font-bold">Selection:</span>
+            <ul class="list-inside list-disc ml-4">
+            <li>Use conditional statements (if/else) to handle user input and menu options.</li>
+            </ul>
+        </div>
+        <div class="list-item">
+            <span class="font-bold">Iteration:</span>
+            <ul class="list-inside list-disc ml-4">
+            <li>Implement loops to display tasks and handle repeated actions (e.g., displaying the menu).</li>
+            </ul>
+        </div>
+        <div class="list-item">
+            <span class="font-bold">Functions:</span>
+            <ul class="list-inside list-disc ml-4">
+            <li>Create functions for adding tasks, viewing tasks, and marking tasks as complete.</li>
+            <li>Consider using separate functions for each menu option.</li>
+            </ul>
+        </div>
+        <div class="list-item">
+            <span class="font-bold">Data Structures:</span>
+            <ul class="list-inside list-disc ml-4">
+            <li>Use lists or dictionaries to store task data.</li>
+            <li>As an extension, consider using dictionaries to organize
+      
+    
+    <div class="flex w-full">
+        <div class="grid flex-grow card bg-info-200 shadow-md">
+            <div class="mockup-browser border bg-base-300">
+                <div class="mockup-browser-toolbar">
+                  <div class="input">{{site.url}}/todo_app_challenge</div>
+                </div>
+                <div class="flex justify-start px-4 py-16 bg-base-200">
+              
+    <pre><code>Welcome to the To-Do List App!
+    1. Add Task
+    2. View Tasks
+    3. Mark Task as Complete
+    4. Choose task to delete
+    5. Quit
+
+Enter your choice: 1
+    Task Name: Buy groceries
+    Due Date (optional): 2024-04-20
+    Priority (high/medium/low): medium
+    Task added successfully!
+
+Enter your choice: 2
+    Tasks:
+    1. Buy groceries (Due: 2024-04-20, Priority: medium)
+
+Enter your choice: 3
+Enter task number to mark as complete: 1
+    Task marked as complete!
+
+Enter your choice: 4
+    Goodbye!</code></pre>
+                </div>
+              </div>
+        </div>
+        </div>
+
+        <div class="divider">  </div>
+
+        <div class="grid flex-grow card rounded-box bg-secondary-content shadow-xl">
+    <div class="card-body">
+    <h2 class="card-title">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" fill="currentColor" class="h-6 w-6"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M439.8 200.5c-7.7-30.9-22.3-54.2-53.4-54.2h-40.1v47.4c0 36.8-31.2 67.8-66.8 67.8H172.7c-29.2 0-53.4 25-53.4 54.3v101.8c0 29 25.2 46 53.4 54.3 33.8 9.9 66.3 11.7 106.8 0 26.9-7.8 53.4-23.5 53.4-54.3v-40.7H226.2v-13.6h160.2c31.1 0 42.6-21.7 53.4-54.2 11.2-33.5 10.7-65.7 0-108.6zM286.2 404c11.1 0 20.1 9.1 20.1 20.3 0 11.3-9 20.4-20.1 20.4-11 0-20.1-9.2-20.1-20.4 .1-11.3 9.1-20.3 20.1-20.3zM167.8 248.1h106.8c29.7 0 53.4-24.5 53.4-54.3V91.9c0-29-24.4-50.7-53.4-55.6-35.8-5.9-74.7-5.6-106.8 .1-45.2 8-53.4 24.7-53.4 55.6v40.7h106.9v13.6h-147c-31.1 0-58.3 18.7-66.8 54.2-9.8 40.7-10.2 66.1 0 108.6 7.6 31.6 25.7 54.2 56.8 54.2H101v-48.8c0-35.3 30.5-66.4 66.8-66.4zm-6.7-142.6c-11.1 0-20.1-9.1-20.1-20.3 .1-11.3 9-20.4 20.1-20.4 11 0 20.1 9.2 20.1 20.4s-9 20.3-20.1 20.3z"/></svg>
+      Python tips for the worksheets below!</h2>
+      <p>
+        <br>
+        <button class="btn btn-primary" onclick="for_modal.showModal()">for</button>
+        <button class="btn btn-primary" onclick="range_modal.showModal()">range()</button>
+        <button class="btn btn-primary" onclick="len_modal.showModal()">len()</button>
+      </p>
+    </div>
+    
+{% include python_modals.html  %}
