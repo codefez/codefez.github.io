@@ -1,39 +1,55 @@
-<dialog id="elif_modal" class="modal">
-    <div class="modal-box">
-        <h3 class="font-bold text-lg">else if / elif</h3>
-        <p class="py-4">
-            The <code class="text-accent">if</code> function selects code for execution 
-            if a condition is met. If it is not met, the instruction nested under the 
-            else block is executed.
-            
-        </p>
-        <p>
-                        
-            <div class="flex-start ">
-                <div class="text-xs mr-1 mb-1">
-                    <div class="mockup-window border bg-base-300">
-                        <pre class="bg-base-200 px-4 pt-4">
-<code class="language-python">x = 10
+<!-- This is the button that opens the modal. -->
+<button onclick="example_modal.showModal()" class="btn">open modal</button>
+
+<!-- Modal Start -- This is the modal you will edit itself -->
+<dialog id="example_modal" class="modal">
+  <div class="modal-box">
+
+    <!--   Modal Heading   -->
+    <h3 class="font-bold text-lg">elif</h3>
+
+    <!--   Paragraph explaining Python skill concisely   -->
+    <p class="py-4">
+      The <code class="text-accent">elif</code> operand will execute the block of code if a given condition is met and doesn't meet the first condition.
+    </p>
+
+    <!--   This paragraph contains example code and resulting output   -->
+    <p>
+
+      <!--    START OF PYTHON EDITOR MOCKUP WINDOW    -->
+    <div class="flex-start ">
+      <div class="text-xs mr-1 mb-1">
+        <div class="mockup-window border bg-base-300">
+          <pre class="bg-base-200 px-4 pt-4">
+
+<!-- Your Python code goes here -->
+<code class="language-python">x = 2
 
 if x > 5:
     print("x is greater than 5")
+elif x > 2:
+    print("x is greater than or equal to 2")
 else:
-    print("x is less than or equal to 5")</code>
-                        </pre>
-                    </div>
-                </div>
-                <div class="text-xs">
-                    <div class="mockup-code">
-                        <pre data-prefix=">">x is greater than 5
-                        </pre>
-                    </div>
-                </div>
-            </div>
-            
-        </p>
-                   
+    print("x is less than 2")
+</code>
+          </pre>
+        </div>
+      </div>
+      <!--   END OF PYTHON EDITOR MOCKUP WINDOW    -->
+
+      <!--   START OF OUTPUT MOCKUP WINDOW    -->
+      <div class="text-xs">
+        <div class="mockup-code">
+          <!--  Python output goes here   -->
+          <pre data-prefix=">">x is greater than or equal to 2</pre>
+        </div>
+      </div>
     </div>
-    <form method="dialog" class="modal-backdrop">
-      <button>close</button>
-    </form>
+    <!--   END OF OUTPUT MOCKUP WINDOW    -->
+    </p>
+
+  </div>
+  <form method="dialog" class="modal-backdrop">
+    <button>close</button>
+  </form>
 </dialog>
