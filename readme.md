@@ -26,7 +26,7 @@
 - [ ] sample (from random)
 - [ ] choice (from random)
 - [ ] time delta
-- [ ] sleep
+- [x] sleep
 - [ ] clear screen
 
 ## run local server

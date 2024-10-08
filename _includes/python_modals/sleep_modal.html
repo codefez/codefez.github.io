@@ -1,0 +1,66 @@
+<!-- This is the button that opens the modal. -->
+<button onclick="document.getElementById('example_modal').showModal()" class="btn">open modal</button>
+<script>
+  function hidden_text(){
+    setTimeout(displayText_Hello, 3000);
+    function displayText_Hello() {
+      var text = document.getElementById("textFieldHello");
+      text.style.display = "block";
+    }
+    setTimeout(displayText_World, 8000);
+    function displayText_World() {
+      var text = document.getElementById("textFieldWorld");
+      text.style.display = "block";
+    }
+  }
+</script>
+
+<!-- Modal Start -->
+<dialog id="sleep_modal" class="modal">
+  <div class="modal-box">
+    <!-- Modal Heading -->
+    <h3 class="font-bold text-lg">sleep</h3>
+    
+    <!-- Explanation Paragraph -->
+    <p class="py-4">
+      To be able to use sleep you need to <code class="text-accent">from time import sleep</code>. Then, using the function <code class="text-accent">sleep(1)</code>, you can specify the amount of seconds within the parentheses <code class="text-accent">()</code>.
+    </p>
+    
+    <!-- Example Code and Output -->
+    <p>
+      <!-- START OF PYTHON EDITOR MOCKUP WINDOW -->
+      <div class="flex-start">
+        <div class="text-xs mr-1 mb-1">
+          <div class="mockup-window border bg-base-300">
+            <pre class="bg-base-200 px-4 pt-4">
+<code class="language-python">
+  from time import sleep
+  
+  # Waits 3 seconds
+  sleep(1)
+  print("hello")
+  # Waits 5 seconds
+  sleep(5)
+  print("world")
+</code>
+            </pre>
+          </div>
+        </div>
+        <!-- END OF PYTHON EDITOR MOCKUP WINDOW -->
+        
+        <!-- START OF OUTPUT MOCKUP WINDOW -->
+        <div class="text-xs">
+          <pre class="btn btn-warning" onclick="hidden_text()">run</pre>
+          <div class="mockup-code">
+            <!-- Python output goes here -->
+           <div id="textFieldHello" style="display: none;" ><pre> Hello</pre></div>
+           <div id="textFieldWorld" style="display: none;" ><pre> World</pre></div>
+        </div>
+      </div>
+      <!-- END OF OUTPUT MOCKUP WINDOW -->
+    </p>
+  </div>
+  <form method="dialog" class="modal-backdrop">
+    <button>close</button>
+  </form>
+</dialog>
