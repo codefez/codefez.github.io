@@ -2,12 +2,12 @@
 <button onclick="document.getElementById('example_modal').showModal()" class="btn">open modal</button>
 <script>
   function hidden_text(){
-    setTimeout(displayText_Hello, 3000);
+    setTimeout(displayText_Hello, 1000);
     function displayText_Hello() {
       var text = document.getElementById("textFieldHello");
       text.style.display = "block";
     }
-    setTimeout(displayText_World, 8000);
+    setTimeout(displayText_World, 2000);
     function displayText_World() {
       var text = document.getElementById("textFieldWorld");
       text.style.display = "block";
@@ -34,14 +34,12 @@
           <div class="mockup-window border bg-base-300">
             <pre class="bg-base-200 px-4 pt-4">
 <code class="language-python">
-  from time import sleep
-  
-  # Waits 3 seconds
-  sleep(1)
-  print("hello")
-  # Waits 5 seconds
-  sleep(5)
-  print("world")
+from time import sleep
+
+sleep(1) # Waits 1 seconds
+print("Hello")
+sleep(1) # Waits 1 seconds
+print("World")
 </code>
             </pre>
           </div>

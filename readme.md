@@ -2,12 +2,12 @@
 
 - [ ] 2D arrays
 - [ ] escape codes (eg \n, \t etc)
-- [ ] elif
-- [ ] Tuples
+- [x] elif
+- [x] Tuples
 - [ ] List indexing
 - [ ] List slicing
 - [ ] Lists
-- [ ] Sorting lists
+- [x] Sorting lists
 - [ ] Ternary statements
 - [ ] input float
 - [ ] input validation using while loops and in operator
