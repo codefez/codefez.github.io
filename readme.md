@@ -22,7 +22,7 @@
 - [ ] replace
 
 ## random functions
-- [ ] randint (from random)
+- [x] randint (from random)
 - [ ] sample (from random)
 - [ ] choice (from random)
 - [ ] time delta
