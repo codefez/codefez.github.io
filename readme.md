@@ -1,14 +1,16 @@
 # Modals to-do still
 
 - [ ] 2D arrays
+- [ ] escape codes (eg \n, \t etc)
 - [ ] elif
 - [ ] Tuples
 - [ ] List indexing
 - [ ] List slicing
 - [ ] Lists
 - [ ] Sorting lists
-- [ ] Sorting Ternary statements
+- [ ] Ternary statements
 - [ ] input float
+- [ ] input validation using while loops and in operator
 - [ ] comparative operators
 - [ ] try / except blocks
 
@@ -20,6 +22,9 @@
 - [ ] replace
 
 ## random functions
+- [ ] randint (from random)
+- [ ] sample (from random)
+- [ ] choice (from random)
 - [ ] time delta
 - [ ] sleep
 - [ ] clear screen
