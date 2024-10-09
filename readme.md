@@ -2,12 +2,12 @@
 
 - [ ] 2D arrays
 - [ ] escape codes (eg \n, \t etc)
-- [x] elif
-- [x] Tuples
+- [x] ~~elif~~
+- [x] ~~Tuples~~
 - [ ] List indexing
 - [ ] List slicing
 - [ ] Lists
-- [x] Sorting lists
+- [x] ~~Sorting lists~~
 - [ ] Ternary statements
 - [ ] input float
 - [ ] input validation using while loops and in operator
@@ -22,11 +22,11 @@
 - [ ] replace
 
 ## random functions
-- [x] randint (from random)
+- [x] ~~randint (from random)~~
 - [ ] sample (from random)
 - [ ] choice (from random)
 - [ ] time delta
-- [x] sleep
+- [x] ~~sleep~~
 - [ ] clear screen
 
 ## run local server
