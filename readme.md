@@ -15,7 +15,7 @@
 - [ ] try / except blocks
 
 ## string methods
-- [ ] is upper / lower
+- [x] ~~is upper / lower~~
 - [ ] is digit
 - [ ] is alpha
 - [ ] count
