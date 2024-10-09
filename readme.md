@@ -27,7 +27,7 @@
 - [ ] choice (from random)
 - [ ] time delta
 - [x] ~~sleep~~
-- [ ] clear screen
+- [x] clear screen
 
 ## run local server
 `bundle exec jekyll serve --incremental`
