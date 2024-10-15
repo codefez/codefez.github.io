@@ -19,7 +19,7 @@
 - [ ] is digit
 - [ ] is alpha
 - [ ] count
-- [ ] replace
+- [x] replace
 
 ## random functions
 - [x] ~~randint (from random)~~
