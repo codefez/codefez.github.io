@@ -1,0 +1,56 @@
+<!-- This is the button that opens the modal. -->
+<button onclick="example_modal.showModal()" class="btn">open modal</button>
+
+<!-- Modal Start -- This is the modal you will edit itself -->
+<dialog id="example_modal" class="modal">
+  <div class="modal-box">
+    
+    <!--   Modal Heading   -->
+    <h3 class="font-bold text-lg">Replace function</h3>
+    
+    <!--   Paragraph explaining Python skill concisely   -->
+    <p class="py-4">
+      The <code class="text-accent">replace()</code> function can be used to replace a previous variable. In this example I also use sleep function to model it. You can find it in the cheatsheet.
+    </p>
+
+    <!--   This paragraph contains example code and resulting output   -->
+    <p>
+    
+    <!--    START OF PYTHON EDITOR MOCKUP WINDOW    -->
+    <div class="flex-start ">
+      <div class="text-xs mr-1 mb-1">
+        <div class="mockup-window border bg-base-300">
+          <pre class="bg-base-200 px-4">
+
+<!-- Your Python code goes here -->
+<code class="language-python">
+  from time import sleep
+  
+  original = "Hello, World!"
+  print(original) # Output: Hello World
+  sleep(1)
+  original.replace("World", "Hello")
+  print(original) # Output: World Hello
+</code>
+          </pre>
+        </div>
+      </div>
+      <!--   END OF PYTHON EDITOR MOCKUP WINDOW    -->
+      
+      <!--   START OF OUTPUT MOCKUP WINDOW    -->
+      <div class="text-xs">
+        <div class="mockup-code">
+          <!--  Python output goes here   -->
+           <div><pre> Hello World</pre></div>
+           <div><pre> World Hello</pre></div>
+        </div>
+      </div>
+    </div>
+    <!--   END OF OUTPUT MOCKUP WINDOW    -->
+    </p>
+
+  </div>
+  <form method="dialog" class="modal-backdrop">
+    <button>close</button>
+  </form>
+</dialog>
