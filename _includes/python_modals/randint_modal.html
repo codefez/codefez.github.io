@@ -1,6 +1,5 @@
 <!-- This is the button that opens the modal. -->
-<!-- <button onclick="randint_modal.showModal()" class="btn">randint (from random)</button>
-  -->
+  <button onclick="randint_modal.showModal()" class="btn">randint</button>
 <!-- Modal Start -- This is the modal you will edit itself -->
 <dialog id="randint_modal" class="modal">
   <div class="modal-box">
@@ -30,11 +29,19 @@ print("This could be 3, 4, 5, 6 or 7.")
         </div>
       </div>
       <!--   END OF PYTHON EDITOR MOCKUP WINDOW    -->
+      <button class = "btn" onclick = "randint()">Run random</button>
+      <script>
+        function randint() {
+          var rolypoly = Math.random() * (7 - 3) + 3;
+          rolypoly = Math.round(rolypoly);
+          document.getElementById("randint").innerHTML = rolypoly;
+        }
+      </script>
       <!--   START OF OUTPUT MOCKUP WINDOW    -->
       <div class="text-xs">
         <div class="mockup-code">
           <!--  Python output goes here   -->
-          <pre data-prefix=">">6</pre>
+          <pre data-prefix=">" id = "randint">6</pre>
           <pre data-prefix=">">This could be 3, 4, 5, 6 or 7.</pre>
         </div>
       </div>
