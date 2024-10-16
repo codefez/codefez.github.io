@@ -7,7 +7,7 @@
     
     <!--   Paragraph explaining Python skill concisely   -->
     <p class="py-4">
-      The <code class="text-accent">replace()</code> function can be used to replace a previous variable. In this example I also use sleep function to model it. You can find it in the cheatsheet.
+      The <code class="text-accent">replace()</code> function can be used to replace all occurrences of a specific substring within a string with a new substring.
     </p>
 
     <!--   This paragraph contains example code and resulting output   -->
@@ -23,11 +23,11 @@
 <code class="language-python">
   from time import sleep
   
-  original = "Hello, World!"
-  print(original) # Output: Hello World
-  sleep(1)
-  original.replace("World", "Hello")
-  print(original) # Output: World Hello
+  text = "Hello, World!"
+  print(text) # Output: Hello World
+  
+  text.replace("World", "Hello")
+  print(text) # Output: World Hello
 </code>
           </pre>
         </div>
@@ -39,7 +39,7 @@
         <div class="mockup-code">
           <!--  Python output goes here   -->
            <div><pre> Hello World</pre></div>
-           <div><pre> World Hello</pre></div>
+           <div><pre> Hello Hello</pre></div>
         </div>
       </div>
     </div>

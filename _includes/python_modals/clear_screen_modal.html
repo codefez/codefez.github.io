@@ -1,6 +1,8 @@
 <script>
   function hidden_text() {
+
     var text = document.getElementById("textField");
+    text.style.display = "none";
     text.style.display = "block";
     setTimeout(hideText, 1000);
     
@@ -47,9 +49,7 @@
       <div class="text-xs">
         <button class="btn btn-warning" onclick="hidden_text()">run</button>
         <div class="mockup-code">
-          <pre data-prefix=">">
-            <pre id="textField" style="display: none;">Hello World</pre>
-          </pre>
+          <pre data-prefix=">" id="textField">Hello World</pre>
         </div>
       </div>
     </div>
