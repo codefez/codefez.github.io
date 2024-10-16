@@ -1,16 +1,19 @@
 <script>
-  function hidden_text(){
-    setTimeout(displayText_Hello, 1000);
-    function displayText_Hello() {
-      var text = document.getElementById("textFieldHello");
-      text.style.display = "block";
-    }
-    setTimeout(displayText_World, 2000);
-    function displayText_World() {
-      var text = document.getElementById("textFieldWorld");
-      text.style.display = "block";
-    }
-  }
+  function displayText_Hello() {
+  var text = document.getElementById("textFieldHello");
+  text.style.display = "block";
+}
+
+function displayText_World() {
+  var text = document.getElementById("textFieldWorld");
+  text.style.display = "block";
+}
+
+function hidden_text() {
+  console.log("function called");
+  setTimeout(displayText_Hello, 1000);
+  setTimeout(displayText_World, 2000);
+}
 </script>
 
 <!-- Modal Start -->
@@ -30,7 +33,7 @@
       <div class="flex-start">
         <div class="text-xs mr-1 mb-1">
           <div class="mockup-window border bg-base-300">
-            <pre class="bg-base-200 px-4 pt-4">
+            <pre class="bg-base-200 px-4">
 <code class="language-python">
 from time import sleep
 
@@ -42,15 +45,16 @@ print("World")
             </pre>
           </div>
         </div>
+      </div>
         <!-- END OF PYTHON EDITOR MOCKUP WINDOW -->
         
         <!-- START OF OUTPUT MOCKUP WINDOW -->
         <div class="text-xs">
-          <pre class="btn btn-warning" onclick="hidden_text()">run</pre>
+          <button class="btn btn-warning" onclick="hidden_text()">run</button>
           <div class="mockup-code">
             <!-- Python output goes here -->
-           <div id="textFieldHello" style="display: none;" ><pre> Hello</pre></div>
-           <div id="textFieldWorld" style="display: none;" ><pre> World</pre></div>
+           <pre data-prefix=">" id="textFieldHello" style="display: none;"> Hello</pre>
+           <pre data-prefix=">" id="textFieldWorld" style="display: none;"> World</pre>
         </div>
       </div>
       <!-- END OF OUTPUT MOCKUP WINDOW -->

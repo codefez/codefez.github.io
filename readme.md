@@ -19,7 +19,7 @@
 - [ ] is digit
 - [ ] is alpha
 - [ ] count
-- [x] replace
+- [x] ~~replace~~
 
 ## random functions
 - [x] ~~randint (from random)~~
@@ -27,7 +27,7 @@
 - [ ] choice (from random)
 - [ ] time delta
 - [x] ~~sleep~~
-- [x] clear screen
+- [x] ~~clear screen~~
 
 ## run local server
 `bundle exec jekyll serve --incremental`
