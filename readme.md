@@ -24,7 +24,7 @@
 ## random functions
 - [x] ~~randint (from random)~~
 - [ ] sample (from random)
-- [ ] choice (from random)
+- [x] ~~choice (from random)~~
 - [ ] time delta
 - [x] ~~sleep~~
 - [x] ~~clear screen~~
