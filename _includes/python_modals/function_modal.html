@@ -1,0 +1,47 @@
+<dialog id="while_modal" class="modal">
+    <div class="modal-box">
+        <h3 class="font-bold text-lg">while</h3>
+        <p class="py-4">
+            The <code class="text-accent">function</code> is a way of creating reusable code. You define a function with <code class="text-accent">def</code> infront of the name of the function and you can call the code in the function anywhere in your code
+        </p>
+        <p>            
+            <div class="flex-start ">
+                <div class="text-xs mr-1 mb-1">
+                    <div class="mockup-window border bg-base-300">
+                        <pre class="bg-base-200 px-4 pt-4">
+<code class="language-python"># Define the function
+                        def function1(x): #The brackets are necessary and they store parameters inside of them
+                          print("function called")
+                          if x == 1: #this is checking if the parameter x is equal to 1, parameters are variables only inside the function
+                          return print("x is 1") # returns something
+                          else:
+                          return print("x is not 1")
+                        print(function1(1)) #this is setting the parameter x to 1, you can put anything for x and you can have mulitple parameters seperated by a comma
+                        </pre>
+                    </div>
+                </div>
+                <div class="text-xs">
+                    <div class="mockup-code">
+                        <pre data-prefix=">">1
+    function called
+    x is 1                
+                        </pre>
+                    </div>
+                </div>
+            </div>
+            
+        </p>
+    
+        <p>
+            <div role="alert" class="alert alert-info">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="stroke-current shrink-0 w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                <span>
+                    Functions can have anything inside of then and dont need parameters but they are very useful, functions
+                </span>
+            </div>
+        </p>  
+    </div>
+    <form method="dialog" class="modal-backdrop">
+      <button>close</button>
+    </form>
+</dialog>
