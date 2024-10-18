@@ -1,13 +1,13 @@
 <!-- Modal Start -- This is the modal you will edit itself -->
-<dialog id="float_input_modal" class="modal">
+<dialog id="try_and_except_modal" class="modal">
   <div class="modal-box">
     
     <!--   Modal Heading   -->
-    <h3 class="font-bold text-lg">input float</h3>
+    <h3 class="font-bold text-lg">try and except</h3>
     
     <!--   Paragraph explaining Python skill concisely   -->
-    <p>
-      The <code class="text-accent">input()</code> function can also be used a decimal integer. For example, inputting a number as a float and then printing it will print it as a decimal value.
+    <p class="py-4">
+      The <code class="text-accent">try/except</code> blocks test out the code you put under the <code class="text-accent">"try"</code> and will display a message that you choose under <code class="text-accent">"except"</code>. After using <code class="text-accent">"except"</code>, you can also add a specific error that will print out the specific message you wish for it to print out. These errors are known as python exceptions.
     </p>
 
     <!--   This paragraph contains example code and resulting output   -->
@@ -21,8 +21,10 @@
 
 <!-- Your Python code goes here -->
 <code class="language-python">
-  x = float(input("Enter a number"))
-  print(x)
+ try:
+   print(x)
+ except:
+   print("There was a problem in your code.")
 </code>
           </pre>
         </div>
@@ -33,9 +35,7 @@
       <div class="text-xs">
         <div class="mockup-code">
           <!--  Python output goes here   -->
-          <pre data-prefix=">">Enter a number 51
-     51.0
-</pre>
+          <pre data-prefix=">">There was a problem in your code.</pre>
         </div>
       </div>
     </div>

@@ -12,7 +12,7 @@
 - [x] ~~input float~~
 - [ ] input validation using while loops and in operator
 - [ ] comparative operators
-- [ ] try / except blocks
+- [x] ~~try / except blocks~~
 
 ## string methods
 - [x] ~~is upper / lower~~
