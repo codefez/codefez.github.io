@@ -6,7 +6,7 @@
 - [x] ~~Tuples~~
 - [ ] List indexing
 - [ ] List slicing
-- [ ] Lists
+- [x] Lists
 - [x] ~~Sorting lists~~
 - [ ] Ternary statements
 - [x] ~~input float~~
