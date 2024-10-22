@@ -1,0 +1,102 @@
+{
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/AKH1507/codefez.github.io.student.clone/blob/main/Lesson%2011%20Python%20GCSE\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "from random import shuffle\n",
+        "\n",
+        "lotteryNumbers = []\n",
+        "for x in range(1,40):\n",
+        "  lotteryNumbers.append(x)\n",
+        "\n",
+        "shuffle(lotteryNumbers)\n",
+        "\n",
+        "for i in range(0,5):\n",
+        "  print(lotteryNumbers[i])"
+      ],
+      "metadata": {
+        "id": "hS9z2GGokNk4",
+        "outputId": "82bb729a-33a2-4aa6-ff26-53e8b9eb6ad4",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        }
+      },
+      "execution_count": 29,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "13\n",
+            "5\n",
+            "32\n",
+            "17\n",
+            "20\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "li = [1,2,3,4,5,6,7,8,9,10,11,12]\n",
+        "timestables = int(input(\"Input a number for the timestables: \"))\n",
+        "for i in li:\n",
+        "  print(f\"{i} x {timestables} = {timestables*i} \")"
+      ],
+      "metadata": {
+        "id": "OIFkXjulmDqw",
+        "outputId": "0da8bed0-06a6-4f8c-de31-839941df8791",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        }
+      },
+      "execution_count": 48,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Input a number for the timestables: 0\n",
+            "1 x 0 = 0 \n",
+            "2 x 0 = 0 \n",
+            "3 x 0 = 0 \n",
+            "4 x 0 = 0 \n",
+            "5 x 0 = 0 \n",
+            "6 x 0 = 0 \n",
+            "7 x 0 = 0 \n",
+            "8 x 0 = 0 \n",
+            "9 x 0 = 0 \n",
+            "10 x 0 = 0 \n",
+            "11 x 0 = 0 \n",
+            "12 x 0 = 0 \n"
+          ]
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "colab": {
+      "name": "Welcome to Colaboratory",
+      "toc_visible": true,
+      "provenance": [],
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "display_name": "Python 3",
+      "name": "python3"
+    }
+  },
+  "nbformat": 4,
+  "nbformat_minor": 0
+}
