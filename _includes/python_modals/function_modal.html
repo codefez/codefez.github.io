@@ -1,0 +1,76 @@
+<dialog id="function_modal" class="modal">
+    <div class="modal-box">
+        <h3 class="font-bold text-lg">Function</h3>
+        <p class="py-4">
+            The <code class="text-accent">function</code> is used to create reusable code. You define a function with <code class="text-accent">def</code> infront of the name of the function and you can call the code in the function anywhere in your code
+          
+        </p>
+        
+ 
+           
+           
+        
+        <p>
+            
+            <div class="flex-start ">
+                <div class="text-xs mr-1 mb-1">
+                    <div class="mockup-window border bg-base-300">
+                        <pre class="bg-base-200 px-4 pt-4">
+<code class="language-python">
+def function1(x): #The brackets are necessary and they store parameters inside of them
+  print("function called")
+  if x == 1: #this is checking if the parameter x is equal to 1, parameters are variables only inside the function
+    return print("x is 1") # returns something
+  else:
+    return print("x is not 1")
+print(function1(1)) #this is setting the parameter x to 1, you can put anything for x and you can have mulitple parameters seperated by a comma</code>
+                        </pre>
+                    </div>
+                </div>
+                <div class="text-xs">
+                    <div class="mockup-code"/pre>
+ <pre data-prefix=">"> function called
+  <pre data-prefix=">"> x is 1
+                    </div>
+                </div>
+            </div>
+            
+        </p>
+        <div role="alert" class="alert alert-warning">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span> Functions can have anything inside of them and do not need parameters however they are very useful</span>
+        </div>   
+        
+        <p>
+            <div class="flex-start ">
+                <div class="text-xs mr-1 mb-1">
+                    <div class="mockup-window border bg-base-300">
+                        <pre class="bg-base-200 px-4 pt-4">
+<code class="language-python">global x # globalising and variable allows it to be changed from a local area 
+x = 1 #assigning 1 to 
+def function2(): # no parameters
+ x += 2 # adds 2 to x
+ return print(x)
+
+while x == 1: 
+ print(function2(), "fahad") # calls the function 
+ </code>
+                        </pre>
+                    </div>
+                </div>
+                <div class="text-xs">
+                    <div class="mockup-code">
+                        <pre data-prefix=">">3 fahad</pre>
+                        
+                    </div>
+                </div>
+            </div>
+        </p>
+    </div>
+    <form method="dialog" class="modal-backdrop">
+      <button>close</button>
+    </form>
+</dialog>
+
+
+ 
