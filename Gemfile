@@ -22,6 +22,14 @@ gem 'jekyll-feed', '~> 0.17.0'
 # gem 'jekyll-asset-pipeline', '~> 1.1.1'
 gem 'jekyll-coffeescript', '~> 1.2.2'
 gem 'jekyll-sass-converter', '~> 1.5.2'
+gem 'concurrent-ruby', '1.2.3'
+gem 'rexml', '3.3.7'
+gem 'faraday', '2.11.0'
+gem 'activesupport', '7.1.4'
+gem 'faraday-net_http', '3.3.0'
+gem 'logger', '1.6.1'
+gem 'minitest', '5.25.1'
+gem 'uri', '0.13.1'
 gem 'wdm', '>=0.1.0' if Gem.win_platform?
 # Windows and JRuby does not include zoneinfo files, so bundle the tzinfo-data gem
 # and associated library.
