@@ -21,7 +21,7 @@
 
 <!-- Your Python code goes here -->
 <code class="language-python">
-  x = int(input("> "))
+  x = int(input(" "))
   print("x is equal to 4.") if x==4 else print("x is not equal to 4")
 </code>
           </pre>
@@ -35,16 +35,15 @@
       <br>
       <script>
         function equalFour() {
-          var num = document.getElementById("txtbox");
-          num = Number(num);
+          var num = Number(document.getElementById("txtbox").value);
           if (num == 4) {
-            document.getElementById("output_area").innerHTML = "x is equal to 4."
-          }
-          else {
-            document.getElementById("output_area").innerHTML = "x is not equal to 4."
+            document.getElementById("output_area").innerHTML = "x is equal to 4.";
+          } else {
+            document.getElementById("output_area").innerHTML = "x is not equal to 4.";
           }
         }
       </script>
+      <br>
       <!--   START OF OUTPUT MOCKUP WINDOW    -->
       <div class="text-xs">
         <div class="mockup-code">
