@@ -1,28 +1,33 @@
 # Modals to-do still
 
 - [ ] 2D arrays
-- [ ] elif
-- [ ] Tuples
+- [ ] escape codes (eg \n, \t etc)
+- [x] ~~elif~~
+- [x] ~~Tuples~~
 - [ ] List indexing
 - [ ] List slicing
 - [ ] Lists
-- [ ] Sorting lists
-- [ ] Sorting Ternary statements
-- [ ] input float
+- [x] ~~Sorting lists~~
+- [ ] Ternary statements
+- [x] ~~input float~~
+- [ ] input validation using while loops and in operator
 - [ ] comparative operators
 - [ ] try / except blocks
 
 ## string methods
-- [ ] is upper / lower
-- [ ] is digit
+- [x] ~~is upper / lower~~
+- [x] ~~is digit~~
 - [ ] is alpha
 - [ ] count
-- [ ] replace
+- [x] ~~replace~~
 
 ## random functions
+- [x] ~~randint (from random)~~
+- [ ] sample (from random)
+- [x] ~~choice (from random)~~
 - [ ] time delta
-- [ ] sleep
-- [ ] clear screen
+- [x] ~~sleep~~
+- [x] ~~clear screen~~
 
 ## run local server
 `bundle exec jekyll serve --incremental`

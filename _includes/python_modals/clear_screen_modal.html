@@ -1,0 +1,63 @@
+<script>
+  function hidden_text() {
+
+    var text = document.getElementById("textField");
+    text.style.display = "none";
+    text.style.display = "block";
+    setTimeout(hideText, 1000);
+    
+    function hideText() {
+      text.style.display = "none";
+    }
+  }
+</script>
+
+<!-- Modal Start -- This is the modal you will edit itself -->
+<dialog id="clear_screen_modal" class="modal">
+  <div class="modal-box">
+    
+    <!-- Modal Heading -->
+    <h3 class="font-bold text-lg">Clear Screen</h3>
+    
+    <!-- Paragraph explaining Python skill concisely -->
+    <p class="py-4">
+      To clear the screen, you first need to <code class="text-accent">import os</code> then using <code class="text-accent">os.system('clear')</code> you will successfully clear it.
+      For demonstration purposes, I have also used a sleep function which you can find in the cheatsheet also.
+    </p>
+
+    <!-- This paragraph contains example code and resulting output -->
+    <p>
+    
+    <!-- Start of Python Editor Mockup Window -->
+    <div class="flex-start ">
+      <div class="text-xs mr-1 mb-1">
+        <div class="mockup-window border bg-base-300">
+          <pre class="bg-base-200 px-4 pt-4">
+<code class="language-python">
+  import os
+  from time import sleep
+  
+  print("Hello World") # Prints 'Hello World'
+  sleep(1) # Waits for 1 second
+  os.system('clear') # Clears screen
+</code>
+          </pre>
+        </div>
+      </div>
+      
+      <!-- Start of Output Mockup Window -->
+      <div class="text-xs">
+        <button class="btn btn-warning" onclick="hidden_text()">run</button>
+        <div class="mockup-code">
+          <pre data-prefix=">" id="textField">Hello World</pre>
+        </div>
+      </div>
+    </div>
+    <!-- End of Output Mockup Window -->
+    </p>
+
+  </div>
+  <form method="dialog" class="modal-backdrop">
+    <button>close</button>
+  </form>
+</dialog>

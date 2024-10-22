@@ -1,0 +1,79 @@
+<dialog id="isdigit_modal" class="modal">
+    <div class="modal-box">
+        <h3 class="font-bold text-lg">isdigit()</h3>
+        <p class="py-4">
+            The <code class="text-accent">isdigit()</code> string method will check if a variable is numeric and return a 
+            <code class="text-accent">True</code> or <code class="text-accent">False</code> result.
+        </p>
+
+        <!-- This paragraph contains example code and resulting output -->
+        <p>
+            <!-- START OF PYTHON EDITOR MOCKUP WINDOW -->
+            <div class="flex-start ">
+                <div class="text-xs mr-1 mb-1">
+                    <div class="mockup-window border bg-base-300">
+                        <pre class="bg-base-200" style="padding-left: 1rem;">
+                            <!-- Your Python code goes here -->
+                            <code id="codeblock" class="language-python">
+var1 = "1"
+var2 = "one"
+print(var1.isdigit())
+print(var2.isdigit())
+                            </code>
+                        </pre>
+                    </div>
+                </div>
+                <!-- END OF PYTHON EDITOR MOCKUP WINDOW -->
+
+                <!-- START OF OUTPUT MOCKUP WINDOW -->
+                <div class="text-xs">
+                    <div class="mockup-code" style="padding-left: 1rem;">
+                        <!-- Python output goes here -->
+                        <pre id="output_isdigit" class=""></pre>
+                    </div>
+                </div>
+            </div>
+
+            <script type="text/python">
+from browser import document
+import io
+import sys
+
+def isdigit_runCode(event):
+    # Capture print output using StringIO
+    output_capture = io.StringIO()
+    sys.stdout = output_capture
+
+    # Python code to execute
+    code = """
+var1 = "1"
+var2 = "one"
+print(var1.isdigit())
+print(var2.isdigit())
+    """
+
+    # Execute the code
+    exec(code, globals(), locals())
+
+    # Reset stdout back to default
+    sys.stdout = sys.__stdout__
+
+    # Get the captured output
+    output = output_capture.getvalue()
+
+    # Update the output element
+    document["output_isdigit"].text = output
+
+    # Bind the button click event to runCode function
+    document["isdigit_runCode"].bind("click", isdigit_runCode)
+            </script>
+
+            <button class="btn btn-primary btn-sm" id="isdigit_runCode">Run Code</button>
+
+            <!-- END OF OUTPUT MOCKUP WINDOW -->
+        </p>
+    </div>
+    <form method="dialog" class="modal-backdrop">
+        <button>close</button>
+    </form>
+</dialog>

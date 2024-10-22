@@ -1,42 +1,45 @@
 <!-- Modal Start -- This is the modal you will edit itself -->
-<dialog id="elif_modal" class="modal">
+<dialog id="replace_modal" class="modal">
   <div class="modal-box">
-
-    <h3 class="font-bold text-lg">elif</h3>
-
+    
+    <!--   Modal Heading   -->
+    <h3 class="font-bold text-lg">Replace function</h3>
+    
+    <!--   Paragraph explaining Python skill concisely   -->
     <p class="py-4">
-      The <code class="text-accent">elif</code> operand will execute the block of code if a given condition is met and doesn't meet the first condition.
+      The <code class="text-accent">replace()</code> function can be used to replace all occurrences of a specific substring within a string with a new substring.
     </p>
 
-
+    <!--   This paragraph contains example code and resulting output   -->
     <p>
-
-      <!--    START OF PYTHON EDITOR MOCKUP WINDOW    -->
+    
+    <!--    START OF PYTHON EDITOR MOCKUP WINDOW    -->
     <div class="flex-start ">
       <div class="text-xs mr-1 mb-1">
         <div class="mockup-window border bg-base-300">
           <pre class="bg-base-200 px-4">
 
 <!-- Your Python code goes here -->
-<code class="language-python">x = 2
-
-if x > 5:
-    print("x is greater than 5")
-elif x > 2:
-    print("x is greater than or equal to 2")
-else:
-    print("x is less than 2")
+<code class="language-python">
+  from time import sleep
+  
+  text = "Hello, World!"
+  print(text) # Output: Hello World
+  
+  text.replace("World", "Hello")
+  print(text) # Output: World Hello
 </code>
           </pre>
         </div>
       </div>
       <!--   END OF PYTHON EDITOR MOCKUP WINDOW    -->
-
+      
       <!--   START OF OUTPUT MOCKUP WINDOW    -->
       <div class="text-xs">
         <div class="mockup-code">
           <!--  Python output goes here   -->
-          <pre data-prefix=">">x is greater than or equal to 2</pre>
+           <div><pre> Hello World</pre></div>
+           <div><pre> Hello Hello</pre></div>
         </div>
       </div>
     </div>
