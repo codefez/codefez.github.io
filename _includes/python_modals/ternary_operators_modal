@@ -1,0 +1,63 @@
+<button onclick="ternary_operators_modal.showModal()" class="btn">ternary operators</button>
+
+<!-- Modal Start -- This is the modal you will edit itself -->
+<dialog id="ternary_operators_modal" class="modal">
+  <div class="modal-box">
+
+    <h3 class="font-bold text-lg">Ternary operators</h3>
+    
+
+    <p class="py-4">
+      Ternary operators allow you to execute an if/else statement in one line.
+    </p>
+
+    <p>
+    
+
+    <div class="flex-start ">
+      <div class="text-xs mr-1 mb-1">
+        <div class="mockup-window border bg-base-300">
+          <pre class="bg-base-200 px-4 pt-4">
+
+<!-- Your Python code goes here -->
+<code class="language-python">
+  x = int(input("> "))
+  print("x is equal to 4.") if x==4 else print("x is not equal to 4")
+</code>
+          </pre>
+        </div>
+      </div>
+      <div style = "padding = 50px"></div>
+      <!--   END OF PYTHON EDITOR MOCKUP WINDOW    -->
+      <br>
+      <input id = "txtbox" type="text" placeholder="Type number here" class="input w-full max-w-xs" />
+      <button class="btn btn-success" onclick = "equalFour()">Enter</button>
+      <br>
+      <script>
+        function equalFour() {
+          var num = document.getElementById("txtbox");
+          num = Number(num);
+          if (num == 4) {
+            document.getElementById("output_area").innerHTML = "x is equal to 4."
+          }
+          else {
+            document.getElementById("output_area").innerHTML = "x is not equal to 4."
+          }
+        }
+      </script>
+      <!--   START OF OUTPUT MOCKUP WINDOW    -->
+      <div class="text-xs">
+        <div class="mockup-code">
+          <!--  Python output goes here   -->
+          <pre id = "output_area" data-prefix=">"></pre>
+        </div>
+      </div>
+    </div>
+    <!--   END OF OUTPUT MOCKUP WINDOW    -->
+    </p>
+
+  </div>
+  <form method="dialog" class="modal-backdrop">
+    <button>close</button>
+  </form>
+</dialog>
