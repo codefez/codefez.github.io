@@ -1,0 +1,66 @@
+<!-- This is the button that opens the modal. -->
+<button onclick="example_modal.showModal()" class="btn">open modal</button>
+
+<!-- Modal Start -- This is the modal you will edit itself -->
+<dialog id="example_modal" class="modal">
+  <div class="modal-box">
+    
+    <!--   Modal Heading   -->
+    <h3 class="font-bold text-lg">lists</h3>
+    
+    <!--   Paragraph explaining Python skill concisely   -->
+    <p class="py-4">
+      Lists are used to store multiple items in a single variable.
+      Using square brackets<code class="text-accent">[ ]</code> while writing a variable we can simply create a list.
+      Lists can be done in all: Integers, Boolean, String and Float.
+    </p>
+
+    <!--   This paragraph contains example code and resulting output   -->
+    <p>
+    
+    <!--    START OF PYTHON EDITOR MOCKUP WINDOW    -->
+    <div class="flex-start ">
+      <div class="text-xs mr-1 mb-1">
+        <div class="mockup-window border bg-base-300">
+          <pre class="bg-base-200 px-4 pt-4">
+
+<!-- Your Python code goes here -->
+<code class="language-python">
+  string_list = ['Hello', 'World']
+  float_list = [2.4, 4.5]
+  boolean_list = [True, False,]
+  int_list = [1, 34]
+  mixed_list = [True, False, 'Hello', 'World', 1, 34, 2.4, 4.5]
+  
+  print(string_list)
+  print(float_list)
+  print(boolean_list)
+  print(int_list)
+  print(mixed_list)
+</code>
+          </pre>
+        </div>
+      </div>
+      <!--   END OF PYTHON EDITOR MOCKUP WINDOW    -->
+      
+      <!--   START OF OUTPUT MOCKUP WINDOW    -->
+      <div class="text-xs">
+        <div class="mockup-code">
+          <!--  Python output goes here   -->
+          <pre data-prefix=">"></pre>
+          <pre>['Hello', 'World']</pre>
+          <pre>[2.4, 4.5]</pre>
+          <pre>[True, False]</pre>
+          <pre>[1, 34]</pre>
+          <pre>[True, False, 'Hello', 'World', 1, 34, 2.4, 4.5]</pre>
+        </div>
+      </div>
+    </div>
+    <!--   END OF OUTPUT MOCKUP WINDOW    -->
+    </p>
+
+  </div>
+  <form method="dialog" class="modal-backdrop">
+    <button>close</button>
+  </form>
+</dialog>
