@@ -17,20 +17,19 @@
                     <div class="mockup-window border bg-base-300">
                         <pre class="bg-base-200 px-4 pt-4">
 <code class="language-python">
-def function1(x): #The brackets are necessary and they store parameters inside of them
-  print("function called")
-  if x == 1: #this is checking if the parameter x is equal to 1, parameters are variables only inside the function
-    return print("x is 1") # returns something
-  else:
-    return print("x is not 1")
-print(function1(1)) #this is setting the parameter x to 1, you can put anything for x and you can have mulitple parameters seperated by a comma</code>
+import random #Imports random
+def dice(): #Stores parameters
+ dice_roll = random.randint(1,6) #example
+ return print(", you rolled", dice_roll, "!")
+print("You roll a dice", dice()) 
+   </code>
                         </pre>
                     </div>
                 </div>
                 <div class="text-xs">
                     <div class="mockup-code"/pre>
- <pre data-prefix=">"> function called
-  <pre data-prefix=">"> x is 1
+ <pre data-prefix=">"> You rolled the dice , you rolled 3!
+ 
                     </div>
                 </div>
             </div>
@@ -46,22 +45,27 @@ print(function1(1)) #this is setting the parameter x to 1, you can put anything 
                 <div class="text-xs mr-1 mb-1">
                     <div class="mockup-window border bg-base-300">
                         <pre class="bg-base-200 px-4 pt-4">
-<code class="language-python">global x # globalising and variable allows it to be changed from a local area 
-x = 1 #assigning 1 to 
-def function2(): # no parameters
- x += 2 # adds 2 to x
- return print(x)
-
-while x == 1: 
- print(function2(), "fahad") # calls the function 
+<code class="language-python">
+object_len = int(input("Enter Length:"))
+object_width = int(input("Enter width:"))
+def area(a, b): #function to find the area
+ ab = a * b
+ print("The area of the object is", ab)
+print(area(object_len, object_width))
+#enters parameters and runs
  </code>
                         </pre>
                     </div>
                 </div>
                 <div class="text-xs">
                     <div class="mockup-code">
-                        <pre data-prefix=">">3 fahad</pre>
                         
+<pre data-prefix=">">                    </pre>
+                      
+                      
+
+Enter Length : 5
+Enter Width : 3              The area of the object is 15                 
                     </div>
                 </div>
             </div>
