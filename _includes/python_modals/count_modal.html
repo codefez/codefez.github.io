@@ -1,0 +1,49 @@
+<!-- Modal Start -- This is the modal you will edit itself -->
+<dialog id="count_modal" class="modal">
+  <div class="modal-box">
+    
+    <!--   Modal Heading   -->
+    <h3 class="font-bold text-lg">count</h3>
+    
+    <!--   Paragraph explaining Python skill concisely   -->
+    <p class="py-4">
+      The <code class="text-accent">.count()</code> function will count how many times a certain value appears within a string.
+    </p>
+
+    <!--   This paragraph contains example code and resulting output   -->
+    <p>
+    
+    <!--    START OF PYTHON EDITOR MOCKUP WINDOW    -->
+    <div class="flex-start ">
+      <div class="text-xs mr-1 mb-1">
+        <div class="mockup-window border bg-base-300">
+          <pre class="bg-base-200 px-4 pt-4">
+
+<!-- Your Python code goes here -->
+<code class="language-python">
+  sentence = input("Enter your sentence: ")
+  e_count = sentence.count("e")
+  print("There are", e_count, "e's!")
+</code>
+          </pre>
+        </div>
+      </div>
+      <!--   END OF PYTHON EDITOR MOCKUP WINDOW    -->
+      
+      <!--   START OF OUTPUT MOCKUP WINDOW    -->
+      <div class="text-xs">
+        <div class="mockup-code">
+          <!--  Python output goes here   -->
+          <pre data-prefix=">">Enter your sentence: Hello there</pre>
+          <pre data-prefix=">">There are 3 e's!</pre>
+        </div>
+      </div>
+    </div>
+    <!--   END OF OUTPUT MOCKUP WINDOW    -->
+    </p>
+
+  </div>
+  <form method="dialog" class="modal-backdrop">
+    <button>close</button>
+  </form>
+</dialog>

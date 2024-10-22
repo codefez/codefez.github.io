@@ -16,7 +16,7 @@
 
 ## string methods
 - [x] ~~is upper / lower~~
-- [ ] is digit
+- [x] ~~is digit~~
 - [ ] is alpha
 - [ ] count
 - [x] ~~replace~~
