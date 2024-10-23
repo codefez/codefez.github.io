@@ -1,0 +1,56 @@
+<!-- Modal Start -- This is the modal you will edit itself -->
+<dialog id="try_and_except_modal" class="modal">
+  <div class="modal-box">
+    
+    <!--   Modal Heading   -->
+    <h3 class="font-bold text-lg">try and except</h3>
+    
+    <!--   Paragraph explaining Python skill concisely   -->
+    <p class="py-4">
+      The <code class="text-accent">try and except</code> function test out the code you put under the <code class="text-accent">try</code> and will display a message that you choose under <code class="text-accent">except</code>. After using <code class="text-accent">except</code>, you can also add a specific error that will print out the message you wish for it to print out. These errors are known as python exceptions. Below I've used the ZeroDivisionError which occurs when you try to divide a number by 0.
+    </p>
+
+    <!--   This paragraph contains example code and resulting output   -->
+    <p>
+    
+    <!--    START OF PYTHON EDITOR MOCKUP WINDOW    -->
+    <div class="flex-start ">
+      <div class="text-xs mr-1 mb-1">
+        <div class="mockup-window border bg-base-300">
+          <pre class="bg-base-200 px-4 pt-4">
+
+<!-- Your Python code goes here -->
+<code class="language-python">
+ try:
+    numerator = int(input("Enter the numerator: "))
+    denominator = int(input("Enter the denominator: "))
+    result = numerator / denominator
+    print(f"Result: {result}") #f strings are used here, they are in the cheatsheet
+except ZeroDivisionError:
+    print("Error: Cannot divide by zero!")
+except ValueError:
+    print("Error: Invalid input, please enter numbers only.")
+</code>
+          </pre>
+        </div>
+      </div>
+      <!--   END OF PYTHON EDITOR MOCKUP WINDOW    -->
+      
+      <!--   START OF OUTPUT MOCKUP WINDOW    -->
+      <div class="text-xs">
+        <div class="mockup-code">
+          <!--  Python output goes here   -->
+          <pre data-prefix=">">Enter the numerator: 1
+     Enter the denominator: 0
+     Cannot divide by zero!</pre>
+        </div>
+      </div>
+    </div>
+    <!--   END OF OUTPUT MOCKUP WINDOW    -->
+    </p>
+
+  </div>
+  <form method="dialog" class="modal-backdrop">
+    <button>close</button>
+  </form>
+</dialog>
