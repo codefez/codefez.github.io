@@ -1,15 +1,17 @@
 <!-- Modal Start -- This is the modal you will edit itself -->
-<dialog id="example_modal" class="modal">
+<dialog id="lists_modal" class="modal">
   <div class="modal-box">
-    
+    <form method="dialog">
+      <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
+    </form>
     <!--   Modal Heading   -->
     <h3 class="font-bold text-lg">lists</h3>
     
     <!--   Paragraph explaining Python skill concisely   -->
     <p class="py-4">
       Lists are used to store multiple items in a single variable.
-      Using square brackets<code class="text-accent">[ ]</code> while writing a variable we can simply create a list.
-      Lists can be done in all: Integers, Boolean, String and Float.
+      Using square brackets<code class="text-accent">[ ]</code> with an assigned variable name allows us to create a list.
+      Lists can contain all datatypes such as integer, boolean, string and float.
     </p>
 
     <!--   This paragraph contains example code and resulting output   -->
@@ -19,13 +21,11 @@
     <div class="flex-start ">
       <div class="text-xs mr-1 mb-1">
         <div class="mockup-window border bg-base-300">
-          <pre class="bg-base-800 px-4 pt-4">
+          <pre class="bg-base-800 px-4">
 
 <!-- Your Python code goes here -->
 <code class="language-python">
   mixed_list = [True, False, 'Hello', 'World', 1, 34, 2.4, 4.5]
-  # Contains Boolean, String, Int, Float
-  
   print(mixed_list)
 </code>
           </pre>
