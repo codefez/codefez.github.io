@@ -13,6 +13,8 @@
 - [ ] input validation using while loops and in operator
 - [ ] comparative operators
 - [ ] try / except blocks
+- [ ] maths.ceil
+- [ ] maths.floor
 
 ## string methods
 - [x] ~~is upper / lower~~
