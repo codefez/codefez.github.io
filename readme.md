@@ -16,7 +16,7 @@
 - [ ] maths.ceil
 - [ ] maths.floor
 - [x] procedure
-- [ ] function
+- [x] function
 
 ## string methods
 - [x] ~~is upper / lower~~
