@@ -4,7 +4,7 @@
 - [ ] escape codes (eg \n, \t etc)
 - [x] ~~elif~~
 - [x] ~~Tuples~~
-- [ ] List indexing
+- [x] List indexing
 - [ ] List slicing
 - [x] Lists
 - [x] ~~Sorting lists~~
@@ -15,6 +15,8 @@
 - [ ] try / except blocks
 - [ ] maths.ceil
 - [ ] maths.floor
+- [x] procedure
+- [ ] function
 
 ## string methods
 - [x] ~~is upper / lower~~
