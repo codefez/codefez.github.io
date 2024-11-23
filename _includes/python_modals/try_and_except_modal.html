@@ -1,0 +1,79 @@
+<!-- Modal Start -- This is the modal you will edit itself -->
+<dialog id="try_and_except_modal" class="modal">
+    <div class="modal-box">
+  
+      <!--   Modal Heading   -->
+      <h3 class="font-bold text-lg">try and except</h3>
+  
+      <!--   Paragraph explaining Python skill concisely   -->
+      <p class="py-1">
+        A try-except block is used to handle exceptions, which are errors that occur 
+        during the execution of a program. This block lets you manage these errors 
+        gracefully without crashing your program.
+      </p>
+      <p>
+        The <code class="text-accent">try</code> block contains the code that might raise an exception. <br>
+        The <code class="text-accent">except</code> block contains the code to execute if an error occurs.
+      </p>
+  
+      <!--   This paragraph contains example code and resulting output   -->
+      <p>
+  
+      <!--    START OF PYTHON EDITOR MOCKUP WINDOW    -->
+      <div class="flex-start ">
+        <div class="text-xs mr-1 mb-1">
+          <div class="mockup-window border bg-base-300">
+            <pre class="bg-base-200 px-4 py-0">
+  
+  <!-- Your Python code goes here -->
+  <code class="language-python">
+try:
+    with open("users.txt", 'r') as file:
+        content = file.read()
+        # more code to do something with the file here
+except FileNotFoundError:
+    print(f"Error: The file '{users.txt}' was not found.")
+  </code>
+            </pre>
+          </div>
+        </div>
+        <!--   END OF PYTHON EDITOR MOCKUP WINDOW    -->
+
+        <p>Another example</p>
+    <!--    START OF PYTHON EDITOR MOCKUP WINDOW    -->
+    <div class="flex-start">
+        <div class="text-xs mr-1 mb-1">
+          <div class="mockup-window border bg-base-300">
+            <pre class="bg-base-200 px-4 pt-0">
+  
+  <!-- Your Python code goes here -->
+  <code class="language-python">
+try:
+    age = int(input("Enter your age: "))
+    print(f"Great! You are {age} years old.")
+except ValueError:
+    print("Error: Please enter a valid number.")
+  </code>
+            </pre>
+          </div>
+        </div>
+        <!--   END OF PYTHON EDITOR MOCKUP WINDOW    -->
+  
+        <!--   START OF OUTPUT MOCKUP WINDOW    -->
+        <div class="text-xs">
+          <div class="mockup-code">
+            <!--  Python output goes here   -->
+            <pre>Enter your age:</pre>
+            <pre data-prefix=">">E3</pre>
+            <pre>Error: Please enter a valid number.</pre>
+          </div>
+        </div>
+      </div>
+      <!--   END OF OUTPUT MOCKUP WINDOW    -->
+      </p>
+  
+    </div>
+    <form method="dialog" class="modal-backdrop">
+      <button>close</button>
+    </form>
+</dialog>

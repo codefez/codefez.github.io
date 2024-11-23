@@ -23,6 +23,7 @@ gem 'jekyll-feed', '~> 0.17.0'
 gem 'jekyll-coffeescript', '~> 1.2.2'
 gem 'jekyll-sass-converter', '~> 1.5.2'
 gem 'wdm', '>=0.1.0' if Gem.win_platform?
+gem 'ostruct'
 # Windows and JRuby does not include zoneinfo files, so bundle the tzinfo-data gem
 # and associated library.
 platforms :mingw, :x64_mingw, :mswin, :jruby do
