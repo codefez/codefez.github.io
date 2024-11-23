@@ -1,0 +1,51 @@
+<dialog id="procedure_modal" class="modal">
+    <div class="modal-box">
+        <form method="dialog">
+            <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
+        </form>
+        <h3 class="font-bold text-lg">Procedures</h3>
+        <p class="py-4">
+            The <code class="text-accent">def</code> keyword is used to <i>define</i> a function or procedure. <br> 
+            A procedure performs a task but doesn’t <code class="text-accent">return</code> a value.  <br>
+            Instead, it might print to the screen or modify a file.
+        </p>
+
+        <p>
+
+            <div class="flex-start ">
+                <div class="text-xs mr-1 mb-1">
+                    <div class="mockup-window border bg-base-300">
+                        <pre class="bg-base-200 px-4 pt-0">
+                            <code class="language-python">
+def print_receipt(items, prices):
+    print("Receipt:")
+    for i in range(0, len(items)):
+        print(f"{items[i]}: £{prices[i]}")
+    print("Thank you for shopping.\nPlease come again!")
+
+items = ["Apples", "Bananas", "Cherries"]
+prices = [2.5, 1.2, 3.0]
+print_receipt(items, prices)
+                           </code>
+                        </pre>
+                    </div>
+                </div>
+                <div class="text-xs">
+                    <div class="mockup-code px-4">
+                        <pre>
+Receipt:
+Apples: £2.5
+Bananas: £1.2
+Cherries: £3.0
+Thank you for shopping
+Please come again!
+                        </pre>
+                    </div>                       
+                </div>
+        </p>
+       
+    </div>
+    <form method="dialog" class="modal-backdrop">
+      <button>close</button>
+    </form>
+</dialog>
