@@ -13,7 +13,7 @@
 - [ ] input validation using while loops and in operator
 - [ ] comparative operators
 - [x] ~~try / except blocks~~
-- [ ] try / except blocks
+- [x] ~try / except blocks~
 - [ ] maths.ceil
 - [ ] maths.floor
 - [x] procedure
