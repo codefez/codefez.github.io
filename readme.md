@@ -12,6 +12,7 @@
 - [x] ~~input float~~
 - [ ] input validation using while loops and in operator
 - [ ] comparative operators
+- [x] ~~try / except blocks~~
 - [ ] try / except blocks
 - [ ] maths.ceil
 - [ ] maths.floor
