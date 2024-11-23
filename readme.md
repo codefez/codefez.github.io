@@ -4,20 +4,20 @@
 - [ ] escape codes (eg \n, \t etc)
 - [x] ~~elif~~
 - [x] ~~Tuples~~
-- [x] List indexing
+- [x] ~~List indexing~~
 - [ ] List slicing
-- [x] Lists
+- [x] ~~Lists~~
 - [x] ~~Sorting lists~~
-- [ ] Ternary statements
+- [x] ~~Ternary statements~~
 - [x] ~~input float~~
 - [ ] input validation using while loops and in operator
 - [ ] comparative operators
 - [x] ~~try / except blocks~~
-- [x] ~try / except blocks~
+- [x] ~~try / except blocks~~
 - [ ] maths.ceil
 - [ ] maths.floor
-- [x] procedure
-- [x] function
+- [x] ~~procedure~~
+- [x] ~~function~~
 
 ## string methods
 - [x] ~~is upper / lower~~
