@@ -15,7 +15,7 @@
 - [x] ~~try / except blocks~~
 - [x] ~~try / except blocks~~
 - [ ] maths.ceil
-- [x] ~~maths.floor~~
+- [x] ~~math.floor~~
 - [x] ~~procedure~~
 - [x] ~~function~~
 
