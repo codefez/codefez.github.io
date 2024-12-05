@@ -22,7 +22,7 @@
 ## string methods
 - [x] ~~is upper / lower~~
 - [x] ~~is digit~~
-- [ ] is alpha
+- [x] ~~is alpha~~
 - [ ] count
 - [x] ~~replace~~
 

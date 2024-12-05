@@ -1,11 +1,11 @@
-<dialog id="isdigit_modal" class="modal">
+<dialog id="isalpha_modal" class="modal">
     <div class="modal-box">
         <form method="dialog">
             <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
         </form>
-        <h3 class="font-bold text-lg">isdigit()</h3>
+        <h3 class="font-bold text-lg">isalpha()</h3>
         <p class="py-4">
-            The <code class="text-accent">isdigit()</code> string method will check if a variable is numeric and return a 
+            The <code class="text-accent">isalpha()</code> string method will check if a variable is alphanumeric and return a 
             <code class="text-accent">True</code> or <code class="text-accent">False</code> result.
         </p>
 
@@ -20,8 +20,8 @@
                             <code id="codeblock" class="language-python">
 var1 = "1"
 var2 = "one"
-print(var1.isdigit())
-print(var2.isdigit())
+print(var1.isalpha())
+print(var2.isalpha())
                             </code>
                         </pre>
                     </div>
@@ -30,20 +30,20 @@ print(var2.isdigit())
 
                 <!-- START OF OUTPUT MOCKUP WINDOW -->
                 <div class="text-xs">
-                    <div class="mockup-code" style="">
+                    <div class="mockup-code">
                         <!-- Python output goes here -->
-                        <pre id="output_isdigit" class=""></pre>
+                        <pre id="output_isalpha" class=""></pre>
                     </div>
                 </div>
             </div>
 
             <script type="text/javascript">
-                function isdigit_runCode(){
-                    document.getElementById("output_isdigit").innerHTML = "True\n   False";
+                function isalpha_runCode(){
+                    document.getElementById("output_isalpha").innerHTML = "False\n   True";
                 }
             </script>
 
-            <button class="btn btn-primary btn-sm" onclick="isdigit_runCode()">Run Code</button>
+            <button class="btn btn-primary btn-sm" onclick="isalpha_runCode()">Run Code</button>
 
             <!-- END OF OUTPUT MOCKUP WINDOW -->
         </p>
