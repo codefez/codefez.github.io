@@ -14,7 +14,7 @@
 - [ ] comparative operators
 - [x] ~~try / except blocks~~
 - [x] ~~try / except blocks~~
-- [ ] maths.ceil
+- [x] ~~maths.ceil~~
 - [x] ~~math.floor~~
 - [x] ~~procedure~~
 - [x] ~~function~~
