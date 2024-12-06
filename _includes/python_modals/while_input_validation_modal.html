@@ -1,0 +1,48 @@
+<dialog id="while_input_validation_modal" class="modal">
+    <div class="modal-box">
+        <form method="dialog">
+            <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
+          </form>
+        <h3 class="font-bold text-lg">Input Validation using <code>while</code></h3>
+        <p class="py-4">
+            We can use <code class="text-accent">while</code> loops as a form of input validation. <br> 
+            For example, we can provide a list of possible answers that the user must use from in order to <br>
+            progress further.
+        </p>
+        <p>            
+            <div class="flex-start ">
+                <div class="text-xs mr-1 mb-1">
+                    <div class="mockup-window border bg-base-300">
+                        <pre class="bg-base-200 px-4 pt-4">
+<code class="language-python">possible_answers = ["y","yes","n","no"]
+answer = ""
+print("Do you wear a fez?")
+while answer.lower() not in possible_answers:
+    answer = input("Enter a valid answer (Y,Yes,N,No)\n")
+    
+print("answer acknowledged")</code>
+                        </pre>
+                    </div>
+                </div>
+                <div class="text-xs">
+                    <div class="mockup-code">
+                        <pre>
+    Do you wear a fez?
+    nope
+    Enter a valid answer (Y,Yes,N,No)
+    yup
+    Enter a valid answer (Y,Yes,N,No)
+    Y
+    answer acknowledged
+                        </pre>
+                    </div>
+                </div>
+            </div>
+            
+        </p>
+      
+    </div>
+    <form method="dialog" class="modal-backdrop">
+      <button>close</button>
+    </form>
+</dialog>

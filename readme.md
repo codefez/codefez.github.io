@@ -10,7 +10,7 @@
 - [x] ~~Sorting lists~~
 - [x] ~~Ternary statements~~
 - [x] ~~input float~~
-- [ ] input validation using while loops and in operator
+- [x] ~~input validation using while loops and in operator~~
 - [ ] comparative operators
 - [x] ~~try / except blocks~~
 - [x] ~~try / except blocks~~
