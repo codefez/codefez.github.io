@@ -1,6 +1,6 @@
 # Modals to-do still
 
-- [ ] 2D arrays
+- [x] ~~2D arrays~~
 - [ ] escape codes (eg \n, \t etc)
 - [x] ~~elif~~
 - [x] ~~Tuples~~
