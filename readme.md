@@ -23,7 +23,7 @@
 - [x] ~~is upper / lower~~
 - [x] ~~is digit~~
 - [x] ~~is alpha~~
-- [ ] count
+- [x] ~~count~~
 - [x] ~~replace~~
 
 ## random functions
