@@ -13,7 +13,6 @@
 - [x] ~~input validation using while loops and in operator~~
 - [ ] comparative operators
 - [x] ~~try / except blocks~~
-- [x] ~~try / except blocks~~
 - [x] ~~maths.ceil~~
 - [x] ~~math.floor~~
 - [x] ~~procedure~~
@@ -23,7 +22,7 @@
 - [x] ~~is upper / lower~~
 - [x] ~~is digit~~
 - [x] ~~is alpha~~
-- [ ] count
+- [x] ~~count~~
 - [x] ~~replace~~
 
 ## random functions
