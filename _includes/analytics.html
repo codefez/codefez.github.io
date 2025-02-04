@@ -2,3 +2,25 @@
   // Copy your tracking snippet into this block!
 </script>
 
+<script src="https://www.gstatic.com/firebasejs/10.0.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.0.0/firebase-database.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x/dist/cdn.min.js" defer></script>
+
+<script>
+  // Firebase Configuration
+  const firebaseConfig = {
+    apiKey: "AIzaSyA5tZ-pmqYDBJe--5MlTOsDO-9VE04qQRc",
+    authDomain: "codefez-github-site.firebaseapp.com",
+    databaseURL: "https://codefez-github-site-default-rtdb.europe-west1.firebasedatabase.app",
+    projectId: "codefez-github-site",
+    storageBucket: "codefez-github-site.firebasestorage.app",
+    messagingSenderId: "534806090723",
+    appId: "1:534806090723:web:5ca61cf54c29a60f7846d6",
+    measurementId: "G-NJNGVJR4D7"
+  };
+
+  // Initialize Firebase
+  const app = firebase.initializeApp(firebaseConfig);
+  const db = firebase.database();
+
+</script>
