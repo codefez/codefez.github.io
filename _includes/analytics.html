@@ -23,3 +23,17 @@
   const db = firebase.database();
 
 </script>
+
+<script>
+  window.onload = function () {
+    console.log("Firebase:", firebase); // Debugging: Check if Firebase is loaded
+
+    if (typeof firebase !== "undefined") {
+      firebase.initializeApp(firebaseConfig);
+      const db = firebase.database();
+      console.log("Firebase initialized!");
+    } else {
+      console.error("Firebase failed to load.");
+    }
+  };
+</script>
