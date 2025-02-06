@@ -94,7 +94,7 @@ layout: default
 
     // update page load count
     function updatePyBWfSLoadCount() {
-        const countRef = db.ref("page_loads/posters");
+        const countRef = db.ref("page_loads/pybwfs");
 
         countRef.once("value").then(snapshot => {
         countRef.set(currentCount + 1); // Increment by 1
