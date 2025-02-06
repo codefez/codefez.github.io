@@ -84,3 +84,13 @@ layout: default
 
 </div>
  
+<script>
+    function updateKS3LoadCount() {
+      const countRef = db.ref("page_loads/ks3_home");
+  
+      countRef.once("value").then(snapshot => {
+        countRef.set(currentCount + 1); // Increment by 1
+      }).catch(error => console.error("Error:", error));
+    }
+    document.addEventListener("DOMContentLoaded", updateKS3LoadCount);
+</script>

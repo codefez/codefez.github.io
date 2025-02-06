@@ -31,9 +31,9 @@ layout: default
                 <h2 class="card-title">If Statements</h2>
                 <img src="/assets/codefez.If_statements_poster.png" alt="">
                 <div class="card-actions justify-end">
-                    <a href="/assets/codefez.If_statements_poster.png" target="_blank" class="btn">
+                    <a href="/assets/codefez.If_statements_poster.png" target="_blank" class="btn" onclick="updateIFDownloadCount()">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 640 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path fill="#FFD43B" d="M160 64c0-35.3 28.7-64 64-64H576c35.3 0 64 28.7 64 64V352c0 35.3-28.7 64-64 64H336.8c-11.8-25.5-29.9-47.5-52.4-64H384V320c0-17.7 14.3-32 32-32h64c17.7 0 32 14.3 32 32v32h64V64L224 64v49.1C205.2 102.2 183.3 96 160 96V64zm0 64a96 96 0 1 1 0 192 96 96 0 1 1 0-192zM133.3 352h53.3C260.3 352 320 411.7 320 485.3c0 14.7-11.9 26.7-26.7 26.7H26.7C11.9 512 0 500.1 0 485.3C0 411.7 59.7 352 133.3 352z"/></svg>
-                        Download
+                        Download <span id="if-download-count">(0)</span>
                     </a>
                 </div>
             </div>
@@ -44,9 +44,9 @@ layout: default
                 <h2 class="card-title">Comparative Operators</h2>
                 <img src="/assets/codefez.comparative_operators_poster.png" alt="">
                 <div class="card-actions justify-end">
-                    <a href="/assets/codefez.comparative_operators_poster.png" target="_blank" class="btn">
+                    <a href="/assets/codefez.comparative_operators_poster.png" target="_blank" class="btn" onclick="updateOPDownloadCount()">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 640 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path fill="#FFD43B" d="M160 64c0-35.3 28.7-64 64-64H576c35.3 0 64 28.7 64 64V352c0 35.3-28.7 64-64 64H336.8c-11.8-25.5-29.9-47.5-52.4-64H384V320c0-17.7 14.3-32 32-32h64c17.7 0 32 14.3 32 32v32h64V64L224 64v49.1C205.2 102.2 183.3 96 160 96V64zm0 64a96 96 0 1 1 0 192 96 96 0 1 1 0-192zM133.3 352h53.3C260.3 352 320 411.7 320 485.3c0 14.7-11.9 26.7-26.7 26.7H26.7C11.9 512 0 500.1 0 485.3C0 411.7 59.7 352 133.3 352z"/></svg>
-                        Download
+                        Download <span id="co-download-count">(0)</span>
                     </a>
                 </div>
             </div>
@@ -57,9 +57,9 @@ layout: default
                 <h2 class="card-title">Strings</h2>
                 <img src="/assets/codefez.strings_poster.png" alt="">
                 <div class="card-actions justify-end">
-                    <a href="/assets/codefez.strings_poster.png" target="_blank" class="btn">
+                    <a href="/assets/codefez.strings_poster.png" target="_blank" class="btn" onclick="updateStrDownloadCount()">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 640 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path fill="#FFD43B" d="M160 64c0-35.3 28.7-64 64-64H576c35.3 0 64 28.7 64 64V352c0 35.3-28.7 64-64 64H336.8c-11.8-25.5-29.9-47.5-52.4-64H384V320c0-17.7 14.3-32 32-32h64c17.7 0 32 14.3 32 32v32h64V64L224 64v49.1C205.2 102.2 183.3 96 160 96V64zm0 64a96 96 0 1 1 0 192 96 96 0 1 1 0-192zM133.3 352h53.3C260.3 352 320 411.7 320 485.3c0 14.7-11.9 26.7-26.7 26.7H26.7C11.9 512 0 500.1 0 485.3C0 411.7 59.7 352 133.3 352z"/></svg>
-                        Download
+                        Download <span id="str-download-count">(0)</span>
                     </a>
                 </div>
             </div>
@@ -70,9 +70,9 @@ layout: default
                 <h2 class="card-title">Variables</h2>
                 <img src="/assets/codefez.variables_poster.png" alt="">
                 <div class="card-actions justify-end">
-                    <a href="/assets/codefez.variables_poster.png" target="_blank" class="btn">
+                    <a href="/assets/codefez.variables_poster.png" target="_blank" class="btn" onclick="updateVarDownloadCount()">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 640 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path fill="#FFD43B" d="M160 64c0-35.3 28.7-64 64-64H576c35.3 0 64 28.7 64 64V352c0 35.3-28.7 64-64 64H336.8c-11.8-25.5-29.9-47.5-52.4-64H384V320c0-17.7 14.3-32 32-32h64c17.7 0 32 14.3 32 32v32h64V64L224 64v49.1C205.2 102.2 183.3 96 160 96V64zm0 64a96 96 0 1 1 0 192 96 96 0 1 1 0-192zM133.3 352h53.3C260.3 352 320 411.7 320 485.3c0 14.7-11.9 26.7-26.7 26.7H26.7C11.9 512 0 500.1 0 485.3C0 411.7 59.7 352 133.3 352z"/></svg>
-                        Download
+                        Download <span id="var-download-count">(0)</span>
                     </a>
                 </div>
             </div>
@@ -81,11 +81,11 @@ layout: default
         <div class="card bg-info text-primary-content mr-1 mb-1">
             <div class="card-body">
                 <h2 class="card-title">While Loops</h2>
-                <img src="/assets/codefez.while_loops_poster.png" alt="">
+                <img src="/assets/codefez.while_loops_poster.png" alt="" >
                 <div class="card-actions justify-end">
-                    <a href="/assets/codefez.while_loops_poster.png" target="_blank" class="btn">
+                    <a href="/assets/codefez.while_loops_poster.png" target="_blank" class="btn" onclick="updateWLDownloadCount()">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 640 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path fill="#FFD43B" d="M160 64c0-35.3 28.7-64 64-64H576c35.3 0 64 28.7 64 64V352c0 35.3-28.7 64-64 64H336.8c-11.8-25.5-29.9-47.5-52.4-64H384V320c0-17.7 14.3-32 32-32h64c17.7 0 32 14.3 32 32v32h64V64L224 64v49.1C205.2 102.2 183.3 96 160 96V64zm0 64a96 96 0 1 1 0 192 96 96 0 1 1 0-192zM133.3 352h53.3C260.3 352 320 411.7 320 485.3c0 14.7-11.9 26.7-26.7 26.7H26.7C11.9 512 0 500.1 0 485.3C0 411.7 59.7 352 133.3 352z"/></svg>
-                        Download
+                        Download <span id="wl-download-count">(0)</span>
                     </a>
                 </div>
             </div>
@@ -94,11 +94,11 @@ layout: default
         <div class="card bg-primary text-primary-content mr-1 mb-1">
             <div class="card-body">
                 <h2 class="card-title">Functions</h2>
-                <img src="/assets/codefez.functions_poster.png" alt="">
+                <img src="/assets/codefez.functions_poster.png" alt="" >
                 <div class="card-actions justify-end">
-                    <a href="/assets/codefez.functions_poster.png" target="_blank" class="btn">
+                    <a href="/assets/codefez.functions_poster.png" target="_blank" class="btn" onclick="updateFunDownloadCount()">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 640 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path fill="#FFD43B" d="M160 64c0-35.3 28.7-64 64-64H576c35.3 0 64 28.7 64 64V352c0 35.3-28.7 64-64 64H336.8c-11.8-25.5-29.9-47.5-52.4-64H384V320c0-17.7 14.3-32 32-32h64c17.7 0 32 14.3 32 32v32h64V64L224 64v49.1C205.2 102.2 183.3 96 160 96V64zm0 64a96 96 0 1 1 0 192 96 96 0 1 1 0-192zM133.3 352h53.3C260.3 352 320 411.7 320 485.3c0 14.7-11.9 26.7-26.7 26.7H26.7C11.9 512 0 500.1 0 485.3C0 411.7 59.7 352 133.3 352z"/></svg>
-                        Download
+                        Download <span id="fun-download-count">(0)</span>
                     </a>
                 </div>
             </div>
@@ -109,9 +109,9 @@ layout: default
                 <h2 class="card-title">Lists</h2>
                 <img src="/assets/codefez.lists_poster.png" alt="">
                 <div class="card-actions justify-end">
-                    <a href="/assets/codefez.lists_poster.png" target="_blank" class="btn">
+                    <a href="/assets/codefez.lists_poster.png" target="_blank" class="btn" onclick="updateLisDownloadCount()">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 640 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path fill="#FFD43B" d="M160 64c0-35.3 28.7-64 64-64H576c35.3 0 64 28.7 64 64V352c0 35.3-28.7 64-64 64H336.8c-11.8-25.5-29.9-47.5-52.4-64H384V320c0-17.7 14.3-32 32-32h64c17.7 0 32 14.3 32 32v32h64V64L224 64v49.1C205.2 102.2 183.3 96 160 96V64zm0 64a96 96 0 1 1 0 192 96 96 0 1 1 0-192zM133.3 352h53.3C260.3 352 320 411.7 320 485.3c0 14.7-11.9 26.7-26.7 26.7H26.7C11.9 512 0 500.1 0 485.3C0 411.7 59.7 352 133.3 352z"/></svg>
-                        Download
+                        Download <span id="lis-download-count">(0)</span>
                     </a>
                 </div>
             </div>
@@ -139,6 +139,157 @@ layout: default
     }).catch(error => console.error("Error:", error));
   }
 
+  function updateIFDownloadCount() {
+    const countRef = db.ref("downloads/posters/for_loops");
+
+    countRef.once("value").then(snapshot => {
+      let currentCount = snapshot.val() || 0; // Get current count
+      countRef.set(currentCount + 1); // Increment by 1
+      document.getElementById("if-download-count").innerText = `(${currentCount + 1})`; // Update UI
+    }).catch(error => console.error("Error:", error));
+  }
+
+  function loadIfDownloadCount() {
+    const countRef = db.ref("downloads/posters/for_loops");
+
+    countRef.once("value").then(snapshot => {
+      let currentCount = snapshot.val() || 0;
+      document.getElementById("if-download-count").innerText = `(${currentCount})`;
+    }).catch(error => console.error("Error:", error));
+  }
+
+  function updateOPDownloadCount() {
+    const countRef = db.ref("downloads/posters/for_loops");
+
+    countRef.once("value").then(snapshot => {
+      let currentCount = snapshot.val() || 0; // Get current count
+      countRef.set(currentCount + 1); // Increment by 1
+      document.getElementById("co-download-count").innerText = `(${currentCount + 1})`; // Update UI
+    }).catch(error => console.error("Error:", error));
+  }
+
+  function loadOPDownloadCount() {
+    const countRef = db.ref("downloads/posters/for_loops");
+
+    countRef.once("value").then(snapshot => {
+      let currentCount = snapshot.val() || 0;
+      document.getElementById("co-download-count").innerText = `(${currentCount})`;
+    }).catch(error => console.error("Error:", error));
+  }
+
+  function updateStrDownloadCount() {
+    const countRef = db.ref("downloads/posters/for_loops");
+
+    countRef.once("value").then(snapshot => {
+      let currentCount = snapshot.val() || 0; // Get current count
+      countRef.set(currentCount + 1); // Increment by 1
+      document.getElementById("str-download-count").innerText = `(${currentCount + 1})`; // Update UI
+    }).catch(error => console.error("Error:", error));
+  }
+
+  function loadStrDownloadCount() {
+    const countRef = db.ref("downloads/posters/for_loops");
+
+    countRef.once("value").then(snapshot => {
+      let currentCount = snapshot.val() || 0;
+      document.getElementById("str-download-count").innerText = `(${currentCount})`;
+    }).catch(error => console.error("Error:", error));
+  }
+
+  function updateVarDownloadCount() {
+    const countRef = db.ref("downloads/posters/for_loops");
+
+    countRef.once("value").then(snapshot => {
+      let currentCount = snapshot.val() || 0; // Get current count
+      countRef.set(currentCount + 1); // Increment by 1
+      document.getElementById("var-download-count").innerText = `(${currentCount + 1})`; // Update UI
+    }).catch(error => console.error("Error:", error));
+  }
+
+  function loadVarDownloadCount() {
+    const countRef = db.ref("downloads/posters/for_loops");
+
+    countRef.once("value").then(snapshot => {
+      let currentCount = snapshot.val() || 0;
+      document.getElementById("var-download-count").innerText = `(${currentCount})`;
+    }).catch(error => console.error("Error:", error));
+  }
+
+  function updateWLDownloadCount() {
+    const countRef = db.ref("downloads/posters/for_loops");
+
+    countRef.once("value").then(snapshot => {
+      let currentCount = snapshot.val() || 0; // Get current count
+      countRef.set(currentCount + 1); // Increment by 1
+      document.getElementById("wl-download-count").innerText = `(${currentCount + 1})`; // Update UI
+    }).catch(error => console.error("Error:", error));
+  }
+
+  function loadWlDownloadCount() {
+    const countRef = db.ref("downloads/posters/for_loops");
+
+    countRef.once("value").then(snapshot => {
+      let currentCount = snapshot.val() || 0;
+      document.getElementById("wl-download-count").innerText = `(${currentCount})`;
+    }).catch(error => console.error("Error:", error));
+  }
+
+  function updateFunDownloadCount() {
+    const countRef = db.ref("downloads/posters/for_loops");
+
+    countRef.once("value").then(snapshot => {
+      let currentCount = snapshot.val() || 0; // Get current count
+      countRef.set(currentCount + 1); // Increment by 1
+      document.getElementById("fun-download-count").innerText = `(${currentCount + 1})`; // Update UI
+    }).catch(error => console.error("Error:", error));
+  }
+
+  function loadFunDownloadCount() {
+    const countRef = db.ref("downloads/posters/for_loops");
+
+    countRef.once("value").then(snapshot => {
+      let currentCount = snapshot.val() || 0;
+      document.getElementById("fun-download-count").innerText = `(${currentCount})`;
+    }).catch(error => console.error("Error:", error));
+  }
+
+  function updateLisDownloadCount() {
+    const countRef = db.ref("downloads/posters/for_loops");
+
+    countRef.once("value").then(snapshot => {
+      let currentCount = snapshot.val() || 0; // Get current count
+      countRef.set(currentCount + 1); // Increment by 1
+      document.getElementById("lis-download-count").innerText = `(${currentCount + 1})`; // Update UI
+    }).catch(error => console.error("Error:", error));
+  }
+
+  function loadLisDownloadCount() {
+    const countRef = db.ref("downloads/posters/for_loops");
+
+    countRef.once("value").then(snapshot => {
+      let currentCount = snapshot.val() || 0;
+      document.getElementById("lis-download-count").innerText = `(${currentCount})`;
+    }).catch(error => console.error("Error:", error));
+  }
+  
+  function updatePyPostersLoadCount() {
+    const countRef = db.ref("page_loads/posters");
+
+    countRef.once("value").then(snapshot => {
+      countRef.set(currentCount + 1); // Increment by 1
+    }).catch(error => console.error("Error:", error));
+  }
+  document.addEventListener("DOMContentLoaded", updatePyCSLoadCount);
+
   // Load count when the page loads
   document.addEventListener("DOMContentLoaded", loadflDownloadCount);
+  document.addEventListener("DOMContentLoaded", loadIfDownloadCount);
+  document.addEventListener("DOMContentLoaded", loadOPDownloadCount);
+  document.addEventListener("DOMContentLoaded", loadStrDownloadCount);
+  document.addEventListener("DOMContentLoaded", loadWlDownloadCount);
+  document.addEventListener("DOMContentLoaded", loadVarDownloadCount);
+  document.addEventListener("DOMContentLoaded", loadFunDownloadCount);
+  document.addEventListener("DOMContentLoaded", loadLisDownloadCount);
+
+  document.addEventListener("DOMContentLoaded", updatePyPostersLoadCount); // for updating page load count on DB
 </script>

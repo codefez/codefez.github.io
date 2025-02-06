@@ -169,3 +169,14 @@ layout: default
 </ul>
 
 {% include python_modals.html  %}
+
+<script>
+  function updatePyWSLoadCount() {
+    const countRef = db.ref("page_loads/py_worksheets");
+
+    countRef.once("value").then(snapshot => {
+      countRef.set(currentCount + 1); // Increment by 1
+    }).catch(error => console.error("Error:", error));
+  }
+  document.addEventListener("DOMContentLoaded", updatePyWSLoadCount);
+</script>

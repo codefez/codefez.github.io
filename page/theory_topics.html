@@ -256,3 +256,14 @@ layout: default
   </div>
   
 </div>
+
+<script>
+  function updateTheoryWS_LoadCount() {
+    const countRef = db.ref("page_loads/theory_worksheets");
+
+    countRef.once("value").then(snapshot => {
+      countRef.set(currentCount + 1); // Increment by 1
+    }).catch(error => console.error("Error:", error));
+  }
+  document.addEventListener("DOMContentLoaded", updateTheoryWS_LoadCount);
+</script>

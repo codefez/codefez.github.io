@@ -233,3 +233,13 @@ layout: brython
 </div>
 
 {% include python_modals.html  %}
+<script>
+  function updatePyCSLoadCount() {
+    const countRef = db.ref("page_loads/py_cheatsheet");
+
+    countRef.once("value").then(snapshot => {
+      countRef.set(currentCount + 1); // Increment by 1
+    }).catch(error => console.error("Error:", error));
+  }
+  document.addEventListener("DOMContentLoaded", updatePyCSLoadCount);
+</script>
