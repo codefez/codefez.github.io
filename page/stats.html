@@ -41,18 +41,33 @@ layout: default
  
   function loadStats() {
 
-     // Fetch and display popular pages
+    // Fetch and display top 10 popular pages
     db.ref('page_loads')
-      .orderBy('count', 'desc')
-      .limit(10)
-      .get()
-      .then((querySnapshot) => {
+      .orderByChild('count')  // Order by count (ascending)
+      .limitToLast(10)        // Get the last 10 (highest counts)
+      .once('value')          // Fetch data once
+      .then((snapshot) => {
         const pagesList = document.getElementById('popular-pages');
-        querySnapshot.forEach((doc) => {
-          const pageUrl = doc.id;
-          const pageCount = doc.data().count;
-          pagesList.innerHTML += `<li>${pageUrl}: ${pageCount} views</li>`;
+        let pagesArray = [];
+
+        snapshot.forEach((childSnapshot) => {
+          pagesArray.push({
+            url: childSnapshot.key,         // Page URL (key)
+            count: childSnapshot.val().count // Page count
+          });
         });
+
+        // Reverse to get highest counts first
+        pagesArray.reverse();
+
+        // Display results
+        pagesList.innerHTML = ''; // Clear existing list
+        pagesArray.forEach((page) => {
+          pagesList.innerHTML += `<li>${page.url}: ${page.count} views</li>`;
+        });
+      })
+      .catch((error) => {
+        console.error('Error fetching popular pages:', error);
       });
     // Fetch and display popular downloads
 
