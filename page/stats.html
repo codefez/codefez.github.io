@@ -38,22 +38,23 @@ layout: default
 </div>
 
 <script>
-  // Fetch and display popular pages
-  db.collection('page_loads')
-    .orderBy('count', 'desc')
-    .limit(10)
-    .get()
-    .then((querySnapshot) => {
-      const pagesList = document.getElementById('popular-pages');
-      querySnapshot.forEach((doc) => {
-        const pageUrl = doc.id;
-        const pageCount = doc.data().count;
-        pagesList.innerHTML += `<li>${pageUrl}: ${pageCount} views</li>`;
-      });
-    });
-
-  // Fetch and display popular downloads
+ 
   function loadStats() {
+
+     // Fetch and display popular pages
+    db.collection('page_loads')
+      .orderBy('count', 'desc')
+      .limit(10)
+      .get()
+      .then((querySnapshot) => {
+        const pagesList = document.getElementById('popular-pages');
+        querySnapshot.forEach((doc) => {
+          const pageUrl = doc.id;
+          const pageCount = doc.data().count;
+          pagesList.innerHTML += `<li>${pageUrl}: ${pageCount} views</li>`;
+        });
+      });
+    // Fetch and display popular downloads
     db.ref('downloads').once('value').then((snapshot) => {
       const downloadsData = snapshot.val();
       const downloadsList = document.getElementById('popular-downloads');
