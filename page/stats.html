@@ -1,0 +1,80 @@
+---
+layout: default
+---
+
+<h1 class="text-center text-xl"> Site Stats  </h1>
+<br>
+
+<!-- I will be updating these soon. -->
+
+<div class="flex justify-center px-4 py-16">
+
+    <div class="grid grid-cols-1 md:grid-cols-3">
+      
+        <div class="card bg-primary text-primary-content mr-1 mb-1">
+            <div class="card-body">
+                <h2 class="card-title">Most Visited pages</h2>
+                
+                <div class="">
+                  <ul id="popular-pages"></ul>
+                </div>
+            </div>
+        </div>
+    </div>  
+
+    <div class="grid grid-cols-1 md:grid-cols-3">
+      
+      <div class="card bg-primary text-primary-content mr-1 mb-1">
+          <div class="card-body">
+              <h2 class="card-title">Most Downloaded Files</h2>
+              
+              <div class="">
+                <ul id="popular-downloads"></ul>
+              </div>
+          </div>
+      </div>
+  </div> 
+        
+</div>
+
+<script>
+  // Fetch and display popular pages
+  db.collection('page_loads')
+    .orderBy('count', 'desc')
+    .limit(10)
+    .get()
+    .then((querySnapshot) => {
+      const pagesList = document.getElementById('popular-pages');
+      querySnapshot.forEach((doc) => {
+        const pageUrl = doc.id;
+        const pageCount = doc.data().count;
+        pagesList.innerHTML += `<li>${pageUrl}: ${pageCount} views</li>`;
+      });
+    });
+
+  // Fetch and display popular downloads
+  // Fetch and display popular downloads
+db.ref('downloads').once('value').then((snapshot) => {
+  const downloadsData = snapshot.val();
+  const downloadsList = document.getElementById('popular-downloads');
+  const allDownloads = [];
+
+  // Flatten the nested structure
+  for (const section in downloadsData) {
+    for (const fileName in downloadsData[section]) {
+      allDownloads.push({
+        path: `${section}/${fileName}`,
+        count: downloadsData[section][fileName],
+      });
+    }
+  }
+
+  // Sort by count (descending)
+  allDownloads.sort((a, b) => b.count - a.count);
+
+  // Display top 10 downloads
+  allDownloads.slice(0, 10).forEach((download) => {
+    downloadsList.innerHTML += `<li>${download.path}: ${download.count} downloads</li>`;
+  });
+});
+</script>
