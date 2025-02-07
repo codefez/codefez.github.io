@@ -42,7 +42,7 @@ layout: default
   function loadStats() {
 
      // Fetch and display popular pages
-    db.collection('page_loads')
+    db.ref('page_loads')
       .orderBy('count', 'desc')
       .limit(10)
       .get()
@@ -55,6 +55,7 @@ layout: default
         });
       });
     // Fetch and display popular downloads
+
     db.ref('downloads').once('value').then((snapshot) => {
       const downloadsData = snapshot.val();
       const downloadsList = document.getElementById('popular-downloads');
