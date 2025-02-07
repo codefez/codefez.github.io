@@ -83,14 +83,17 @@
     const countRef = db.ref("page_loads/py_roadmap");
 
     countRef.once("value").then(snapshot => {
+      let currentCount = snapshot.val() || 0; // Get current count
       countRef.set(currentCount + 1); // Increment by 1
     }).catch(error => console.error("Error:", error));
   }
   
   function updatePy60SecYTClickCount() {
+    let currentCount = snapshot.val() || 0; // Get current count
     const countRef = db.ref("page_loads/py60SecYT");
 
     countRef.once("value").then(snapshot => {
+      let currentCount = snapshot.val() || 0; // Get current count
       countRef.set(currentCount + 1); // Increment by 1
     }).catch(error => console.error("Error:", error));
   }
@@ -99,6 +102,7 @@
     const countRef = db.ref("page_loads/oneShotGuessle");
 
     countRef.once("value").then(snapshot => {
+      let currentCount = snapshot.val() || 0; // Get current count
       countRef.set(currentCount + 1); // Increment by 1
     }).catch(error => console.error("Error:", error));
   }
@@ -106,6 +110,7 @@
     const countRef = db.ref("page_loads/leanpub");
 
     countRef.once("value").then(snapshot => {
+      let currentCount = snapshot.val() || 0; // Get current count
       countRef.set(currentCount + 1); // Increment by 1
     }).catch(error => console.error("Error:", error));
   }
