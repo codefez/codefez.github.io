@@ -53,28 +53,30 @@ layout: default
     });
 
   // Fetch and display popular downloads
-  // Fetch and display popular downloads
-db.ref('downloads').once('value').then((snapshot) => {
-  const downloadsData = snapshot.val();
-  const downloadsList = document.getElementById('popular-downloads');
-  const allDownloads = [];
+  function loadStats() {
+    db.ref('downloads').once('value').then((snapshot) => {
+      const downloadsData = snapshot.val();
+      const downloadsList = document.getElementById('popular-downloads');
+      const allDownloads = [];
 
-  // Flatten the nested structure
-  for (const section in downloadsData) {
-    for (const fileName in downloadsData[section]) {
-      allDownloads.push({
-        path: `${section}/${fileName}`,
-        count: downloadsData[section][fileName],
+      // Flatten the nested structure
+      for (const section in downloadsData) {
+        for (const fileName in downloadsData[section]) {
+          allDownloads.push({
+            path: `${section}/${fileName}`,
+            count: downloadsData[section][fileName],
+          });
+        }
+      }
+
+      // Sort by count (descending)
+      allDownloads.sort((a, b) => b.count - a.count);
+
+      // Display top 10 downloads
+      allDownloads.slice(0, 10).forEach((download) => {
+        downloadsList.innerHTML += `<li>${download.path}: ${download.count} downloads</li>`;
       });
-    }
+    });
   }
-
-  // Sort by count (descending)
-  allDownloads.sort((a, b) => b.count - a.count);
-
-  // Display top 10 downloads
-  allDownloads.slice(0, 10).forEach((download) => {
-    downloadsList.innerHTML += `<li>${download.path}: ${download.count} downloads</li>`;
-  });
-});
+  document.addEventListener("DOMContentLoaded", loadStats);
 </script>
