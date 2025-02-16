@@ -181,8 +181,18 @@ layout: default
           <!-- row 1 -->
           
           <tr>
-            <th><a href="/files/codefez - sql worksheet 1.pdf">SQL worksheet 1</a> </th>
-            <td>Answers Coming Soon</td>
+            <th>
+              <div class="card-actions justify-end">
+                <a href="/files/codefez - sql worksheet 1.pdf" target="_blank" class="btn btn-primary" onclick="increase_2_2_sql_sheet1_count()">
+                  SQL worksheet 1 <span id="2_2_sql_sheet1-download-count">(0)</span>
+                </a>
+              </div>
+            </th>
+            <td>
+              <a href="/files/codefez - sql worksheet 1 Ans.pdf" target="_blank" class="btn btn-accent" onclick="increase_2_2_sql_sheet1Ans_count()">
+                SQL worksheet 1 Ans <span id="2_2_sql_sheet1Ans_download_count">(0)</span>
+              </a>
+            </td>
             
           </tr>
         </tbody>
@@ -218,8 +228,19 @@ layout: default
         <tbody>
           <!-- row 1 -->
           <tr>
-            <th><a href="/files/codefez - Logic Gates Worksheet 1.pdf">Logic worksheet 1</a> </th>
-            <td><a href="/files/codefez - Logic Gates Worksheet 1 Answers.pdf">Answers</a></td>
+            <th>
+              <div class="card-actions justify-end">
+                <a href="/files/codefez - Logic Gates Worksheet 1.pdf" target="_blank" class="btn btn-primary" onclick="increase_2_4_logic_sheet1_count()">
+                  Logic worksheet 1 <span id="2_4_logic_sheet1Ans_download_count">(0)</span>
+                </a>
+              </div>
+            </th>
+            <td>
+              <a href="/files/codefez - Logic Gates Worksheet 1 Answers.pdf" target="_blank" class="btn btn-accent" onclick="increase_2_4_logic_sheet1Ans_count()">
+                Logic worksheet 1 Ans <span id="2_4_logic_sheet1Ans_download_count">(0)</span>
+              </a>
+            </td>
+            
           </tr>
           <tr>
             <th><a href="#">Logic worksheet 2</a> </th>
@@ -258,6 +279,7 @@ layout: default
 </div>
 
 <script>
+  // Update page load count
   function updateTheoryWS_LoadCount() {
     const countRef = db.ref("page_loads/theory_worksheets");
 
@@ -267,4 +289,88 @@ layout: default
     }).catch(error => console.error("Error:", error));
   }
   document.addEventListener("DOMContentLoaded", updateTheoryWS_LoadCount);
+
+  // update button clicks
+  function increase_2_2_sql_sheet1_count() {
+    const countRef = db.ref("/downloads/j277_theory/2_2_programming_fundamentals/sql_worksheet_1");
+
+    countRef.once("value").then(snapshot => {
+      let currentCount = snapshot.val() || 0; // Get current count
+      countRef.set(currentCount + 1); // Increment by 1
+      document.getElementById("2_2_sql_sheet1-download-count").innerText = `(${currentCount + 1})`; // Update UI
+    }).catch(error => console.error("Error:", error));
+  }
+
+  function load_2_2_sql_sheet1_Count() {
+    const countRef = db.ref("/downloads/j277_theory/2_2_programming_fundamentals/sql_worksheet_1");
+
+    countRef.once("value").then(snapshot => {
+      let currentCount = snapshot.val() || 0;
+      document.getElementById("2_2_sql_sheet1-download-count").innerText = `(${currentCount})`;
+    }).catch(error => console.error("Error:", error));
+  }
+  document.addEventListener("DOMContentLoaded", load_2_2_sql_sheet1_Count);
+
+  function increase_2_2_sql_sheet1Ans_count() {
+    const countRef = db.ref("/downloads/j277_theory/2_2_programming_fundamentals/sql_worksheet_1");
+
+    countRef.once("value").then(snapshot => {
+      let currentCount = snapshot.val() || 0; // Get current count
+      countRef.set(currentCount + 1); // Increment by 1
+      document.getElementById("2_2_sql_sheet1Ans_download_count").innerText = `(${currentCount + 1})`; // Update UI
+    }).catch(error => console.error("Error:", error));
+  }
+
+  function load_2_2_sql_sheet1Ans_Count() {
+    const countRef = db.ref("/downloads/j277_theory/2_2_programming_fundamentals/sql_worksheet_1");
+
+    countRef.once("value").then(snapshot => {
+      let currentCount = snapshot.val() || 0;
+      document.getElementById("2_2_sql_sheet1Ans_download_count").innerText = `(${currentCount})`;
+    }).catch(error => console.error("Error:", error));
+  }
+  document.addEventListener("DOMContentLoaded", load_2_2_sql_sheet1Ans_Count);
+
+  function increase_2_4_logic_sheet1_count() {
+    const countRef = db.ref("/downloads/j277_theory/2_4_boolean_logic/logic_worksheet_1");
+
+    countRef.once("value").then(snapshot => {
+      let currentCount = snapshot.val() || 0; // Get current count
+      countRef.set(currentCount + 1); // Increment by 1
+      document.getElementById("2_4_logic_sheet1_download_count").innerText = `(${currentCount + 1})`; // Update UI
+    }).catch(error => console.error("Error:", error));
+  }
+
+  function load_2_4_logic_sheet1_Count() {
+    const countRef = db.ref("/downloads/j277_theory/2_4_boolean_logic/logic_worksheet_1");
+
+    countRef.once("value").then(snapshot => {
+      let currentCount = snapshot.val() || 0;
+      document.getElementById("2_4_logic_sheet1_download_count").innerText = `(${currentCount})`;
+    }).catch(error => console.error("Error:", error));
+  }
+  document.addEventListener("DOMContentLoaded", load_2_4_logic_sheet1_Count);
+
+  function increase_2_4_logic_sheet1Ans_count() {
+    const countRef = db.ref("/downloads/j277_theory/2_4_boolean_logic/logic_worksheet_1_ans");
+
+    countRef.once("value").then(snapshot => {
+      let currentCount = snapshot.val() || 0; // Get current count
+      countRef.set(currentCount + 1); // Increment by 1
+      document.getElementById("2_4_logic_sheet1Ans_download_count").innerText = `(${currentCount + 1})`; // Update UI
+    }).catch(error => console.error("Error:", error));
+  }
+
+  function load_2_4_logic_sheet1Ans_Count() {
+    const countRef = db.ref("/downloads/j277_theory/2_4_boolean_logic/logic_worksheet_1_ans");
+
+    countRef.once("value").then(snapshot => {
+      let currentCount = snapshot.val() || 0;
+      document.getElementById("2_4_logic_sheet1Ans_download_count").innerText = `(${currentCount})`;
+    }).catch(error => console.error("Error:", error));
+  }
+  document.addEventListener("DOMContentLoaded", load_2_4_logic_sheet1Ans_Count);
+
+
+  
 </script>
