@@ -5,42 +5,32 @@ layout: default
 <h1 class="text-center text-xl"> Site Stats  </h1>
 <br>
 
-<!-- I will be updating these soon. -->
-
 <div class="flex justify-center px-2 py-2">
-
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2">
-      
-        <div class="card bg-primary text-primary-content w-96 mr-1 mb-1">
-            <div class="card-body">
-                <h2 class="card-title">Most Visited pages</h2>
-                
-                <div class="">
-                  <ul id="popular-pages"></ul>
-                </div>
-            </div>
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2">
+    <div class="card bg-primary text-primary-content w-96 mr-1 mb-1">
+      <div class="card-body">
+        <h2 class="card-title">Most Visited Pages</h2>
+        <div class="">
+          <ul id="popular-pages"></ul>
         </div>
-    </div>  
-
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2">
-      
-      <div class="card bg-primary text-primary-content w-96 mr-1 mb-1">
-          <div class="card-body">
-              <h2 class="card-title">Most Downloaded Files</h2>
-              
-              <div class="">
-                <ul id="popular-downloads"></ul>
-              </div>
-          </div>
       </div>
-  </div> 
-        
+    </div>
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2">
+    <div class="card bg-primary text-primary-content w-96 mr-1 mb-1">
+      <div class="card-body">
+        <h2 class="card-title">Most Downloaded Files</h2>
+        <div class="">
+          <ul id="popular-downloads"></ul>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
 <script>
- 
   function loadStats() {
-
     // Fetch and display top 10 popular pages
     db.ref('page_loads')
       .orderByValue()  // Order by value (since counts are direct numbers)
@@ -51,8 +41,6 @@ layout: default
         let pagesArray = [];
 
         snapshot.forEach((childSnapshot) => {
-          console.log("Snapshot Data:", childSnapshot.key, childSnapshot.val()); // Debugging
-
           pagesArray.push({
             url: childSnapshot.key,  // Page name (e.g., "home", "py_cheatsheet")
             count: childSnapshot.val() // Direct integer value
@@ -80,21 +68,30 @@ layout: default
         console.error('Error fetching popular pages:', error);
       });
 
-
     // Fetch and display popular downloads
-
     db.ref('downloads').once('value').then((snapshot) => {
       const downloadsData = snapshot.val();
+      console.log(downloadsData); // Debugging
       const downloadsList = document.getElementById('popular-downloads');
       const allDownloads = [];
 
       // Flatten the nested structure
       for (const section in downloadsData) {
         for (const fileName in downloadsData[section]) {
-          allDownloads.push({
-            path: `${section}/${fileName}`,
-            count: downloadsData[section][fileName],
-          });
+          const count = downloadsData[section][fileName];
+          if (typeof count === 'object' && count !== null) {
+            // Handle cases where count is an object (e.g., { count: 5 })
+            allDownloads.push({
+              path: `${section}/${fileName}`,
+              count: count.count || 0, // Access the nested count property
+            });
+          } else {
+            // Handle cases where count is a number
+            allDownloads.push({
+              path: `${section}/${fileName}`,
+              count: count,
+            });
+          }
         }
       }
 
@@ -102,6 +99,7 @@ layout: default
       allDownloads.sort((a, b) => b.count - a.count);
 
       // Display top 10 downloads
+      downloadsList.innerHTML = ''; // Clear existing list
       allDownloads.slice(0, 10).forEach((download) => {
         downloadsList.innerHTML += `
         <li class="flex items-center gap-2">
@@ -113,5 +111,6 @@ layout: default
       });
     });
   }
+
   document.addEventListener("DOMContentLoaded", loadStats);
 </script>
