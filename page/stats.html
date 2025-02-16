@@ -5,9 +5,9 @@ layout: default
 <h1 class="text-center text-xl"> Site Stats  </h1>
 <br>
 
-<div class="flex justify-center px-2 py-2">
-  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2">
-    <div class="card bg-primary text-primary-content w-96 mr-1 mb-1">
+<div class="px-2 py-2">
+  <div class="grid gap-4 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2">
+    <div class="card bg-primary text-primary-content mr-1 mb-1">
       <div class="card-body">
         <h2 class="card-title">Most Visited Pages</h2>
         <div class="">
@@ -18,7 +18,7 @@ layout: default
   </div>
 
   <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2">
-    <div class="card bg-primary text-primary-content w-96 mr-1 mb-1">
+    <div class="card bg-primary text-primary-content mr-1 mb-1">
       <div class="card-body">
         <h2 class="card-title">Most Downloaded Files</h2>
         <div class="">
@@ -71,7 +71,6 @@ layout: default
     // Fetch and display popular downloads
     db.ref('downloads').once('value').then((snapshot) => {
       const downloadsData = snapshot.val();
-      console.log(downloadsData); // Debugging
       const downloadsList = document.getElementById('popular-downloads');
       const allDownloads = [];
 
