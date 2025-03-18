@@ -214,6 +214,7 @@ layout: brython
         <button class="btn btn-primary btn-xs mb-1" onclick="random_choice_modal.showModal()">random choice</button>
         <button class="btn btn-primary btn-xs mb-1" onclick="random_sample_modal.showModal()">random sample</button>
         <button class="btn btn-primary btn-xs mb-1" onclick="try_and_except_modal.showModal()">Try/Except Blocks</button>
+        <button class="btn btn-primary btn-xs mb-1" onclick="coloured_text_modal.showModal()">Coloured Text</button>
 
       </p>
     </div>
@@ -232,3 +233,14 @@ layout: brython
 </div>
 
 {% include python_modals.html  %}
+<script>
+  function updatePyCSLoadCount() {
+    const countRef = db.ref("page_loads/py_cheatsheet");
+
+    countRef.once("value").then(snapshot => {
+      let currentCount = snapshot.val() || 0; // Get current count
+      countRef.set(currentCount + 1); // Increment by 1
+    }).catch(error => console.error("Error:", error));
+  }
+  document.addEventListener("DOMContentLoaded", updatePyCSLoadCount);
+</script>
