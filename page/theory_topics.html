@@ -35,7 +35,7 @@ layout: default
         <!-- Purchase a worksheet and answer sheet individually, as a group of topics or all sheets.  -->
         <!-- <br>Prices TBA -->
         <br><small>My worksheets contain some of my silly humour. They do not represent the views of my 
-          employer and <span class="text-accent">are just a bit of fun!</span> get over it!</small>
+          employer and <span class="text-error">are just a bit of fun!</span> get over it!</small>
       </p>
     </div>
   </div>
@@ -70,6 +70,26 @@ layout: default
               </a>
             </td>
             
+          </tr>
+
+          <tr>
+            <th><a href="/files/worksheets/1.1-2/codefez 1.1-2 worksheet 2.pdf" target="_blank" class="btn btn-primary" onclick="increase_1_1_systems_sheet2_count()">
+              Systems worksheet 2 <span id="1_1_systems_sheet2_download_count">(0)</span></a> </th>
+            <td>
+              <a href="/files/worksheets/1.1-2/codefez 1.1-2 worksheet 2 Ans.pdf" target="_blank" class="btn btn-accent" onclick="increase_1_1_systems_sheet2Ans_count()">
+                Systems worksheet 2 Ans <span id="1_1_systems_sheet2Ans_download_count">(0)</span>
+              </a>
+            </td>
+          </tr>
+
+          <tr>
+            <th><a href="/files/worksheets/1.1-2/codefez 1.1-2 worksheet 3.pdf" target="_blank" class="btn btn-primary" onclick="increase_1_1_systems_sheet3_count()">
+              Systems worksheet 3 <span id="1_1_systems_sheet3_download_count">(0)</span></a> </th>
+            <td>
+              <a href="/files/worksheets/1.1-2/codefez 1.1-2 worksheet 3 Ans.pdf" target="_blank" class="btn btn-accent" onclick="increase_1_1_systems_sheet3Ans_count()">
+                Systems worksheet 3 Ans <span id="1_1_systems_sheet3Ans_download_count">(0)</span>
+              </a>
+            </td>
           </tr>
         </tbody>
       </table>
@@ -377,6 +397,89 @@ layout: default
     }).catch(error => console.error("Error:", error));
   }
   document.addEventListener("DOMContentLoaded", load_1_1_systems_sheet1Ans_count);
+
+  // sheet 2
+  function increase_1_1_systems_sheet2_count() {
+    const countRef = db.ref("/downloads/j277_theory/1_1_systems_architecture/systems_worksheet_2");
+
+    countRef.once("value").then(snapshot => {
+      let currentCount = snapshot.val() || 0; // Get current count
+      countRef.set(currentCount + 1); // Increment by 1
+      document.getElementById("1_1_systems_sheet2_download_count").innerText = `(${currentCount + 1})`; // Update UI
+    }).catch(error => console.error("Error:", error));
+  }
+
+  function load_1_1_systems_sheet2_count() {
+    const countRef = db.ref("/downloads/j277_theory/1_1_systems_architecture/systems_worksheet_2");
+
+    countRef.once("value").then(snapshot => {
+      let currentCount = snapshot.val() || 0;
+      document.getElementById("1_1_systems_sheet2_download_count").innerText = `(${currentCount})`;
+    }).catch(error => console.error("Error:", error));
+  }
+  document.addEventListener("DOMContentLoaded", load_1_1_systems_sheet2_count);
+
+  function increase_1_1_systems_sheet2Ans_count() {
+    const countRef = db.ref("/downloads/j277_theory/1_1_systems_architecture/systems_worksheet_2_ans");
+
+    countRef.once("value").then(snapshot => {
+      let currentCount = snapshot.val() || 0; // Get current count
+      countRef.set(currentCount + 1); // Increment by 1
+      document.getElementById("1_1_systems_sheet2Ans_download_count").innerText = `(${currentCount + 1})`; // Update UI
+    }).catch(error => console.error("Error:", error));
+  }
+
+  function load_1_1_systems_sheet2Ans_count() {
+    const countRef = db.ref("/downloads/j277_theory/1_1_systems_architecture/systems_worksheet_2_ans");
+
+    countRef.once("value").then(snapshot => {
+      let currentCount = snapshot.val() || 0;
+      document.getElementById("1_1_systems_sheet2Ans_download_count").innerText = `(${currentCount})`;
+    }).catch(error => console.error("Error:", error));
+  }
+  document.addEventListener("DOMContentLoaded", load_1_1_systems_sheet2Ans_count);
+
+  // sheet 3
+  function increase_1_1_systems_sheet3_count() {
+    const countRef = db.ref("/downloads/j277_theory/1_1_systems_architecture/systems_worksheet_3");
+
+    countRef.once("value").then(snapshot => {
+      let currentCount = snapshot.val() || 0; // Get current count
+      countRef.set(currentCount + 1); // Increment by 1
+      document.getElementById("1_1_systems_sheet3_download_count").innerText = `(${currentCount + 1})`; // Update UI
+    }).catch(error => console.error("Error:", error));
+  }
+
+  function load_1_1_systems_sheet3_count() {
+    const countRef = db.ref("/downloads/j277_theory/1_1_systems_architecture/systems_worksheet_3");
+
+    countRef.once("value").then(snapshot => {
+      let currentCount = snapshot.val() || 0;
+      document.getElementById("1_1_systems_sheet3_download_count").innerText = `(${currentCount})`;
+    }).catch(error => console.error("Error:", error));
+  }
+  document.addEventListener("DOMContentLoaded", load_1_1_systems_sheet3_count);
+
+  function increase_1_1_systems_sheet3Ans_count() {
+    const countRef = db.ref("/downloads/j277_theory/1_1_systems_architecture/systems_worksheet_3_ans");
+
+    countRef.once("value").then(snapshot => {
+      let currentCount = snapshot.val() || 0; // Get current count
+      countRef.set(currentCount + 1); // Increment by 1
+      document.getElementById("1_1_systems_sheet3Ans_download_count").innerText = `(${currentCount + 1})`; // Update UI
+    }).catch(error => console.error("Error:", error));
+  }
+
+  function load_1_1_systems_sheet3Ans_count() {
+    const countRef = db.ref("/downloads/j277_theory/1_1_systems_architecture/systems_worksheet_3_ans");
+
+    countRef.once("value").then(snapshot => {
+      let currentCount = snapshot.val() || 0;
+      document.getElementById("1_1_systems_sheet3Ans_download_count").innerText = `(${currentCount})`;
+    }).catch(error => console.error("Error:", error));
+  }
+  document.addEventListener("DOMContentLoaded", load_1_1_systems_sheet3Ans_count);
+
 
   // 1.2 data representation worksheet 1 and answers
   function increase_1_2_data_sheet1_count() {
