@@ -1,0 +1,233 @@
+<div class="overflow-x-auto">
+    <table class="table">
+      <tbody>
+        <!-- row 1 -->
+        <tr>
+          <th>
+            <div class="card-actions justify-end">
+              <a href="/files/worksheets/2.4/2.4 codefez - Logic Gates Worksheet 1.pdf" target="_blank" class="btn btn-primary" onclick="increase_2_4_logic_sheet1_count()">
+                Logic worksheet 1 <span id="2_4_logic_sheet1_download_count">(0)</span>
+              </a>
+            </div>
+          </th>
+          <td>
+            <a href="/files/worksheets/2.4/2.4 codefez - Logic Gates Worksheet 1 Answers.pdf" target="_blank" class="btn btn-accent" onclick="increase_2_4_logic_sheet1Ans_count()">
+              Logic worksheet 1 Ans <span id="2_4_logic_sheet1Ans_download_count">(0)</span>
+            </a>
+          </td>
+          
+        </tr>
+        <tr>
+          <th>
+            <div class="card-actions justify-end">
+              <a href="/files/worksheets/2.4/2.4 codefez - Logic Gates Worksheet 2.pdf" target="_blank" class="btn btn-primary" onclick="increase_2_4_logic_sheet2_count()">
+                Logic worksheet 2
+              </a>
+            </div>
+          </th>
+            <td>
+            <a href="/files/worksheets/2.4/2.4 codefez - Logic Gates Worksheet 2 Answers.pdf" target="_blank" class="btn btn-accent" onclick="increase_2_4_logic_sheet2Ans_count()">
+                Logic worksheet 2 Ans
+            </a>
+        </tr>
+        <tr>
+          <th>
+            <div class="card-actions justify-end">
+              <a href="/files/worksheets/2.4/2.4 codefez - Logic Gates Worksheet 3.pdf" target="_blank" class="btn btn-primary" onclick="increase_2_4_logic_sheet3_count()">
+                Logic worksheet 3
+              </a>
+            </div>
+          </th>
+            <td>
+            <a href="/files/worksheets/2.4/2.4 codefez - Logic Gates Worksheet 3 Answers.pdf" target="_blank" class="btn btn-accent" onclick="increase_2_4_logic_sheet3Ans_count()">
+                Logic worksheet 3 Ans
+            </a>
+        </tr>
+        <tr>
+          <th>
+            <div class="card-actions justify-end">
+              <a href="/files/worksheets/2.4/2.4 codefez - Logic Gates Worksheet 4.pdf" target="_blank" class="btn btn-primary" onclick="increase_2_4_logic_sheet4_count()">
+                Logic worksheet 4
+              </a>
+            </div>
+          </th>
+            <td>
+            <a href="/files/worksheets/2.4/2.4 codefez - Logic Gates Worksheet 4 Answers.pdf" target="_blank" class="btn btn-accent" onclick="increase_2_4_logic_sheet4Ans_count()">
+                Logic worksheet 4 Ans
+            </a>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+
+  <script>
+    // 2.4 logic worksheet 1 and answers
+  function increase_2_4_logic_sheet1_count() {
+    const countRef = db.ref("/downloads/j277_theory/2_4_boolean_logic/logic_worksheet_1");
+
+    countRef.once("value").then(snapshot => {
+      let currentCount = snapshot.val() || 0; // Get current count
+      countRef.set(currentCount + 1); // Increment by 1
+      document.getElementById("2_4_logic_sheet1_download_count").innerText = `(${currentCount + 1})`; // Update UI
+    }).catch(error => console.error("Error:", error));
+  }
+
+  function load_2_4_logic_sheet1_Count() {
+    const countRef = db.ref("/downloads/j277_theory/2_4_boolean_logic/logic_worksheet_1");
+
+    countRef.once("value").then(snapshot => {
+      let currentCount = snapshot.val() || 0;
+      document.getElementById("2_4_logic_sheet1_download_count").innerText = `(${currentCount})`;
+    }).catch(error => console.error("Error:", error));
+  }
+  document.addEventListener("DOMContentLoaded", load_2_4_logic_sheet1_Count);
+
+  function increase_2_4_logic_sheet1Ans_count() {
+    const countRef = db.ref("/downloads/j277_theory/2_4_boolean_logic/logic_worksheet_1_ans");
+
+    countRef.once("value").then(snapshot => {
+      let currentCount = snapshot.val() || 0; // Get current count
+      countRef.set(currentCount + 1); // Increment by 1
+      document.getElementById("2_4_logic_sheet1Ans_download_count").innerText = `(${currentCount + 1})`; // Update UI
+    }).catch(error => console.error("Error:", error));
+  }
+
+  function load_2_4_logic_sheet1Ans_Count() {
+    const countRef = db.ref("/downloads/j277_theory/2_4_boolean_logic/logic_worksheet_1_ans");
+
+    countRef.once("value").then(snapshot => {
+      let currentCount = snapshot.val() || 0;
+      document.getElementById("2_4_logic_sheet1Ans_download_count").innerText = `(${currentCount})`;
+    }).catch(error => console.error("Error:", error));
+  }
+  document.addEventListener("DOMContentLoaded", load_2_4_logic_sheet1Ans_Count);
+
+    // 2.4 logic worksheet 2 and answers
+    function increase_2_4_logic_sheet2_count() {
+    const countRef = db.ref("/downloads/j277_theory/2_4_boolean_logic/logic_worksheet_2");
+
+    countRef.once("value").then(snapshot => {
+      let currentCount = snapshot.val() || 0; // Get current count
+      countRef.set(currentCount + 1); // Increment by 1
+      document.getElementById("2_4_logic_sheet2_download_count").innerText = `(${currentCount + 1})`; // Update UI
+    }).catch(error => console.error("Error:", error));
+    }
+
+    function load_2_4_logic_sheet2_Count() {
+    const countRef = db.ref("/downloads/j277_theory/2_4_boolean_logic/logic_worksheet_2");
+
+    countRef.once("value").then(snapshot => {
+      let currentCount = snapshot.val() || 0;
+      document.getElementById("2_4_logic_sheet2_download_count").innerText = `(${currentCount})`;
+    }).catch(error => console.error("Error:", error));
+    }
+    document.addEventListener("DOMContentLoaded", load_2_4_logic_sheet2_Count);
+
+    function increase_2_4_logic_sheet2Ans_count() {
+    const countRef = db.ref("/downloads/j277_theory/2_4_boolean_logic/logic_worksheet_2_ans");
+
+    countRef.once("value").then(snapshot => {
+      let currentCount = snapshot.val() || 0; // Get current count
+      countRef.set(currentCount + 1); // Increment by 1
+      document.getElementById("2_4_logic_sheet2Ans_download_count").innerText = `(${currentCount + 1})`; // Update UI
+    }).catch(error => console.error("Error:", error));
+    }
+
+    function load_2_4_logic_sheet2Ans_Count() {
+    const countRef = db.ref("/downloads/j277_theory/2_4_boolean_logic/logic_worksheet_2_ans");
+
+    countRef.once("value").then(snapshot => {
+      let currentCount = snapshot.val() || 0;
+      document.getElementById("2_4_logic_sheet2Ans_download_count").innerText = `(${currentCount})`;
+    }).catch(error => console.error("Error:", error));
+    }
+    document.addEventListener("DOMContentLoaded", load_2_4_logic_sheet2Ans_Count);
+
+    // 2.4 logic worksheet 3 and answers
+    function increase_2_4_logic_sheet3_count() {
+    const countRef = db.ref("/downloads/j277_theory/2_4_boolean_logic/logic_worksheet_3");
+
+    countRef.once("value").then(snapshot => {
+      let currentCount = snapshot.val() || 0; // Get current count
+      countRef.set(currentCount + 1); // Increment by 1
+      document.getElementById("2_4_logic_sheet3_download_count").innerText = `(${currentCount + 1})`; // Update UI
+    }).catch(error => console.error("Error:", error));
+    }
+
+    function load_2_4_logic_sheet3_Count() {
+    const countRef = db.ref("/downloads/j277_theory/2_4_boolean_logic/logic_worksheet_3");
+
+    countRef.once("value").then(snapshot => {
+      let currentCount = snapshot.val() || 0;
+      document.getElementById("2_4_logic_sheet3_download_count").innerText = `(${currentCount})`;
+    }).catch(error => console.error("Error:", error));
+    }
+    document.addEventListener("DOMContentLoaded", load_2_4_logic_sheet3_Count);
+
+    function increase_2_4_logic_sheet3Ans_count() {
+    const countRef = db.ref("/downloads/j277_theory/2_4_boolean_logic/logic_worksheet_3_ans");
+
+    countRef.once("value").then(snapshot => {
+      let currentCount = snapshot.val() || 0; // Get current count
+      countRef.set(currentCount + 1); // Increment by 1
+      document.getElementById("2_4_logic_sheet3Ans_download_count").innerText = `(${currentCount + 1})`; // Update UI
+    }).catch(error => console.error("Error:", error));
+    }
+
+    function load_2_4_logic_sheet3Ans_Count() {
+    const countRef = db.ref("/downloads/j277_theory/2_4_boolean_logic/logic_worksheet_3_ans");
+
+    countRef.once("value").then(snapshot => {
+      let currentCount = snapshot.val() || 0;
+      document.getElementById("2_4_logic_sheet3Ans_download_count").innerText = `(${currentCount})`;
+    }).catch(error => console.error("Error:", error));
+    }
+
+    document.addEventListener("DOMContentLoaded", load_2_4_logic_sheet3Ans_Count);
+    // 2.4 logic worksheet 4 and answers
+    function increase_2_4_logic_sheet4_count() {
+    const countRef = db.ref("/downloads/j277_theory/2_4_boolean_logic/logic_worksheet_4");
+
+    countRef.once("value").then(snapshot => {
+      let currentCount = snapshot.val() || 0; // Get current count
+      countRef.set(currentCount + 1); // Increment by 1
+      document.getElementById("2_4_logic_sheet4_download_count").innerText = `(${currentCount + 1})`; // Update UI
+    }).catch(error => console.error("Error:", error));
+    }
+
+    function load_2_4_logic_sheet4_Count() {
+    const countRef = db.ref("/downloads/j277_theory/2_4_boolean_logic/logic_worksheet_4");
+
+    countRef.once("value").then(snapshot => {
+      let currentCount = snapshot.val() || 0;
+      document.getElementById("2_4_logic_sheet4_download_count").innerText = `(${currentCount})`;
+    }).catch(error => console.error("Error:", error));
+    }
+    document.addEventListener("DOMContentLoaded", load_2_4_logic_sheet4_Count);
+
+    function increase_2_4_logic_sheet4Ans_count() {
+    const countRef = db.ref("/downloads/j277_theory/2_4_boolean_logic/logic_worksheet_4_ans");
+
+    countRef.once("value").then(snapshot => {
+      let currentCount = snapshot.val() || 0; // Get current count
+      countRef.set(currentCount + 1); // Increment by 1
+      document.getElementById("2_4_logic_sheet4Ans_download_count").innerText = `(${currentCount + 1})`; // Update UI
+    }).catch(error => console.error("Error:", error));
+    }
+
+    function load_2_4_logic_sheet4Ans_Count() {
+    const countRef = db.ref("/downloads/j277_theory/2_4_boolean_logic/logic_worksheet_4_ans");
+
+    countRef.once("value").then(snapshot => {
+      let currentCount = snapshot.val() || 0;
+      document.getElementById("2_4_logic_sheet4Ans_download_count").innerText = `(${currentCount})`;
+    }).catch(error => console.error("Error:", error));
+    }
+
+    document.addEventListener("DOMContentLoaded", load_2_4_logic_sheet4Ans_Count);
+
+    
+
+
+  </script>

@@ -1,0 +1,66 @@
+<div class="overflow-x-auto">
+    <table class="table">
+      <tbody>
+        <!-- row 1 -->
+        <tr>
+          <th>
+            <div class="card-actions justify-end">
+              <a href="/files/worksheets/1.4/1.4 Codefez Security Worksheet 1.pdf" target="_blank" class="btn btn-primary" onclick="increase_1_4_security_sheet1_count()">
+                Security worksheet 1 <span id="1_4_security_sheet1_download_count">(0)</span>
+              </a>
+            </div>
+          </th>
+          <td>
+            <a href="/files/worksheets/1.4/1.4 Codefez Security Worksheet 1 Answers.pdf" target="_blank" class="btn btn-accent" onclick="increase_1_4_security_sheet1Ans_count()">
+              Security worksheet 1 Ans <span id="1_4_security_sheet1Ans_download_count">(0)</span>
+            </a>
+          </td>
+          
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <script>
+    // 1.4 security worksheet 1 and answers
+  function increase_1_4_security_sheet1_count() {
+    const countRef = db.ref("/downloads/j277_theory/1_4_security/security_worksheet_1");
+
+    countRef.once("value").then(snapshot => {
+      let currentCount = snapshot.val() || 0; // Get current count
+      countRef.set(currentCount + 1); // Increment by 1
+      document.getElementById("1_4_security_sheet1_download_count").innerText = `(${currentCount + 1})`; // Update UI
+    }).catch(error => console.error("Error:", error));
+  }
+
+  function load_1_4_security_sheet1_Count() {
+    const countRef = db.ref("/downloads/j277_theory/1_4_security/security_worksheet_1");
+
+    countRef.once("value").then(snapshot => {
+      let currentCount = snapshot.val() || 0;
+      document.getElementById("1_4_security_sheet1_download_count").innerText = `(${currentCount})`;
+    }).catch(error => console.error("Error:", error));
+  }
+  document.addEventListener("DOMContentLoaded", load_1_4_security_sheet1_Count);
+
+  function increase_1_4_security_sheet1Ans_count() {
+    const countRef = db.ref("/downloads/j277_theory/1_4_security/security_worksheet_1_ans");
+
+    countRef.once("value").then(snapshot => {
+      let currentCount = snapshot.val() || 0; // Get current count
+      countRef.set(currentCount + 1); // Increment by 1
+      document.getElementById("1_4_security_sheet1Ans_download_count").innerText = `(${currentCount + 1})`; // Update UI
+    }).catch(error => console.error("Error:", error));
+  }
+
+  function load_1_4_security_sheet1Ans_Count() {
+    const countRef = db.ref("/downloads/j277_theory/1_4_security/security_worksheet_1_ans");
+
+    countRef.once("value").then(snapshot => {
+      let currentCount = snapshot.val() || 0;
+      document.getElementById("1_4_security_sheet1Ans_download_count").innerText = `(${currentCount})`;
+    }).catch(error => console.error("Error:", error));
+  }
+  document.addEventListener("DOMContentLoaded", load_1_4_security_sheet1Ans_Count);
+
+  </script>
