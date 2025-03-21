@@ -1,0 +1,44 @@
+<dialog id="inline_for_modal" class="modal">
+    <div class="modal-box">
+        <form method="dialog">
+            <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
+          </form>
+        <h3 class="font-bold text-lg">Inline For Loops</h3>
+        <p class="py-4">
+            an inline <code class="text-accent">for</code> loop allows us to iterate a list of instructions for a specified number of times on 1 line.
+        </p>
+        <div class="flex-start ">
+            <div class="text-xs mr-1 mb-1">
+                <div class="mockup-window border bg-base-300">
+                    <pre class="bg-base-200 px-4 pt-4">
+<code class="language-python">names = ["Alice", "Bob", "Charlie"]
+upper_case = [name.upper() for name in names]
+print(upper_case)</code>
+                </pre>
+            </div>
+            <div class="text-xs">
+                <div class="mockup-code">
+                    <pre>                  
+    ALICE
+    BOB
+    CHARLIE
+                    </pre>
+                </div>
+            </div>
+        </div>
+    
+        <p class="py-4">
+            In this example, we have a list of names. We want to convert each name to uppercase. We can use an inline <code class="text-accent">for</code> loop to iterate over the list and convert each name to uppercase.
+        </p>
+    <div role="alert" class="alert alert-warning">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="h-6 w-6 shrink-0 stroke-current">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+        </svg>
+        <span><a onclick="lost_modal.showModal()">See here</a> for more about list comprehensions.</span>
+    </div>
+    </div>
+
+    <form method="dialog" class="modal-backdrop">
+        <button>close</button>
+    </form>
+</dialog>
