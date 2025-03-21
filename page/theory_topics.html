@@ -48,7 +48,7 @@ layout: default
 <h2>Paper 1 - Computer Systems J277/01</h2>
 <!-- 1.1-2 HW, 1.2 SW & Data representation -->
 <div class="flex w-full flex-col lg:flex-row grid grid-cols-2 mb-1">
-  <div class="card bg-base-300 rounded-box grid h-32 flex-full place-items-center mr-1">
+  <div class="card bg-base-300 rounded-box grid flex-full place-items-center mr-1">
     1.1 Systems Architecture
 
     <div class="overflow-x-auto">
@@ -59,13 +59,13 @@ layout: default
           <tr>
             <th>
               <div class="card-actions justify-end">
-                <a href="/files/worksheets/1.1 Codefez Systems Architecture, Memory & Storage Worksheet 1.pdf" target="_blank" class="btn btn-primary" onclick="increase_1_1_systems_sheet1_count()">
+                <a href="/files/worksheets/1.1-2/1.1 Codefez Systems Architecture, Memory & Storage Worksheet 1.pdf" target="_blank" class="btn btn-primary" onclick="increase_1_1_systems_sheet1_count()">
                   Systems worksheet 1 <span id="1_1_systems_sheet1_download_count">(0)</span>
                 </a>
               </div>
             </th>
             <td>
-              <a href="/files/worksheets/1.1 Codefez Systems Architecture, Memory & Storage Worksheet 1 Answers.pdf" target="_blank" class="btn btn-accent" onclick="increase_1_1_systems_sheet1Ans_count()">
+              <a href="/files/worksheets/1.1-2/1.1 Codefez Systems Architecture, Memory & Storage Worksheet 1 Answers.pdf" target="_blank" class="btn btn-accent" onclick="increase_1_1_systems_sheet1Ans_count()">
                 Systems worksheet 1 Ans <span id="1_1_systems_sheet1Ans_download_count">(0)</span>
               </a>
             </td>
@@ -103,7 +103,7 @@ layout: default
     </div>
   </div>
   <!-- <div class="divider lg:divider-horizontal"> </div> -->
-  <div class="card bg-base-300 rounded-box grid h-32 flex-full place-items-center">
+  <div class="card bg-base-300 rounded-box grid flex-full place-items-center">
     1.2 Units, Data Storage & Compression (data Representation)
 
     <div class="overflow-x-auto">
@@ -114,14 +114,48 @@ layout: default
           <tr>
             <th>
               <div class="card-actions justify-end">
-                <a href="/files/worksheets/1.2 Worksheet 1 - Units, Data Storage & Compression.pdf" target="_blank" class="btn btn-primary" onclick="increase_1_2_data_sheet1_count()">
+                <a href="/files/worksheets/1.2/1.2 Worksheet 1 - Units, Data Storage & Compression.pdf" target="_blank" class="btn btn-primary" onclick="increase_1_2_data_sheet1_count()">
                   Systems worksheet 1 <span id="1_2_data_sheet1_download_count">(0)</span>
                 </a>
               </div>
             </th>
             <td>
-              <a href="/files/worksheets/1.1 Codefez Systems Architecture, Memory & Storage Worksheet 1 Answers.pdf" target="_blank" class="btn btn-accent" onclick="increase_1_2_data_sheet1Ans_count()">
+              <a href="/files/worksheets/1.2/1.2 Worksheet 1 Answers - Units, Data Storage & Compression.pdf" target="_blank" class="btn btn-accent" onclick="increase_1_2_data_sheet1Ans_count()">
                 Systems worksheet 1 Ans <span id="1_2_data_sheet1Ans_download_count">(0)</span>
+              </a>
+            </td>
+            
+          </tr>
+
+          <!-- row 2 -->
+          <tr>
+            <th>
+              <div class="card-actions justify-end">
+                <a href="/files/worksheets/1.2/1.2 Worksheet 2 - Units, Data Storage & Compression.pdf" target="_blank" class="btn btn-primary" onclick="increase_1_2_data_sheet2_count()">
+                  Systems worksheet 1 <span id="1_2_data_sheet1_download_count">(0)</span>
+                </a>
+              </div>
+            </th>
+            <td>
+              <a href="/files/worksheets/1.2/1.2 Worksheet 2 Answers - Units, Data Storage & Compression.pdf" target="_blank" class="btn btn-accent" onclick="increase_1_2_data_sheet2Ans_count()">
+                Systems worksheet 1 Ans <span id="1_2_data_sheet2Ans_download_count">(0)</span>
+              </a>
+            </td>
+            
+          </tr>
+
+          <!-- row 3 -->
+           <tr>
+            <th>
+              <div class="card-actions justify-end">
+                <a href="/files/worksheets/1.2/1.2 Worksheet 3 - Units, Data Storage & Compression.pdf" target="_blank" class="btn btn-primary" onclick="increase_1_2_data_sheet3_count()">
+                  Systems worksheet 1 <span id="1_2_data_sheet1_download_count">(0)</span>
+                </a>
+              </div>
+            </th>
+            <td>
+              <a href="/files/worksheets/1.2/1.2 Worksheet 3 Answers - Units, Data Storage & Compression.pdf" target="_blank" class="btn btn-accent" onclick="increase_1_2_data_sheet3Ans_count()">
+                Systems worksheet 1 Ans <span id="1_2_data_sheet3Ans_download_count">(0)</span>
               </a>
             </td>
             
@@ -134,7 +168,7 @@ layout: default
 
 <!-- 1.3 Networking 7 1.4 Security -->
 <div class="flex w-full flex-col lg:flex-row grid grid-cols-2 mb-1">
-  <div class="card bg-base-300 rounded-box grid h-32 flex-full place-items-center mr-1">
+  <div class="card bg-base-300 rounded-box grid flex-full place-items-center mr-1">
     1.3 Networks, Topologies, Protocols & Layers
 
     <div class="overflow-x-auto">
@@ -162,7 +196,7 @@ layout: default
     </div>
   </div>
   <!-- <div class="divider lg:divider-horizontal"> </div> -->
-  <div class="card bg-base-300 rounded-box grid h-32 flex-full place-items-center">
+  <div class="card bg-base-300 rounded-box grid flex-full place-items-center">
     1.4 Security
 
     <div class="overflow-x-auto">
@@ -529,6 +563,25 @@ layout: default
   }
   document.addEventListener("DOMContentLoaded", load_1_2_data_sheet1Ans_Count);
 
+  function load_1_2_data_sheet2_Count() {
+    const countRef = db.ref("/downloads/j277_theory/1_2_data_representation/data_worksheet_2");
+
+    countRef.once("value").then(snapshot => {
+      let currentCount = snapshot.val() || 0;
+      document.getElementById("1_2_data_sheet2_download_count").innerText = `(${currentCount})`;
+    }).catch(error => console.error("Error:", error));
+  }
+  document.addEventListener("DOMContentLoaded", load_1_2_data_sheet2_Count);
+
+  function load_1_2_data_sheet2Ans_Count() {
+    const countRef = db.ref("/downloads/j277_theory/1_2_data_representation/data_worksheet_2_ans");
+
+    countRef.once("value").then(snapshot => {
+      let currentCount = snapshot.val() || 0;
+      document.getElementById("1_2_data_sheet2Ans_download_count").innerText = `(${currentCount})`;
+    }).catch(error => console.error("Error:", error));
+  }
+  document.addEventListener("DOMContentLoaded", load_1_2_data_sheet2Ans_Count);
 
   // 1.3 networks worksheet 1 and answers
   function increase_1_3_networks_sheet1_count() {
