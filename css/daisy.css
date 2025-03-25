@@ -1,57 +1,57 @@
 .mockup-code-modal {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    max-width: 100%; /* Adjust the maximum width as needed */
-    margin: 0 auto;
-    padding: 10px;
-    background-color: #f0f0f0; /* Adjust the background color as desired */
-    border: 1px solid #ccc;
-  }
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 100%; /* Adjust the maximum width as needed */
+  margin: 0 auto;
+  padding: 10px;
+  background-color: #f0f0f0; /* Adjust the background color as desired */
+  border: 1px solid #ccc;
+}
 
-  .mockup-code-modal pre {
-    margin: 0;
-    padding: 10px;
-    overflow-x: auto;
-    font-family: monospace;
-    font-size: 14px;
-    color: #333;
-  }
+.mockup-code-modal pre {
+  margin: 0;
+  padding: 10px;
+  overflow-x: auto;
+  font-family: 'BrassMonoFont', monospace;
+  font-size: 14px;
+  color: #333;
+}
 
-  .mockup-window-modal {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    max-width: 800px; /* Adjust the maximum width as needed */
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #f0f0f0; /* Adjust the background color as desired */
-    border: 1px solid #ccc;
-  }
-  
-  .mockup-code-modal pre {
-    margin: 0;
-    padding: 10px;
-    overflow-x: auto;
-    font-family: monospace;
-    font-size: 14px;
-    color: #333;
-  }
+.mockup-window-modal {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 800px; /* Adjust the maximum width as needed */
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f0f0f0; /* Adjust the background color as desired */
+  border: 1px solid #ccc;
+}
 
-  .mockup-window-modal header {
-    padding: 10px;
-    background-color: #f0f0f0;
-    border-bottom: 1px solid #ccc;
-  }
-  
-  .mockup-window-modal header h3 {
-    margin: 0;
-  }
-  
-  .mockup-window-modal content {
-    padding: 10px;
-  }
+.mockup-code-modal pre {
+  margin: 0;
+  padding: 10px;
+  overflow-x: auto;
+  font-family: monospace;
+  font-size: 14px;
+  color: #333;
+}
 
-  .mockup-window {
-    margin-top: 10px; /* Adjust the top margin as needed */
+.mockup-window-modal header {
+  padding: 10px;
+  background-color: #f0f0f0;
+  border-bottom: 1px solid #ccc;
+}
+
+.mockup-window-modal header h3 {
+  margin: 0;
+}
+
+.mockup-window-modal content {
+  padding: 10px;
+}
+
+.mockup-window {
+  margin-top: 10px; /* Adjust the top margin as needed */
 }
