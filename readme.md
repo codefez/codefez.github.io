@@ -7,11 +7,12 @@
 - 
 
 # Modals to-do still
-- [ ] List slicing
-- [ ] list comprehensions
-- [ ] comparative operators
-- [ ] escape codes (eg \n, \t etc)
-- [ ] constants
+- [ ] List slicing (lists / arrays)
+- [ ] list comprehensions (lists /arrays)
+- [ ] comparative operators (comparative operators)
+- [ ] escape codes eg \n, \t etc (string methods)
+- [ ] constants (variables)
+- [ ] time delta (random functions)
 - [x] ~~2D arrays~~
 - [x] ~~elif~~
 - [x] ~~Tuples~~
@@ -35,7 +36,6 @@
 - [x] ~~replace~~
 
 ## random functions
-- [ ] time delta
 - [x] ~~randint (from random)~~
 - [x] ~~sample (from random)~~
 - [x] ~~choice (from random)~~
