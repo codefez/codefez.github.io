@@ -1,5 +1,12 @@
+@font-face {
+  font-family: "BrassMono";
+  src: url(/assets/BrassMono-Regular.ttf) format("truetype");
+  font-weight: normal;  /* If it's a regular/400 weight */
+  font-style: normal;   /* If it's not italic */
+}
 body {
     padding-top: 80px;
+    /* font-family: "BrassMono", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji"; */
 }
 nav {
     z-index: 1000; /* Adjust this value as needed */
@@ -35,6 +42,19 @@ nav {
   }
 }
 
+/* Override inline code font */
+code {
+  font-family: "BrassMono", monospace !important;
+  /* Optional: Adjust size, color, etc. */
+  font-size: 0.9em; 
+  /* background-color: hsl(var(--n) / 0.2); /* DaisyUI neutral color 
+  padding: 0.2em 0.4em;
+  border-radius: var(--rounded-badge, 0.2em); */
+}
+
 .f-container{display:flex;}
 .column{flex:1;}
 
+.BrassMonoFont{
+  font-family: "BrassMono", monospace;
+}

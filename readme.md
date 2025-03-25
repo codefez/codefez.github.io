@@ -1,8 +1,17 @@
+
+## run local server
+`bundle exec jekyll serve --incremental`
+
+## Note to Self
+- remember! `css/daisy.css` updates some daisyUI defaults 
+- 
+
 # Modals to-do still
 - [ ] List slicing
 - [ ] list comprehensions
 - [ ] comparative operators
 - [ ] escape codes (eg \n, \t etc)
+- [ ] constants
 - [x] ~~2D arrays~~
 - [x] ~~elif~~
 - [x] ~~Tuples~~
@@ -32,6 +41,3 @@
 - [x] ~~choice (from random)~~
 - [x] ~~sleep~~
 - [x] ~~clear screen~~
-
-## run local server
-`bundle exec jekyll serve --incremental`
