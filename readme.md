@@ -4,7 +4,7 @@
 
 ## Note to Self
 - remember! `css/daisy.css` updates some daisyUI defaults 
-- 
+- Firebase API key is stored as a Github secret
 
 # Modals to-do still
 - [ ] List slicing (lists / arrays)

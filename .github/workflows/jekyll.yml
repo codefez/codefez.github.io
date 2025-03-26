@@ -18,6 +18,9 @@ jobs:
       with:
         ruby-version: '2.7'
 
+    - name: Check Ruby Version
+      run: ruby -v
+
     - name: Install Jekyll and Bundler
       run: |
         gem install jekyll bundler
