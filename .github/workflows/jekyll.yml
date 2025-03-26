@@ -25,7 +25,8 @@ jobs:
       run: |
         gem update --system
         gem install bundler -v 2.2.33
-        gem install jekyll ffi
+        gem install ffi -v 1.17.1
+        gem install jekyll -v 4.2.0
         bundle install
 
     - name: Build Jekyll site
