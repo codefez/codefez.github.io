@@ -21,9 +21,11 @@ jobs:
     - name: Check Ruby Version
       run: ruby -v
 
-    - name: Install Jekyll and Bundler
+    - name: Install Jekyll, Bundler and FFI
       run: |
-        gem install jekyll bundler
+        gem update --system
+        gem install bundler -v 2.2.33
+        gem install jekyll ffi
         bundle install
 
     - name: Build Jekyll site
