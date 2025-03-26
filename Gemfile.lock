@@ -24,6 +24,7 @@ GEM
     concurrent-ruby (1.2.3)
     connection_pool (2.4.1)
     csv (3.3.0)
+    did_you_mean (2.0.0)
     dnsruby (1.72.2)
       simpleidn (~> 0.2.1)
     drb (2.2.1)
@@ -260,8 +261,6 @@ GEM
       ethon (>= 0.9.0)
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
-    tzinfo-data (1.2023.4)
-      tzinfo (>= 1.0.0)
     unicode-display_width (1.8.0)
     uri (0.13.1)
     wdm (0.2.0)
@@ -271,6 +270,7 @@ PLATFORMS
   x64-mingw-ucrt
 
 DEPENDENCIES
+  did_you_mean
   github-pages (~> 232)
   http_parser.rb (~> 0.6.0)
   jekyll (~> 3.10.0)
@@ -285,4 +285,4 @@ DEPENDENCIES
   wdm (>= 0.1.0)
 
 BUNDLED WITH
-   2.5.5
+   2.2.33
