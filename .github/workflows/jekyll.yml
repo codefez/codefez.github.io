@@ -16,18 +16,12 @@ jobs:
     - name: Set up Ruby
       uses: ruby/setup-ruby@v1
       with:
-        ruby-version: '2.7'
+        ruby-version: '3.1'  # Updated Ruby version
 
-    - name: Check Ruby Version
-      run: ruby -v
-
-    - name: Install Jekyll, Bundler and FFI
+    - name: Install Bundler and Dependencies
       run: |
         gem update --system
-        gem install bundler -v 2.2.33
-        gem install ffi -v 1.17.1
-        gem install jekyll
-        bundle install
+        bundle install --jobs 4 --retry 3  # Avoid manual gem installs
 
     - name: Build Jekyll site
       run: bundle exec jekyll build --destination _site
@@ -40,3 +34,4 @@ jobs:
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_dir: ./_site
+        publish_branch: gh-pages  # Ensure this branch exists
