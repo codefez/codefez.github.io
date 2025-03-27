@@ -1,4 +1,4 @@
-name: Build and Deploy Jekyll Site
+name: Deploy Jekyll site to GitHub Pages
 
 on:
   push:
@@ -8,30 +8,26 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
-
-    - name: Set up Ruby
-      uses: ruby/setup-ruby@v1
-      with:
-        ruby-version: '3.1'  # Updated Ruby version
-
-    - name: Install Bundler and Dependencies
-      run: |
-        gem update --system
-        bundle install --jobs 4 --retry 3  # Avoid manual gem installs
-
-    - name: Build Jekyll site
-      run: bundle exec jekyll build --destination _site
-
-    - name: Inject Firebase API Key
-      run: echo "window.FIREBASE_API_KEY = '${{ secrets.FIREBASE_API_KEY }}';" > _site/firebase-config.js
-
-    - name: Deploy to GitHub Pages
-      uses: peaceiris/actions-gh-pages@v3
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./_site
-        publish_branch: gh-pages  # Ensure this branch exists
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 2.7
+          bundler-cache: true
+      
+      - name: Install dependencies
+        run: bundle install
+      
+      - name: Inject Firebase API Key
+        run: echo "FIREBASE_API_KEY=${{ secrets.FIREBASE_API_KEY }}" >> $GITHUB_ENV
+      
+      - name: Build Jekyll site
+        run: bundle exec jekyll build
+      
+      - name: Deploy to GitHub Pages
+        uses: actions/upload-pages-artifact@v1
+        with:
+          path: _site
