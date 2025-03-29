@@ -2,10 +2,8 @@ name: Deploy Jekyll site to GitHub Pages
 
 on:
   push:
-    branches:
-      - main
+    branches: [ main ]
 
-# Allow GitHub Pages deployment permissions
 permissions:
   contents: read
   pages: write
@@ -15,34 +13,30 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-      
+      - uses: actions/checkout@v4
+
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: 2.7
           bundler-cache: true
-      
+
       - name: Install dependencies
         run: bundle install
-      
+
       - name: Inject Firebase API Key
         run: echo "FIREBASE_API_KEY=${{ secrets.FIREBASE_API_KEY }}" >> $GITHUB_ENV
-      
-      - name: Build Jekyll site
+
+      - name: Build with Jekyll
         run: bundle exec jekyll build
-      
-      - name: Upload artifact for GitHub Pages
+
+      - name: Upload artifact
         uses: actions/upload-pages-artifact@v2
         with:
           path: ./_site
 
   deploy:
     needs: build
-    permissions:
-      pages: write
-      id-token: write
     runs-on: ubuntu-latest
     environment:
       name: github-pages
