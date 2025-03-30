@@ -1,26 +1,48 @@
-﻿name: Jekyll Deploy
-on: [push]
+﻿name: Deploy Jekyll to GitHub Pages
+
+on:
+  push:
+    branches: [ main ]
+
 permissions:
+  contents: read
   pages: write
   id-token: write
+
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: ruby/setup-ruby@v1
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
         with:
-          ruby-version: "2.7"
+          ruby-version: '2.7'
           bundler-cache: true
-      - run: bundle exec jekyll build
-      - uses: actions/upload-pages-artifact@v2
+
+      - name: Install dependencies
+        run: bundle install
+
+      - name: Inject Firebase API Key
+        run: |
+          echo "FIREBASE_API_KEY=${{ secrets.FIREBASE_API_KEY }}" >> $GITHUB_ENV
+          echo "API key injected"
+
+      - name: Build with Jekyll
+        run: |
+          echo "Building with Firebase API key: $FIREBASE_API_KEY"
+          bundle exec jekyll build
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v2
         with:
           path: ./_site
+
   deploy:
     needs: build
-    permissions:
-      pages: write
-      id-token: write
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/deploy-pages@v4
+      - name: Deploy to GitHub Pages
+        uses: actions/deploy-pages@v4
