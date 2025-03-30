@@ -1,36 +1,24 @@
 ﻿name: Jekyll Deploy
 on: [push]
-
+permissions:
+  pages: write
+  id-token: write
 jobs:
-  pages:
+  build:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
-      pages: write
-      id-token: write
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-pages@v4
       - uses: ruby/setup-ruby@v1
         with:
-          ruby-version: '3.1'
+          ruby-version: "3.1"
           bundler-cache: true
       - run: echo "FIREBASE_API_KEY=${{ secrets.FIREBASE_API_KEY }}" >> $GITHUB_ENV
-      - run: bundle exec jekyll build --destination ./_site
+      - run: bundle exec jekyll build
       - uses: actions/upload-pages-artifact@v3
         with:
           path: ./_site
-    outputs:
-      artifact_name: ${{ steps.upload.outputs.artifact_name }}
-
   deploy:
-    needs: pages
-    permissions:
-      pages: write
-      id-token: write
+    needs: build
     runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - uses: actions/deploy-pages@v4
