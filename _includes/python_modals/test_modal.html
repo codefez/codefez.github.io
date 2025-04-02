@@ -1,0 +1,143 @@
+<!-- Button to open modal -->
+<!-- <button class="btn btn-primary" onclick="python_editor_modal.showModal()">Open Python Editor</button> -->
+
+<!-- DaisyUI Modal -->
+<dialog id="test_modal" class="modal">
+  <div class="modal-box max-w-5xl h-[90vh]">
+    <form method="dialog">
+      <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
+    </form>
+    <h3 class="font-bold text-lg mb-4">Python Code Editor</h3>
+    
+    <!-- Editor Container -->
+    <div class="python-editor">
+      <textarea id="python-code">
+def greet(name):
+    return f"Hello, {name}!"
+
+print(greet("World"))
+      </textarea>
+      <button id="run-button" class="btn btn-primary mt-4" disabled>
+        <span class="loading loading-spinner loading-xs" id="run-spinner"></span>
+        <span id="run-text">Run Python (Loading...)</span>
+      </button>
+      <div class="output-container mt-4">
+        <h4 class="font-bold">Output:</h4>
+        <pre id="python-output" class="bg-base-200 p-4 rounded-lg">Initializing Python environment...</pre>
+      </div>
+    </div>
+    
+    <div class="modal-action">
+      <button class="btn">Close</button>
+    </div>
+  </div>
+  
+  <!-- Click outside to close -->
+  <form method="dialog" class="modal-backdrop">
+    <button>close</button>
+  </form>
+</dialog>
+
+<!-- Styles for the editor -->
+<style>
+.python-editor {
+  height: calc(100% - 100px);
+}
+.python-editor .CodeMirror {
+  height: 100% !important;
+  border: 1px solid hsl(var(--bc) / 0.2);
+  border-radius: var(--rounded-box);
+}
+#python-output {
+  min-height: 100px;
+  max-height: 200px;
+  overflow-y: auto;
+  white-space: pre-wrap;
+}
+</style>
+
+<script>
+// Initialize editor when modal opens
+document.getElementById('python_editor_modal').addEventListener('show', function() {
+  if (!window.editor) {
+    window.editor = CodeMirror.fromTextArea(document.getElementById("python-code"), {
+      mode: "python",
+      theme: "default",
+      lineNumbers: true,
+      indentUnit: 4,
+      extraKeys: {
+        "Ctrl-Space": "autocomplete",
+        "Tab": function(cm) {
+          if (CodeMirror.hint && CodeMirror.hint.python) {
+            CodeMirror.hint.python(cm);
+          } else {
+            cm.execCommand("insertTab");
+          }
+        }
+      }
+    });
+    
+    // Initialize Pyodide
+    initializePyodide();
+  }
+});
+
+// Pyodide initialization
+let pyodide;
+let isPyodideReady = false;
+
+async function initializePyodide() {
+  try {
+    const outputElement = document.getElementById("python-output");
+    const runButton = document.getElementById("run-button");
+    const runText = document.getElementById("run-text");
+    const runSpinner = document.getElementById("run-spinner");
+    
+    outputElement.textContent = "Loading Pyodide... (this may take a moment)";
+    
+    pyodide = await loadPyodide({
+      indexURL: "https://cdn.jsdelivr.net/pyodide/v0.23.4/full/"
+    });
+    
+    outputElement.textContent = "Loading standard library...";
+    await pyodide.loadPackage("micropip");
+    
+    pyodide.setStdout({batched: (text) => {
+      outputElement.textContent += text;
+    }});
+    
+    isPyodideReady = true;
+    runButton.disabled = false;
+    runText.textContent = "Run Python";
+    runSpinner.classList.add('hidden');
+    outputElement.textContent = "Ready to execute Python code!";
+  } catch (err) {
+    document.getElementById("python-output").textContent = `Initialization failed: ${err}`;
+  }
+}
+
+// Run Python code
+async function runPythonCode() {
+  if (!isPyodideReady) return;
+  
+  const outputElement = document.getElementById("python-output");
+  const runButton = document.getElementById("run-button");
+  const runSpinner = document.getElementById("run-spinner");
+  
+  runButton.disabled = true;
+  runSpinner.classList.remove('hidden');
+  outputElement.textContent = "Executing...\n";
+  
+  try {
+    await pyodide.runPythonAsync(editor.getValue());
+  } catch (err) {
+    outputElement.textContent = `Error: ${err}`;
+  } finally {
+    runButton.disabled = false;
+    runSpinner.classList.add('hidden');
+  }
+}
+
+// Set up event listeners
+document.getElementById('run-button').addEventListener('click', runPythonCode);
+</script>

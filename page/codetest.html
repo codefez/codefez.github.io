@@ -1,21 +1,170 @@
 ---
-layout: code-layout
+layout: default
 ---
 
-<h1 class="text-center text-xl"> Code test </h1>
-<br>
+<div class="python-editor">
+  <h3>Python Editor</h3>
+  <textarea id="python-code" rows="10" cols="80">
+def greet(name):
+    return f"Hello, {name}!"
 
-<div class="f-container">
-<div class="mockup-window bg-base-300 border">
-    <div class="bg-base-200 px-4 py-2">
-        <pre>
-<code>name = "Ringo"
-msg = f"Hello, {name}!"
-print(msg)</code>
-        </pre>
-    </div>
+print(greet("World"))
+  </textarea>
+  <button id="run-button" class="btn btn-primary" disabled>Run Python (Loading...)</button>
+  <div class="output-container">
+    <h4>Output:</h4>
+    <pre id="python-output">Initializing Python environment...</pre>
+  </div>
 </div>
-</div>
-<div class="f-container">
-    <codapi-snippet engine="wasi" sandbox="python" editor="basic" init-delay="500"></codapi-snippet>
-</div>
+
+<!-- Load resources -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/codemirror.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/addon/hint/show-hint.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/codemirror.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/mode/python/python.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/addon/hint/show-hint.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/addon/hint/anyword-hint.min.js"></script>
+<script src="https://cdn.jsdelivr.net/pyodide/v0.23.4/full/pyodide.js"></script>
+
+<script>
+// Initialize editor first
+var editor = CodeMirror.fromTextArea(document.getElementById("python-code"), {
+  mode: "python",
+  lineNumbers: true,
+  indentUnit: 4,
+  theme: "default",
+  extraKeys: {
+    "Ctrl-Space": function(cm) {
+      // Use the anyword-hint for basic completion
+      CodeMirror.commands.autocomplete(cm);
+    },
+    "Tab": function(cm) {
+      // Try autocomplete first, then fall back to tab
+      if (!CodeMirror.commands.autocomplete(cm)) {
+        cm.execCommand("insertTab");
+      }
+    }
+  }
+});
+
+// Add Python-specific completions
+const pythonCompletions = [
+  // Keywords
+  "False", "None", "True", "and", "as", "assert", "async", "await",
+  "break", "class", "continue", "def", "del", "elif", "else", "except",
+  "finally", "for", "from", "global", "if", "import", "in", "is",
+  "lambda", "nonlocal", "not", "or", "pass", "raise", "return",
+  "try", "while", "with", "yield",
+  
+  // Built-ins
+  "abs()", "all()", "any()", "ascii()", "bin()", "bool()", "breakpoint()",
+  "bytearray()", "bytes()", "callable()", "chr()", "classmethod()",
+  "compile()", "complex()", "delattr()", "dict()", "dir()", "divmod()",
+  "enumerate()", "eval()", "exec()", "filter()", "float()", "format()",
+  "frozenset()", "getattr()", "globals()", "hasattr()", "hash()",
+  "help()", "hex()", "id()", "input()", "int()", "isinstance()",
+  "issubclass()", "iter()", "len()", "list()", "locals()", "map()",
+  "max()", "memoryview()", "min()", "next()", "object()", "oct()",
+  "open()", "ord()", "pow()", "print()", "property()", "range()",
+  "repr()", "reversed()", "round()", "set()", "setattr()", "slice()",
+  "sorted()", "staticmethod()", "str()", "sum()", "super()", "tuple()",
+  "type()", "vars()", "zip()", "__import__()"
+];
+
+// Add completions to editor
+editor.setOption("hintOptions", {
+  completeSingle: false,
+  words: pythonCompletions
+});
+
+// Pyodide initialization (same as before)
+let pyodide;
+let isPyodideReady = false;
+
+async function initializePyodide() {
+  try {
+    const outputElement = document.getElementById("python-output");
+    outputElement.textContent = "Loading Pyodide... (this may take a moment)";
+    
+    pyodide = await loadPyodide({
+      indexURL: "https://cdn.jsdelivr.net/pyodide/v0.23.4/full/"
+    });
+    
+    outputElement.textContent = "Loading standard library...";
+    await pyodide.loadPackage("micropip");
+    
+    pyodide.setStdout({batched: (text) => {
+      document.getElementById("python-output").textContent += text;
+    }});
+    
+    isPyodideReady = true;
+    document.getElementById("run-button").disabled = false;
+    document.getElementById("run-button").textContent = "Run Python";
+    outputElement.textContent = "Ready to execute Python code!";
+  } catch (err) {
+    document.getElementById("python-output").textContent = `Initialization failed: ${err}`;
+  }
+}
+
+// Run Python code
+async function runPythonCode() {
+  if (!isPyodideReady) return;
+  
+  const outputElement = document.getElementById("python-output");
+  outputElement.textContent = "";
+  
+  try {
+    await pyodide.runPythonAsync(editor.getValue());
+  } catch (err) {
+    outputElement.textContent = `Error: ${err}`;
+  }
+}
+
+// Initialize everything
+initializePyodide();
+document.getElementById("run-button").addEventListener("click", runPythonCode);
+</script>
+
+<style>
+.python-editor {
+  margin: 20px 0;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background: #f8f8f8;
+}
+.output-container {
+  margin-top: 15px;
+}
+#python-output {
+  background: #fff;
+  border: 1px solid #ddd;
+  padding: 10px;
+  min-height: 50px;
+  white-space: pre-wrap;
+}
+/* .btn-primary {
+  padding: 8px 15px;
+  background: #0366d6;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.btn-primary:hover {
+  background: #005cc5;
+}
+.btn-primary:disabled {
+  background: #cccccc;
+  cursor: not-allowed; 
+}*/
+.CodeMirror {
+  border: 1px solid #ddd;
+  margin-bottom: 10px;
+  height: auto;
+}
+.CodeMirror-hints {
+  z-index: 1000;
+  font-family: monospace;
+}
+</style>
