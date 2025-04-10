@@ -185,15 +185,5 @@ layout: default
 </div>
 
 <script>
-  // Update page load count
-  function updateTheoryWS_LoadCount() {
-    const countRef = db.ref("page_loads/theory_worksheets");
-
-    countRef.once("value").then(snapshot => {
-      let currentCount = snapshot.val() || 0; // Get current count
-      countRef.set(currentCount + 1); // Increment by 1
-    }).catch(error => console.error("Error:", error));
-  }
-  document.addEventListener("DOMContentLoaded", updateTheoryWS_LoadCount);
-
+  handleCounter('page_loads/theory_worksheets', 'increment', 'page_loads_theory_worksheets_count');
 </script>

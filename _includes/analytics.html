@@ -44,98 +44,98 @@
     }
   }
 
-      // Auto-initialize all counters
-    document.addEventListener("DOMContentLoaded", () => {
-    // Map of all your counters: [path, elementId]
-    const counters = [
-      // J277 Theory Worksheets
-      // 1.1 Systems Architecture
-      ["j277_theory/1_1_systems_architecture/systems_worksheet_1", "1_1_systems_sheet1_download_count"],
-      ["j277_theory/1_1_systems_architecture/systems_worksheet_1_ans", "1_1_systems_sheet1Ans_download_count"],
-      ["j277_theory/1_1_systems_architecture/systems_worksheet_2", "1_1_systems_sheet2_download_count"],
-      ["j277_theory/1_1_systems_architecture/systems_worksheet_2_ans", "1_1_systems_sheet2Ans_download_count"],
-      ["j277_theory/1_1_systems_architecture/systems_worksheet_3", "1_1_systems_sheet3_download_count"],
-      ["j277_theory/1_1_systems_architecture/systems_worksheet_3_ans", "1_1_systems_sheet3Ans_download_count"],
-      
-      // 1.2 Data Representation
-      ["j277_theory/1_2_data_representation/data_worksheet_1", "1_2_data_sheet1_download_count"],
-      ["j277_theory/1_2_data_representation/data_worksheet_1_ans", "1_2_data_sheet1Ans_download_count"],
-      ["j277_theory/1_2_data_representation/data_worksheet_2", "1_2_data_sheet2_download_count"],
-      ["j277_theory/1_2_data_representation/data_worksheet_2_ans", "1_2_data_sheet2Ans_download_count"],
-      ["j277_theory/1_2_data_representation/data_worksheet_3", "1_2_data_sheet3_download_count"],
-      ["j277_theory/1_2_data_representation/data_worksheet_3_ans", "1_2_data_sheet3Ans_download_count"],
-      
-      // 1.3 Networks
-      ["j277_theory/1_3_networks/networks_worksheet_1", "1_3_networks_sheet1_download_count"],
-      ["j277_theory/1_3_networks/networks_worksheet_1_ans", "1_3_networks_sheet1Ans_download_count"],
-      ["j277_theory/1_3_networks/networks_worksheets_1", "1_3_networks_worksheets1_download_count"],
-      
-      // 1.4 Security
-      ["j277_theory/1_4_security/security_worksheet_1", "1_4_security_sheet1_download_count"],
-      ["j277_theory/1_4_security/security_worksheet_1_ans", "1_4_security_sheet1Ans_download_count"],
-      
-      // 2.2 Programming Fundamentals
-      ["j277_theory/2_2_programming_fundamentals/sql_worksheet_1", "2_2_sql_sheet1_download_count"],
-      ["j277_theory/2_2_programming_fundamentals/sql_worksheet_1_ans", "2_2_sql_sheet1Ans_download_count"],
-      
-      // 2.4 Boolean Logic
-      ["j277_theory/2_4_boolean_logic/logic_worksheet_1", "2_4_logic_sheet1_download_count"],
-      ["j277_theory/2_4_boolean_logic/logic_worksheet_1_ans", "2_4_logic_sheet1Ans_download_count"],
-      ["j277_theory/2_4_boolean_logic/logic_worksheet_2", "2_4_logic_sheet2_download_count"],
-      ["j277_theory/2_4_boolean_logic/logic_worksheet_2_ans", "2_4_logic_sheet2Ans_download_count"],
-      ["j277_theory/2_4_boolean_logic/logic_worksheet_3", "2_4_logic_sheet3_download_count"],
-      ["j277_theory/2_4_boolean_logic/logic_worksheet_3_ans", "2_4_logic_sheet3Ans_download_count"],
-      ["j277_theory/2_4_boolean_logic/logic_worksheet_4", "2_4_logic_sheet4_download_count"],
-      ["j277_theory/2_4_boolean_logic/logic_worksheet_4_ans", "2_4_logic_sheet4Ans_download_count"],
-      
-      // Posters
-      ["posters/for_loops", "posters_for_loops_download_count"],
-      ["posters/functions", "posters_functions_download_count"],
-      ["posters/if_else", "posters_if_else_download_count"],
-      ["posters/lists", "posters_lists_download_count"],
-      ["posters/operators", "posters_operators_download_count"],
-      ["posters/strings", "posters_strings_download_count"],
-      ["posters/variables", "posters_variables_download_count"],
-      ["posters/while_loops", "posters_while_loops_download_count"],
-      
-      // Python Worksheets
-      ["py_worksheets/for_loops1", "py_for_loops1_download_count"],
-      ["py_worksheets/for_loops2", "py_for_loops2_download_count"],
-      ["py_worksheets/for_loops3", "py_for_loops3_download_count"],
-      ["py_worksheets/functions1", "py_functions1_download_count"],
-      ["py_worksheets/functions2", "py_functions2_download_count"],
-      ["py_worksheets/iter_and_lists", "py_iter_and_lists_download_count"],
-      ["py_worksheets/pbwfs", "py_pbwfs_download_count"],
-      ["py_worksheets/pbwfs_ans", "py_pbwfs_ans_download_count"],
-      ["py_worksheets/while_loops1", "py_while_loops1_download_count"],
-      
-      // Page Loads
-      ["page_loads/home", "page_loads_home_count"],
-      ["page_loads/ks3_home", "page_loads_ks3_home_count"],
-      ["page_loads/ks4_home", "page_loads_ks4_home_count"],
-      ["page_loads/ks5_home", "page_loads_ks5_home_count"],
-      ["page_loads/leanpub", "page_loads_leanpub_count"],
-      ["page_loads/oneShotGuessle", "page_loads_oneShotGuessle_count"],
-      ["page_loads/posters", "page_loads_posters_count"],
-      ["page_loads/py60SecYT", "page_loads_py60SecYT_count"],
-      ["page_loads/py_cheatsheet", "page_loads_py_cheatsheet_count"],
-      ["page_loads/py_roadmap", "page_loads_py_roadmap_count"],
-      ["page_loads/py_worksheets", "page_loads_py_worksheets_count"],
-      ["page_loads/pybwfs", "page_loads_pybwfs_count"],
-      ["page_loads/theory_worksheets", "page_loads_theory_worksheets_count"],
-      ["page_loads/unique_ip", "page_loads_unique_ip_count"]
-    ];
+  // Auto-initialize all counters
+  document.addEventListener("DOMContentLoaded", () => {
+  // Map of all your counters: [path, elementId]
+  const counters = [
+    // J277 Theory Worksheets
+    // 1.1 Systems Architecture
+    ["j277_theory/1_1_systems_architecture/systems_worksheet_1", "1_1_systems_sheet1_download_count"],
+    ["j277_theory/1_1_systems_architecture/systems_worksheet_1_ans", "1_1_systems_sheet1Ans_download_count"],
+    ["j277_theory/1_1_systems_architecture/systems_worksheet_2", "1_1_systems_sheet2_download_count"],
+    ["j277_theory/1_1_systems_architecture/systems_worksheet_2_ans", "1_1_systems_sheet2Ans_download_count"],
+    ["j277_theory/1_1_systems_architecture/systems_worksheet_3", "1_1_systems_sheet3_download_count"],
+    ["j277_theory/1_1_systems_architecture/systems_worksheet_3_ans", "1_1_systems_sheet3Ans_download_count"],
+    
+    // 1.2 Data Representation
+    ["j277_theory/1_2_data_representation/data_worksheet_1", "1_2_data_sheet1_download_count"],
+    ["j277_theory/1_2_data_representation/data_worksheet_1_ans", "1_2_data_sheet1Ans_download_count"],
+    ["j277_theory/1_2_data_representation/data_worksheet_2", "1_2_data_sheet2_download_count"],
+    ["j277_theory/1_2_data_representation/data_worksheet_2_ans", "1_2_data_sheet2Ans_download_count"],
+    ["j277_theory/1_2_data_representation/data_worksheet_3", "1_2_data_sheet3_download_count"],
+    ["j277_theory/1_2_data_representation/data_worksheet_3_ans", "1_2_data_sheet3Ans_download_count"],
+    
+    // 1.3 Networks
+    ["j277_theory/1_3_networks/networks_worksheet_1", "1_3_networks_sheet1_download_count"],
+    ["j277_theory/1_3_networks/networks_worksheet_1_ans", "1_3_networks_sheet1Ans_download_count"],
+    ["j277_theory/1_3_networks/networks_worksheets_1", "1_3_networks_worksheets1_download_count"],
+    
+    // 1.4 Security
+    ["j277_theory/1_4_security/security_worksheet_1", "1_4_security_sheet1_download_count"],
+    ["j277_theory/1_4_security/security_worksheet_1_ans", "1_4_security_sheet1Ans_download_count"],
+    
+    // 2.2 Programming Fundamentals
+    ["j277_theory/2_2_programming_fundamentals/sql_worksheet_1", "2_2_sql_sheet1_download_count"],
+    ["j277_theory/2_2_programming_fundamentals/sql_worksheet_1_ans", "2_2_sql_sheet1Ans_download_count"],
+    
+    // 2.4 Boolean Logic
+    ["j277_theory/2_4_boolean_logic/logic_worksheet_1", "2_4_logic_sheet1_download_count"],
+    ["j277_theory/2_4_boolean_logic/logic_worksheet_1_ans", "2_4_logic_sheet1Ans_download_count"],
+    ["j277_theory/2_4_boolean_logic/logic_worksheet_2", "2_4_logic_sheet2_download_count"],
+    ["j277_theory/2_4_boolean_logic/logic_worksheet_2_ans", "2_4_logic_sheet2Ans_download_count"],
+    ["j277_theory/2_4_boolean_logic/logic_worksheet_3", "2_4_logic_sheet3_download_count"],
+    ["j277_theory/2_4_boolean_logic/logic_worksheet_3_ans", "2_4_logic_sheet3Ans_download_count"],
+    ["j277_theory/2_4_boolean_logic/logic_worksheet_4", "2_4_logic_sheet4_download_count"],
+    ["j277_theory/2_4_boolean_logic/logic_worksheet_4_ans", "2_4_logic_sheet4Ans_download_count"],
+    
+    // Posters
+    ["posters/for_loops", "posters_for_loops_download_count"],
+    ["posters/functions", "posters_functions_download_count"],
+    ["posters/if_else", "posters_if_else_download_count"],
+    ["posters/lists", "posters_lists_download_count"],
+    ["posters/operators", "posters_operators_download_count"],
+    ["posters/strings", "posters_strings_download_count"],
+    ["posters/variables", "posters_variables_download_count"],
+    ["posters/while_loops", "posters_while_loops_download_count"],
+    
+    // Python Worksheets
+    ["py_worksheets/for_loops1", "py_for_loops1_download_count"],
+    ["py_worksheets/for_loops2", "py_for_loops2_download_count"],
+    ["py_worksheets/for_loops3", "py_for_loops3_download_count"],
+    ["py_worksheets/functions1", "py_functions1_download_count"],
+    ["py_worksheets/functions2", "py_functions2_download_count"],
+    ["py_worksheets/iter_and_lists", "py_iter_and_lists_download_count"],
+    ["py_worksheets/pbwfs", "py_pbwfs_download_count"],
+    ["py_worksheets/pbwfs_ans", "py_pbwfs_ans_download_count"],
+    ["py_worksheets/while_loops1", "py_while_loops1_download_count"],
+    
+    // Page Loads
+    ["page_loads/home", "page_loads_home_count"],
+    ["page_loads/ks3_home", "page_loads_ks3_home_count"],
+    ["page_loads/ks4_home", "page_loads_ks4_home_count"],
+    ["page_loads/ks5_home", "page_loads_ks5_home_count"],
+    ["page_loads/leanpub", "page_loads_leanpub_count"],
+    ["page_loads/oneShotGuessle", "page_loads_oneShotGuessle_count"],
+    ["page_loads/posters", "page_loads_posters_count"],
+    ["page_loads/py60SecYT", "page_loads_py60SecYT_count"],
+    ["page_loads/py_cheatsheet", "page_loads_py_cheatsheet_count"],
+    ["page_loads/py_roadmap", "page_loads_py_roadmap_count"],
+    ["page_loads/py_worksheets", "page_loads_py_worksheets_count"],
+    ["page_loads/pybwfs", "page_loads_pybwfs_count"],
+    ["page_loads/theory_worksheets", "page_loads_theory_worksheets_count"],
+    ["page_loads/unique_ip", "page_loads_unique_ip_count"]
+  ];
 
-    // Initialize all counters
-    counters.forEach(([path, elementId]) => {
-      handleCounter(path, 'get', elementId);
-      
-      // Auto-bind click events if elements exist
-      const button = document.querySelector(`[data-counter="${path}"]`);
-      if (button) {
-        button.addEventListener('click', () => {
-          handleCounter(path, 'increment', elementId);
-        });
-      }
-    });});
+  // Initialize all counters
+  counters.forEach(([path, elementId]) => {
+    handleCounter(path, 'get', elementId);
+    
+    // Auto-bind click events if elements exist
+    const button = document.querySelector(`[data-counter="${path}"]`);
+    if (button) {
+      button.addEventListener('click', () => {
+        handleCounter(path, 'increment', elementId);
+      });
+    }
+  });});
   </script>
