@@ -27,23 +27,24 @@
   // Universal counter handler
   async function handleCounter(path, action, elementId = null) {
   try {
-    const result = await functions.httpsCallable('handleCounter')({
+    const { data: count } = await functions.httpsCallable('handleCounter')({
       path,
       action
     });
     
-    if (elementId && result.data !== undefined) {
+    if (elementId) {
       const element = document.getElementById(elementId);
       if (element) {
-        // Directly use the number (no longer an object)
-        element.innerText = `(${result.data})`; 
+        // Now 'count' is guaranteed to be a number
+        element.innerText = `(${count})`; 
       }
     }
-    return result.data;
+    return count;
   } catch (error) {
     console.error(`Counter error (${path}):`, error);
     const element = elementId && document.getElementById(elementId);
     if (element) element.innerText = '(error)';
+    throw error; // Re-throw if you need to handle errors upstream
   }
 }
 
