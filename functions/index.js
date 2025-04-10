@@ -9,7 +9,7 @@ exports.handleCounter = functions
     // Validate request
     if (!data.path || !data.action) {
       throw new functions.https.HttpsError(
-        'invalid-argument',
+        'invalid-argument', 
         'Missing parameters'
       );
     }
@@ -17,11 +17,11 @@ exports.handleCounter = functions
     const ref = admin.database().ref(`downloads/${data.path}`);
     
     if (data.action === "increment") {
-      await ref.transaction((current) => (current || 0) + 1);
-      return { success: true };
+      const result = await ref.transaction(current => (current || 0) + 1);
+      return result.snapshot.val(); // Return just the number
     } else if (data.action === "get") {
       const snapshot = await ref.once("value");
-      return { value: snapshot.val() || 0 };
+      return snapshot.val() || 0; // Return just the number
     } else {
       throw new functions.https.HttpsError(
         'invalid-argument',

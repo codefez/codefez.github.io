@@ -26,28 +26,26 @@
 
   // Universal counter handler
   async function handleCounter(path, action, elementId = null) {
-    try {
-      const result = await functions.httpsCallable('handleCounter')({
-        path,
-        action
-      });
-      
-      // Safely update counter display if element exists
-      if (elementId) {
-        const element = document.getElementById(elementId);
-        if (element) {
-          element.innerText = `(${result.data})`;
-        } else {
-          console.log(`Counter element ${elementId} not found - silent skip`);
-        }
+  try {
+    const result = await functions.httpsCallable('handleCounter')({
+      path,
+      action
+    });
+    
+    if (elementId && result.data !== undefined) {
+      const element = document.getElementById(elementId);
+      if (element) {
+        // Directly use the number (no longer an object)
+        element.innerText = `(${result.data})`; 
       }
-      return result.data;
-    } catch (error) {
-      console.error(`Counter error (${path}):`, error);
-      const element = elementId && document.getElementById(elementId);
-      if (element) element.innerText = '(error)';
     }
+    return result.data;
+  } catch (error) {
+    console.error(`Counter error (${path}):`, error);
+    const element = elementId && document.getElementById(elementId);
+    if (element) element.innerText = '(error)';
   }
+}
 
 
   function incrementCounter(path, elementId) {
