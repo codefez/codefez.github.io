@@ -44,6 +44,11 @@
     }
   }
 
+  
+  function incrementCounter(path, elementId) {
+    handleCounter(path, 'increment', elementId);
+  }
+
   // Auto-initialize all counters
   document.addEventListener("DOMContentLoaded", () => {
   // Map of all your counters: [path, elementId]
