@@ -4,6 +4,7 @@
 
 <script src="https://www.gstatic.com/firebasejs/9.15.0/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/9.15.0/firebase-database-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.15.0/firebase-functions-compat.js"></script>
 
 <script>
   // 🔥 Firebase Configuration
@@ -21,7 +22,7 @@
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
   const db = firebase.database();
-  const functions = firebase.functions();
+  const functions = firebase.app().functions('europe-west1'); // Specify region
 
   // Universal counter handler
   async function handleCounter(path, action, elementId = null) {
