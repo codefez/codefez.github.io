@@ -6,13 +6,15 @@
         <tr>
           <th>
             <div class="card-actions justify-end">
-              <a href="/files/codefez - sql worksheet 1.pdf" target="_blank" class="btn btn-primary" onclick="increase_2_2_sql_sheet1_count()">
+              <a href="/files/codefez - sql worksheet 1.pdf" target="_blank" class="btn btn-primary" 
+                onclick="incrementCounter('j277_theory/2_2_programming_fundamentals/sql_worksheet_1', '2_2_sql_sheet1_download_count')">
                 SQL worksheet 1 <span id="2_2_sql_sheet1_download_count">(0)</span>
               </a>
             </div>
           </th>
           <td>
-            <a href="/files/codefez - sql worksheet 1 Ans.pdf" target="_blank" class="btn btn-accent" onclick="increase_2_2_sql_sheet1Ans_count()">
+            <a href="/files/codefez - sql worksheet 1 Ans.pdf" target="_blank" class="btn btn-accent" 
+              onclick="incrementCounter('j277_theory/2_2_programming_fundamentals/sql_worksheet_1_ans', '2_2_sql_sheet1Ans_download_count')">
               SQL worksheet 1 Ans <span id="2_2_sql_sheet1Ans_download_count">(0)</span>
             </a>
           </td>
@@ -22,45 +24,3 @@
     </table>
   </div>
 
-<script>
-    // 2.2 sql worksheet 1 and answers
-  function increase_2_2_sql_sheet1_count() {
-    const countRef = db.ref("/downloads/j277_theory/2_2_programming_fundamentals/sql_worksheet_1");
-
-    countRef.once("value").then(snapshot => {
-      let currentCount = snapshot.val() || 0; // Get current count
-      countRef.set(currentCount + 1); // Increment by 1
-      document.getElementById("2_2_sql_sheet1_download_count").innerText = `(${currentCount + 1})`; // Update UI
-    }).catch(error => console.error("Error:", error));
-  }
-
-  function load_2_2_sql_sheet1_Count() {
-    const countRef = db.ref("/downloads/j277_theory/2_2_programming_fundamentals/sql_worksheet_1");
-
-    countRef.once("value").then(snapshot => {
-      let currentCount = snapshot.val() || 0;
-      document.getElementById("2_2_sql_sheet1_download_count").innerText = `(${currentCount})`;
-    }).catch(error => console.error("Error:", error));
-  }
-  document.addEventListener("DOMContentLoaded", load_2_2_sql_sheet1_Count);
-
-  function increase_2_2_sql_sheet1Ans_count() {
-    const countRef = db.ref("/downloads/j277_theory/2_2_programming_fundamentals/sql_worksheet_1_ans");
-
-    countRef.once("value").then(snapshot => {
-      let currentCount = snapshot.val() || 0; // Get current count
-      countRef.set(currentCount + 1); // Increment by 1
-      document.getElementById("2_2_sql_sheet1Ans_download_count").innerText = `(${currentCount + 1})`; // Update UI
-    }).catch(error => console.error("Error:", error));
-  }
-
-  function load_2_2_sql_sheet1Ans_Count() {
-    const countRef = db.ref("/downloads/j277_theory/2_2_programming_fundamentals/sql_worksheet_1_ans");
-
-    countRef.once("value").then(snapshot => {
-      let currentCount = snapshot.val() || 0;
-      document.getElementById("2_2_sql_sheet1Ans_download_count").innerText = `(${currentCount})`;
-    }).catch(error => console.error("Error:", error));
-  }
-  document.addEventListener("DOMContentLoaded", load_2_2_sql_sheet1Ans_Count);
-</script>
