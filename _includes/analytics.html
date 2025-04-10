@@ -26,28 +26,23 @@
 
   // Universal counter handler
   async function handleCounter(path, action, elementId = null) {
-  try {
-    const { data: count } = await functions.httpsCallable('handleCounter')({
-      path,
-      action
-    });
-    
-    if (elementId) {
-      const element = document.getElementById(elementId);
-      if (element) {
-        // Now 'count' is guaranteed to be a number
-        element.innerText = `(${count})`; 
+    try {
+      const counterFunction = firebase.functions().httpsCallable('handleCounter');
+      const result = await counterFunction({ path, action });
+      
+      if (elementId) {
+        const element = document.getElementById(elementId);
+        if (element) {
+          element.innerText = `(${result.data})`;
+        }
       }
+      return result.data;
+    } catch (error) {
+      console.error(`Counter error (${path}):`, error);
+      const element = elementId && document.getElementById(elementId);
+      if (element) element.innerText = '(error)';
     }
-    return count;
-  } catch (error) {
-    console.error(`Counter error (${path}):`, error);
-    const element = elementId && document.getElementById(elementId);
-    if (element) element.innerText = '(error)';
-    throw error; // Re-throw if you need to handle errors upstream
   }
-}
-
 
   function incrementCounter(path, elementId) {
     handleCounter(path, 'increment', elementId);
