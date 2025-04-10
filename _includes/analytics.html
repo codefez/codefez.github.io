@@ -32,19 +32,24 @@
         action
       });
       
-      if (elementId && result.data !== undefined) {
-        document.getElementById(elementId).innerText = `(${result.data})`;
+      // Safely update counter display if element exists
+      if (elementId) {
+        const element = document.getElementById(elementId);
+        if (element) {
+          element.innerText = `(${result.data})`;
+        } else {
+          console.log(`Counter element ${elementId} not found - silent skip`);
+        }
       }
       return result.data;
     } catch (error) {
       console.error(`Counter error (${path}):`, error);
-      if (elementId) {
-        document.getElementById(elementId).innerText = '(error)';
-      }
+      const element = elementId && document.getElementById(elementId);
+      if (element) element.innerText = '(error)';
     }
   }
 
-  
+
   function incrementCounter(path, elementId) {
     handleCounter(path, 'increment', elementId);
   }
