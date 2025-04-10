@@ -4,6 +4,11 @@ admin.initializeApp();
 
 // Universal counter handler
 exports.handleCounter = functions.https.onCall(async (data, context) => {
+  // Set CORS headers for the preflight request
+  functions.https.setHeader('Access-Control-Allow-Origin', 'https://codefez.github.io');
+  functions.https.setHeader('Access-Control-Allow-Methods', 'GET,POST');
+  functions.https.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+
   // Validate request
   if (!data.path || !data.action) {
     throw new functions.https.HttpsError(
