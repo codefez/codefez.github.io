@@ -185,5 +185,11 @@ layout: default
 </div>
 
 <script>
+  document.addEventListener("DOMContentLoaded", () => {
+  // ... your existing counters initialization code ...
+
+  // Add this line to increment page loads (for theory worksheets page)
   handleCounter('page_loads/theory_worksheets', 'increment', 'page_loads_theory_worksheets_count');
+  });
+  
 </script>

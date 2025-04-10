@@ -235,5 +235,11 @@ layout: brython
 
 {% include python_modals.html  %}
 <script>
+    document.addEventListener("DOMContentLoaded", () => {
+  // ... your existing counters initialization code ...
+
+  // Add this line to increment page loads (for theory worksheets page)
   handleCounter('page_loads/py_cheatsheet', 'increment', 'page_loads_py_cheatsheet_count');
+
+  });
 </script>
