@@ -9,6 +9,17 @@ admin.initializeApp({
 exports.handleCounter = functions
   .region('europe-west1')
   .https.onCall(async (data, context) => {
+        // Set CORS headers
+        const corsHeaders = {
+          'Access-Control-Allow-Origin': 'https://codefez.github.io',
+          'Access-Control-Allow-Methods': 'POST',
+          'Access-Control-Allow-Headers': 'Content-Type'
+        };
+        
+        if (context.rawRequest.method === 'OPTIONS') {
+          return { headers: corsHeaders, statusCode: 204 };
+        }
+        // Handle the actual request
     try {
       if (!data?.path || !data?.action) {
         throw new functions.https.HttpsError('invalid-argument', 'Missing parameters');
