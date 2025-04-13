@@ -22,27 +22,29 @@
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
   const db = firebase.database();
-  const functions = firebase.app().functions('europe-west1'); // Specify region
+  const functions = firebase.app().functions('europe-west1'); // Explicit region
 
-  // Universal counter handler
   async function handleCounter(path, action, elementId = null) {
-    try {
-      const counterFunction = firebase.functions().httpsCallable('handleCounter');
-      const result = await counterFunction({ path, action });
-      
-      if (elementId) {
-        const element = document.getElementById(elementId);
-        if (element) {
-          element.innerText = `(${result.data})`;
-        }
-      }
-      return result.data;
-    } catch (error) {
-      console.error(`Counter error (${path}):`, error);
-      const element = elementId && document.getElementById(elementId);
-      if (element) element.innerText = '(error)';
+  try {
+    const response = await firebase.functions()
+      .region('europe-west1')
+      .httpsCallable('handleCounter')({ path, action });
+    
+    // Extract the count from response.data (not response.result.data)
+    const count = response.data;
+    
+    if (elementId) {
+      const element = document.getElementById(elementId);
+      if (element) element.innerText = `(${count})`;
     }
+    return count;
+  } catch (error) {
+    console.error(`Counter error (${path}):`, error);
+    const element = elementId && document.getElementById(elementId);
+    if (element) element.innerText = '(error)';
+    return null;
   }
+}
 
   function incrementCounter(path, elementId) {
     handleCounter(path, 'increment', elementId);
