@@ -235,10 +235,10 @@ layout: brython
 </div>
 
 {% include python_modals.html  %}
-<script>
-{% if jekyll.environment == 'production' %}
+  <script>
+  {% if jekyll.environment == 'production' %}
     document.addEventListener("DOMContentLoaded", () => {
-        handleCounter('page_loads/py_cheatsheet', 'increment', 'page_loads_py_cheatsheet_count');
+      handleCounter('page_loads/py_cheatsheet', 'increment', 'page_loads_py_cheatsheet_count');
     });
-{% endif %}
-</script>
+  {% endif %}
+  </script>
