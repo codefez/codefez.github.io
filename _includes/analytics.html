@@ -28,21 +28,26 @@
   
   // Universal counter handler - ADD window.
   window.handleCounter = async function(path, action, elementId = null) {
-    try {
-      const counterFunction = fb.httpsCallable(fb.functions, 'handleCounter');
-      const result = await counterFunction({ path, action });
-      
-      if (elementId) {
-        const element = document.getElementById(elementId);
-        if (element) element.innerText = `(${result.data})`;
+  try {
+    const counterFunction = fb.httpsCallable(fb.functions, 'handleCounter');
+    const result = await counterFunction({ path, action });
+    
+    if (elementId) {
+      const element = document.getElementById(elementId);
+      if (element) {
+        // Ensure we're displaying just the number (result.data might be {data: number})
+        const count = result.data?.data || result.data || 0;
+        element.innerText = `(${count})`;
       }
-      return result.data;
-    } catch (error) {
-      console.error(`Counter error (${path}):`, error);
-      const element = elementId && document.getElementById(elementId);
-      if (element) element.innerText = '(error)';
     }
-  };
+    return result.data?.data || result.data;
+  } catch (error) {
+    console.error(`Counter error (${path}):`, error);
+    const element = elementId && document.getElementById(elementId);
+    if (element) element.innerText = '(error)';
+    return 0;
+  }
+};
 
   // Wrapper for buttons
   window.incrementCounter = function(path, elementId) {

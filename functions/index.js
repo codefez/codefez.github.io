@@ -32,19 +32,15 @@ exports.handleCounter = functions.https.onCall(async (data, context) => {
     if (data.action === "increment") {
       const result = await ref.transaction(current => (current || 0) + 1);
       return { 
-        data: result.snapshot.val(),
-        headers: {
-          'Access-Control-Allow-Origin': 'https://codefez.github.io'
-        }
+        data: result.snapshot.val(), // This should be just the number
+        headers: { 'Access-Control-Allow-Origin': 'https://codefez.github.io' }
       };
     } 
     else if (data.action === "get") {
       const snapshot = await ref.once("value");
       return { 
-        data: snapshot.val() || 0,
-        headers: {
-          'Access-Control-Allow-Origin': 'https://codefez.github.io'
-        }
+        data: snapshot.val() || 0, // This should be just the number
+        headers: { 'Access-Control-Allow-Origin': 'https://codefez.github.io' }
       };
     }
     throw new functions.https.HttpsError('invalid-argument', 'Invalid action');
