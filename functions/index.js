@@ -53,3 +53,21 @@ exports.handleCounter = functions.https.onCall(async (data, context) => {
     throw new functions.https.HttpsError('internal', error.message);
   }
 });
+
+document.addEventListener('click', function(e) {
+  const button = e.target.closest('[data-counter]');
+  if (button) {
+    e.preventDefault();
+    const path = button.getAttribute('data-counter');
+    const elementId = button.getAttribute('data-element');
+    const href = button.getAttribute('href');
+    
+    // Update counter
+    incrementCounter(path, elementId);
+    
+    // Open PDF after a small delay
+    setTimeout(() => {
+      if (href) window.open(href, '_blank');
+    }, 100);
+  }
+});

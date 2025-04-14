@@ -7,9 +7,8 @@
   import { getDatabase } from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js';
   import { getFunctions, httpsCallable } from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-functions.js';
 
-  // 🔥 Firebase Configuration
   const firebaseConfig = {
-    apiKey: window.FIREBASE_API_KEY, // Use the injected API key
+    apiKey: window.FIREBASE_API_KEY,
     authDomain: "codefez-github-site.firebaseapp.com",
     databaseURL: "https://codefez-github-site-default-rtdb.europe-west1.firebasedatabase.app",
     projectId: "codefez-github-site",
@@ -20,30 +19,36 @@
   };
 
   // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
-  const db = firebase.database();
-  const functions = firebase.app().functions('europe-west1'); // Explicit region
-
-  async function handleCounter(path, action, elementId = null) {
-  try {
-    const counterFunction = httpsCallable(functions, 'handleCounter');
-    const result = await counterFunction({ path, action });
-    
-    if (elementId) {
-      const element = document.getElementById(elementId);
-      if (element) element.innerText = `(${result.data})`;
+  const app = initializeApp(firebaseConfig);
+  const db = getDatabase(app);
+  const functions = getFunctions(app, 'europe-west1');
+  
+  // Make available globally - THIS IS CRUCIAL
+  window.fb = { db, functions, httpsCallable };
+  
+  // Universal counter handler - ADD window.
+  window.handleCounter = async function(path, action, elementId = null) {
+    try {
+      const counterFunction = fb.httpsCallable(fb.functions, 'handleCounter');
+      const result = await counterFunction({ path, action });
+      
+      if (elementId) {
+        const element = document.getElementById(elementId);
+        if (element) element.innerText = `(${result.data})`;
+      }
+      return result.data;
+    } catch (error) {
+      console.error(`Counter error (${path}):`, error);
+      const element = elementId && document.getElementById(elementId);
+      if (element) element.innerText = '(error)';
     }
-    return result.data;
-  } catch (error) {
-    console.error(`Counter error (${path}):`, error);
-    const element = elementId && document.getElementById(elementId);
-    if (element) element.innerText = '(error)';
-  }
-}
+  };
 
-  function incrementCounter(path, elementId) {
+  // Wrapper for buttons
+  window.incrementCounter = function(path, elementId) {
     handleCounter(path, 'increment', elementId);
-  }
+  };
+
 
   // Auto-initialize all counters
   document.addEventListener("DOMContentLoaded", () => {
