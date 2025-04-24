@@ -1,0 +1,10 @@
+{
+  "functions": {
+    "source": "functions",
+    "runtime": "nodejs20",
+    "retryCount": 0,
+    "maxInstances": 5,
+    "region": "europe-west1",
+    "timeoutSeconds": 60
+  }
+}

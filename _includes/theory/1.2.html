@@ -6,14 +6,22 @@
         <tr>
           <th>
             <div class="card-actions justify-end">
-              <a href="/files/worksheets/1.2/1.2 Worksheet 1 - Units, Data Storage & Compression.pdf" target="_blank" class="btn btn-primary" onclick="increase_1_2_data_sheet1_count()">
-                Systems worksheet 1 <span id="1_2_data_sheet1_download_count">(0)</span>
+              <a href="/files/worksheets/1.2/1.2 Worksheet 1 - Units, Data Storage & Compression.pdf" 
+                target="_blank" 
+                class="btn btn-primary"
+                data-counter="j277_theory/1_2_data_representation/data_worksheet_1"
+                data-element="1_2_data_sheet1_download_count">
+                Data worksheet 1 <span id="1_2_data_sheet1_download_count">(0)</span>
               </a>
             </div>
           </th>
           <td>
-            <a href="/files/worksheets/1.2/1.2 Worksheet 1 Answers - Units, Data Storage & Compression.pdf" target="_blank" class="btn btn-accent" onclick="increase_1_2_data_sheet1Ans_count()">
-              Systems worksheet 1 Ans <span id="1_2_data_sheet1Ans_download_count">(0)</span>
+            <a href="/files/worksheets/1.2/1.2 Worksheet 1 Answers - Units, Data Storage & Compression.pdf" 
+              target="_blank" 
+              class="btn btn-accent"
+              data-counter="j277_theory/1_2_data_representation/data_worksheet_1_ans"
+              data-element="1_2_data_sheet1Ans_download_count">
+              Data worksheet 1 Ans <span id="1_2_data_sheet1Ans_download_count">(0)</span>
             </a>
           </td>
           
@@ -23,14 +31,22 @@
         <tr>
           <th>
             <div class="card-actions justify-end">
-              <a href="/files/worksheets/1.2/1.2 Worksheet 2 - Units, Data Storage & Compression.pdf" target="_blank" class="btn btn-primary" onclick="increase_1_2_data_sheet2_count()">
-                Systems worksheet 1 <span id="1_2_data_sheet1_download_count">(0)</span>
+              <a href="/files/worksheets/1.2/1.2 Worksheet 2 - Units, Data Storage & Compression.pdf" 
+                target="_blank" 
+                class="btn btn-primary"
+                data-counter="j277_theory/1_2_data_representation/data_worksheet_2"
+                data-element="1_2_data_sheet2_download_count">
+                Data worksheet 2 <span id="1_2_data_sheet2_download_count">(0)</span>
               </a>
             </div>
           </th>
           <td>
-            <a href="/files/worksheets/1.2/1.2 Worksheet 2 Answers - Units, Data Storage & Compression.pdf" target="_blank" class="btn btn-accent" onclick="increase_1_2_data_sheet2Ans_count()">
-              Systems worksheet 1 Ans <span id="1_2_data_sheet2Ans_download_count">(0)</span>
+            <a href="/files/worksheets/1.2/1.2 Worksheet 2 Answers - Units, Data Storage & Compression.pdf" 
+              target="_blank" 
+              class="btn btn-accent"
+              data-counter="j277_theory/1_2_data_representation/data_worksheet_2_ans"
+              data-element="1_2_data_sheet2Ans_download_count">
+              Data worksheet 2 Ans <span id="1_2_data_sheet2Ans_download_count">(0)</span>
             </a>
           </td>
           
@@ -40,14 +56,22 @@
          <tr>
           <th>
             <div class="card-actions justify-end">
-              <a href="/files/worksheets/1.2/1.2 Worksheet 3 - Units, Data Storage & Compression.pdf" target="_blank" class="btn btn-primary" onclick="increase_1_2_data_sheet3_count()">
-                Systems worksheet 1 <span id="1_2_data_sheet1_download_count">(0)</span>
+              <a href="/files/worksheets/1.2/1.2 Worksheet 3 - Units, Data Storage & Compression.pdf" 
+                target="_blank" 
+                class="btn btn-primary"
+                data-counter="j277_theory/1_2_data_representation/data_worksheet_3"
+                data-element="1_2_data_sheet3_download_count">
+                Data worksheet 3 <span id="1_2_data_sheet3_download_count">(0)</span>
               </a>
             </div>
           </th>
           <td>
-            <a href="/files/worksheets/1.2/1.2 Worksheet 3 Answers - Units, Data Storage & Compression.pdf" target="_blank" class="btn btn-accent" onclick="increase_1_2_data_sheet3Ans_count()">
-              Systems worksheet 1 Ans <span id="1_2_data_sheet3Ans_download_count">(0)</span>
+            <a href="/files/worksheets/1.2/1.2 Worksheet 3 Answers - Units, Data Storage & Compression.pdf" 
+              target="_blank" 
+              class="btn btn-accent"
+              data-counter="j277_theory/1_2_data_representation/data_worksheet_3_ans"
+              data-element="1_2_data_sheet3Ans_download_count">
+              Data worksheet 3 Ans <span id="1_2_data_sheet3Ans_download_count">(0)</span>
             </a>
           </td>
           
@@ -56,130 +80,3 @@
     </table>
   </div>
 
-  <script>
-    // 1.2 data representation worksheet 1 and answers
-  // sheet 1
-  function increase_1_2_data_sheet1_count() {
-    const countRef = db.ref("/downloads/j277_theory/1_2_data_representation/data_worksheet_1");
-
-    countRef.once("value").then(snapshot => {
-      let currentCount = snapshot.val() || 0; // Get current count
-      countRef.set(currentCount + 1); // Increment by 1
-      document.getElementById("1_2_data_sheet1_download_count").innerText = `(${currentCount + 1})`; // Update UI
-    }).catch(error => console.error("Error:", error));
-  }
-
-  function load_1_2_data_sheet1_Count() {
-    const countRef = db.ref("/downloads/j277_theory/1_2_data_representation/data_worksheet_1");
-
-    countRef.once("value").then(snapshot => {
-      let currentCount = snapshot.val() || 0;
-      document.getElementById("1_2_data_sheet1_download_count").innerText = `(${currentCount})`;
-    }).catch(error => console.error("Error:", error));
-  }
-  document.addEventListener("DOMContentLoaded", load_1_2_data_sheet1_Count);
-
-  function increase_1_2_data_sheet1Ans_count() {
-    const countRef = db.ref("/downloads/j277_theory/1_2_data_representation/data_worksheet_1_ans");
-
-    countRef.once("value").then(snapshot => {
-      let currentCount = snapshot.val() || 0; // Get current count
-      countRef.set(currentCount + 1); // Increment by 1
-      document.getElementById("1_2_data_sheet1Ans_download_count").innerText = `(${currentCount + 1})`; // Update UI
-    }).catch(error => console.error("Error:", error));
-  }
-
-  function load_1_2_data_sheet1Ans_Count() {
-    const countRef = db.ref("/downloads/j277_theory/1_2_data_representation/data_worksheet_1_ans");
-
-    countRef.once("value").then(snapshot => {
-      let currentCount = snapshot.val() || 0;
-      document.getElementById("1_2_data_sheet1Ans_download_count").innerText = `(${currentCount})`;
-    }).catch(error => console.error("Error:", error));
-  }
-  document.addEventListener("DOMContentLoaded", load_1_2_data_sheet1Ans_Count);
-
-  // sheet 2
-  function load_1_2_data_sheet2_Count() {
-    const countRef = db.ref("/downloads/j277_theory/1_2_data_representation/data_worksheet_2");
-
-    countRef.once("value").then(snapshot => {
-      let currentCount = snapshot.val() || 0;
-      document.getElementById("1_2_data_sheet2_download_count").innerText = `(${currentCount})`;
-    }).catch(error => console.error("Error:", error));
-  }
-  document.addEventListener("DOMContentLoaded", load_1_2_data_sheet2_Count);
-  
-  function load_1_2_data_sheet2Ans_Count() {
-    const countRef = db.ref("/downloads/j277_theory/1_2_data_representation/data_worksheet_2_ans");
-
-    countRef.once("value").then(snapshot => {
-      let currentCount = snapshot.val() || 0;
-      document.getElementById("1_2_data_sheet2Ans_download_count").innerText = `(${currentCount})`;
-    }).catch(error => console.error("Error:", error));
-  }
-  document.addEventListener("DOMContentLoaded", load_1_2_data_sheet2Ans_Count);
-
-  function increase_1_2_data_sheet2_count() {
-    const countRef = db.ref("/downloads/j277_theory/1_2_data_representation/data_worksheet_2");
-
-    countRef.once("value").then(snapshot => {
-      let currentCount = snapshot.val() || 0; // Get current count
-      countRef.set(currentCount + 1); // Increment by 1
-      document.getElementById("1_2_data_sheet2_download_count").innerText = `(${currentCount + 1})`; // Update UI
-    }).catch(error => console.error("Error:", error));
-  }
-
-  function increase_1_2_data_sheet2Ans_count() {
-    const countRef = db.ref("/downloads/j277_theory/1_2_data_representation/data_worksheet_2_ans");
-
-    countRef.once("value").then(snapshot => {
-      let currentCount = snapshot.val() || 0; // Get current count
-      countRef.set(currentCount + 1); // Increment by 1
-      document.getElementById("1_2_data_sheet2Ans_download_count").innerText = `(${currentCount + 1})`; // Update UI
-    }).catch(error => console.error("Error:", error));
-  }
-
-
-  // sheet 3
-  function load_1_2_data_sheet3_Count() {
-    const countRef = db.ref("/downloads/j277_theory/1_2_data_representation/data_worksheet_3");
-
-    countRef.once("value").then(snapshot => {
-      let currentCount = snapshot.val() || 0;
-      document.getElementById("1_2_data_sheet3_download_count").innerText = `(${currentCount})`;
-    }).catch(error => console.error("Error:", error));
-  }
-  document.addEventListener("DOMContentLoaded", load_1_2_data_sheet3_Count);
-
-  function load_1_2_data_sheet3Ans_Count() {
-    const countRef = db.ref("/downloads/j277_theory/1_2_data_representation/data_worksheet_3_ans");
-
-    countRef.once("value").then(snapshot => {
-      let currentCount = snapshot.val() || 0;
-      document.getElementById("1_2_data_sheet3Ans_download_count").innerText = `(${currentCount})`;
-    }).catch(error => console.error("Error:", error));
-  }
-  document.addEventListener("DOMContentLoaded", load_1_2_data_sheet3Ans_Count);
-
-  function increase_1_2_data_sheet3_count() {
-    const countRef = db.ref("/downloads/j277_theory/1_2_data_representation/data_worksheet_3");
-
-    countRef.once("value").then(snapshot => {
-      let currentCount = snapshot.val() || 0; // Get current count
-      countRef.set(currentCount + 1); // Increment by 1
-      document.getElementById("1_2_data_sheet3_download_count").innerText = `(${currentCount + 1})`; // Update UI
-    }).catch(error => console.error("Error:", error));
-  }
-
-  function increase_1_2_data_sheet3Ans_count() {
-    const countRef = db.ref("/downloads/j277_theory/1_2_data_representation/data_worksheet_3_ans");
-
-    countRef.once("value").then(snapshot => {
-      let currentCount = snapshot.val() || 0; // Get current count
-      countRef.set(currentCount + 1); // Increment by 1
-      document.getElementById("1_2_data_sheet3Ans_download_count").innerText = `(${currentCount + 1})`; // Update UI
-    }).catch(error => console.error("Error:", error));
-  }
-
-  </script>
