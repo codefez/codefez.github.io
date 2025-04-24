@@ -18,6 +18,42 @@
           </td>
           
         </tr>
+
+        <!-- row 2 -->
+        
+        <tr>
+          <th>
+            <div class="card-actions justify-end">
+              <a href="/files/worksheets/2.2/codefez_2.2_programming_Tasks_Worksheet_1.pdf" target="_blank" class="btn btn-primary" onclick="increase_2_2_prog_sheet1_count()">
+                Programming worksheet 1 <span id="2_2_prog_sheet1_download_count">(0)</span>
+              </a>
+            </div>
+          </th>
+          <td>
+            <a href="/files/worksheets/2.2/codefez_2.2_programming_Tasks_Worksheet_1_ans.pdf" target="_blank" class="btn btn-accent" onclick="increase_2_2_prog_sheet1Ans_count()">
+              Programming worksheet 1 Ans <span id="2_2_prog_sheet1Ans_download_count">(0)</span>
+            </a>
+          </td>
+          
+        </tr>
+
+        <!-- row 3 -->
+        
+        <tr>
+          <th>
+            <div class="card-actions justify-end">
+              <a href="/files/worksheets/2.2/codefez_2.2_programming_Tasks_Worksheet_2.pdf" target="_blank" class="btn btn-primary" onclick="increase_2_2_prog_sheet2_count()">
+                Programming worksheet 2 <span id="2_2_prog_sheet2_download_count">(0)</span>
+              </a>
+            </div>
+          </th>
+          <td>
+            <a href="/files/worksheets/2.2/codefez_2.2_programming_Tasks_Worksheet_2_ans.pdf" target="_blank" class="btn btn-accent" onclick="increase_2_2_prog_sheet2Ans_count()">
+              Programming worksheet 2 Ans <span id="2_2_prog_sheet2Ans_download_count">(0)</span>
+            </a>
+          </td>
+          
+        </tr>
       </tbody>
     </table>
   </div>
@@ -63,4 +99,86 @@
     }).catch(error => console.error("Error:", error));
   }
   document.addEventListener("DOMContentLoaded", load_2_2_sql_sheet1Ans_Count);
+
+    // 2.2 prog worksheet 1 and answers
+    function increase_2_2_prog_sheet1_count() {
+    const countRef = db.ref("/downloads/j277_theory/2_2_programming_fundamentals/prog_worksheet_1");
+
+    countRef.once("value").then(snapshot => {
+      let currentCount = snapshot.val() || 0; // Get current count
+      countRef.set(currentCount + 1); // Increment by 1
+      document.getElementById("2_2_prog_sheet1_download_count").innerText = `(${currentCount + 1})`; // Update UI
+    }).catch(error => console.error("Error:", error));
+  }
+
+  function load_2_2_prog_sheet1_Count() {
+    const countRef = db.ref("/downloads/j277_theory/2_2_programming_fundamentals/prog_worksheet_1");
+
+    countRef.once("value").then(snapshot => {
+      let currentCount = snapshot.val() || 0;
+      document.getElementById("2_2_prog_sheet1_download_count").innerText = `(${currentCount})`;
+    }).catch(error => console.error("Error:", error));
+  }
+  document.addEventListener("DOMContentLoaded", load_2_2_prog_sheet1_Count);
+
+  function increase_2_2_prog_sheet1Ans_count() {
+    const countRef = db.ref("/downloads/j277_theory/2_2_programming_fundamentals/prog_worksheet_1_ans");
+
+    countRef.once("value").then(snapshot => {
+      let currentCount = snapshot.val() || 0; // Get current count
+      countRef.set(currentCount + 1); // Increment by 1
+      document.getElementById("2_2_prog_sheet1Ans_download_count").innerText = `(${currentCount + 1})`; // Update UI
+    }).catch(error => console.error("Error:", error));
+  }
+
+  function load_2_2_prog_sheet1Ans_Count() {
+    const countRef = db.ref("/downloads/j277_theory/2_2_programming_fundamentals/prog_worksheet_1_ans");
+
+    countRef.once("value").then(snapshot => {
+      let currentCount = snapshot.val() || 0;
+      document.getElementById("2_2_prog_sheet1Ans_download_count").innerText = `(${currentCount})`;
+    }).catch(error => console.error("Error:", error));
+  }
+  document.addEventListener("DOMContentLoaded", load_2_2_prog_sheet1Ans_Count);
+
+  // 2.2 prog worksheet 2 and answers
+  function increase_2_2_prog_sheet2_count() {
+    const countRef = db.ref("/downloads/j277_theory/2_2_programming_fundamentals/prog_worksheet_2");
+
+    countRef.once("value").then(snapshot => {
+      let currentCount = snapshot.val() || 0; // Get current count
+      countRef.set(currentCount + 1); // Increment by 1
+      document.getElementById("2_2_prog_sheet2_download_count").innerText = `(${currentCount + 1})`; // Update UI
+    }).catch(error => console.error("Error:", error));
+  }
+
+  function load_2_2_prog_sheet2_Count() {
+    const countRef = db.ref("/downloads/j277_theory/2_2_programming_fundamentals/prog_worksheet_2");
+
+    countRef.once("value").then(snapshot => {
+      let currentCount = snapshot.val() || 0;
+      document.getElementById("2_2_prog_sheet2_download_count").innerText = `(${currentCount})`;
+    }).catch(error => console.error("Error:", error));
+  }
+  document.addEventListener("DOMContentLoaded", load_2_2_prog_sheet2_Count);
+
+  function increase_2_2_prog_sheet2Ans_count() {
+    const countRef = db.ref("/downloads/j277_theory/2_2_programming_fundamentals/prog_worksheet_2_ans");
+
+    countRef.once("value").then(snapshot => {
+      let currentCount = snapshot.val() || 0; // Get current count
+      countRef.set(currentCount + 1); // Increment by 1
+      document.getElementById("2_2_prog_sheet2Ans_download_count").innerText = `(${currentCount + 1})`; // Update UI
+    }).catch(error => console.error("Error:", error));
+  }
+
+  function load_2_2_prog_sheet1Ans_Count() {
+    const countRef = db.ref("/downloads/j277_theory/2_2_programming_fundamentals/prog_worksheet_2_ans");
+
+    countRef.once("value").then(snapshot => {
+      let currentCount = snapshot.val() || 0;
+      document.getElementById("2_2_prog_sheet2Ans_download_count").innerText = `(${currentCount})`;
+    }).catch(error => console.error("Error:", error));
+  }
+  document.addEventListener("DOMContentLoaded", load_2_2_prog_sheet2Ans_Count);
 </script>

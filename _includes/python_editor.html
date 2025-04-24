@@ -1,0 +1,100 @@
+{% raw %}<div class="python-editor" id="python-editor-{{ include.id | default: 'default' }}">
+    <h3>{{ include.title | default: "Python Editor" }}</h3>
+    <textarea id="python-code-{{ include.id | default: 'default' }}" class="hidden">{{ include.code | default: "def greet(name):\n    return f\"Hello, {name}!\"\n\nprint(greet(\"World\"))" | escape }}</textarea>
+    <div id="editor-container-{{ include.id | default: 'default' }}"></div>
+    <button id="run-button-{{ include.id | default: 'default' }}" class="btn btn-primary" disabled>
+      <span class="loading loading-spinner loading-xs" id="run-spinner-{{ include.id | default: 'default' }}"></span>
+      <span id="run-text-{{ include.id | default: 'default' }}">Run Python (Loading...)</span>
+    </button>
+    <div class="output-container">
+      <h4>Output:</h4>
+      <pre id="python-output-{{ include.id | default: 'default' }}">Initializing Python environment...</pre>
+    </div>
+  </div>
+  
+  <script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Initialize editor
+    const editorId = '{{ include.id | default: "default" }}';
+    const initialCode = document.getElementById(`python-code-${editorId}`).value;
+    
+    const editor = CodeMirror(document.getElementById(`editor-container-${editorId}`), {
+      value: initialCode,
+      mode: "python",
+      lineNumbers: true,
+      indentUnit: 4,
+      theme: "{{ include.theme | default: 'default' }}",
+      extraKeys: {
+        "Ctrl-Space": function(cm) {
+          CodeMirror.commands.autocomplete(cm);
+        },
+        "Tab": function(cm) {
+          if (CodeMirror.hint && CodeMirror.hint.python) {
+            CodeMirror.hint.python(cm);
+          } else {
+            cm.execCommand("insertTab");
+          }
+        }
+      }
+    });
+  
+    // Set up autocomplete
+    const pythonCompletions = [
+      "False", "None", "True", "and", "as", "assert", "async", "await",
+      "break", "class", "continue", "def", "del", "elif", "else", "except",
+      // ... rest of completions array ...
+    ];
+    
+    editor.setOption("hintOptions", {
+      completeSingle: false,
+      words: pythonCompletions
+    });
+  
+    // Initialize Pyodide
+    async function initializePyodide() {
+      try {
+        const outputElement = document.getElementById(`python-output-${editorId}`);
+        outputElement.textContent = "Loading Pyodide...";
+        
+        const pyodide = await loadPyodide({
+          indexURL: "https://cdn.jsdelivr.net/pyodide/v0.23.4/full/"
+        });
+        
+        await pyodide.loadPackage("micropip");
+        
+        pyodide.setStdout({batched: (text) => {
+          outputElement.textContent += text;
+        }});
+        
+        document.getElementById(`run-button-${editorId}`).disabled = false;
+        document.getElementById(`run-text-${editorId}`).textContent = "Run Python";
+        document.getElementById(`run-spinner-${editorId}`).classList.add('hidden');
+        outputElement.textContent = "Ready!";
+      } catch (err) {
+        document.getElementById(`python-output-${editorId}`).textContent = `Error: ${err}`;
+      }
+    }
+  
+    // Set up run button
+    document.getElementById(`run-button-${editorId}`).addEventListener('click', async function() {
+      const outputElement = document.getElementById(`python-output-${editorId}`);
+      const button = document.getElementById(`run-button-${editorId}`);
+      const spinner = document.getElementById(`run-spinner-${editorId}`);
+      
+      button.disabled = true;
+      spinner.classList.remove('hidden');
+      outputElement.textContent = "Running...\n";
+      
+      try {
+        await pyodide.runPythonAsync(editor.getValue());
+      } catch (err) {
+        outputElement.textContent += `\nError: ${err}`;
+      } finally {
+        button.disabled = false;
+        spinner.classList.add('hidden');
+      }
+    });
+  
+    initializePyodide();
+  });
+  </script>{% endraw %}
