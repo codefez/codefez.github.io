@@ -37,6 +37,7 @@
       if (element) {
         // Ensure we're displaying just the number (result.data might be {data: number})
         const count = result.data?.data || result.data || 0;
+        console.log(`Counter (${path}):`, count);
         element.innerText = `(${count})`;
       }
     }
