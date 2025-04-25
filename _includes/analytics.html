@@ -30,18 +30,17 @@
   window.handleCounter = async function(path, action, elementId = null) {
   try {
     const counterFunction = fb.httpsCallable(fb.functions, 'handleCounter');
-    const result = await counterFunction({ path, action });
+    const response = await counterFunction({ path, action });
+    
+    // Extract count from standardized response
+    const count = response.data.data;
+    console.log(`Counter (${path}):`, count);
     
     if (elementId) {
       const element = document.getElementById(elementId);
-      if (element) {
-        // Ensure we're displaying just the number (result.data might be {data: number})
-        const count = result.data?.data || result.data || 0;
-        console.log(`Counter (${path}):`, count);
-        element.innerText = `(${count})`;
-      }
+      if (element) element.innerText = `(${count})`;
     }
-    return result.data?.data || result.data;
+    return count;
   } catch (error) {
     console.error(`Counter error (${path}):`, error);
     const element = elementId && document.getElementById(elementId);
@@ -153,4 +152,22 @@
       });
     }
   });});
+
+  document.addEventListener('click', function(e) {
+  const button = e.target.closest('[data-counter]');
+  if (button) {
+    e.preventDefault();
+    const path = button.getAttribute('data-counter');
+    const elementId = button.getAttribute('data-element');
+    const href = button.getAttribute('href');
+    
+    // Update counter
+    incrementCounter(path, elementId);
+    
+    // Open PDF after a small delay
+    setTimeout(() => {
+      if (href) window.open(href, '_blank');
+    }, 100);
+  }
+});
   </script>
