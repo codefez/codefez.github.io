@@ -27,13 +27,23 @@
   window.fb = { db, functions, httpsCallable };
   
   // Universal counter handler - ADD window.
-  window.handleCounter = async function(path, action, elementId = null) {
+  // Update your handleCounter function to use onRequest instead of onCall
+window.handleCounter = async function(path, action, elementId = null) {
   try {
-    const counterFunction = fb.httpsCallable(fb.functions, 'handleCounter');
-    const response = await counterFunction({ path, action });
+    const response = await fetch('https://europe-west1-codefez-github-site.cloudfunctions.net/handleCounter', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ path, action })
+    });
     
-    // Extract count from standardized response
-    const count = response.data.data;
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    
+    const result = await response.json();
+    const count = result.data;
     console.log(`Counter (${path}):`, count);
     
     if (elementId) {
