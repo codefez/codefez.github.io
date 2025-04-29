@@ -28,11 +28,12 @@ layout: default
 </div>
 
 <script>
+  
   function loadStats() {
     // Fetch and display top 10 popular pages
     db.ref('page_loads')
-      .orderByValue()  // Order by value (since counts are direct numbers)
-      .limitToLast(10) // Get top 10 (highest counts)
+      .orderByValue()
+      .limitToLast(10)
       .once('value')
       .then((snapshot) => {
         const pagesList = document.getElementById('popular-pages');
@@ -40,30 +41,33 @@ layout: default
 
         snapshot.forEach((childSnapshot) => {
           pagesArray.push({
-            url: childSnapshot.key,  // Page name (e.g., "home", "py_cheatsheet")
-            count: childSnapshot.val() // Direct integer value
+            url: childSnapshot.key.replace(/_/g, ' '),  // Replace underscores with spaces
+            count: childSnapshot.val()
           });
         });
 
-        // Reverse to get descending order
-        pagesArray.reverse();
+        // Sort by count (descending)
+        pagesArray.sort((a, b) => b.count - a.count);
 
         // Display results
-        pagesList.innerHTML = ''; // Clear existing list
+        pagesList.innerHTML = '';
         pagesArray.forEach((page) => {
           pagesList.innerHTML += `
           <li class="flex items-center gap-2">
             <div>
-              <svg class="size-[1.2em]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g stroke-linejoin="round" stroke-linecap="round" stroke-width="2" fill="none" stroke="currentColor"><path d="M6 3L20 12 6 21 6 3z"></path></g></svg>
+              <svg class="size-[1.2em]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <g stroke-linejoin="round" stroke-linecap="round" stroke-width="2" fill="none" stroke="currentColor">
+                  <path d="M6 3L20 12 6 21 6 3z"></path>
+                </g>
+              </svg>
             </div>
-            <div>
-              <div>${page.url}: ${page.count} views</div>
-            </div>
+            <div>${page.url}: ${page.count} views</div>
           </li>`;
         });
       })
       .catch((error) => {
         console.error('Error fetching popular pages:', error);
+        document.getElementById('popular-pages').innerHTML = '<li>Error loading page stats</li>';
       });
 
     // Fetch and display popular downloads
@@ -72,42 +76,47 @@ layout: default
       const downloadsList = document.getElementById('popular-downloads');
       const allDownloads = [];
 
-      // Flatten the nested structure
-      for (const section in downloadsData) {
-        for (const fileName in downloadsData[section]) {
-          const count = downloadsData[section][fileName];
-          if (typeof count === 'object' && count !== null) {
-            // Handle cases where count is an object (e.g., { count: 5 })
+      if (downloadsData) {
+        // Flatten the nested structure
+        for (const section in downloadsData) {
+          for (const fileName in downloadsData[section]) {
+            const count = downloadsData[section][fileName];
             allDownloads.push({
-              path: `${section}/${fileName}`,
-              count: count.count || 0, // Access the nested count property
-            });
-          } else {
-            // Handle cases where count is a number
-            allDownloads.push({
-              path: `${section}/${fileName}`,
-              count: count,
+              path: `${section}/${fileName}`.replace(/_/g, ' '),
+              count: typeof count === 'object' ? (count.count || 0) : count
             });
           }
         }
-      }
 
-      // Sort by count (descending)
-      allDownloads.sort((a, b) => b.count - a.count);
+        // Sort by count (descending) and get top 10
+        allDownloads.sort((a, b) => b.count - a.count);
 
-      // Display top 10 downloads
-      downloadsList.innerHTML = ''; // Clear existing list
-      allDownloads.slice(0, 10).forEach((download) => {
-        downloadsList.innerHTML += `
-        <li class="flex items-center gap-2">
-            <div><svg class="size-[1.2em]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g stroke-linejoin="round" stroke-linecap="round" stroke-width="2" fill="none" stroke="currentColor"><path d="M6 3L20 12 6 21 6 3z"></path></g></svg></div>
+        // Display results
+        downloadsList.innerHTML = '';
+        allDownloads.slice(0, 10).forEach((download) => {
+          downloadsList.innerHTML += `
+          <li class="flex items-center gap-2">
             <div>
-              <div>${download.path}: ${download.count} downloads</div>
+              <svg class="size-[1.2em]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <g stroke-linejoin="round" stroke-linecap="round" stroke-width="2" fill="none" stroke="currentColor">
+                  <path d="M6 3L20 12 6 21 6 3z"></path>
+                </g>
+              </svg>
             </div>
+            <div>${download.path}: ${download.count} downloads</div>
           </li>`;
-      });
+        });
+      } else {
+        downloadsList.innerHTML = '<li>No download data available</li>';
+      }
+    }).catch((error) => {
+      console.error('Error fetching downloads:', error);
+      document.getElementById('popular-downloads').innerHTML = '<li>Error loading download stats</li>';
     });
   }
 
-  document.addEventListener("DOMContentLoaded", loadStats);
+  document.addEventListener("DOMContentLoaded", function() {
+    // Wait a moment to ensure Firebase is initialized
+    setTimeout(loadStats, 500);
+  });
 </script>
