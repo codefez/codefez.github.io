@@ -43,69 +43,31 @@ layout: default
         </a>.
     </p>
       <div class="card-actions justify-end">
-        <a class="btn btn-primary" href="/files/Python Beginners Workbook for Secondary Schools.pdf" target="_blank">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" fill="currentColor" class="w-5 h-5"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M96 0C43 0 0 43 0 96V416c0 53 43 96 96 96H384h32c17.7 0 32-14.3 32-32s-14.3-32-32-32V384c17.7 0 32-14.3 32-32V32c0-17.7-14.3-32-32-32H384 96zm0 384H352v64H96c-17.7 0-32-14.3-32-32s14.3-32 32-32zm32-240c0-8.8 7.2-16 16-16H336c8.8 0 16 7.2 16 16s-7.2 16-16 16H144c-8.8 0-16-7.2-16-16zm16 48H336c8.8 0 16 7.2 16 16s-7.2 16-16 16H144c-8.8 0-16-7.2-16-16s7.2-16 16-16z"/></svg>
-            Download the book <span id="book-download-count">(0)</span>
+        <a href="/files/Python Beginners Workbook for Secondary Schools.pdf" 
+          target="_blank" 
+          data-counter="py_worksheets/pbwfs"
+          data-element="py_pbwfs_download_count">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" fill="currentColor" class="w-5 h-5"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M96 0C43 0 0 43 0 96V416c0 53 43 96 96 96H384h32c17.7 0 32-14.3 32-32s-14.3-32-32-32V384c17.7 0 32-14.3 32-32V32c0-17.7-14.3-32-32-32H384 96zm0 384H352v64H96c-17.7 0-32-14.3-32-32s14.3-32 32-32zm32-240c0-8.8 7.2-16 16-16H336c8.8 0 16 7.2 16 16s-7.2 16-16 16H144c-8.8 0-16-7.2-16-16zm16 48H336c8.8 0 16 7.2 16 16s-7.2 16-16 16H144c-8.8 0-16-7.2-16-16s7.2-16 16-16z"/></svg>
+          Download the book 🔻
+          <span id="py_pbwfs_download_count">0</span>
         </a>
-        <a class="btn btn-success" href="/files/Python Beginners Workbook FSS Answers book.pdf" target="_blank">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" fill="currentColor" class="w-5 h-5"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M96 0C43 0 0 43 0 96V416c0 53 43 96 96 96H384h32c17.7 0 32-14.3 32-32s-14.3-32-32-32V384c17.7 0 32-14.3 32-32V32c0-17.7-14.3-32-32-32H384 96zm0 384H352v64H96c-17.7 0-32-14.3-32-32s14.3-32 32-32zm32-240c0-8.8 7.2-16 16-16H336c8.8 0 16 7.2 16 16s-7.2 16-16 16H144c-8.8 0-16-7.2-16-16zm16 48H336c8.8 0 16 7.2 16 16s-7.2 16-16 16H144c-8.8 0-16-7.2-16-16s7.2-16 16-16z"/></svg>
-            Download the Answers <span id="ans-download-count">(0)</span>
+        <a href="/files/Python Beginners Workbook FSS Answers book.pdf" 
+          target="_blank" 
+          data-counter="py_worksheets/pbwfs_ans"
+          data-element="py_pbwfs_ans_download_count">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" fill="currentColor" class="w-5 h-5"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M96 0C43 0 0 43 0 96V416c0 53 43 96 96 96H384h32c17.7 0 32-14.3 32-32s-14.3-32-32-32V384c17.7 0 32-14.3 32-32V32c0-17.7-14.3-32-32-32H384 96zm0 384H352v64H96c-17.7 0-32-14.3-32-32s14.3-32 32-32zm32-240c0-8.8 7.2-16 16-16H336c8.8 0 16 7.2 16 16s-7.2 16-16 16H144c-8.8 0-16-7.2-16-16zm16 48H336c8.8 0 16 7.2 16 16s-7.2 16-16 16H144c-8.8 0-16-7.2-16-16s7.2-16 16-16z"/></svg>
+          Download the Answers 🔻
+          <span id="py_pbwfs_ans_download_count">0</span>
         </a>
       </div>
     </div>
 </div>
 
 <script>
-    // update book download count when clicked
-    function updatePyBWfS_ClickCount() {
-      const countRef = db.ref("downloads/py_worksheets/pbwfs");
-  
-      countRef.once("value").then(snapshot => {
-        let currentCount = snapshot.val() || 0; // Get current count
-        countRef.set(currentCount + 1); // Increment by 1
-      }).catch(error => console.error("Error:", error));
-    }
-    // load book download count when page loads
-    function LoadPyBWfS_ClickCount() {
-        const countRef = db.ref("downloads/py_worksheets/pbwfs");
-
-        countRef.once("value").then(snapshot => {
-            let currentCount = snapshot.val() || 0;
-            document.getElementById("book-download-count").innerText = `(${currentCount})`;
-        }).catch(error => console.error("Error:", error));
-    }
-
-    // update ans book download count when clicked
-    function updatePyBWfS_ans_ClickCount() {
-      const countRef = db.ref("downloads/py_worksheets/pbwfs_ans");
-  
-      countRef.once("value").then(snapshot => {
-        let currentCount = snapshot.val() || 0; // Get current count
-        countRef.set(currentCount + 1); // Increment by 1
-      }).catch(error => console.error("Error:", error));
-    }
-    // load ans book download count when page loads
-    function LoadPyBWfS_ans_ClickCount() {
-        const countRef = db.ref("downloads/py_worksheets/pbwfs_ans");
-
-        countRef.once("value").then(snapshot => {
-            let currentCount = snapshot.val() || 0;
-            document.getElementById("ans-download-count").innerText = `(${currentCount})`;
-        }).catch(error => console.error("Error:", error));
-    }
-
-    // update page load count
-    function updatePyBWfSLoadCount() {
-        const countRef = db.ref("page_loads/pybwfs");
-
-        countRef.once("value").then(snapshot => {
-            let currentCount = snapshot.val() || 0; // Get current count
-            countRef.set(currentCount + 1); // Increment by 1
-        }).catch(error => console.error("Error:", error));
-    }
-  
-    // Load count when the page loads
-    document.addEventListener("DOMContentLoaded", LoadPyBWfS_ans_ClickCount);  // loads workbook download count from DB
-    document.addEventListener("DOMContentLoaded", LoadPyBWfS_ClickCount); // update workbook download count
-    document.addEventListener("DOMContentLoaded", updatePyBWfSLoadCount); // update page load count
+    // Page load count
+    {% if jekyll.environment == 'production' %}
+    document.addEventListener("DOMContentLoaded", () => {
+      handleCounter('page_loads/pybwfs', 'increment', 'page_loads_pybwfs_count'); 
+    });
+  {% endif %}
 </script>

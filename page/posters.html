@@ -197,3 +197,14 @@ layout: default
         </div>
     </div>
 </div>
+<div class=" mb-20">
+  <p>Page loads: <span id="page_loads_posters_count"></span></p>
+</div>
+<script>
+
+  {% if jekyll.environment == 'production' %}
+    document.addEventListener("DOMContentLoaded", () => {
+      handleCounter('page_loads/posters', 'increment', 'page_loads_posters_count'); 
+    });
+  {% endif %}
+</script>
