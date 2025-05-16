@@ -44,7 +44,7 @@ window.handleCounter = async function(path, action, elementId = null) {
     
     const result = await response.json();
     const count = result.data;
-    console.log(`Counter (${path}):`, count);
+    
     
     if (elementId) {
       const element = document.getElementById(elementId);
@@ -99,6 +99,8 @@ window.handleCounter = async function(path, action, elementId = null) {
     ["j277_theory/2_2_programming_fundamentals/prog_worksheet_1_ans", "2_2_prog_sheet1Ans_download_count"],
     ["j277_theory/2_2_programming_fundamentals/prog_worksheet_2", "2_2_prog_sheet2_download_count"],
     ["j277_theory/2_2_programming_fundamentals/prog_worksheet_2_ans", "2_2_prog_sheet2Ans_download_count"],
+    ["j277_theory/2_2_programming_fundamentals/prog_worksheet_3", "2_2_prog_sheet3_download_count"],
+    ["j277_theory/2_2_programming_fundamentals/prog_worksheet_3_ans", "2_2_prog_sheet3Ans_download_count"],
     ["j277_theory/2_2_programming_fundamentals/sql_worksheet_1", "2_2_sql_sheet1_download_count"],
     ["j277_theory/2_2_programming_fundamentals/sql_worksheet_1_ans", "2_2_sql_sheet1Ans_download_count"],
     
@@ -189,5 +191,6 @@ window.handleCounter = async function(path, action, elementId = null) {
 });
 
 // Make the db reference available globally
-window.db = db;
+window.db = getDatabase(app);
+console.log("Firebase initialized and db set globally");
 </script>
