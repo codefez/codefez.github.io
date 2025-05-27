@@ -42,7 +42,7 @@ layout: default
   <button class="btn btn-sm bg-work-50 text-work-900 border-none hover:bg-work-100 hover:text-work-900" onclick="filterList('Work')">Work</button>
 </div>
 
-<ul class="list bg-base-100 rounded-box shadow-md">
+<ul id="actionList" class="list bg-base-100 rounded-box shadow-md">
   <!-- List of all 130 actions -->
   <!-- Each item includes: Number, Emoji icon by category, Action text, Category -->
 
@@ -1224,6 +1224,27 @@ layout: default
   
 </li>
 </ul>
+
+<div class="mb-20 mt-4">
+  <p>
+    <div role="alert" class="alert alert-warning">
+      <div class="avatar">
+        <div class="mask mask-squircle w-24">
+          <img src="https://github.com/BethsGrammar/learn-python3/raw/master/notion_avatar2.png" />
+        </div>
+      </div>
+      <span>As mentioned <a href="https://codefez.github.io/page/ks3/yr8-t3.html" target="_blank" rel="noopener noreferrer">here</a>,
+         the idea for this unit of work is taken from Shift Design. 
+        <br>The actions listed here have been taken from the website wearewhatwedo.org 
+        <a href="https://web.archive.org/web/20131104233240/http://actiontracker.org.uk/actions/" 
+          target="_blank" rel="noopener noreferrer">using the wayback machine</a>. 
+      </span>
+    </div>
+  </p>
+
+</div>
+
+
 <script>
   function filterList(category) {
       const list = document.getElementById('actionList');
