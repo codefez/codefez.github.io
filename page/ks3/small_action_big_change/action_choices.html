@@ -27,9 +27,31 @@ layout: default
 </div>
 <br>
 
-```html
+<div class="mb-4">
+  <button class="btn btn-sm" onclick="filterList('all')">All</button>
+  <button class="btn btn-sm bg-green-50 text-green-900 border-none hover:bg-green-100 hover:text-green-900" onclick="filterList('Environment')">Environment</button>
+  <button class="btn btn-sm bg-blue-50 text-blue-900 border-none hover:bg-blue-100 hover:text-blue-900" onclick="filterList('Education')">Education</button>
+  <button class="btn btn-sm bg-gray-50 text-gray-900 border-none hover:bg-gray-100 hover:text-gray-900" onclick="filterList('Technology')">Technology</button>
+  <button class="btn btn-sm bg-teal-50 text-teal-900 border-none hover:bg-teal-100 hover:text-teal-900" onclick="filterList('Wellbeing')">Wellbeing</button>
+  <button class="btn btn-sm bg-orange-50 text-orange-900 border-none hover:bg-orange-100 hover:text-orange-900" onclick="filterList('Travel')">Travel</button>
+  <button class="btn btn-sm bg-lime-50 text-lime-900 border-none hover:bg-lime-100 hover:text-lime-900" onclick="filterList('Food')">Food</button>
+  <button class="btn btn-sm bg-purple-50 text-purple-900 border-none hover:bg-purple-100 hover:text-purple-900" onclick="filterList('Creativity')">Creativity</button>
+  <button class="btn btn-sm bg-red-50 text-red-900 border-none hover:bg-red-100 hover:text-red-900" onclick="filterList('Health')">Health</button>
+  <button class="btn btn-sm bg-community-50 text-community-900 border-none hover:bg-community-100 hover:text-community-900" onclick="filterList('Community')">Community</button>
+  <button class="btn btn-sm bg-politics-50 text-politics-900 border-none hover:bg-politics-100 hover:text-politics-900" onclick="filterList('Politics')">Politics</button>
+  <button class="btn btn-sm bg-work-50 text-work-900 border-none hover:bg-work-100 hover:text-work-900" onclick="filterList('Work')">Work</button>
+</div>
+
 <ul class="list bg-base-100 rounded-box shadow-md">
-  <li class="p-4 pb-2 text-xs opacity-60 tracking-wide">130 Actions to Change the World</li>
+  <!-- List of all 130 actions -->
+  <!-- Each item includes: Number, Emoji icon by category, Action text, Category -->
+
+  <!-- Category Colors -->
+  <!-- Environment: green-50, Education: blue-50, Community: yellow-50, Culture: pink-50, Health: red-50 -->
+  <!-- Technology: gray-50, Wellbeing: teal-50, Food: lime-50, Work: indigo-50, Travel: orange-50 -->
+  <!-- Creativity: purple-50, Politics: rose-50 -->
+
+  <li class="p-4 pb-2 text-xl opacity-60 tracking-wide">130 Actions to Change the World</li>
 
   <li class="list-row bg-green-50">
   <div class="text-4xl font-thin opacity-30 tabular-nums">001</div>
@@ -38,13 +60,7 @@ layout: default
     <div>Decline plastic bags wherever possible</div>
     <div class="text-xs uppercase font-semibold opacity-60">Environment</div>
   </div>
-  <button class="btn btn-square btn-ghost">
-    <svg class="size-[1.2em]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-      <g stroke-linejoin="round" stroke-linecap="round" stroke-width="2" fill="none" stroke="currentColor">
-        <path d="M6 3L20 12 6 21 6 3z"></path>
-      </g>
-    </svg>
-  </button>
+  
 </li>
 <li class="list-row bg-blue-50">
   <div class="text-4xl font-thin opacity-30 tabular-nums">002</div>
@@ -53,13 +69,7 @@ layout: default
     <div>Read a story with a child</div>
     <div class="text-xs uppercase font-semibold opacity-60">Education</div>
   </div>
-  <button class="btn btn-square btn-ghost">
-    <svg class="size-[1.2em]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-      <g stroke-linejoin="round" stroke-linecap="round" stroke-width="2" fill="none" stroke="currentColor">
-        <path d="M6 3L20 12 6 21 6 3z"></path>
-      </g>
-    </svg>
-  </button>
+  
 </li>
 <li class="list-row bg-green-50">
   <div class="text-4xl font-thin opacity-30 tabular-nums">003</div>
@@ -68,13 +78,7 @@ layout: default
     <div>Fit at least one energy-saving light bulb</div>
     <div class="text-xs uppercase font-semibold opacity-60">Environment</div>
   </div>
-  <button class="btn btn-square btn-ghost">
-    <svg class="size-[1.2em]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-      <g stroke-linejoin="round" stroke-linecap="round" stroke-width="2" fill="none" stroke="currentColor">
-        <path d="M6 3L20 12 6 21 6 3z"></path>
-      </g>
-    </svg>
-  </button>
+  
 </li>
 <li class="list-row bg-gray-50">
   <div class="text-4xl font-thin opacity-30 tabular-nums">004</div>
@@ -83,13 +87,7 @@ layout: default
     <div>Recycle your mobile phone</div>
     <div class="text-xs uppercase font-semibold opacity-60">Technology</div>
   </div>
-  <button class="btn btn-square btn-ghost">
-    <svg class="size-[1.2em]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-      <g stroke-linejoin="round" stroke-linecap="round" stroke-width="2" fill="none" stroke="currentColor">
-        <path d="M6 3L20 12 6 21 6 3z"></path>
-      </g>
-    </svg>
-  </button>
+  
 </li>
 <li class="list-row bg-teal-50">
   <div class="text-4xl font-thin opacity-30 tabular-nums">005</div>
@@ -98,13 +96,7 @@ layout: default
     <div>Smile and smile back</div>
     <div class="text-xs uppercase font-semibold opacity-60">Wellbeing</div>
   </div>
-  <button class="btn btn-square btn-ghost">
-    <svg class="size-[1.2em]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-      <g stroke-linejoin="round" stroke-linecap="round" stroke-width="2" fill="none" stroke="currentColor">
-        <path d="M6 3L20 12 6 21 6 3z"></path>
-      </g>
-    </svg>
-  </button>
+  
 </li>
 <li class="list-row bg-orange-50">
   <div class="text-4xl font-thin opacity-30 tabular-nums">006</div>
@@ -113,13 +105,7 @@ layout: default
     <div>Take public transport when you can</div>
     <div class="text-xs uppercase font-semibold opacity-60">Travel</div>
   </div>
-  <button class="btn btn-square btn-ghost">
-    <svg class="size-[1.2em]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-      <g stroke-linejoin="round" stroke-linecap="round" stroke-width="2" fill="none" stroke="currentColor">
-        <path d="M6 3L20 12 6 21 6 3z"></path>
-      </g>
-    </svg>
-  </button>
+  
 </li>
 <li class="list-row bg-gray-50">
   <div class="text-4xl font-thin opacity-30 tabular-nums">007</div>
@@ -128,13 +114,7 @@ layout: default
     <div>Use both sides of the paper</div>
     <div class="text-xs uppercase font-semibold opacity-60">Technology</div>
   </div>
-  <button class="btn btn-square btn-ghost">
-    <svg class="size-[1.2em]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-      <g stroke-linejoin="round" stroke-linecap="round" stroke-width="2" fill="none" stroke="currentColor">
-        <path d="M6 3L20 12 6 21 6 3z"></path>
-      </g>
-    </svg>
-  </button>
+  
 </li>
 <li class="list-row bg-green-50">
   <div class="text-4xl font-thin opacity-30 tabular-nums">008</div>
@@ -143,13 +123,7 @@ layout: default
     <div>Turn off unnecessary lights</div>
     <div class="text-xs uppercase font-semibold opacity-60">Environment</div>
   </div>
-  <button class="btn btn-square btn-ghost">
-    <svg class="size-[1.2em]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-      <g stroke-linejoin="round" stroke-linecap="round" stroke-width="2" fill="none" stroke="currentColor">
-        <path d="M6 3L20 12 6 21 6 3z"></path>
-      </g>
-    </svg>
-  </button>
+  
 </li>
 <li class="list-row bg-gray-50">
   <div class="text-4xl font-thin opacity-30 tabular-nums">009</div>
@@ -158,13 +132,7 @@ layout: default
     <div>Recycle your newspapers</div>
     <div class="text-xs uppercase font-semibold opacity-60">Technology</div>
   </div>
-  <button class="btn btn-square btn-ghost">
-    <svg class="size-[1.2em]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-      <g stroke-linejoin="round" stroke-linecap="round" stroke-width="2" fill="none" stroke="currentColor">
-        <path d="M6 3L20 12 6 21 6 3z"></path>
-      </g>
-    </svg>
-  </button>
+  
 </li>
 <li class="list-row bg-lime-50">
   <div class="text-4xl font-thin opacity-30 tabular-nums">010</div>
@@ -173,13 +141,7 @@ layout: default
     <div>Buy fair trade products</div>
     <div class="text-xs uppercase font-semibold opacity-60">Food</div>
   </div>
-  <button class="btn btn-square btn-ghost">
-    <svg class="size-[1.2em]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-      <g stroke-linejoin="round" stroke-linecap="round" stroke-width="2" fill="none" stroke="currentColor">
-        <path d="M6 3L20 12 6 21 6 3z"></path>
-      </g>
-    </svg>
-  </button>
+  
 </li>
 <li class="list-row bg-green-50">
   <div class="text-4xl font-thin opacity-30 tabular-nums">011</div>
@@ -188,13 +150,7 @@ layout: default
     <div>Switch off appliances at the mains</div>
     <div class="text-xs uppercase font-semibold opacity-60">Environment</div>
   </div>
-  <button class="btn btn-square btn-ghost">
-    <svg class="size-[1.2em]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-      <g stroke-linejoin="round" stroke-linecap="round" stroke-width="2" fill="none" stroke="currentColor">
-        <path d="M6 3L20 12 6 21 6 3z"></path>
-      </g>
-    </svg>
-  </button>
+  
 </li>
 <li class="list-row bg-green-50">
   <div class="text-4xl font-thin opacity-30 tabular-nums">012</div>
@@ -203,13 +159,7 @@ layout: default
     <div>Turn off the tap while brushing your teeth</div>
     <div class="text-xs uppercase font-semibold opacity-60">Environment</div>
   </div>
-  <button class="btn btn-square btn-ghost">
-    <svg class="size-[1.2em]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-      <g stroke-linejoin="round" stroke-linecap="round" stroke-width="2" fill="none" stroke="currentColor">
-        <path d="M6 3L20 12 6 21 6 3z"></path>
-      </g>
-    </svg>
-  </button>
+  
 </li>
 <li class="list-row bg-green-50">
   <div class="text-4xl font-thin opacity-30 tabular-nums">013</div>
@@ -218,13 +168,7 @@ layout: default
     <div>Use a mug instead of a plastic cup</div>
     <div class="text-xs uppercase font-semibold opacity-60">Environment</div>
   </div>
-  <button class="btn btn-square btn-ghost">
-    <svg class="size-[1.2em]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-      <g stroke-linejoin="round" stroke-linecap="round" stroke-width="2" fill="none" stroke="currentColor">
-        <path d="M6 3L20 12 6 21 6 3z"></path>
-      </g>
-    </svg>
-  </button>
+  
 </li>
 <li class="list-row bg-red-50">
   <div class="text-4xl font-thin opacity-30 tabular-nums">014</div>
@@ -233,13 +177,7 @@ layout: default
     <div>Give blood</div>
     <div class="text-xs uppercase font-semibold opacity-60">Health</div>
   </div>
-  <button class="btn btn-square btn-ghost">
-    <svg class="size-[1.2em]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-      <g stroke-linejoin="round" stroke-linecap="round" stroke-width="2" fill="none" stroke="currentColor">
-        <path d="M6 3L20 12 6 21 6 3z"></path>
-      </g>
-    </svg>
-  </button>
+  
 </li>
 <li class="list-row bg-gray-50">
   <div class="text-4xl font-thin opacity-30 tabular-nums">015</div>
@@ -248,13 +186,7 @@ layout: default
     <div>Recycle waste paper</div>
     <div class="text-xs uppercase font-semibold opacity-60">Technology</div>
   </div>
-  <button class="btn btn-square btn-ghost">
-    <svg class="size-[1.2em]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-      <g stroke-linejoin="round" stroke-linecap="round" stroke-width="2" fill="none" stroke="currentColor">
-        <path d="M6 3L20 12 6 21 6 3z"></path>
-      </g>
-    </svg>
-  </button>
+  
 </li>
 <li class="list-row bg-green-50">
   <div class="text-4xl font-thin opacity-30 tabular-nums">016</div>
@@ -263,13 +195,7 @@ layout: default
     <div>Don't overfill your kettle</div>
     <div class="text-xs uppercase font-semibold opacity-60">Environment</div>
   </div>
-  <button class="btn btn-square btn-ghost">
-    <svg class="size-[1.2em]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-      <g stroke-linejoin="round" stroke-linecap="round" stroke-width="2" fill="none" stroke="currentColor">
-        <path d="M6 3L20 12 6 21 6 3z"></path>
-      </g>
-    </svg>
-  </button>
+  
 </li>
 <li class="list-row bg-teal-50">
   <div class="text-4xl font-thin opacity-30 tabular-nums">017</div>
@@ -278,13 +204,7 @@ layout: default
     <div>Hug someone</div>
     <div class="text-xs uppercase font-semibold opacity-60">Wellbeing</div>
   </div>
-  <button class="btn btn-square btn-ghost">
-    <svg class="size-[1.2em]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-      <g stroke-linejoin="round" stroke-linecap="round" stroke-width="2" fill="none" stroke="currentColor">
-        <path d="M6 3L20 12 6 21 6 3z"></path>
-      </g>
-    </svg>
-  </button>
+  
 </li>
 <li class="list-row bg-lime-50">
   <div class="text-4xl font-thin opacity-30 tabular-nums">018</div>
@@ -293,13 +213,7 @@ layout: default
     <div>Cook a meal from scratch</div>
     <div class="text-xs uppercase font-semibold opacity-60">Food</div>
   </div>
-  <button class="btn btn-square btn-ghost">
-    <svg class="size-[1.2em]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-      <g stroke-linejoin="round" stroke-linecap="round" stroke-width="2" fill="none" stroke="currentColor">
-        <path d="M6 3L20 12 6 21 6 3z"></path>
-      </g>
-    </svg>
-  </button>
+  
 </li>
 <li class="list-row bg-purple-50">
   <div class="text-4xl font-thin opacity-30 tabular-nums">019</div>
@@ -308,13 +222,7 @@ layout: default
     <div>Write to someone who inspired you</div>
     <div class="text-xs uppercase font-semibold opacity-60">Creativity</div>
   </div>
-  <button class="btn btn-square btn-ghost">
-    <svg class="size-[1.2em]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-      <g stroke-linejoin="round" stroke-linecap="round" stroke-width="2" fill="none" stroke="currentColor">
-        <path d="M6 3L20 12 6 21 6 3z"></path>
-      </g>
-    </svg>
-  </button>
+  
 </li>
 <li class="list-row bg-green-50">
   <div class="text-4xl font-thin opacity-30 tabular-nums">020</div>
@@ -323,13 +231,7 @@ layout: default
     <div>Plant something</div>
     <div class="text-xs uppercase font-semibold opacity-60">Environment</div>
   </div>
-  <button class="btn btn-square btn-ghost">
-    <svg class="size-[1.2em]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-      <g stroke-linejoin="round" stroke-linecap="round" stroke-width="2" fill="none" stroke="currentColor">
-        <path d="M6 3L20 12 6 21 6 3z"></path>
-      </g>
-    </svg>
-  </button>
+  
 </li>
 <li class="list-row bg-lime-50">
   <div class="text-4xl font-thin opacity-30 tabular-nums">021</div>
@@ -338,13 +240,7 @@ layout: default
     <div>Buy local produce</div>
     <div class="text-xs uppercase font-semibold opacity-60">Food</div>
   </div>
-  <button class="btn btn-square btn-ghost">
-    <svg class="size-[1.2em]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-      <g stroke-linejoin="round" stroke-linecap="round" stroke-width="2" fill="none" stroke="currentColor">
-        <path d="M6 3L20 12 6 21 6 3z"></path>
-      </g>
-    </svg>
-  </button>
+  
 </li>
 <li class="list-row bg-green-50">
   <div class="text-4xl font-thin opacity-30 tabular-nums">022</div>
@@ -353,13 +249,7 @@ layout: default
     <div>Recycle your glass</div>
     <div class="text-xs uppercase font-semibold opacity-60">Environment</div>
   </div>
-  <button class="btn btn-square btn-ghost">
-    <svg class="size-[1.2em]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-      <g stroke-linejoin="round" stroke-linecap="round" stroke-width="2" fill="none" stroke="currentColor">
-        <path d="M6 3L20 12 6 21 6 3z"></path>
-      </g>
-    </svg>
-  </button>
+  
 </li>
 <li class="list-row bg-green-50">
   <div class="text-4xl font-thin opacity-30 tabular-nums">023</div>
@@ -368,13 +258,7 @@ layout: default
     <div>Use a reusable water bottle</div>
     <div class="text-xs uppercase font-semibold opacity-60">Environment</div>
   </div>
-  <button class="btn btn-square btn-ghost">
-    <svg class="size-[1.2em]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-      <g stroke-linejoin="round" stroke-linecap="round" stroke-width="2" fill="none" stroke="currentColor">
-        <path d="M6 3L20 12 6 21 6 3z"></path>
-      </g>
-    </svg>
-  </button>
+  
 </li>
 <li class="list-row bg-orange-50">
   <div class="text-4xl font-thin opacity-30 tabular-nums">024</div>
@@ -383,13 +267,7 @@ layout: default
     <div>Walk or cycle short journeys</div>
     <div class="text-xs uppercase font-semibold opacity-60">Travel</div>
   </div>
-  <button class="btn btn-square btn-ghost">
-    <svg class="size-[1.2em]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-      <g stroke-linejoin="round" stroke-linecap="round" stroke-width="2" fill="none" stroke="currentColor">
-        <path d="M6 3L20 12 6 21 6 3z"></path>
-      </g>
-    </svg>
-  </button>
+  
 </li>
 <li class="list-row bg-community-50">
   <div class="text-4xl font-thin opacity-30 tabular-nums">025</div>
@@ -398,13 +276,7 @@ layout: default
     <div>Share your skills</div>
     <div class="text-xs uppercase font-semibold opacity-60">Community</div>
   </div>
-  <button class="btn btn-square btn-ghost">
-    <svg class="size-[1.2em]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-      <g stroke-linejoin="round" stroke-linecap="round" stroke-width="2" fill="none" stroke="currentColor">
-        <path d="M6 3L20 12 6 21 6 3z"></path>
-      </g>
-    </svg>
-  </button>
+  
 </li>
 <li class="list-row bg-community-50">
   <div class="text-4xl font-thin opacity-30 tabular-nums">026</div>
@@ -413,13 +285,7 @@ layout: default
     <div>Volunteer your time</div>
     <div class="text-xs uppercase font-semibold opacity-60">Community</div>
   </div>
-  <button class="btn btn-square btn-ghost">
-    <svg class="size-[1.2em]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-      <g stroke-linejoin="round" stroke-linecap="round" stroke-width="2" fill="none" stroke="currentColor">
-        <path d="M6 3L20 12 6 21 6 3z"></path>
-      </g>
-    </svg>
-  </button>
+  
 </li>
 <li class="list-row bg-community-50">
   <div class="text-4xl font-thin opacity-30 tabular-nums">027</div>
@@ -428,13 +294,7 @@ layout: default
     <div>Support a local charity</div>
     <div class="text-xs uppercase font-semibold opacity-60">Community</div>
   </div>
-  <button class="btn btn-square btn-ghost">
-    <svg class="size-[1.2em]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-      <g stroke-linejoin="round" stroke-linecap="round" stroke-width="2" fill="none" stroke="currentColor">
-        <path d="M6 3L20 12 6 21 6 3z"></path>
-      </g>
-    </svg>
-  </button>
+  
 </li>
 <li class="list-row bg-community-50">
   <div class="text-4xl font-thin opacity-30 tabular-nums">028</div>
@@ -443,13 +303,7 @@ layout: default
     <div>Donate unwanted clothes</div>
     <div class="text-xs uppercase font-semibold opacity-60">Community</div>
   </div>
-  <button class="btn btn-square btn-ghost">
-    <svg class="size-[1.2em]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-      <g stroke-linejoin="round" stroke-linecap="round" stroke-width="2" fill="none" stroke="currentColor">
-        <path d="M6 3L20 12 6 21 6 3z"></path>
-      </g>
-    </svg>
-  </button>
+  
 </li>
 <li class="list-row bg-community-50">
   <div class="text-4xl font-thin opacity-30 tabular-nums">029</div>
@@ -458,13 +312,7 @@ layout: default
     <div>Buy second-hand items</div>
     <div class="text-xs uppercase font-semibold opacity-60">Community</div>
   </div>
-  <button class="btn btn-square btn-ghost">
-    <svg class="size-[1.2em]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-      <g stroke-linejoin="round" stroke-linecap="round" stroke-width="2" fill="none" stroke="currentColor">
-        <path d="M6 3L20 12 6 21 6 3z"></path>
-      </g>
-    </svg>
-  </button>
+  
 </li>
 <li class="list-row bg-lime-50">
   <div class="text-4xl font-thin opacity-30 tabular-nums">030</div>
@@ -473,13 +321,7 @@ layout: default
     <div>Compost your food waste</div>
     <div class="text-xs uppercase font-semibold opacity-60">Food</div>
   </div>
-  <button class="btn btn-square btn-ghost">
-    <svg class="size-[1.2em]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-      <g stroke-linejoin="round" stroke-linecap="round" stroke-width="2" fill="none" stroke="currentColor">
-        <path d="M6 3L20 12 6 21 6 3z"></path>
-      </g>
-    </svg>
-  </button>
+  
 </li>
 <li class="list-row bg-gray-50">
   <div class="text-4xl font-thin opacity-30 tabular-nums">031</div>
@@ -488,13 +330,7 @@ layout: default
     <div>Use rechargeable batteries</div>
     <div class="text-xs uppercase font-semibold opacity-60">Technology</div>
   </div>
-  <button class="btn btn-square btn-ghost">
-    <svg class="size-[1.2em]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-      <g stroke-linejoin="round" stroke-linecap="round" stroke-width="2" fill="none" stroke="currentColor">
-        <path d="M6 3L20 12 6 21 6 3z"></path>
-      </g>
-    </svg>
-  </button>
+  
 </li>
 <li class="list-row bg-gray-50">
   <div class="text-4xl font-thin opacity-30 tabular-nums">032</div>
@@ -503,13 +339,7 @@ layout: default
     <div>Reduce junk mail</div>
     <div class="text-xs uppercase font-semibold opacity-60">Technology</div>
   </div>
-  <button class="btn btn-square btn-ghost">
-    <svg class="size-[1.2em]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-      <g stroke-linejoin="round" stroke-linecap="round" stroke-width="2" fill="none" stroke="currentColor">
-        <path d="M6 3L20 12 6 21 6 3z"></path>
-      </g>
-    </svg>
-  </button>
+  
 </li>
 <li class="list-row bg-gray-50">
   <div class="text-4xl font-thin opacity-30 tabular-nums">033</div>
@@ -518,13 +348,7 @@ layout: default
     <div>Fix something instead of replacing it</div>
     <div class="text-xs uppercase font-semibold opacity-60">Technology</div>
   </div>
-  <button class="btn btn-square btn-ghost">
-    <svg class="size-[1.2em]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-      <g stroke-linejoin="round" stroke-linecap="round" stroke-width="2" fill="none" stroke="currentColor">
-        <path d="M6 3L20 12 6 21 6 3z"></path>
-      </g>
-    </svg>
-  </button>
+  
 </li>
 <li class="list-row bg-blue-50">
   <div class="text-4xl font-thin opacity-30 tabular-nums">034</div>
@@ -533,13 +357,7 @@ layout: default
     <div>Use a library</div>
     <div class="text-xs uppercase font-semibold opacity-60">Education</div>
   </div>
-  <button class="btn btn-square btn-ghost">
-    <svg class="size-[1.2em]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-      <g stroke-linejoin="round" stroke-linecap="round" stroke-width="2" fill="none" stroke="currentColor">
-        <path d="M6 3L20 12 6 21 6 3z"></path>
-      </g>
-    </svg>
-  </button>
+  
 </li>
 <li class="list-row bg-community-50">
   <div class="text-4xl font-thin opacity-30 tabular-nums">035</div>
@@ -548,13 +366,7 @@ layout: default
     <div>Support independent businesses</div>
     <div class="text-xs uppercase font-semibold opacity-60">Community</div>
   </div>
-  <button class="btn btn-square btn-ghost">
-    <svg class="size-[1.2em]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-      <g stroke-linejoin="round" stroke-linecap="round" stroke-width="2" fill="none" stroke="currentColor">
-        <path d="M6 3L20 12 6 21 6 3z"></path>
-      </g>
-    </svg>
-  </button>
+  
 </li>
 <li class="list-row bg-politics-50">
   <div class="text-4xl font-thin opacity-30 tabular-nums">036</div>
@@ -563,13 +375,7 @@ layout: default
     <div>Write to your MP about an issue you care about</div>
     <div class="text-xs uppercase font-semibold opacity-60">Politics</div>
   </div>
-  <button class="btn btn-square btn-ghost">
-    <svg class="size-[1.2em]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-      <g stroke-linejoin="round" stroke-linecap="round" stroke-width="2" fill="none" stroke="currentColor">
-        <path d="M6 3L20 12 6 21 6 3z"></path>
-      </g>
-    </svg>
-  </button>
+  
 </li>
 <li class="list-row bg-green-50">
   <div class="text-4xl font-thin opacity-30 tabular-nums">037</div>
@@ -578,13 +384,7 @@ layout: default
     <div>Take shorter showers</div>
     <div class="text-xs uppercase font-semibold opacity-60">Environment</div>
   </div>
-  <button class="btn btn-square btn-ghost">
-    <svg class="size-[1.2em]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-      <g stroke-linejoin="round" stroke-linecap="round" stroke-width="2" fill="none" stroke="currentColor">
-        <path d="M6 3L20 12 6 21 6 3z"></path>
-      </g>
-    </svg>
-  </button>
+  
 </li>
 <li class="list-row bg-green-50">
   <div class="text-4xl font-thin opacity-30 tabular-nums">038</div>
@@ -593,13 +393,7 @@ layout: default
     <div>Use cloth napkins</div>
     <div class="text-xs uppercase font-semibold opacity-60">Environment</div>
   </div>
-  <button class="btn btn-square btn-ghost">
-    <svg class="size-[1.2em]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-      <g stroke-linejoin="round" stroke-linecap="round" stroke-width="2" fill="none" stroke="currentColor">
-        <path d="M6 3L20 12 6 21 6 3z"></path>
-      </g>
-    </svg>
-  </button>
+  
 </li>
 <li class="list-row bg-green-50">
   <div class="text-4xl font-thin opacity-30 tabular-nums">039</div>
@@ -608,13 +402,7 @@ layout: default
     <div>Buy energy-efficient appliances</div>
     <div class="text-xs uppercase font-semibold opacity-60">Environment</div>
   </div>
-  <button class="btn btn-square btn-ghost">
-    <svg class="size-[1.2em]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-      <g stroke-linejoin="round" stroke-linecap="round" stroke-width="2" fill="none" stroke="currentColor">
-        <path d="M6 3L20 12 6 21 6 3z"></path>
-      </g>
-    </svg>
-  </button>
+  
 </li>
 <li class="list-row bg-community-50">
   <div class="text-4xl font-thin opacity-30 tabular-nums">040</div>
@@ -623,13 +411,7 @@ layout: default
     <div>Donate to a food bank</div>
     <div class="text-xs uppercase font-semibold opacity-60">Community</div>
   </div>
-  <button class="btn btn-square btn-ghost">
-    <svg class="size-[1.2em]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-      <g stroke-linejoin="round" stroke-linecap="round" stroke-width="2" fill="none" stroke="currentColor">
-        <path d="M6 3L20 12 6 21 6 3z"></path>
-      </g>
-    </svg>
-  </button>
+  
 </li>
 <li class="list-row bg-education-50">
   <div class="text-4xl font-thin opacity-30 tabular-nums">041</div>
@@ -638,13 +420,7 @@ layout: default
     <div>Mentor someone</div>
     <div class="text-xs uppercase font-semibold opacity-60">Education</div>
   </div>
-  <button class="btn btn-square btn-ghost">
-    <svg class="size-[1.2em]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-      <g stroke-linejoin="round" stroke-linecap="round" stroke-width="2" fill="none" stroke="currentColor">
-        <path d="M6 3L20 12 6 21 6 3z"></path>
-      </g>
-    </svg>
-  </button>
+  
 </li>
 <li class="list-row bg-culture-50">
   <div class="text-4xl font-thin opacity-30 tabular-nums">042</div>
@@ -653,13 +429,7 @@ layout: default
     <div>Support local artists</div>
     <div class="text-xs uppercase font-semibold opacity-60">Culture</div>
   </div>
-  <button class="btn btn-square btn-ghost">
-    <svg class="size-[1.2em]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-      <g stroke-linejoin="round" stroke-linecap="round" stroke-width="2" fill="none" stroke="currentColor">
-        <path d="M6 3L20 12 6 21 6 3z"></path>
-      </g>
-    </svg>
-  </button>
+  
 </li>
 <li class="list-row bg-community-50">
   <div class="text-4xl font-thin opacity-30 tabular-nums">043</div>
@@ -668,13 +438,7 @@ layout: default
     <div>Attend a community event</div>
     <div class="text-xs uppercase font-semibold opacity-60">Community</div>
   </div>
-  <button class="btn btn-square btn-ghost">
-    <svg class="size-[1.2em]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-      <g stroke-linejoin="round" stroke-linecap="round" stroke-width="2" fill="none" stroke="currentColor">
-        <path d="M6 3L20 12 6 21 6 3z"></path>
-      </g>
-    </svg>
-  </button>
+  
 </li>
 <li class="list-row bg-lime-50">
   <div class="text-4xl font-thin opacity-30 tabular-nums">044</div>
@@ -683,13 +447,7 @@ layout: default
     <div>Reduce meat consumption</div>
     <div class="text-xs uppercase font-semibold opacity-60">Food</div>
   </div>
-  <button class="btn btn-square btn-ghost">
-    <svg class="size-[1.2em]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-      <g stroke-linejoin="round" stroke-linecap="round" stroke-width="2" fill="none" stroke="currentColor">
-        <path d="M6 3L20 12 6 21 6 3z"></path>
-      </g>
-    </svg>
-  </button>
+  
 </li>
 <li class="list-row bg-green-50">
   <div class="text-4xl font-thin opacity-30 tabular-nums">045</div>
@@ -698,13 +456,7 @@ layout: default
     <div>Use eco-friendly cleaning products</div>
     <div class="text-xs uppercase font-semibold opacity-60">Environment</div>
   </div>
-  <button class="btn btn-square btn-ghost">
-    <svg class="size-[1.2em]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-      <g stroke-linejoin="round" stroke-linecap="round" stroke-width="2" fill="none" stroke="currentColor">
-        <path d="M6 3L20 12 6 21 6 3z"></path>
-      </g>
-    </svg>
-  </button>
+  
 </li>
 <li class="list-row bg-green-50">
   <div class="text-4xl font-thin opacity-30 tabular-nums">046</div>
@@ -713,13 +465,7 @@ layout: default
     <div>Support renewable energy</div>
     <div class="text-xs uppercase font-semibold opacity-60">Environment</div>
   </div>
-  <button class="btn btn-square btn-ghost">
-    <svg class="size-[1.2em]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-      <g stroke-linejoin="round" stroke-linecap="round" stroke-width="2" fill="none" stroke="currentColor">
-        <path d="M6 3L20 12 6 21 6 3z"></path>
-      </g>
-    </svg>
-  </button>
+  
 </li>
 <li class="list-row bg-education-50">
   <div class="text-4xl font-thin opacity-30 tabular-nums">047</div>
@@ -728,13 +474,7 @@ layout: default
     <div>Educate yourself on social issues</div>
     <div class="text-xs uppercase font-semibold opacity-60">Education</div>
   </div>
-  <button class="btn btn-square btn-ghost">
-    <svg class="size-[1.2em]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-      <g stroke-linejoin="round" stroke-linecap="round" stroke-width="2" fill="none" stroke="currentColor">
-        <path d="M6 3L20 12 6 21 6 3z"></path>
-      </g>
-    </svg>
-  </button>
+  
 </li>
 <li class="list-row bg-teal-50">
   <div class="text-4xl font-thin opacity-30 tabular-nums">048</div>
@@ -743,13 +483,7 @@ layout: default
     <div>Practice mindfulness</div>
     <div class="text-xs uppercase font-semibold opacity-60">Wellbeing</div>
   </div>
-  <button class="btn btn-square btn-ghost">
-    <svg class="size-[1.2em]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-      <g stroke-linejoin="round" stroke-linecap="round" stroke-width="2" fill="none" stroke="currentColor">
-        <path d="M6 3L20 12 6 21 6 3z"></path>
-      </g>
-    </svg>
-  </button>
+  
 </li>
 <li class="list-row bg-community-50">
   <div class="text-4xl font-thin opacity-30 tabular-nums">049</div>
@@ -758,13 +492,7 @@ layout: default
     <div>Start a conversation with a stranger</div>
     <div class="text-xs uppercase font-semibold opacity-60">Community</div>
   </div>
-  <button class="btn btn-square btn-ghost">
-    <svg class="size-[1.2em]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-      <g stroke-linejoin="round" stroke-linecap="round" stroke-width="2" fill="none" stroke="currentColor">
-        <path d="M6 3L20 12 6 21 6 3z"></path>
-      </g>
-    </svg>
-  </button>
+  
 </li>
 <li class="list-row bg-community-50">
   <div class="text-4xl font-thin opacity-30 tabular-nums">050</div>
@@ -773,13 +501,7 @@ layout: default
     <div>Help a neighbor</div>
     <div class="text-xs uppercase font-semibold opacity-60">Community</div>
   </div>
-  <button class="btn btn-square btn-ghost">
-    <svg class="size-[1.2em]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-      <g stroke-linejoin="round" stroke-linecap="round" stroke-width="2" fill="none" stroke="currentColor">
-        <path d="M6 3L20 12 6 21 6 3z"></path>
-      </g>
-    </svg>
-  </button>
+  
 </li>
 <li class="list-row bg-education-50">
   <div class="text-4xl font-thin opacity-30 tabular-nums">051</div>
@@ -788,13 +510,7 @@ layout: default
     <div>Donate books to a school or library</div>
     <div class="text-xs uppercase font-semibold opacity-60">Education</div>
   </div>
-  <button class="btn btn-square btn-ghost">
-    <svg class="size-[1.2em]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-      <g stroke-linejoin="round" stroke-linecap="round" stroke-width="2" fill="none" stroke="currentColor">
-        <path d="M6 3L20 12 6 21 6 3z"></path>
-      </g>
-    </svg>
-  </button>
+  
 </li>
 <li class="list-row bg-orange-50">
   <div class="text-4xl font-thin opacity-30 tabular-nums">052</div>
@@ -803,13 +519,7 @@ layout: default
     <div>Use public transport more often</div>
     <div class="text-xs uppercase font-semibold opacity-60">Travel</div>
   </div>
-  <button class="btn btn-square btn-ghost">
-    <svg class="size-[1.2em]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-      <g stroke-linejoin="round" stroke-linecap="round" stroke-width="2" fill="none" stroke="currentColor">
-        <path d="M6 3L20 12 6 21 6 3z"></path>
-      </g>
-    </svg>
-  </button>
+  
 </li>
 <li class="list-row bg-community-50">
   <div class="text-4xl font-thin opacity-30 tabular-nums">053</div>
@@ -818,13 +528,7 @@ layout: default
     <div>Participate in a local clean-up</div>
     <div class="text-xs uppercase font-semibold opacity-60">Community</div>
   </div>
-  <button class="btn btn-square btn-ghost">
-    <svg class="size-[1.2em]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-      <g stroke-linejoin="round" stroke-linecap="round" stroke-width="2" fill="none" stroke="currentColor">
-        <path d="M6 3L20 12 6 21 6 3z"></path>
-      </g>
-    </svg>
-  </button>
+  
 </li>
 <li class="list-row bg-green-50">
   <div class="text-4xl font-thin opacity-30 tabular-nums">054</div>
@@ -833,13 +537,7 @@ layout: default
     <div>Reduce single-use plastics</div>
     <div class="text-xs uppercase font-semibold opacity-60">Environment</div>
   </div>
-  <button class="btn btn-square btn-ghost">
-    <svg class="size-[1.2em]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-      <g stroke-linejoin="round" stroke-linecap="round" stroke-width="2" fill="none" stroke="currentColor">
-        <path d="M6 3L20 12 6 21 6 3z"></path>
-      </g>
-    </svg>
-  </button>
+  
 </li>
 <li class="list-row bg-community-50">
   <div class="text-4xl font-thin opacity-30 tabular-nums">055</div>
@@ -848,13 +546,7 @@ layout: default
     <div>Support ethical brands</div>
     <div class="text-xs uppercase font-semibold opacity-60">Community</div>
   </div>
-  <button class="btn btn-square btn-ghost">
-    <svg class="size-[1.2em]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-      <g stroke-linejoin="round" stroke-linecap="round" stroke-width="2" fill="none" stroke="currentColor">
-        <path d="M6 3L20 12 6 21 6 3z"></path>
-      </g>
-    </svg>
-  </button>
+  
 </li>
 <li class="list-row bg-green-50">
   <div class="text-4xl font-thin opacity-30 tabular-nums">056</div>
@@ -863,13 +555,7 @@ layout: default
     <div>Use a clothesline instead of a dryer</div>
     <div class="text-xs uppercase font-semibold opacity-60">Environment</div>
   </div>
-  <button class="btn btn-square btn-ghost">
-    <svg class="size-[1.2em]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-      <g stroke-linejoin="round" stroke-linecap="round" stroke-width="2" fill="none" stroke="currentColor">
-        <path d="M6 3L20 12 6 21 6 3z"></path>
-      </g>
-    </svg>
-  </button>
+  
 </li>
 <li class="list-row bg-green-50">
   <div class="text-4xl font-thin opacity-30 tabular-nums">057</div>
@@ -878,13 +564,7 @@ layout: default
     <div>Conserve water</div>
     <div class="text-xs uppercase font-semibold opacity-60">Environment</div>
   </div>
-  <button class="btn btn-square btn-ghost">
-    <svg class="size-[1.2em]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-      <g stroke-linejoin="round" stroke-linecap="round" stroke-width="2" fill="none" stroke="currentColor">
-        <path d="M6 3L20 12 6 21 6 3z"></path>
-      </g>
-    </svg>
-  </button>
+  
 </li>
 <li class="list-row bg-blue-50">
   <div class="text-4xl font-thin opacity-30 tabular-nums">058</div>
@@ -893,13 +573,7 @@ layout: default
     <div>Educate others about sustainability</div>
     <div class="text-xs uppercase font-semibold opacity-60">Education</div>
   </div>
-  <button class="btn btn-square btn-ghost">
-    <svg class="size-[1.2em]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-      <g stroke-linejoin="round" stroke-linecap="round" stroke-width="2" fill="none" stroke="currentColor">
-        <path d="M6 3L20 12 6 21 6 3z"></path>
-      </g>
-    </svg>
-  </button>
+  
 </li>
 <li class="list-row bg-teal-50">
   <div class="text-4xl font-thin opacity-30 tabular-nums">059</div>
@@ -908,13 +582,7 @@ layout: default
     <div>Practice gratitude daily</div>
     <div class="text-xs uppercase font-semibold opacity-60">Wellbeing</div>
   </div>
-  <button class="btn btn-square btn-ghost">
-    <svg class="size-[1.2em]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-      <g stroke-linejoin="round" stroke-linecap="round" stroke-width="2" fill="none" stroke="currentColor">
-        <path d="M6 3L20 12 6 21 6 3z"></path>
-      </g>
-    </svg>
-  </button>
+  
 </li>
 <li class="list-row bg-lime-50">
   <div class="text-4xl font-thin opacity-30 tabular-nums">060</div>
@@ -923,13 +591,7 @@ layout: default
     <div>Support local farmers</div>
     <div class="text-xs uppercase font-semibold opacity-60">Food</div>
   </div>
-  <button class="btn btn-square btn-ghost">
-    <svg class="size-[1.2em]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-      <g stroke-linejoin="round" stroke-linecap="round" stroke-width="2" fill="none" stroke="currentColor">
-        <path d="M6 3L20 12 6 21 6 3z"></path>
-      </g>
-    </svg>
-  </button>
+  
 </li>
 <li class="list-row bg-teal-50">
   <div class="text-4xl font-thin opacity-30 tabular-nums">061</div>
@@ -938,13 +600,7 @@ layout: default
     <div>Reduce screen time</div>
     <div class="text-xs uppercase font-semibold opacity-60">Wellbeing</div>
   </div>
-  <button class="btn btn-square btn-ghost">
-    <svg class="size-[1.2em]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-      <g stroke-linejoin="round" stroke-linecap="round" stroke-width="2" fill="none" stroke="currentColor">
-        <path d="M6 3L20 12 6 21 6 3z"></path>
-      </g>
-    </svg>
-  </button>
+  
 </li>
 <li class="list-row bg-rose-50">
   <div class="text-4xl font-thin opacity-30 tabular-nums">062</div>
@@ -953,13 +609,7 @@ layout: default
     <div>Encourage others to vote</div>
     <div class="text-xs uppercase font-semibold opacity-60">Politics</div>
   </div>
-  <button class="btn btn-square btn-ghost">
-    <svg class="size-[1.2em]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-      <g stroke-linejoin="round" stroke-linecap="round" stroke-width="2" fill="none" stroke="currentColor">
-        <path d="M6 3L20 12 6 21 6 3z"></path>
-      </g>
-    </svg>
-  </button>
+  
 </li>
 <li class="list-row bg-community-50">
   <div class="text-4xl font-thin opacity-30 tabular-nums">063</div>
@@ -968,13 +618,7 @@ layout: default
     <div>Participate in community gardening</div>
     <div class="text-xs uppercase font-semibold opacity-60">Community</div>
   </div>
-  <button class="btn btn-square btn-ghost">
-    <svg class="size-[1.2em]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-      <g stroke-linejoin="round" stroke-linecap="round" stroke-width="2" fill="none" stroke="currentColor">
-        <path d="M6 3L20 12 6 21 6 3z"></path>
-      </g>
-    </svg>
-  </button>
+  
 </li>
 <li class="list-row bg-green-50">
   <div class="text-4xl font-thin opacity-30 tabular-nums">064</div>
@@ -983,13 +627,7 @@ layout: default
     <div>Use less paper</div>
     <div class="text-xs uppercase font-semibold opacity-60">Environment</div>
   </div>
-  <button class="btn btn-square btn-ghost">
-    <svg class="size-[1.2em]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-      <g stroke-linejoin="round" stroke-linecap="round" stroke-width="2" fill="none" stroke="currentColor">
-        <path d="M6 3L20 12 6 21 6 3z"></path>
-      </g>
-    </svg>
-  </button>
+  
 </li>
 <li class="list-row bg-red-50">
   <div class="text-4xl font-thin opacity-30 tabular-nums">065</div>
@@ -998,13 +636,7 @@ layout: default
     <div>Support mental health initiatives</div>
     <div class="text-xs uppercase font-semibold opacity-60">Health</div>
   </div>
-  <button class="btn btn-square btn-ghost">
-    <svg class="size-[1.2em]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-      <g stroke-linejoin="round" stroke-linecap="round" stroke-width="2" fill="none" stroke="currentColor">
-        <path d="M6 3L20 12 6 21 6 3z"></path>
-      </g>
-    </svg>
-  </button>
+  
 </li>
 <li class="list-row bg-blue-50">
   <div class="text-4xl font-thin opacity-30 tabular-nums">066</div>
@@ -1013,13 +645,7 @@ layout: default
     <div>Learn a new skill</div>
     <div class="text-xs uppercase font-semibold opacity-60">Education</div>
   </div>
-  <button class="btn btn-square btn-ghost">
-    <svg class="size-[1.2em]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-      <g stroke-linejoin="round" stroke-linecap="round" stroke-width="2" fill="none" stroke="currentColor">
-        <path d="M6 3L20 12 6 21 6 3z"></path>
-      </g>
-    </svg>
-  </button>
+  
 </li>
 <li class="list-row bg-teal-50">
   <div class="text-4xl font-thin opacity-30 tabular-nums">067</div>
@@ -1028,13 +654,7 @@ layout: default
     <div>Share positive news</div>
     <div class="text-xs uppercase font-semibold opacity-60">Wellbeing</div>
   </div>
-  <button class="btn btn-square btn-ghost">
-    <svg class="size-[1.2em]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-      <g stroke-linejoin="round" stroke-linecap="round" stroke-width="2" fill="none" stroke="currentColor">
-        <path d="M6 3L20 12 6 21 6 3z"></path>
-      </g>
-    </svg>
-  </button>
+  
 </li>
 <li class="list-row bg-orange-50">
   <div class="text-4xl font-thin opacity-30 tabular-nums">068</div>
@@ -1043,13 +663,7 @@ layout: default
     <div>Reduce car usage</div>
     <div class="text-xs uppercase font-semibold opacity-60">Travel</div>
   </div>
-  <button class="btn btn-square btn-ghost">
-    <svg class="size-[1.2em]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-      <g stroke-linejoin="round" stroke-linecap="round" stroke-width="2" fill="none" stroke="currentColor">
-        <path d="M6 3L20 12 6 21 6 3z"></path>
-      </g>
-    </svg>
-  </button>
+  
 </li>
 <li class="list-row bg-teal-50">
   <div class="text-4xl font-thin opacity-30 tabular-nums">069</div>
@@ -1058,13 +672,7 @@ layout: default
     <div>Practice active listening</div>
     <div class="text-xs uppercase font-semibold opacity-60">Wellbeing</div>
   </div>
-  <button class="btn btn-square btn-ghost">
-    <svg class="size-[1.2em]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-      <g stroke-linejoin="round" stroke-linecap="round" stroke-width="2" fill="none" stroke="currentColor">
-        <path d="M6 3L20 12 6 21 6 3z"></path>
-      </g>
-    </svg>
-  </button>
+  
 </li>
 <li class="list-row bg-blue-50">
   <div class="text-4xl font-thin opacity-30 tabular-nums">070</div>
@@ -1073,13 +681,7 @@ layout: default
     <div>Support local schools</div>
     <div class="text-xs uppercase font-semibold opacity-60">Education</div>
   </div>
-  <button class="btn btn-square btn-ghost">
-    <svg class="size-[1.2em]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-      <g stroke-linejoin="round" stroke-linecap="round" stroke-width="2" fill="none" stroke="currentColor">
-        <path d="M6 3L20 12 6 21 6 3z"></path>
-      </g>
-    </svg>
-  </button>
+  
 </li>
 <li class="list-row bg-green-50">
   <div class="text-4xl font-thin opacity-30 tabular-nums">071</div>
@@ -1088,13 +690,7 @@ layout: default
     <div>Use reusable shopping bags</div>
     <div class="text-xs uppercase font-semibold opacity-60">Environment</div>
   </div>
-  <button class="btn btn-square btn-ghost">
-    <svg class="size-[1.2em]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-      <g stroke-linejoin="round" stroke-linecap="round" stroke-width="2" fill="none" stroke="currentColor">
-        <path d="M6 3L20 12 6 21 6 3z"></path>
-      </g>
-    </svg>
-  </button>
+  
 </li>
 <li class="list-row bg-lime-50">
   <div class="text-4xl font-thin opacity-30 tabular-nums">072</div>
@@ -1103,13 +699,7 @@ layout: default
     <div>Reduce food waste</div>
     <div class="text-xs uppercase font-semibold opacity-60">Food</div>
   </div>
-  <button class="btn btn-square btn-ghost">
-    <svg class="size-[1.2em]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-      <g stroke-linejoin="round" stroke-linecap="round" stroke-width="2" fill="none" stroke="currentColor">
-        <path d="M6 3L20 12 6 21 6 3z"></path>
-      </g>
-    </svg>
-  </button>
+  
 </li>
 <li class="list-row bg-community-50">
   <div class="text-4xl font-thin opacity-30 tabular-nums">073</div>
@@ -1118,13 +708,7 @@ layout: default
     <div>Support animal welfare</div>
     <div class="text-xs uppercase font-semibold opacity-60">Community</div>
   </div>
-  <button class="btn btn-square btn-ghost">
-    <svg class="size-[1.2em]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-      <g stroke-linejoin="round" stroke-linecap="round" stroke-width="2" fill="none" stroke="currentColor">
-        <path d="M6 3L20 12 6 21 6 3z"></path>
-      </g>
-    </svg>
-  </button>
+  
 </li>
 <li class="list-row bg-rose-50">
   <div class="text-4xl font-thin opacity-30 tabular-nums">074</div>
@@ -1133,13 +717,7 @@ layout: default
     <div>Participate in local elections</div>
     <div class="text-xs uppercase font-semibold opacity-60">Politics</div>
   </div>
-  <button class="btn btn-square btn-ghost">
-    <svg class="size-[1.2em]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-      <g stroke-linejoin="round" stroke-linecap="round" stroke-width="2" fill="none" stroke="currentColor">
-        <path d="M6 3L20 12 6 21 6 3z"></path>
-      </g>
-    </svg>
-  </button>
+  
 </li>
 <li class="list-row bg-green-50">
   <div class="text-4xl font-thin opacity-30 tabular-nums">075</div>
@@ -1148,13 +726,7 @@ layout: default
     <div>Use energy-efficient lighting</div>
     <div class="text-xs uppercase font-semibold opacity-60">Environment</div>
   </div>
-  <button class="btn btn-square btn-ghost">
-    <svg class="size-[1.2em]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-      <g stroke-linejoin="round" stroke-linecap="round" stroke-width="2" fill="none" stroke="currentColor">
-        <path d="M6 3L20 12 6 21 6 3z"></path>
-      </g>
-    </svg>
-  </button>
+  
 </li>
 <li class="list-row bg-green-50">
   <div class="text-4xl font-thin opacity-30 tabular-nums">076</div>
@@ -1163,13 +735,7 @@ layout: default
     <div>Support clean water initiatives</div>
     <div class="text-xs uppercase font-semibold opacity-60">Environment</div>
   </div>
-  <button class="btn btn-square btn-ghost">
-    <svg class="size-[1.2em]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-      <g stroke-linejoin="round" stroke-linecap="round" stroke-width="2" fill="none" stroke="currentColor">
-        <path d="M6 3L20 12 6 21 6 3z"></path>
-      </g>
-    </svg>
-  </button>
+  
 </li>
 <li class="list-row bg-blue-50">
   <div class="text-4xl font-thin opacity-30 tabular-nums">077</div>
@@ -1178,13 +744,7 @@ layout: default
     <div>Educate children about the environment</div>
     <div class="text-xs uppercase font-semibold opacity-60">Education</div>
   </div>
-  <button class="btn btn-square btn-ghost">
-    <svg class="size-[1.2em]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-      <g stroke-linejoin="round" stroke-linecap="round" stroke-width="2" fill="none" stroke="currentColor">
-        <path d="M6 3L20 12 6 21 6 3z"></path>
-      </g>
-    </svg>
-  </button>
+  
 </li>
 <li class="list-row bg-teal-50">
   <div class="text-4xl font-thin opacity-30 tabular-nums">078</div>
@@ -1193,13 +753,7 @@ layout: default
     <div>Practice kindness daily</div>
     <div class="text-xs uppercase font-semibold opacity-60">Wellbeing</div>
   </div>
-  <button class="btn btn-square btn-ghost">
-    <svg class="size-[1.2em]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-      <g stroke-linejoin="round" stroke-linecap="round" stroke-width="2" fill="none" stroke="currentColor">
-        <path d="M6 3L20 12 6 21 6 3z"></path>
-      </g>
-    </svg>
-  </button>
+  
 </li>
 <li class="list-row bg-community-50">
   <div class="text-4xl font-thin opacity-30 tabular-nums">079</div>
@@ -1208,13 +762,7 @@ layout: default
     <div>Support disaster relief efforts</div>
     <div class="text-xs uppercase font-semibold opacity-60">Community</div>
   </div>
-  <button class="btn btn-square btn-ghost">
-    <svg class="size-[1.2em]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-      <g stroke-linejoin="round" stroke-linecap="round" stroke-width="2" fill="none" stroke="currentColor">
-        <path d="M6 3L20 12 6 21 6 3z"></path>
-      </g>
-    </svg>
-  </button>
+  
 </li>
 <li class="list-row bg-green-50">
   <div class="text-4xl font-thin opacity-30 tabular-nums">080</div>
@@ -1223,13 +771,7 @@ layout: default
     <div>Use less air conditioning</div>
     <div class="text-xs uppercase font-semibold opacity-60">Environment</div>
   </div>
-  <button class="btn btn-square btn-ghost">
-    <svg class="size-[1.2em]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-      <g stroke-linejoin="round" stroke-linecap="round" stroke-width="2" fill="none" stroke="currentColor">
-        <path d="M6 3L20 12 6 21 6 3z"></path>
-      </g>
-    </svg>
-  </button>
+  
 </li>
 <li class="list-row bg-community-50">
   <div class="text-4xl font-thin opacity-30 tabular-nums">081</div>
@@ -1238,13 +780,7 @@ layout: default
     <div>Support human rights organizations</div>
     <div class="text-xs uppercase font-semibold opacity-60">Community</div>
   </div>
-  <button class="btn btn-square btn-ghost">
-    <svg class="size-[1.2em]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-      <g stroke-linejoin="round" stroke-linecap="round" stroke-width="2" fill="none" stroke="currentColor">
-        <path d="M6 3L20 12 6 21 6 3z"></path>
-      </g>
-    </svg>
-  </button>
+  
 </li>
 <li class="list-row bg-green-50">
   <div class="text-4xl font-thin opacity-30 tabular-nums">082</div>
@@ -1253,13 +789,7 @@ layout: default
     <div>Reduce noise pollution</div>
     <div class="text-xs uppercase font-semibold opacity-60">Environment</div>
   </div>
-  <button class="btn btn-square btn-ghost">
-    <svg class="size-[1.2em]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-      <g stroke-linejoin="round" stroke-linecap="round" stroke-width="2" fill="none" stroke="currentColor">
-        <path d="M6 3L20 12 6 21 6 3z"></path>
-      </g>
-    </svg>
-  </button>
+  
 </li>
 <li class="list-row bg-orange-50">
   <div class="text-4xl font-thin opacity-30 tabular-nums">083</div>
@@ -1268,13 +798,7 @@ layout: default
     <div>Support public transportation</div>
     <div class="text-xs uppercase font-semibold opacity-60">Travel</div>
   </div>
-  <button class="btn btn-square btn-ghost">
-    <svg class="size-[1.2em]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-      <g stroke-linejoin="round" stroke-linecap="round" stroke-width="2" fill="none" stroke="currentColor">
-        <path d="M6 3L20 12 6 21 6 3z"></path>
-      </g>
-    </svg>
-  </button>
+  
 </li>
 <li class="list-row bg-green-50">
   <div class="text-4xl font-thin opacity-30 tabular-nums">084</div>
@@ -1283,13 +807,7 @@ layout: default
     <div>Use natural light when possible</div>
     <div class="text-xs uppercase font-semibold opacity-60">Environment</div>
   </div>
-  <button class="btn btn-square btn-ghost">
-    <svg class="size-[1.2em]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-      <g stroke-linejoin="round" stroke-linecap="round" stroke-width="2" fill="none" stroke="currentColor">
-        <path d="M6 3L20 12 6 21 6 3z"></path>
-      </g>
-    </svg>
-  </button>
+  
 </li>
 <li class="list-row bg-blue-50">
   <div class="text-4xl font-thin opacity-30 tabular-nums">085</div>
@@ -1298,11 +816,429 @@ layout: default
     <div>Support education for all</div>
     <div class="text-xs uppercase font-semibold opacity-60">Education</div>
   </div>
-  <button class="btn btn-square btn-ghost">
-    <svg class="size-[1.2em]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-      <g stroke-linejoin="round" stroke-linecap="round" stroke-width="2" fill="none" stroke="currentColor">
-        <path d="M6 3L20 12 6 21 6 3z"></path>
-      </g>
-    </svg>
-  </button>
+  
 </li>
+<li class="list-row bg-green-50">
+  <div class="text-4xl font-thin opacity-30 tabular-nums">086</div>
+  <div class="text-2xl">💧</div>
+  <div class="list-col-grow">
+    <div>Reduce water usage</div>
+    <div class="text-xs uppercase font-semibold opacity-60">Environment</div>
+  </div>
+  
+</li>
+<li class="list-row bg-culture-50">
+  <div class="text-4xl font-thin opacity-30 tabular-nums">087</div>
+  <div class="text-2xl">🏛️</div>
+  <div class="list-col-grow">
+    <div>Support local history and culture</div>
+    <div class="text-xs uppercase font-semibold opacity-60">Culture</div>
+  </div>
+  
+</li>
+<li class="list-row bg-green-50">
+  <div class="text-4xl font-thin opacity-30 tabular-nums">088</div>
+  <div class="text-2xl">🧴</div>
+  <div class="list-col-grow">
+    <div>Use eco-friendly products</div>
+    <div class="text-xs uppercase font-semibold opacity-60">Environment</div>
+  </div>
+  
+</li>
+<li class="list-row bg-community-50">
+  <div class="text-4xl font-thin opacity-30 tabular-nums">089</div>
+  <div class="text-2xl">♀️</div>
+  <div class="list-col-grow">
+    <div>Support gender equality</div>
+    <div class="text-xs uppercase font-semibold opacity-60">Community</div>
+  </div>
+  
+</li>
+<li class="list-row bg-orange-50">
+  <div class="text-4xl font-thin opacity-30 tabular-nums">090</div>
+  <div class="text-2xl">🚗</div>
+  <div class="list-col-grow">
+    <div>Practice safe driving</div>
+    <div class="text-xs uppercase font-semibold opacity-60">Travel</div>
+  </div>
+  
+</li>
+<li class="list-row bg-green-50">
+  <div class="text-4xl font-thin opacity-30 tabular-nums">091</div>
+  <div class="text-2xl">💨</div>
+  <div class="list-col-grow">
+    <div>Support clean air initiatives</div>
+    <div class="text-xs uppercase font-semibold opacity-60">Environment</div>
+  </div>
+  
+</li>
+<li class="list-row bg-green-50">
+  <div class="text-4xl font-thin opacity-30 tabular-nums">092</div>
+  <div class="text-2xl"> wrap</div>
+  <div class="list-col-grow">
+    <div>Use less plastic wrap</div>
+    <div class="text-xs uppercase font-semibold opacity-60">Environment</div>
+  </div>
+  
+</li>
+<li class="list-row bg-community-50">
+  <div class="text-4xl font-thin opacity-30 tabular-nums">093</div>
+  <div class="text-2xl">🏳️‍🌈</div>
+  <div class="list-col-grow">
+    <div>Support LGBTQ+ rights</div>
+    <div class="text-xs uppercase font-semibold opacity-60">Community</div>
+  </div>
+  
+</li>
+<li class="list-row bg-green-50">
+  <div class="text-4xl font-thin opacity-30 tabular-nums">094</div>
+  <div class="text-2xl">⚡</div>
+  <div class="list-col-grow">
+    <div>Reduce energy consumption</div>
+    <div class="text-xs uppercase font-semibold opacity-60">Environment</div>
+  </div>
+  
+</li>
+<li class="list-row bg-community-50">
+  <div class="text-4xl font-thin opacity-30 tabular-nums">095</div>
+  <div class="text-2xl"> refugee</div>
+  <div class="list-col-grow">
+    <div>Support refugee assistance programs</div>
+    <div class="text-xs uppercase font-semibold opacity-60">Community</div>
+  </div>
+  
+</li>
+<li class="list-row bg-green-50">
+  <div class="text-4xl font-thin opacity-30 tabular-nums">096</div>
+  <div class="text-2xl">🚿</div>
+  <div class="list-col-grow">
+    <div>Use less hot water</div>
+    <div class="text-xs uppercase font-semibold opacity-60">Environment</div>
+  </div>
+  
+</li>
+<li class="list-row bg-community-50">
+  <div class="text-4xl font-thin opacity-30 tabular-nums">097</div>
+  <div class="text-2xl"> indigenous</div>
+  <div class="list-col-grow">
+    <div>Support indigenous communities</div>
+    <div class="text-xs uppercase font-semibold opacity-60">Community</div>
+  </div>
+  
+</li>
+<li class="list-row bg-green-50">
+  <div class="text-4xl font-thin opacity-30 tabular-nums">098</div>
+  <div class="text-2xl">♻️</div>
+  <div class="list-col-grow">
+    <div>Practice recycling correctly</div>
+    <div class="text-xs uppercase font-semibold opacity-60">Environment</div>
+  </div>
+  
+</li>
+<li class="list-row bg-community-50">
+  <div class="text-4xl font-thin opacity-30 tabular-nums">099</div>
+  <div class="text-2xl"> poverty</div>
+  <div class="list-col-grow">
+    <div>Support anti-poverty programs</div>
+    <div class="text-xs uppercase font-semibold opacity-60">Community</div>
+  </div>
+  
+</li>
+<li class="list-row bg-green-50">
+  <div class="text-4xl font-thin opacity-30 tabular-nums">100</div>
+  <div class="text-2xl">🍴</div>
+  <div class="list-col-grow">
+    <div>Use less disposable cutlery</div>
+    <div class="text-xs uppercase font-semibold opacity-60">Environment</div>
+  </div>
+  
+</li>
+<li class="list-row bg-blue-50">
+  <div class="text-4xl font-thin opacity-30 tabular-nums">101</div>
+  <div class="text-2xl">🏫</div>
+  <div class="list-col-grow">
+    <div>Support accessible education</div>
+    <div class="text-xs uppercase font-semibold opacity-60">Education</div>
+  </div>
+  
+</li>
+<li class="list-row bg-green-50">
+  <div class="text-4xl font-thin opacity-30 tabular-nums">102</div>
+  <div class="text-2xl">🌃</div>
+  <div class="list-col-grow">
+    <div>Reduce light pollution</div>
+    <div class="text-xs uppercase font-semibold opacity-60">Environment</div>
+  </div>
+  
+</li>
+<li class="list-row bg-green-50">
+  <div class="text-4xl font-thin opacity-30 tabular-nums">103</div>
+  <div class="text-2xl">🐅</div>
+  <div class="list-col-grow">
+    <div>Support wildlife conservation</div>
+    <div class="text-xs uppercase font-semibold opacity-60">Environment</div>
+  </div>
+  
+</li>
+<li class="list-row bg-green-50">
+  <div class="text-4xl font-thin opacity-30 tabular-nums">104</div>
+  <div class="text-2xl">📦</div>
+  <div class="list-col-grow">
+    <div>Use less packaging</div>
+    <div class="text-xs uppercase font-semibold opacity-60">Environment</div>
+  </div>
+  
+</li>
+<li class="list-row bg-green-50">
+  <div class="text-4xl font-thin opacity-30 tabular-nums">105</div>
+  <div class="text-2xl">☀️</div>
+  <div class="list-col-grow">
+    <div>Support clean energy research</div>
+    <div class="text-xs uppercase font-semibold opacity-60">Environment</div>
+  </div>
+  
+</li>
+<li class="list-row bg-lime-50">
+  <div class="text-4xl font-thin opacity-30 tabular-nums">106</div>
+  <div class="text-2xl">🌿</div>
+  <div class="list-col-grow">
+    <div>Practice composting</div>
+    <div class="text-xs uppercase font-semibold opacity-60">Food</div>
+  </div>
+  
+</li>
+<li class="list-row bg-work-50">
+  <div class="text-4xl font-thin opacity-30 tabular-nums">107</div>
+  <div class="text-2xl">🧑‍💼</div>
+  <div class="list-col-grow">
+    <div>Support fair labor practices</div>
+    <div class="text-xs uppercase font-semibold opacity-60">Work</div>
+  </div>
+  
+</li>
+<li class="list-row bg-orange-50">
+  <div class="text-4xl font-thin opacity-30 tabular-nums">108</div>
+  <div class="text-2xl">⛽</div>
+  <div class="list-col-grow">
+    <div>Use less gasoline</div>
+    <div class="text-xs uppercase font-semibold opacity-60">Travel</div>
+  </div>
+  
+</li>
+<li class="list-row bg-community-50">
+  <div class="text-4xl font-thin opacity-30 tabular-nums">109</div>
+  <div class="text-2xl">🏘️</div>
+  <div class="list-col-grow">
+    <div>Support affordable housing</div>
+    <div class="text-xs uppercase font-semibold opacity-60">Community</div>
+  </div>
+  
+</li>
+<li class="list-row bg-teal-50">
+  <div class="text-4xl font-thin opacity-30 tabular-nums">110</div>
+  <div class="text-2xl">📵</div>
+  <div class="list-col-grow">
+    <div>Practice digital detox</div>
+    <div class="text-xs uppercase font-semibold opacity-60">Wellbeing</div>
+  </div>
+  
+</li>
+<li class="list-row bg-red-50">
+  <div class="text-4xl font-thin opacity-30 tabular-nums">111</div>
+  <div class="text-2xl">🧠</div>
+  <div class="list-col-grow">
+    <div>Support mental health awareness</div>
+    <div class="text-xs uppercase font-semibold opacity-60">Health</div>
+  </div>
+  
+</li>
+<li class="list-row bg-green-50">
+  <div class="text-4xl font-thin opacity-30 tabular-nums">112</div>
+  <div class="text-2xl">💡</div>
+  <div class="list-col-grow">
+    <div>Use less electricity</div>
+    <div class="text-xs uppercase font-semibold opacity-60">Environment</div>
+  </div>
+  
+</li>
+<li class="list-row bg-community-50">
+  <div class="text-4xl font-thin opacity-30 tabular-nums">113</div>
+  <div class="text-2xl">🏘️</div>
+  <div class="list-col-grow">
+    <div>Support community centers</div>
+    <div class="text-xs uppercase font-semibold opacity-60">Community</div>
+  </div>
+  
+</li>
+<li class="list-row bg-orange-50">
+  <div class="text-4xl font-thin opacity-30 tabular-nums">114</div>
+  <div class="text-2xl">✈️</div>
+  <div class="list-col-grow">
+    <div>Practice eco-friendly travel</div>
+    <div class="text-xs uppercase font-semibold opacity-60">Travel</div>
+  </div>
+  
+</li>
+<li class="list-row bg-blue-50">
+  <div class="text-4xl font-thin opacity-30 tabular-nums">115</div>
+  <div class="text-2xl">📚</div>
+  <div class="list-col-grow">
+    <div>Support local libraries</div>
+    <div class="text-xs uppercase font-semibold opacity-60">Education</div>
+  </div>
+  
+</li>
+<li class="list-row bg-green-50">
+  <div class="text-4xl font-thin opacity-30 tabular-nums">116</div>
+  <div class="text-2xl">🧻</div>
+  <div class="list-col-grow">
+    <div>Use less paper towels</div>
+    <div class="text-xs uppercase font-semibold opacity-60">Environment</div>
+  </div>
+  
+</li>
+<li class="list-row bg-culture-50">
+  <div class="text-4xl font-thin opacity-30 tabular-nums">117</div>
+  <div class="text-2xl">🎭</div>
+  <div class="list-col-grow">
+    <div>Support arts and culture</div>
+    <div class="text-xs uppercase font-semibold opacity-60">Culture</div>
+  </div>
+  
+</li>
+<li class="list-row bg-purple-50">
+  <div class="text-4xl font-thin opacity-30 tabular-nums">118</div>
+  <div class="text-2xl">👗</div>
+  <div class="list-col-grow">
+    <div>Practice sustainable fashion</div>
+    <div class="text-xs uppercase font-semibold opacity-60">Creativity</div>
+  </div>
+  
+</li>
+<li class="list-row bg-blue-50">
+  <div class="text-4xl font-thin opacity-30 tabular-nums">119</div>
+  <div class="text-2xl">🌍</div>
+  <div class="list-col-grow">
+    <div>Support environmental education</div>
+    <div class="text-xs uppercase font-semibold opacity-60">Education</div>
+  </div>
+  
+</li>
+<li class="list-row bg-green-50">
+  <div class="text-4xl font-thin opacity-30 tabular-nums">120</div>
+  <div class="text-2xl">💧</div>
+  <div class="list-col-grow">
+    <div>Use less bottled water</div>
+    <div class="text-xs uppercase font-semibold opacity-60">Environment</div>
+  </div>
+  
+</li>
+<li class="list-row bg-green-50">
+  <div class="text-4xl font-thin opacity-30 tabular-nums">121</div>
+  <div class="text-2xl">🌊</div>
+  <div class="list-col-grow">
+    <div>Support clean oceans initiatives</div>
+    <div class="text-xs uppercase font-semibold opacity-60">Environment</div>
+  </div>
+  
+</li>
+<li class="list-row bg-teal-50">
+  <div class="text-4xl font-thin opacity-30 tabular-nums">122</div>
+  <div class="text-2xl">✨</div>
+  <div class="list-col-grow">
+    <div>Practice minimalism</div>
+    <div class="text-xs uppercase font-semibold opacity-60">Wellbeing</div>
+  </div>
+  
+</li>
+<li class="list-row bg-community-50">
+  <div class="text-4xl font-thin opacity-30 tabular-nums">123</div>
+  <div class="text-2xl">⚽</div>
+  <div class="list-col-grow">
+    <div>Support local sports teams</div>
+    <div class="text-xs uppercase font-semibold opacity-60">Community</div>
+  </div>
+  
+</li>
+<li class="list-row bg-green-50">
+  <div class="text-4xl font-thin opacity-30 tabular-nums">124</div>
+  <div class="text-2xl">🧪</div>
+  <div class="list-col-grow">
+    <div>Use less synthetic chemicals</div>
+    <div class="text-xs uppercase font-semibold opacity-60">Environment</div>
+  </div>
+  
+</li>
+<li class="list-row bg-red-50">
+  <div class="text-4xl font-thin opacity-30 tabular-nums">125</div>
+  <div class="text-2xl">🏥</div>
+  <div class="list-col-grow">
+    <div>Support community health programs</div>
+    <div class="text-xs uppercase font-semibold opacity-60">Health</div>
+  </div>
+  
+</li>
+<li class="list-row bg-green-50">
+  <div class="text-4xl font-thin opacity-30 tabular-nums">126</div>
+  <div class="text-2xl">⚡</div>
+  <div class="list-col-grow">
+    <div>Practice energy conservation</div>
+    <div class="text-xs uppercase font-semibold opacity-60">Environment</div>
+  </div>
+  
+</li>
+<li class="list-row bg-culture-50">
+  <div class="text-4xl font-thin opacity-30 tabular-nums">127</div>
+  <div class="text-2xl">🎶</div>
+  <div class="list-col-grow">
+    <div>Support local music events</div>
+    <div class="text-xs uppercase font-semibold opacity-60">Culture</div>
+  </div>
+  
+</li>
+<li class="list-row bg-green-50">
+  <div class="text-4xl font-thin opacity-30 tabular-nums">128</div>
+  <div class="text-2xl">📦</div>
+  <div class="list-col-grow">
+    <div>Use less non-recyclable materials</div>
+    <div class="text-xs uppercase font-semibold opacity-60">Environment</div>
+  </div>
+  
+</li>
+<li class="list-row bg-community-50">
+  <div class="text-4xl font-thin opacity-30 tabular-nums">129</div>
+  <div class="text-2xl">🕊️</div>
+  <div class="list-col-grow">
+    <div>Support global peace efforts</div>
+    <div class="text-xs uppercase font-semibold opacity-60">Community</div>
+  </div>
+  
+</li>
+<li class="list-row bg-community-50">
+  <div class="text-4xl font-thin opacity-30 tabular-nums">130</div>
+  <div class="text-2xl">🌟</div>
+  <div class="list-col-grow">
+    <div>Do something for nothing</div>
+    <div class="text-xs uppercase font-semibold opacity-60">Community</div>
+  </div>
+  
+</li>
+</ul>
+<script>
+  function filterList(category) {
+      const list = document.getElementById('actionList');
+      const items = list.querySelectorAll('.list-row');
+
+      items.forEach(item => {
+          const categoryElement = item.querySelector('.opacity-60');
+          if (categoryElement) {
+              const itemCategory = categoryElement.textContent.trim();
+              if (category === 'all' || itemCategory === category) {
+                  item.style.display = 'flex'; // Or 'grid', depending on your layout
+              } else {
+                  item.style.display = 'none';
+              }
+          }
+      });
+  }
+</script>
