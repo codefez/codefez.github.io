@@ -1,7 +1,26 @@
-_site
-.sass-cache
-.jekyll-cache
+# === Jekyll build and cache ===
+_site/
+.sass-cache/
+.jekyll-cache/
 .jekyll-metadata
-vendor
-.qodo
-node_modules
+
+# === Ruby and Bundler artifacts (local use only) ===
+.bundle/
+vendor/
+Gemfile.lock
+
+# === Logs and system files ===
+*.log
+*.swp
+.DS_Store
+Thumbs.db
+
+# === VS Code / IDEs ===
+.vscode/
+.idea/
+*.code-workspace
+
+# === Node/npm (if ever added) ===
+node_modules/
+package-lock.json
+yarn.lock

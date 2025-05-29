@@ -1,0 +1,63 @@
+<html data-theme="emerald">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    {% feed_meta %}
+    {% seo %}
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5.0.0-beta.1/daisyui.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/drawflow/dist/drawflow.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/drawflow"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/css/site.css">
+    <script src="/js/color-scheme.js" data-website-url="{{ site.url }}" async></script>
+    
+    <link rel="stylesheet" href="/css/hilightjs.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+
+    
+  </head>
+  <body>
+    <nav>
+      <!-- class="container mx-auto px-4 md:container md:mx-auto" -->
+      <section>
+        {% include navbar.html %}
+      </section>
+    </nav>
+
+
+    <section class="container mx-auto px-4 md:container md:mx-auto">
+      {{ content }}
+    </section>
+
+    <script>
+      hljs.highlightAll();
+    </script>
+    
+    {% if jekyll.environment == 'production' %}
+      {% include analytics.html %}
+    {% endif %}
+  </body>
+  <script>    
+    function handleThemeChange() {
+      const newScheme = themeController.checked ? 'dark' : 'emerald';
+      setColorScheme(newScheme);
+      console.log("1 .handleThemeChange called from default HTML");
+    }
+
+    document.addEventListener("DOMContentLoaded", function() {
+    const themeController = document.querySelector('.theme-controller');
+    themeController.addEventListener('change', handleThemeChange);
+    });
+  </script>
+  <script src='https://storage.ko-fi.com/cdn/scripts/overlay-widget.js'></script>
+<script>
+  kofiWidgetOverlay.draw('bitfez', {
+    'type': 'floating-chat',
+    'floating-chat.donateButton.text': 'Support me',
+    'floating-chat.donateButton.background-color': '#00b9fe',
+    'floating-chat.donateButton.text-color': '#fff'
+  });
+</script>
+</html>

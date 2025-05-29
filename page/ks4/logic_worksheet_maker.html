@@ -1,0 +1,153 @@
+---
+layout: alpineJS
+---
+<style>
+  #drawflow canvas {
+      background-color: #f3f4f6;
+    }
+  #drawflow .drawflow-node {
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  }
+</style>
+<div class="p-6 bg-base-200" x-data="logicApp">
+  <div class="max-w-6xl mx-auto space-y-6">
+    <h1 class="text-3xl font-bold">Logic Gate Challenge (work in progress)</h1>
+
+    <!-- Random Logic Expression -->
+    <div class="p-4 bg-base-100 rounded shadow">
+      <h2 class="text-xl font-semibold">Your Logic Expression</h2>
+      <p class="mt-2 text-lg font-mono" x-text="expression"></p>
+      <button class="btn btn-sm btn-outline mt-2" @click="generateExpression">🔄 New Expression</button>
+    </div>
+
+    <!-- Drawflow Canvas Area -->
+    <div>
+      <h2 class="text-xl font-semibold mb-2">Build Your Logic Diagram</h2>
+      <div class="grid grid-cols-5 gap-4">
+        <!-- Toolbox -->
+        <div class="col-span-1 space-y-2">
+          <template x-for="el in blocks" :key="el">
+            <div class="btn btn-outline w-full cursor-pointer" draggable="true" @dragstart="drag = el">+ <span x-text="el"></span></div>
+          </template>
+        </div>
+
+        <!-- Canvas -->
+        <div class="col-span-4">
+          <div id="drawflow" class="border rounded bg-white h-96"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Truth Table -->
+    <div class="mt-6 bg-base-100 p-4 rounded shadow">
+      <h2 class="text-xl font-semibold mb-4">Fill in the Truth Table</h2>
+      <table class="table table-zebra">
+        <thead>
+          <tr>
+            <template x-for="col in ['A','B','C']" :key="col">
+              <th x-text="col"></th>
+            </template>
+            <th>Your Output</th>
+            <th>Correct?</th>
+          </tr>
+        </thead>
+        <tbody>
+          <template x-for="row in truthTable" :key="row.key">
+            <tr>
+              <template x-for="val in row.inputs">
+                <td x-text="val"></td>
+              </template>
+              <td><input type="text" maxlength="1" class="input input-sm input-bordered w-16" x-model="row.user"></td>
+              <td x-text="row.correct === null ? '-' : (row.correct ? '✅' : '❌')"></td>
+            </tr>
+          </template>
+        </tbody>
+      </table>
+      <button class="btn btn-success mt-4" @click="checkAnswers">Check Answers</button>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('alpine:init', () => {
+      Alpine.data('logicApp', () => ({
+        expression: '',
+        blocks: ['A', 'B', 'C', 'AND', 'OR', 'NOT'],
+        drag: null,
+        editor: null,
+        truthTable: [],
+
+        generateExpression() {
+          const ops = ['AND', 'OR'];
+          const notChance = () => Math.random() < 0.4 ? 'NOT ' : '';
+          const getVar = () => notChance() + ['A', 'B', 'C'][Math.floor(Math.random() * 3)];
+          const part1 = `(${getVar()} ${ops[Math.floor(Math.random()*2)]} ${getVar()})`;
+          const expr = `${part1} ${ops[Math.floor(Math.random()*2)]} ${getVar()}`;
+          this.expression = expr;
+          this.initTruthTable();
+        },
+
+        initTruthTable() {
+          this.truthTable = [];
+          for (let i = 0; i < 8; i++) {
+            const bin = i.toString(2).padStart(3, '0').split('').map(Number);
+            this.truthTable.push({
+              inputs: bin,
+              user: '',
+              correct: null,
+              key: bin.join('')
+            });
+          }
+        },
+
+        checkAnswers() {
+          for (let row of this.truthTable) {
+            const [A,B,C] = row.inputs.map(Boolean);
+            try {
+              const expr = this.expression
+                .replace(/NOT/g, '!')
+                .replace(/AND/g, '&&')
+                .replace(/OR/g, '||')
+                .replace(/\bA\b/g, A)
+                .replace(/\bB\b/g, B)
+                .replace(/\bC\b/g, C);
+              const result = eval(expr) ? '1' : '0';
+              row.correct = row.user === result;
+            } catch {
+              row.correct = false;
+            }
+          }
+        },
+
+        initDrawflow() {
+          const container = document.getElementById("drawflow");
+          this.editor = new Drawflow(container);
+          this.editor.reroute = true;
+          this.editor.start();
+
+          container.addEventListener('drop', (event) => {
+            event.preventDefault();
+            const data = this.drag;
+            const x = event.clientX - container.getBoundingClientRect().left;
+            const y = event.clientY - container.getBoundingClientRect().top;
+            this.editor.addNode(data, 1, 1, x, y, data, {}, `${data}`);
+          });
+
+          container.addEventListener('dragover', (event) => event.preventDefault());
+        },
+
+        init() {
+          this.generateExpression();
+          this.initDrawflow();
+        }
+      }));
+    });
+  </script>
+
+  <script>
+    window.onload = () => {
+      const initApp = Alpine.discoverComponents(document.body)[0];
+      initApp.$data.init();
+    };
+  </script>
+</div>
