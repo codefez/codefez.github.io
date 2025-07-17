@@ -1,0 +1,1071 @@
+---
+layout: alpineJS
+---
+<style>
+  :where([class^="ri-"])::before { content: "\f3c2"; }
+
+.gate-svg {
+    width: 100%;
+    height: 100%;
+    max-width: 600px;
+}
+
+.truth-table td {
+    width: 60px;
+    height: 40px;
+    text-align: center;
+}
+
+.truth-table input[type="text"] {
+    width: 40px;
+    text-align: center;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.canvas-container {
+    position: relative;
+    width: 100%;
+    height: 300px;
+    border: 2px solid #e5e7eb;
+    background-color: white;
+}
+
+.drawing-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.gate-palette {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.gate-option {
+    width: 60px;
+    height: 60px;
+    border: 1px solid #e5e7eb;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.gate-option:hover {
+    background-color: #f3f4f6;
+}
+
+.gate-option.selected {
+    border-color: #4f46e5;
+    background-color: #eff6ff;
+}
+</style>
+<div class="p-6 bg-base-200" x-data="logicApp">
+  <div class="max-w-6xl mx-auto space-y-6">
+    <h1 class="text-3xl font-bold BrassMonoFont">Logic Gates Practice Worksheet Generator (work in progress)</h1>
+
+    <!-- Instructions -->
+    <div role="alert" class="alert">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="stroke-info h-6 w-6 shrink-0">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+      </svg>
+      <span>
+        his worksheet generator creates practice problems for logic gates.
+          You can work with circuit diagrams, truth tables, and logic equations.
+          Use the tabs below to switch between different exercise types. Adjust
+          the difficulty level and gate types using the control panel.
+      </span>
+    </div>
+    <div class="bg-white shadow rounded-lg overflow-hidden mb-8">
+      <div class="border-b border-gray-200">
+      <nav class="flex -mb-px">
+      <button id="tab-diagram" class="tab-button text-primary border-primary px-6 py-4 border-b-2 font-medium text-sm whitespace-nowrap">
+      Circuit Diagram to Truth Table
+      </button>
+      <button id="tab-truth-table" class="tab-button text-gray-500 hover:text-gray-700 px-6 py-4 border-b border-transparent font-medium text-sm whitespace-nowrap">
+      Complete Truth Table
+      </button>
+      <button id="tab-equation" class="tab-button text-gray-500 hover:text-gray-700 px-6 py-4 border-b border-transparent font-medium text-sm whitespace-nowrap">
+      Equation to Circuit
+      </button>
+      </nav>
+      </div>
+      <div class="p-6">
+      <div class="flex flex-col md:flex-row gap-6">
+      <div class="w-full md:w-1/4">
+      <div class="bg-gray-50 p-4 rounded-lg">
+      <h4 class="font-medium text-gray-900 mb-4">Control Panel</h4>
+      <div class="mb-4">
+      <label class="block text-sm font-medium text-gray-700 mb-1">Difficulty Level</label>
+      <div class="flex p-1 bg-gray-100 rounded-full">
+      <button id="level-easy" class="level-btn flex-1 py-2 px-4 text-sm font-medium text-white bg-primary rounded-full whitespace-nowrap">
+      Easy (2 inputs)
+      </button>
+      <button id="level-hard" class="level-btn flex-1 py-2 px-4 text-sm font-medium text-gray-700 rounded-full whitespace-nowrap">
+      Hard (3 inputs)
+      </button>
+      </div>
+      </div>
+      <div class="mb-4">
+      <label class="block text-sm font-medium text-gray-700 mb-1">Gate Types</label>
+      <div class="space-y-2">
+      <label class="flex items-center">
+      <div class="w-5 h-5 flex items-center justify-center mr-2 bg-white border border-gray-300 rounded">
+      <div id="checkbox-and" class="w-3 h-3 bg-primary rounded-sm"></div>
+      </div>
+      <span class="text-sm text-gray-700">AND Gates</span>
+      </label>
+      <label class="flex items-center">
+      <div class="w-5 h-5 flex items-center justify-center mr-2 bg-white border border-gray-300 rounded">
+      <div id="checkbox-or" class="w-3 h-3 bg-primary rounded-sm"></div>
+      </div>
+      <span class="text-sm text-gray-700">OR Gates</span>
+      </label>
+      <label class="flex items-center">
+      <div class="w-5 h-5 flex items-center justify-center mr-2 bg-white border border-gray-300 rounded">
+      <div id="checkbox-not" class="w-3 h-3 bg-primary rounded-sm"></div>
+      </div>
+      <span class="text-sm text-gray-700">NOT Gates</span>
+      </label>
+      </div>
+      </div>
+      <button id="generate-btn" class="w-full py-2 px-4 bg-primary text-white !rounded-button whitespace-nowrap">
+      Generate New Problem
+      </button>
+      </div>
+      <div class="mt-6 bg-gray-50 p-4 rounded-lg">
+      <h4 class="font-medium text-gray-900 mb-4">Gate Reference</h4>
+      <div class="space-y-4">
+      <div class="flex items-center">
+      <svg class="w-16 h-10 mr-2" viewBox="0 0 100 50">
+      <path d="M30,10 L30,40 L50,40 A20,20 0 0,0 50,10 L30,10 Z" fill="none" stroke="currentColor" stroke-width="2"/>
+      <line x1="10" y1="20" x2="30" y2="20" stroke="currentColor" stroke-width="2"/>
+      <line x1="10" y1="30" x2="30" y2="30" stroke="currentColor" stroke-width="2"/>
+      <line x1="70" y1="25" x2="90" y2="25" stroke="currentColor" stroke-width="2"/>
+      </svg>
+      <div>
+      <p class="font-medium text-gray-800">AND Gate</p>
+      <p class="text-xs text-gray-600">Output is 1 only when all inputs are 1</p>
+      </div>
+      </div>
+      <div class="flex items-center">
+      <svg class="w-16 h-10 mr-2" viewBox="0 0 100 50">
+      <path d="M30,10 Q60,25 30,40 L30,10" fill="none" stroke="currentColor" stroke-width="2"/>
+      <line x1="10" y1="20" x2="30" y2="20" stroke="currentColor" stroke-width="2"/>
+      <line x1="10" y1="30" x2="30" y2="30" stroke="currentColor" stroke-width="2"/>
+      <line x1="60" y1="25" x2="90" y2="25" stroke="currentColor" stroke-width="2"/>
+      </svg>
+      <div>
+      <p class="font-medium text-gray-800">OR Gate</p>
+      <p class="text-xs text-gray-600">Output is 1 when any input is 1</p>
+      </div>
+      </div>
+      <div class="flex items-center">
+      <svg class="w-16 h-10 mr-2" viewBox="0 0 100 50">
+      <path d="M30,10 L30,40 L50,40 A20,20 0 0,0 50,10 L30,10 Z" fill="none" stroke="currentColor" stroke-width="2"/>
+      <circle cx="55" cy="25" r="5" fill="none" stroke="currentColor" stroke-width="2"/>
+      <line x1="10" y1="25" x2="30" y2="25" stroke="currentColor" stroke-width="2"/>
+      <line x1="60" y1="25" x2="90" y2="25" stroke="currentColor" stroke-width="2"/>
+      </svg>
+      <div>
+      <p class="font-medium text-gray-800">NOT Gate</p>
+      <p class="text-xs text-gray-600">Inverts the input (0→1, 1→0)</p>
+      </div>
+      </div>
+      </div>
+      </div>
+      </div>
+      <div class="w-full md:w-3/4">
+      <!-- Circuit Diagram to Truth Table Tab Content -->
+      <div id="content-diagram" class="tab-content">
+      <div class="bg-white p-6 rounded-lg shadow-sm mb-6">
+      <h3 class="text-lg font-medium text-gray-900 mb-4">Logic Circuit Diagram</h3>
+      <div class="flex justify-center mb-6">
+      <svg id="circuit-svg" class="gate-svg" viewBox="0 0 600 300">
+      <!-- Example circuit with 2 inputs -->
+      <text x="50" y="80" font-size="16" text-anchor="middle">A</text>
+      <line x1="50" y1="85" x2="50" y2="120" stroke="#000" stroke-width="2"/>
+      <line x1="50" y1="120" x2="150" y2="120" stroke="#000" stroke-width="2"/>
+      <text x="50" y="200" font-size="16" text-anchor="middle">B</text>
+      <line x1="50" y1="205" x2="50" y2="240" stroke="#000" stroke-width="2"/>
+      <line x1="50" y1="240" x2="150" y2="240" stroke="#000" stroke-width="2"/>
+      <!-- AND gate -->
+      <path d="M150,100 L150,260 L200,260 A60,80 0 0,0 200,100 L150,100 Z" fill="none" stroke="#000" stroke-width="2"/>
+      <line x1="260" y1="180" x2="300" y2="180" stroke="#000" stroke-width="2"/>
+      <!-- NOT gate -->
+      <path d="M300,160 L300,200 L340,180 L300,160 Z" fill="none" stroke="#000" stroke-width="2"/>
+      <circle cx="345" cy="180" r="5" fill="none" stroke="#000" stroke-width="2"/>
+      <line x1="350" y1="180" x2="380" y2="180" stroke="#000" stroke-width="2"/>
+      <text x="400" y="180" font-size="16" text-anchor="middle">Output</text>
+      </svg>
+      </div>
+      <div class="mb-6">
+      <h4 class="font-medium text-gray-900 mb-2">Question 1: Complete the truth table for this circuit</h4>
+      <div class="overflow-x-auto">
+      <table class="truth-table border-collapse border border-gray-300">
+      <thead>
+      <tr class="bg-gray-100">
+      <th class="border border-gray-300 px-4 py-2">A</th>
+      <th class="border border-gray-300 px-4 py-2">B</th>
+      <th class="border border-gray-300 px-4 py-2">Output</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+      <td class="border border-gray-300 px-4 py-2">0</td>
+      <td class="border border-gray-300 px-4 py-2">0</td>
+      <td class="border border-gray-300 px-4 py-2">
+      <input type="text" class="border-none focus:ring-2 focus:ring-primary rounded" maxlength="1">
+      </td>
+      </tr>
+      <tr>
+      <td class="border border-gray-300 px-4 py-2">0</td>
+      <td class="border border-gray-300 px-4 py-2">1</td>
+      <td class="border border-gray-300 px-4 py-2">
+      <input type="text" class="border-none focus:ring-2 focus:ring-primary rounded" maxlength="1">
+      </td>
+      </tr>
+      <tr>
+      <td class="border border-gray-300 px-4 py-2">1</td>
+      <td class="border border-gray-300 px-4 py-2">0</td>
+      <td class="border border-gray-300 px-4 py-2">
+      <input type="text" class="border-none focus:ring-2 focus:ring-primary rounded" maxlength="1">
+      </td>
+      </tr>
+      <tr>
+      <td class="border border-gray-300 px-4 py-2">1</td>
+      <td class="border border-gray-300 px-4 py-2">1</td>
+      <td class="border border-gray-300 px-4 py-2">
+      <input type="text" class="border-none focus:ring-2 focus:ring-primary rounded" maxlength="1">
+      </td>
+      </tr>
+      </tbody>
+      </table>
+      </div>
+      </div>
+      <div>
+      <h4 class="font-medium text-gray-900 mb-2">Question 2: Write the logic equation for this circuit</h4>
+      <div class="flex items-center">
+      <span class="mr-2">Output =</span>
+      <input type="text" class="flex-1 border-gray-300 rounded-md focus:ring-primary focus:border-primary" placeholder="e.g. (A AND B)'">
+      </div>
+      <p class="mt-2 text-sm text-gray-600">Use AND, OR, NOT operators and parentheses. Use ' for NOT (e.g. A' means NOT A).</p>
+      </div>
+      </div>
+      <div class="flex justify-end">
+      <button class="px-4 py-2 bg-primary text-white !rounded-button whitespace-nowrap">
+      Check Answers
+      </button>
+      </div>
+      </div>
+      <!-- Complete Truth Table Tab Content (hidden by default) -->
+      <div id="content-truth-table" class="tab-content hidden">
+      <div class="bg-white p-6 rounded-lg shadow-sm mb-6">
+      <h3 class="text-lg font-medium text-gray-900 mb-4">Complete the Truth Table</h3>
+      <div class="mb-6">
+      <h4 class="font-medium text-gray-900 mb-2">For the logic equation: A AND (B OR C)</h4>
+      <div class="overflow-x-auto">
+      <table class="truth-table border-collapse border border-gray-300">
+      <thead>
+      <tr class="bg-gray-100">
+      <th class="border border-gray-300 px-4 py-2">A</th>
+      <th class="border border-gray-300 px-4 py-2">B</th>
+      <th class="border border-gray-300 px-4 py-2">C</th>
+      <th class="border border-gray-300 px-4 py-2">B OR C</th>
+      <th class="border border-gray-300 px-4 py-2">A AND (B OR C)</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+      <td class="border border-gray-300 px-4 py-2">0</td>
+      <td class="border border-gray-300 px-4 py-2">0</td>
+      <td class="border border-gray-300 px-4 py-2">0</td>
+      <td class="border border-gray-300 px-4 py-2">
+      <input type="text" class="border-none focus:ring-2 focus:ring-primary rounded" maxlength="1">
+      </td>
+      <td class="border border-gray-300 px-4 py-2">
+      <input type="text" class="border-none focus:ring-2 focus:ring-primary rounded" maxlength="1">
+      </td>
+      </tr>
+      <tr>
+      <td class="border border-gray-300 px-4 py-2">0</td>
+      <td class="border border-gray-300 px-4 py-2">0</td>
+      <td class="border border-gray-300 px-4 py-2">1</td>
+      <td class="border border-gray-300 px-4 py-2">
+      <input type="text" class="border-none focus:ring-2 focus:ring-primary rounded" maxlength="1">
+      </td>
+      <td class="border border-gray-300 px-4 py-2">
+      <input type="text" class="border-none focus:ring-2 focus:ring-primary rounded" maxlength="1">
+      </td>
+      </tr>
+      <tr>
+      <td class="border border-gray-300 px-4 py-2">0</td>
+      <td class="border border-gray-300 px-4 py-2">1</td>
+      <td class="border border-gray-300 px-4 py-2">0</td>
+      <td class="border border-gray-300 px-4 py-2">
+      <input type="text" class="border-none focus:ring-2 focus:ring-primary rounded" maxlength="1">
+      </td>
+      <td class="border border-gray-300 px-4 py-2">
+      <input type="text" class="border-none focus:ring-2 focus:ring-primary rounded" maxlength="1">
+      </td>
+      </tr>
+      <tr>
+      <td class="border border-gray-300 px-4 py-2">0</td>
+      <td class="border border-gray-300 px-4 py-2">1</td>
+      <td class="border border-gray-300 px-4 py-2">1</td>
+      <td class="border border-gray-300 px-4 py-2">
+      <input type="text" class="border-none focus:ring-2 focus:ring-primary rounded" maxlength="1">
+      </td>
+      <td class="border border-gray-300 px-4 py-2">
+      <input type="text" class="border-none focus:ring-2 focus:ring-primary rounded" maxlength="1">
+      </td>
+      </tr>
+      <tr>
+      <td class="border border-gray-300 px-4 py-2">1</td>
+      <td class="border border-gray-300 px-4 py-2">0</td>
+      <td class="border border-gray-300 px-4 py-2">0</td>
+      <td class="border border-gray-300 px-4 py-2">
+      <input type="text" class="border-none focus:ring-2 focus:ring-primary rounded" maxlength="1">
+      </td>
+      <td class="border border-gray-300 px-4 py-2">
+      <input type="text" class="border-none focus:ring-2 focus:ring-primary rounded" maxlength="1">
+      </td>
+      </tr>
+      <tr>
+      <td class="border border-gray-300 px-4 py-2">1</td>
+      <td class="border border-gray-300 px-4 py-2">0</td>
+      <td class="border border-gray-300 px-4 py-2">1</td>
+      <td class="border border-gray-300 px-4 py-2">
+      <input type="text" class="border-none focus:ring-2 focus:ring-primary rounded" maxlength="1">
+      </td>
+      <td class="border border-gray-300 px-4 py-2">
+      <input type="text" class="border-none focus:ring-2 focus:ring-primary rounded" maxlength="1">
+      </td>
+      </tr>
+      <tr>
+      <td class="border border-gray-300 px-4 py-2">1</td>
+      <td class="border border-gray-300 px-4 py-2">1</td>
+      <td class="border border-gray-300 px-4 py-2">0</td>
+      <td class="border border-gray-300 px-4 py-2">
+      <input type="text" class="border-none focus:ring-2 focus:ring-primary rounded" maxlength="1">
+      </td>
+      <td class="border border-gray-300 px-4 py-2">
+      <input type="text" class="border-none focus:ring-2 focus:ring-primary rounded" maxlength="1">
+      </td>
+      </tr>
+      <tr>
+      <td class="border border-gray-300 px-4 py-2">1</td>
+      <td class="border border-gray-300 px-4 py-2">1</td>
+      <td class="border border-gray-300 px-4 py-2">1</td>
+      <td class="border border-gray-300 px-4 py-2">
+      <input type="text" class="border-none focus:ring-2 focus:ring-primary rounded" maxlength="1">
+      </td>
+      <td class="border border-gray-300 px-4 py-2">
+      <input type="text" class="border-none focus:ring-2 focus:ring-primary rounded" maxlength="1">
+      </td>
+      </tr>
+      </tbody>
+      </table>
+      </div>
+      </div>
+      <div class="flex justify-end">
+      <button class="px-4 py-2 bg-primary text-white !rounded-button whitespace-nowrap">
+      Check Answers
+      </button>
+      </div>
+      </div>
+      </div>
+      <!-- Equation to Circuit Tab Content (hidden by default) -->
+      <div id="content-equation" class="tab-content hidden">
+      <div class="bg-white p-6 rounded-lg shadow-sm mb-6">
+      <h3 class="text-lg font-medium text-gray-900 mb-4">Draw a Circuit from Logic Equation</h3>
+      <div class="mb-6">
+      <h4 class="font-medium text-gray-900 mb-2">For the logic equation: (A OR B) AND (NOT C)</h4>
+      <p class="text-sm text-gray-600 mb-4">Draw the circuit diagram using the tools below.</p>
+      <div class="gate-palette">
+      <div class="gate-option" data-gate="input">
+      <span class="text-sm">Input</span>
+      </div>
+      <div class="gate-option" data-gate="and">
+      <svg class="w-10 h-10" viewBox="0 0 100 50">
+      <path d="M30,10 L30,40 L50,40 A20,20 0 0,0 50,10 L30,10 Z" fill="none" stroke="currentColor" stroke-width="2"/>
+      </svg>
+      </div>
+      <div class="gate-option" data-gate="or">
+      <svg class="w-10 h-10" viewBox="0 0 100 50">
+      <path d="M30,10 Q60,25 30,40 L30,10" fill="none" stroke="currentColor" stroke-width="2"/>
+      </svg>
+      </div>
+      <div class="gate-option" data-gate="not">
+      <svg class="w-10 h-10" viewBox="0 0 100 50">
+      <path d="M30,10 L30,40 L50,25 L30,10 Z" fill="none" stroke="currentColor" stroke-width="2"/>
+      <circle cx="55" cy="25" r="5" fill="none" stroke="currentColor" stroke-width="2"/>
+      </svg>
+      </div>
+      <div class="gate-option" data-gate="wire">
+      <i class="ri-link-m-line ri-lg"></i>
+      </div>
+      <div class="gate-option" data-gate="delete">
+      <i class="ri-eraser-line ri-lg"></i>
+      </div>
+      </div>
+      <div class="canvas-container">
+      <canvas id="drawing-canvas" class="drawing-canvas"></canvas>
+      </div>
+      <div class="mt-4 text-sm text-gray-600">
+      <p>Click on a gate from the palette, then click on the canvas to place it. Use the wire tool to connect gates.</p>
+      </div>
+      </div>
+      <div class="flex justify-end">
+      <button class="px-4 py-2 bg-gray-200 text-gray-700 !rounded-button mr-2 whitespace-nowrap">
+      Clear Canvas
+      </button>
+      <button class="px-4 py-2 bg-primary text-white !rounded-button whitespace-nowrap">
+      Check Circuit
+      </button>
+      </div>
+      </div>
+      </div>
+      </div>
+      </div>
+      </div>
+      </div>
+      </main>
+      <footer class="bg-gray-800 text-white py-8">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row justify-between">
+      <div class="mb-6 md:mb-0">
+      <h2 class="text-xl font-['Pacifico'] text-white mb-2">LogicLearn</h2>
+      <p class="text-gray-400 text-sm">
+      A tool for learning and practicing logic gates and digital circuits.
+      </p>
+      </div>
+      <div>
+      <h3 class="text-sm font-semibold text-gray-400 uppercase tracking-wider mb-2">Resources</h3>
+      <ul class="space-y-2">
+      <li>
+      <a href="#" class="text-gray-300 hover:text-white text-sm">Logic Gate Guide</a>
+      </li>
+      <li>
+      <a href="#" class="text-gray-300 hover:text-white text-sm">Boolean Algebra Rules</a>
+      </li>
+      <li>
+      <a href="#" class="text-gray-300 hover:text-white text-sm">Digital Circuit Basics</a>
+      </li>
+      </ul>
+      </div>
+      </div>
+      <div class="mt-8 border-t border-gray-700 pt-4 text-sm text-gray-400">
+      <p>© 2025 LogicLearn. All rights reserved.</p>
+      </div>
+      </div>
+      </footer>
+      <script id="tab-navigation">
+      document.addEventListener("DOMContentLoaded", function () {
+        const tabButtons = document.querySelectorAll(".tab-button");
+        const tabContents = document.querySelectorAll(".tab-content");
+        tabButtons.forEach((button) => {
+          button.addEventListener("click", () => {
+            // Remove active class from all buttons
+            tabButtons.forEach((btn) => {
+              btn.classList.remove("text-primary", "border-primary");
+              btn.classList.add(
+                "text-gray-500",
+                "hover:text-gray-700",
+                "border-transparent",
+              );
+            });
+            // Add active class to clicked button
+            button.classList.remove(
+              "text-gray-500",
+              "hover:text-gray-700",
+              "border-transparent",
+            );
+            button.classList.add("text-primary", "border-primary");
+            // Hide all tab contents
+            tabContents.forEach((content) => {
+              content.classList.add("hidden");
+            });
+            // Show the corresponding tab content
+            const tabId = button.id.replace("tab-", "content-");
+            document.getElementById(tabId).classList.remove("hidden");
+          });
+        });
+      });
+      </script>
+      <script id="difficulty-level">
+      document.addEventListener("DOMContentLoaded", function () {
+        const levelButtons = document.querySelectorAll(".level-btn");
+        levelButtons.forEach((button) => {
+          button.addEventListener("click", () => {
+            // Remove active class from all buttons
+            levelButtons.forEach((btn) => {
+              btn.classList.remove("bg-primary", "text-white");
+              btn.classList.add("bg-transparent", "text-gray-700");
+            });
+            // Add active class to clicked button
+            button.classList.remove("bg-transparent", "text-gray-700");
+            button.classList.add("bg-primary", "text-white");
+          });
+        });
+      });
+      </script>
+      <script id="gate-checkboxes">
+      document.addEventListener("DOMContentLoaded", function () {
+        const checkboxes = document.querySelectorAll('[id^="checkbox-"]');
+        checkboxes.forEach((checkbox) => {
+          const container = checkbox.parentElement;
+          container.addEventListener("click", () => {
+            // Toggle visibility
+            if (checkbox.style.display === "none") {
+              checkbox.style.display = "block";
+            } else {
+              checkbox.style.display = "none";
+            }
+          });
+        });
+      });
+      </script>
+      <script id="drawing-canvas">
+      document.addEventListener("DOMContentLoaded", function () {
+        const canvas = document.getElementById("drawing-canvas");
+        if (!canvas) return;
+        const ctx = canvas.getContext("2d");
+        const gateOptions = document.querySelectorAll(".gate-option");
+        let selectedGate = null;
+        // Set canvas size
+        function resizeCanvas() {
+          const container = canvas.parentElement;
+          canvas.width = container.offsetWidth;
+          canvas.height = container.offsetHeight;
+        }
+        resizeCanvas();
+        window.addEventListener("resize", resizeCanvas);
+        // Handle gate selection
+        gateOptions.forEach((option) => {
+          option.addEventListener("click", () => {
+            // Remove selected class from all options
+            gateOptions.forEach((opt) => opt.classList.remove("selected"));
+            // Add selected class to clicked option
+            option.classList.add("selected");
+            selectedGate = option.getAttribute("data-gate");
+          });
+        });
+        // Handle canvas clicks
+        canvas.addEventListener("click", (e) => {
+          if (!selectedGate) return;
+          const rect = canvas.getBoundingClientRect();
+          const x = e.clientX - rect.left;
+          const y = e.clientY - rect.top;
+          // Draw the selected gate
+          switch (selectedGate) {
+            case "input":
+              drawInput(x, y);
+              break;
+            case "and":
+              drawAndGate(x, y);
+              break;
+            case "or":
+              drawOrGate(x, y);
+              break;
+            case "not":
+              drawNotGate(x, y);
+              break;
+            case "wire":
+              // Wire drawing would require more complex logic
+              break;
+            case "delete":
+              // Deletion would require tracking placed elements
+              break;
+          }
+        });
+        // Drawing functions
+        function drawInput(x, y) {
+          ctx.beginPath();
+          ctx.arc(x, y, 10, 0, 2 * Math.PI);
+          ctx.stroke();
+          // Label
+          ctx.font = "12px Arial";
+          ctx.fillText("A", x - 4, y - 15);
+        }
+        function drawAndGate(x, y) {
+          ctx.beginPath();
+          ctx.moveTo(x - 20, y - 20);
+          ctx.lineTo(x - 20, y + 20);
+          ctx.lineTo(x, y + 20);
+          ctx.arc(x, y, 20, Math.PI / 2, -Math.PI / 2, true);
+          ctx.lineTo(x - 20, y - 20);
+          ctx.stroke();
+        }
+        function drawOrGate(x, y) {
+          ctx.beginPath();
+          ctx.moveTo(x - 20, y - 20);
+          ctx.quadraticCurveTo(x + 10, y, x - 20, y + 20);
+          ctx.lineTo(x - 20, y - 20);
+          ctx.stroke();
+        }
+        function drawNotGate(x, y) {
+          // Triangle
+          ctx.beginPath();
+          ctx.moveTo(x - 15, y - 15);
+          ctx.lineTo(x - 15, y + 15);
+          ctx.lineTo(x + 5, y);
+          ctx.closePath();
+          ctx.stroke();
+          // Circle
+          ctx.beginPath();
+          ctx.arc(x + 10, y, 5, 0, 2 * Math.PI);
+          ctx.stroke();
+        }
+      });
+      </script>
+      <script id="circuit-generator">
+      document.addEventListener("DOMContentLoaded", function () {
+        const generateBtn = document.getElementById("generate-btn");
+        if (!generateBtn) return;
+        const gates = {
+          AND: {
+            symbol: "AND",
+            evaluate: (inputs) => (inputs.every((x) => x === 1) ? 1 : 0),
+          },
+          OR: {
+            symbol: "OR",
+            evaluate: (inputs) => (inputs.some((x) => x === 1) ? 1 : 0),
+          },
+          NOT: {
+            symbol: "NOT",
+            evaluate: (input) => (input === 1 ? 0 : 1),
+          },
+        };
+        let currentCircuit = {
+          inputs: 2,
+          gates: [],
+          truthTable: [],
+          equation: "",
+        };
+        generateBtn.addEventListener("click", function () {
+          const isHardMode = document
+            .getElementById("level-hard")
+            .classList.contains("bg-primary");
+          const numInputs = isHardMode ? 3 : 2;
+      
+          const useAndGates =
+            document.getElementById("checkbox-and").style.display !== "none";
+          const useOrGates =
+            document.getElementById("checkbox-or").style.display !== "none";
+          const useNotGates =
+            document.getElementById("checkbox-not").style.display !== "none";
+          const availableGates = [];
+          if (useAndGates) availableGates.push("AND");
+          if (useOrGates) availableGates.push("OR");
+          if (useNotGates) availableGates.push("NOT");
+          currentCircuit = generateRandomCircuit(numInputs, availableGates);
+          drawCircuit(currentCircuit);
+          updateTruthTable(currentCircuit);
+        });
+        function generateRandomCircuit(numInputs, availableGates) {
+          const circuit = {
+            inputs: numInputs,
+            gates: [],
+            connections: [],
+            truthTable: [],
+            equation: "",
+          };
+          // Generate 2-3 random gates
+          const numGates = 2 + Math.floor(Math.random() * 2);
+      
+          for (let i = 0; i < numGates; i++) {
+            const gateType =
+              availableGates[Math.floor(Math.random() * availableGates.length)];
+            circuit.gates.push({
+              type: gateType,
+              id: i,
+              inputs: gateType === "NOT" ? 1 : 2,
+            });
+          }
+          // Generate connections
+          let availableInputs = [...Array(numInputs)].map((_, i) => ({
+            type: "input",
+            id: i,
+          }));
+          let availableOutputs = circuit.gates.map((g) => ({
+            type: "gate",
+            id: g.id,
+          }));
+          circuit.gates.forEach((gate) => {
+            const numInputsNeeded = gate.type === "NOT" ? 1 : 2;
+            for (let i = 0; i < numInputsNeeded; i++) {
+              const input =
+                availableInputs[Math.floor(Math.random() * availableInputs.length)];
+              circuit.connections.push({
+                from: input,
+                to: { type: "gate", id: gate.id, input: i },
+              });
+            }
+          });
+          // Generate truth table
+          circuit.truthTable = generateTruthTable(circuit);
+      
+          // Generate equation
+          circuit.equation = generateEquation(circuit);
+          return circuit;
+        }
+        function drawCircuit(circuit) {
+          const svg = document.getElementById("circuit-svg");
+          if (!svg) return;
+      
+          svg.innerHTML = "";
+          // Draw inputs
+          const inputLabels = ["A", "B", "C"].slice(0, circuit.inputs);
+          const inputY = circuit.inputs === 2 ? [100, 200] : [80, 150, 220];
+      
+          inputLabels.forEach((label, i) => {
+            // Input label
+            const text = document.createElementNS(
+              "http://www.w3.org/2000/svg",
+              "text",
+            );
+            text.setAttribute("x", "50");
+            text.setAttribute("y", inputY[i]);
+            text.setAttribute("font-size", "16");
+            text.setAttribute("text-anchor", "middle");
+            text.textContent = label;
+            svg.appendChild(text);
+            // Input lines
+            const line = document.createElementNS(
+              "http://www.w3.org/2000/svg",
+              "line",
+            );
+            line.setAttribute("x1", "50");
+            line.setAttribute("y1", inputY[i] + 5);
+            line.setAttribute("x2", "150");
+            line.setAttribute("y2", inputY[i] + 5);
+            line.setAttribute("stroke", "#000");
+            line.setAttribute("stroke-width", "2");
+            svg.appendChild(line);
+          });
+          // Draw gates
+          circuit.gates.forEach((gate, i) => {
+            const x = 150 + i * 100;
+            const y = 150;
+      
+            if (gate.type === "AND") {
+              drawAndGate(svg, x, y);
+            } else if (gate.type === "OR") {
+              drawOrGate(svg, x, y);
+            } else if (gate.type === "NOT") {
+              drawNotGate(svg, x, y);
+            }
+          });
+          // Draw output
+          const outputX = 150 + circuit.gates.length * 100;
+          const outputLabel = document.createElementNS(
+            "http://www.w3.org/2000/svg",
+            "text",
+          );
+          outputLabel.setAttribute("x", outputX + 20);
+          outputLabel.setAttribute("y", "150");
+          outputLabel.setAttribute("font-size", "16");
+          outputLabel.setAttribute("text-anchor", "middle");
+          outputLabel.textContent = "Output";
+          svg.appendChild(outputLabel);
+        }
+        function drawAndGate(svg, x, y) {
+          const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+          path.setAttribute(
+            "d",
+            `M${x},${y - 30} L${x},${y + 30} L${x + 30},${y + 30} A30,30 0 0 0 ${x + 30},${y - 30} L${x},${y - 30} Z`,
+          );
+          path.setAttribute("fill", "none");
+          path.setAttribute("stroke", "#000");
+          path.setAttribute("stroke-width", "2");
+          svg.appendChild(path);
+        }
+        function drawOrGate(svg, x, y) {
+          const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+          path.setAttribute(
+            "d",
+            `M${x},${y - 30} Q${x + 40},${y} ${x},${y + 30} L${x},${y - 30}`,
+          );
+          path.setAttribute("fill", "none");
+          path.setAttribute("stroke", "#000");
+          path.setAttribute("stroke-width", "2");
+          svg.appendChild(path);
+        }
+        function drawNotGate(svg, x, y) {
+          // Triangle
+          const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+          path.setAttribute("d", `M${x},${y - 20} L${x},${y + 20} L${x + 30},${y} Z`);
+          path.setAttribute("fill", "none");
+          path.setAttribute("stroke", "#000");
+          path.setAttribute("stroke-width", "2");
+          svg.appendChild(path);
+          // Circle
+          const circle = document.createElementNS(
+            "http://www.w3.org/2000/svg",
+            "circle",
+          );
+          circle.setAttribute("cx", x + 35);
+          circle.setAttribute("cy", y);
+          circle.setAttribute("r", "5");
+          circle.setAttribute("fill", "none");
+          circle.setAttribute("stroke", "#000");
+          circle.setAttribute("stroke-width", "2");
+          svg.appendChild(circle);
+        }
+        function generateTruthTable(circuit) {
+          const numRows = Math.pow(2, circuit.inputs);
+          const truthTable = [];
+          for (let i = 0; i < numRows; i++) {
+            const inputs = [];
+            for (let j = circuit.inputs - 1; j >= 0; j--) {
+              inputs.push((i >> j) & 1);
+            }
+            const output = evaluateCircuit(circuit, inputs);
+            truthTable.push({ inputs, output });
+          }
+          return truthTable;
+        }
+        function evaluateCircuit(circuit, inputs) {
+          // Simplified evaluation - in reality would need to follow connections
+          const lastGate = circuit.gates[circuit.gates.length - 1];
+          if (lastGate.type === "AND") {
+            return gates.AND.evaluate(inputs);
+          } else if (lastGate.type === "OR") {
+            return gates.OR.evaluate(inputs);
+          } else {
+            return gates.NOT.evaluate(inputs[0]);
+          }
+        }
+        function generateEquation(circuit) {
+          // Simplified equation generation
+          const inputLabels = ["A", "B", "C"].slice(0, circuit.inputs);
+          const lastGate = circuit.gates[circuit.gates.length - 1];
+      
+          if (lastGate.type === "AND") {
+            return inputLabels.join(" AND ");
+          } else if (lastGate.type === "OR") {
+            return inputLabels.join(" OR ");
+          } else {
+            return "NOT " + inputLabels[0];
+          }
+        }
+        function updateTruthTable(circuit) {
+          const tableContainer = document.querySelector(".truth-table");
+          if (!tableContainer) return;
+          const table = tableContainer.closest("table");
+          if (!table) return;
+          const thead = table.querySelector("thead");
+          const tbody = table.querySelector("tbody");
+          thead.innerHTML = "";
+          tbody.innerHTML = "";
+          // Create header row
+          const headerRow = document.createElement("tr");
+          headerRow.classList.add("bg-gray-100");
+          // Add input columns
+          const inputLabels = ["A", "B", "C"].slice(0, circuit.inputs);
+          inputLabels.forEach((label) => {
+            const th = document.createElement("th");
+            th.classList.add("border", "border-gray-300", "px-4", "py-2");
+            th.textContent = label;
+            headerRow.appendChild(th);
+          });
+          // Add output column
+          const outputTh = document.createElement("th");
+          outputTh.classList.add("border", "border-gray-300", "px-4", "py-2");
+          outputTh.textContent = "Output";
+          headerRow.appendChild(outputTh);
+          thead.appendChild(headerRow);
+          // Create rows from truth table
+          circuit.truthTable.forEach((row) => {
+            const tr = document.createElement("tr");
+      
+            // Input columns
+            row.inputs.forEach((input) => {
+              const td = document.createElement("td");
+              td.classList.add("border", "border-gray-300", "px-4", "py-2");
+              td.textContent = input;
+              tr.appendChild(td);
+            });
+            // Output column with input field
+            const outputTd = document.createElement("td");
+            outputTd.classList.add("border", "border-gray-300", "px-4", "py-2");
+            const input = document.createElement("input");
+            input.setAttribute("type", "text");
+            input.classList.add(
+              "border-none",
+              "focus:ring-2",
+              "focus:ring-primary",
+              "rounded",
+            );
+            input.setAttribute("maxlength", "1");
+            input.dataset.correctAnswer = row.output;
+            outputTd.appendChild(input);
+            tr.appendChild(outputTd);
+            tbody.appendChild(tr);
+          });
+        }
+        // Initialize with default values
+        const defaultCircuit = generateRandomCircuit(2, ["AND", "OR", "NOT"]);
+        drawCircuit(defaultCircuit);
+        updateTruthTable(defaultCircuit);
+      });
+      </script>
+      function generateCircuit(numInputs, useAndGates, useOrGates, useNotGates) {
+      const svg = document.getElementById('circuit-svg');
+      if (!svg) return;
+      // Clear the SVG
+      svg.innerHTML = '';
+      // This is a simplified example - in a real implementation, you would
+      // generate a random circuit based on the selected parameters
+      // Draw inputs
+      const inputLabels = ['A', 'B', 'C'].slice(0, numInputs);
+      const inputY = numInputs === 2 ? [100, 200] : [80, 150, 220];
+      inputLabels.forEach((label, i) => {
+      // Input label
+      const text = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+      text.setAttribute('x', '50');
+      text.setAttribute('y', inputY[i]);
+      text.setAttribute('font-size', '16');
+      text.setAttribute('text-anchor', 'middle');
+      text.textContent = label;
+      svg.appendChild(text);
+      // Horizontal line
+      const line1 = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+      line1.setAttribute('x1', '50');
+      line1.setAttribute('y1', inputY[i] + 5);
+      line1.setAttribute('x2', '50');
+      line1.setAttribute('y2', inputY[i] + 20);
+      line1.setAttribute('stroke', '#000');
+      line1.setAttribute('stroke-width', '2');
+      svg.appendChild(line1);
+      // Vertical line
+      const line2 = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+      line2.setAttribute('x1', '50');
+      line2.setAttribute('y1', inputY[i] + 20);
+      line2.setAttribute('x2', '150');
+      line2.setAttribute('y2', inputY[i] + 20);
+      line2.setAttribute('stroke', '#000');
+      line2.setAttribute('stroke-width', '2');
+      svg.appendChild(line2);
+      });
+      // Example: Draw an AND gate followed by a NOT gate
+      if (useAndGates) {
+      // AND gate
+      const andGate = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+      andGate.setAttribute('d', 'M150,80 L150,220 L200,220 A60,70 0 0,0 200,80 L150,80 Z');
+      andGate.setAttribute('fill', 'none');
+      andGate.setAttribute('stroke', '#000');
+      andGate.setAttribute('stroke-width', '2');
+      svg.appendChild(andGate);
+      // Output line from AND gate
+      const andOutput = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+      andOutput.setAttribute('x1', '260');
+      andOutput.setAttribute('y1', '150');
+      andOutput.setAttribute('x2', '300');
+      andOutput.setAttribute('y2', '150');
+      andOutput.setAttribute('stroke', '#000');
+      andOutput.setAttribute('stroke-width', '2');
+      svg.appendChild(andOutput);
+      }
+      if (useNotGates) {
+      // NOT gate
+      const notGate = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+      notGate.setAttribute('d', 'M300,130 L300,170 L340,150 L300,130 Z');
+      notGate.setAttribute('fill', 'none');
+      notGate.setAttribute('stroke', '#000');
+      notGate.setAttribute('stroke-width', '2');
+      svg.appendChild(notGate);
+      // NOT gate circle
+      const notCircle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+      notCircle.setAttribute('cx', '345');
+      notCircle.setAttribute('cy', '150');
+      notCircle.setAttribute('r', '5');
+      notCircle.setAttribute('fill', 'none');
+      notCircle.setAttribute('stroke', '#000');
+      notCircle.setAttribute('stroke-width', '2');
+      svg.appendChild(notCircle);
+      // Output line from NOT gate
+      const notOutput = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+      notOutput.setAttribute('x1', '350');
+      notOutput.setAttribute('y1', '150');
+      notOutput.setAttribute('x2', '380');
+      notOutput.setAttribute('y2', '150');
+      notOutput.setAttribute('stroke', '#000');
+      notOutput.setAttribute('stroke-width', '2');
+      svg.appendChild(notOutput);
+      }
+      // Output label
+      const outputLabel = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+      outputLabel.setAttribute('x', '400');
+      outputLabel.setAttribute('y', '150');
+      outputLabel.setAttribute('font-size', '16');
+      outputLabel.setAttribute('text-anchor', 'middle');
+      outputLabel.textContent = 'Output';
+      svg.appendChild(outputLabel);
+      }
+      function updateTruthTable(numInputs) {
+      const tableContainer = document.querySelector('.truth-table');
+      if (!tableContainer) return;
+      // Get the current table
+      const table = tableContainer.closest('table');
+      if (!table) return;
+      // Clear the table
+      const thead = table.querySelector('thead');
+      const tbody = table.querySelector('tbody');
+      thead.innerHTML = '';
+      tbody.innerHTML = '';
+      // Create header row
+      const headerRow = document.createElement('tr');
+      headerRow.classList.add('bg-gray-100');
+      // Add input columns
+      const inputLabels = ['A', 'B', 'C'].slice(0, numInputs);
+      inputLabels.forEach(label => {
+      const th = document.createElement('th');
+      th.classList.add('border', 'border-gray-300', 'px-4', 'py-2');
+      th.textContent = label;
+      headerRow.appendChild(th);
+      });
+      // Add output column
+      const outputTh = document.createElement('th');
+      outputTh.classList.add('border', 'border-gray-300', 'px-4', 'py-2');
+      outputTh.textContent = 'Output';
+      headerRow.appendChild(outputTh);
+      thead.appendChild(headerRow);
+      // Create rows for all possible input combinations
+      const numRows = Math.pow(2, numInputs);
+      for (let i = 0; i < numRows; i++) {
+      const row = document.createElement('tr');
+      // Add input cells
+      for (let j = numInputs - 1; j >= 0; j--) {
+      const td = document.createElement('td');
+      td.classList.add('border', 'border-gray-300', 'px-4', 'py-2');
+      // Calculate bit value (0 or 1)
+      const bitValue = (i >> j) & 1;
+      td.textContent = bitValue;
+      row.appendChild(td);
+      }
+      // Add output cell with input field
+      const outputTd = document.createElement('td');
+      outputTd.classList.add('border', 'border-gray-300', 'px-4', 'py-2');
+      const input = document.createElement('input');
+      input.setAttribute('type', 'text');
+      input.classList.add('border-none', 'focus:ring-2', 'focus:ring-primary', 'rounded');
+      input.setAttribute('maxlength', '1');
+      outputTd.appendChild(input);
+      row.appendChild(outputTd);
+      tbody.appendChild(row);
+      }
+      }
+      });
+      </script>
+      
+</div>
