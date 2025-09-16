@@ -1,6 +1,6 @@
 @font-face {
   font-family: "BrassMono";
-  src: url(/assets/BrassMono-Regular.ttf) format("truetype");
+  src: url(/assets/fonts/BrassMono-Regular.ttf) format("truetype");
   font-weight: normal;  /* If it's a regular/400 weight */
   font-style: normal;   /* If it's not italic */
 }

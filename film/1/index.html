@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="retro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Escape Room Challenge 1</title>
+    <!-- SparkMD5 for hashing -->
+    <script src="https://cdn.jsdelivr.net/npm/spark-md5@3.0.1/spark-md5.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5.0.0-beta.1/daisyui.css" rel="stylesheet" type="text/css" />
+    <!-- <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script> -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/css/site.css">
+    <script src="/js/color-scheme.js" data-website-url="{{ site.url }}" async></script>
+    
+    <link rel="stylesheet" href="/css/hilightjs.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+
+</head>
+<body class="bg-base-200 min-h-screen flex flex-col items-center justify-center p-4">
+    
+<!-- Poster Section -->
+  <div class="w-full max-w-md mx-auto mb-6">
+    <img src="/assets/img/escape_room_posters/NFC_poster1.jpg" alt="Escape Room Poster" class="rounded-lg shadow-lg w-full object-cover" />
+    <h1 class="text-2xl font-bold BrassMonoFont">Escape Room Puzzle 1</h1>
+    <p class="text-sm text-gray-500">Decode the binary code below and enter the answer below.</p>
+    <p class="mt-2 BrassMonoFont text-xs bg-base-100 p-2 rounded">
+      1101000 1101111 1110000 1100101
+    </p>
+  </div>
+
+  <!-- Answer Form -->
+  <form id="puzzleForm" class="form-control w-full max-w-xs">
+    <input type="text" id="answerInput" placeholder="Enter your answer" class="input input-bordered mb-2" />
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+  <div class="tooltip tooltip-right">
+        <div class="tooltip-content">
+            <div class="animate-bounce text-orange-400 -rotate-10 text-2xl font-black">What numbering systems do you know?</div>
+        </div>
+        <button class="btn">Clue</button>
+    </div>
+
+  <!-- Clue Output -->
+  <div id="clueOutput" class="mt-4 text-center text-lg font-semibold text-success hidden">
+    🎉 Correct! Your next clue is on the poster <span class="italic">"The Shift"</span>.
+  </div>
+
+
+  
+<!-- JavaScript Logic -->
+  
+<script>
+    // Precomputed MD5 hash of answer
+    const correctHash = "8c728e685ddde9f7fbbc452155e29639";
+
+    document.getElementById("puzzleForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      const userAnswer = document.getElementById("answerInput").value.trim();
+      const userHash = SparkMD5.hash(userAnswer);
+      const clueOutput = document.getElementById("clueOutput");
+
+      if (userHash === correctHash) {
+        clueOutput.classList.remove("hidden");
+      } else {
+        clueOutput.classList.add("hidden");
+        alert("Incorrect answer. Try again!");
+      }
+    });
+  </script>
+
+
+</body>
+</html>
