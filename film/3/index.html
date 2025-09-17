@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="retro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Another Truth</title>
+    <!-- SparkMD5 for hashing -->
+    <script src="https://cdn.jsdelivr.net/npm/spark-md5@3.0.1/spark-md5.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5.0.0-beta.1/daisyui.css" rel="stylesheet" type="text/css" />
+    <!-- <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script> -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/css/site.css">
+    <script src="/js/color-scheme.js" data-website-url="{{ site.url }}" async></script>
+    
+    <link rel="stylesheet" href="/css/hilightjs.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+
+</head>
+<body class="bg-base-200 min-h-screen flex flex-col items-center justify-center p-4">
+    
+<!-- Poster Section -->
+  <div class="w-full max-w-md mx-auto mb-6">
+    <img src="/assets/img/escape_room_posters/NFC_poster3.jpg" alt="Escape Room Poster" class="rounded-lg shadow-lg w-full object-cover" />
+    <h1 class="text-2xl font-bold BrassMonoFont">Escape Room Puzzle 3: Another Truth</h1>
+    <p class="text-sm text-gray-500">
+      When we create logic diagrams or solve logic equations, we 
+      use truth tables to determine what the output is for a given 
+      set of inputs.
+
+      The logic_solver function returns the output for a given 
+      truth table row based on logic gates given as an argument.
+
+      The gates should be configured as follows:
+      gate1 takes inputs A and B.
+      gate2 takes as inputs the result of gate1 and input B.
+      gate3 takes as inputs the result of gate2 and input C.
+      If a 4th gate is given as an argument, it is a note gate
+      which is placed before input C.
+
+      The function should return the the final value for truth
+      table labelled by `row` number given as an argument.
+      <br>
+      Please keep all solved puzzles a secret so that everyone can enjoy the challenge.
+    </p>
+    <p>
+      The following are a list of function calls to create the required output.
+    </p>
+    <div class="relative">
+    <button onclick="copyCode()" 
+            class="absolute top-2 right-2 btn btn-xs btn-primary">Copy</button>
+  <pre><code id="codeBlock" class="language-python">
+        logic_solver(0, "AND", "OR", "AND")
+        logic_solver(1, "OR", "AND", "OR")
+        logic_solver(2, "AND", "OR", "OR")
+        logic_solver(3, "OR", "OR", "AND")
+        logic_solver(4, "AND", "AND", "OR")
+        logic_solver(5, "OR", "AND", "AND")
+        logic_solver(6, "AND", "OR", "AND","NOT")
+        logic_solver(7, "OR", "OR", "OR")
+        logic_solver(0, "OR", "OR", "AND")
+        logic_solver(1, "AND", "OR", "OR")
+        logic_solver(2, "OR", "AND", "AND")
+        logic_solver(3, "OR", "OR", "AND")
+        logic_solver(4, "AND", "AND", "OR")
+        logic_solver(5, "OR", "AND", "AND")
+        logic_solver(6, "AND", "OR", "OR")
+        logic_solver(7, "OR", "OR", "OR", "NOT")
+        logic_solver(0, "OR", "OR", "AND")
+        logic_solver(1, "AND", "OR", "OR")
+        logic_solver(2, "OR", "AND", "AND")
+        logic_solver(3, "OR", "OR", "AND")
+        logic_solver(4, "AND", "AND", "OR")
+        logic_solver(5, "OR", "AND", "OR")
+        logic_solver(6, "AND", "OR", "AND")
+        logic_solver(7, "OR", "OR", "AND")
+        logic_solver(0, "OR", "OR", "AND")
+        logic_solver(1, "AND", "OR", "OR")
+        logic_solver(2, "OR", "AND", "AND")
+        logic_solver(3, "OR", "OR", "AND")
+        logic_solver(4, "AND", "AND", "OR")
+        logic_solver(5, "OR", "AND", "AND")
+        logic_solver(6, "AND", "OR", "AND")
+        logic_solver(7, "OR", "OR", "OR")
+        logic_solver(0, "OR", "OR", "AND")
+        logic_solver(1, "AND", "OR", "OR")
+        logic_solver(2, "OR", "AND", "AND")
+        logic_solver(3, "OR", "OR", "AND")
+        logic_solver(4, "AND", "AND", "OR")
+        logic_solver(5, "OR", "AND", "AND")
+        logic_solver(6, "AND", "OR", "AND")
+        logic_solver(7, "OR", "OR", "OR")
+        logic_solver(0, "OR", "OR", "AND")
+        logic_solver(1, "AND", "OR", "OR")
+        logic_solver(2, "OR", "AND", "AND")
+        logic_solver(3, "OR", "OR", "AND")
+        logic_solver(4, "AND", "AND", "OR")
+        logic_solver(5, "OR", "AND", "OR")
+        logic_solver(6, "AND", "OR", "AND")
+        logic_solver(7, "OR", "OR", "AND")
+        logic_solver(0, "OR", "OR", "AND")
+        logic_solver(1, "AND", "OR", "OR")
+        logic_solver(2, "OR", "AND", "AND")
+        logic_solver(3, "OR", "OR", "AND")
+        logic_solver(4, "AND", "AND", "OR")
+        logic_solver(5, "OR", "AND", "AND")
+        logic_solver(6, "AND", "OR", "OR")
+        logic_solver(7, "OR", "OR", "OR")
+        logic_solver(0, "OR", "OR", "AND")
+        logic_solver(1, "AND", "OR", "OR")
+        logic_solver(2, "OR", "AND", "AND")
+        logic_solver(3, "OR", "OR", "AND")
+        logic_solver(4, "AND", "AND", "OR")
+        logic_solver(5, "OR", "AND", "AND")
+        logic_solver(6, "AND", "OR", "AND")
+        logic_solver(7, "OR", "OR", "AND")
+        logic_solver(0, "OR", "OR", "AND")
+        logic_solver(1, "AND", "OR", "OR")
+        logic_solver(2, "OR", "AND", "AND")
+        logic_solver(3, "OR", "OR", "AND")
+        logic_solver(4, "AND", "AND", "OR")
+        logic_solver(5, "OR", "AND", "AND")
+        logic_solver(6, "AND", "OR", "AND")
+        logic_solver(7, "OR", "OR", "OR")
+
+      </code>
+    </pre>
+  </div>
+</div>
+</div>
+
+  <!-- Answer Form -->
+  <form id="puzzleForm" class="form-control w-full max-w-xs">
+    <input type="text" id="answerInput" placeholder="Enter your answer" class="input input-bordered mb-2" />
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+  <div class="tooltip tooltip-right">
+        <div class="tooltip-content">
+            <div class="animate-bounce text-orange-400 -rotate-10 text-2xl font-black">8 bits per letter</div>
+        </div>
+        <button class="btn">Clue</button>
+    </div>
+
+  <!-- Clue Output -->
+  <div id="clueOutput" class="mt-4 text-center text-lg font-semibold text-success hidden">
+    🎉 Correct! Your next clue is on the poster <span class="italic">"The Trail Ends Here"</span>.
+  </div>
+
+
+  
+<!-- JavaScript Logic -->
+  
+<script>
+    // Precomputed MD5 hash of answer
+    const correctHash = "008ced81ddf77a45e35513f4459d7bbf";
+
+    document.getElementById("puzzleForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      const userAnswer = document.getElementById("answerInput").value.trim();
+      const userHash = SparkMD5.hash(userAnswer);
+      const clueOutput = document.getElementById("clueOutput");
+
+      if (userHash === correctHash) {
+        clueOutput.classList.remove("hidden");
+      } else {
+        clueOutput.classList.add("hidden");
+        alert("Incorrect answer. Try again!");
+      }
+    });
+  </script>
+
+<script>
+  // Highlight.js initialization
+  document.addEventListener('DOMContentLoaded', (event) => {
+    hljs.highlightElement(document.getElementById('codeBlock'));
+  });
+
+  // Copy-to-clipboard function
+  function copyCode() {
+    const raw = document.getElementById("codeBlock").innerText;
+    const cleaned = raw
+      .split("\n")
+      .map(line => line.trim())
+      .filter(line => line.startsWith("logic_solver"))
+      .join("\n");
+
+    navigator.clipboard.writeText(cleaned).then(() => {
+      alert("Function calls copied to clipboard!");
+    });
+  }
+</script>
+
+</body>
+</html>
