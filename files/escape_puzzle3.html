@@ -172,7 +172,7 @@
     const cleaned = raw
       .split("\n")
       .map(line => line.trim())
-      .filter(line => line.startsWith("logic_solver"))
+      .filter(line => line.startsWith("game_logic"))
       .join("\n");
 
     navigator.clipboard.writeText(cleaned).then(() => {
