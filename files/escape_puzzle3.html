@@ -25,104 +25,100 @@
     <img src="/assets/img/escape_room_posters/NFC_poster3.jpg" alt="Escape Room Poster" class="rounded-lg shadow-lg w-full object-cover" />
     <h1 class="text-2xl font-bold BrassMonoFont">Escape Room Puzzle 3: Another Truth</h1>
     <p class="text-sm text-gray-500">
-      When we create logic diagrams or solve logic equations, we 
-      use truth tables to determine what the output is for a given 
-      set of inputs.
-
-      The logic_solver function returns the output for a given 
-      truth table row based on logic gates given as an argument.
-
-      The gates should be configured as follows:
-      gate1 takes inputs A and B.
-      gate2 takes as inputs the result of gate1 and input B.
-      gate3 takes as inputs the result of gate2 and input C.
-      If a 4th gate is given as an argument, it is a note gate
-      which is placed before input C.
-
-      The function should return the the final value for truth
-      table labelled by `row` number given as an argument.
+      Computers use logic gates to determine the outcome of logical operations. 
       <br>
-      Please keep all solved puzzles a secret so that everyone can enjoy the challenge.
+      This puzzle uses the logic gates AND, OR, NAND, XOR, NOR and NOT to create a series of function calls.
     </p>
     <p>
-      The following are a list of function calls to create the required output.
+      You need to write a function called game_logic that takes four arguments. The result of the function should be a 0 or 1.
+      There are a list of 72 function calls below. <br>
+      The results will produce a binary message. <br>
+
+      Your only clues are:
+
+      <div role="alert" class="alert alert-warning">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 shrink-0 stroke-current" fill="none" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+        </svg>
+        <span>Lizard = "NOT", Paper = "AND"</span>
+      </div>
     </p>
     <div class="relative">
     <button onclick="copyCode()" 
             class="absolute top-2 right-2 btn btn-xs btn-primary">Copy</button>
   <pre><code id="codeBlock" class="language-python">
-        logic_solver(0, "AND", "OR", "AND")
-        logic_solver(1, "OR", "AND", "OR")
-        logic_solver(2, "AND", "OR", "OR")
-        logic_solver(3, "OR", "OR", "AND")
-        logic_solver(4, "AND", "AND", "OR")
-        logic_solver(5, "OR", "AND", "AND")
-        logic_solver(6, "AND", "OR", "AND","NOT")
-        logic_solver(7, "OR", "OR", "OR")
-        logic_solver(0, "OR", "OR", "AND")
-        logic_solver(1, "AND", "OR", "OR")
-        logic_solver(2, "OR", "AND", "AND")
-        logic_solver(3, "OR", "OR", "AND")
-        logic_solver(4, "AND", "AND", "OR")
-        logic_solver(5, "OR", "AND", "AND")
-        logic_solver(6, "AND", "OR", "OR")
-        logic_solver(7, "OR", "OR", "OR", "NOT")
-        logic_solver(0, "OR", "OR", "AND")
-        logic_solver(1, "AND", "OR", "OR")
-        logic_solver(2, "OR", "AND", "AND")
-        logic_solver(3, "OR", "OR", "AND")
-        logic_solver(4, "AND", "AND", "OR")
-        logic_solver(5, "OR", "AND", "OR")
-        logic_solver(6, "AND", "OR", "AND")
-        logic_solver(7, "OR", "OR", "AND")
-        logic_solver(0, "OR", "OR", "AND")
-        logic_solver(1, "AND", "OR", "OR")
-        logic_solver(2, "OR", "AND", "AND")
-        logic_solver(3, "OR", "OR", "AND")
-        logic_solver(4, "AND", "AND", "OR")
-        logic_solver(5, "OR", "AND", "AND")
-        logic_solver(6, "AND", "OR", "AND")
-        logic_solver(7, "OR", "OR", "OR")
-        logic_solver(0, "OR", "OR", "AND")
-        logic_solver(1, "AND", "OR", "OR")
-        logic_solver(2, "OR", "AND", "AND")
-        logic_solver(3, "OR", "OR", "AND")
-        logic_solver(4, "AND", "AND", "OR")
-        logic_solver(5, "OR", "AND", "AND")
-        logic_solver(6, "AND", "OR", "AND")
-        logic_solver(7, "OR", "OR", "OR")
-        logic_solver(0, "OR", "OR", "AND")
-        logic_solver(1, "AND", "OR", "OR")
-        logic_solver(2, "OR", "AND", "AND")
-        logic_solver(3, "OR", "OR", "AND")
-        logic_solver(4, "AND", "AND", "OR")
-        logic_solver(5, "OR", "AND", "OR")
-        logic_solver(6, "AND", "OR", "AND")
-        logic_solver(7, "OR", "OR", "AND")
-        logic_solver(0, "OR", "OR", "AND")
-        logic_solver(1, "AND", "OR", "OR")
-        logic_solver(2, "OR", "AND", "AND")
-        logic_solver(3, "OR", "OR", "AND")
-        logic_solver(4, "AND", "AND", "OR")
-        logic_solver(5, "OR", "AND", "AND")
-        logic_solver(6, "AND", "OR", "OR")
-        logic_solver(7, "OR", "OR", "OR")
-        logic_solver(0, "OR", "OR", "AND")
-        logic_solver(1, "AND", "OR", "OR")
-        logic_solver(2, "OR", "AND", "AND")
-        logic_solver(3, "OR", "OR", "AND")
-        logic_solver(4, "AND", "AND", "OR")
-        logic_solver(5, "OR", "AND", "AND")
-        logic_solver(6, "AND", "OR", "AND")
-        logic_solver(7, "OR", "OR", "AND")
-        logic_solver(0, "OR", "OR", "AND")
-        logic_solver(1, "AND", "OR", "OR")
-        logic_solver(2, "OR", "AND", "AND")
-        logic_solver(3, "OR", "OR", "AND")
-        logic_solver(4, "AND", "AND", "OR")
-        logic_solver(5, "OR", "AND", "AND")
-        logic_solver(6, "AND", "OR", "AND")
-        logic_solver(7, "OR", "OR", "OR")
+        game_logic(1, 0, 'Rock', 'Paper')
+        game_logic(0, 1, 'Paper', 'Rock')
+        game_logic(1, 0, 'Rock', 'Scissors')
+        game_logic(0, 1, 'Lizard', 'Spock')
+        game_logic(1, 0, 'Spock', 'Scissors')
+        game_logic(0, 1, 'Rock', 'Paper')
+        game_logic(1, 0, 'Scissors', 'Rock')
+        game_logic(0, 1, 'Paper', 'Scissors')
+        game_logic(1, 0, 'Spock', 'Lizard')
+        game_logic(0, 1, 'Paper', 'Rock')
+        game_logic(1, 0, 'Rock', 'Scissors')
+        game_logic(0, 1, 'Scissors', 'Paper')
+        game_logic(1, 0, 'Lizard', 'Spock')
+        game_logic(0, 1, 'Spock', 'Scissors')
+        game_logic(1, 0, 'Rock', 'Paper')
+        game_logic(0, 1, 'Scissors', 'Rock')
+        game_logic(1, 0, 'Paper', 'Rock')
+        game_logic(0, 1, 'Rock', 'Scissors')
+        game_logic(1, 0, 'Scissors', 'Paper')
+        game_logic(0, 1, 'Lizard', 'Spock')
+        game_logic(1, 0, 'Spock', 'Scissors')
+        game_logic(0, 1, 'Rock', 'Paper')
+        game_logic(1, 0, 'Scissors', 'Rock')
+        game_logic(0, 1, 'Paper', 'Scissors')
+        game_logic(1, 0, 'Rock', 'Paper')
+        game_logic(0, 1, 'Paper', 'Rock')
+        game_logic(1, 0, 'Rock', 'Scissors')
+        game_logic(0, 1, 'Scissors', 'Paper')
+        game_logic(1, 0, 'Lizard', 'Spock')
+        game_logic(0, 1, 'Spock', 'Scissors')
+        game_logic(1, 0, 'Rock', 'Paper')
+        game_logic(0, 1, 'Scissors', 'Rock')
+        game_logic(1, 0, 'Paper', 'Rock')
+        game_logic(0, 1, 'Rock', 'Scissors')
+        game_logic(1, 0, 'Scissors', 'Paper')
+        game_logic(0, 1, 'Lizard', 'Spock')
+        game_logic(1, 0, 'Spock', 'Scissors')
+        game_logic(0, 1, 'Rock', 'Paper')
+        game_logic(1, 0, 'Scissors', 'Rock')
+        game_logic(0, 1, 'Paper', 'Scissors')
+        game_logic(1, 0, 'Rock', 'Paper')
+        game_logic(0, 1, 'Paper', 'Rock')
+        game_logic(1, 0, 'Rock', 'Scissors')
+        game_logic(0, 1, 'Scissors', 'Paper')
+        game_logic(1, 0, 'Lizard', 'Spock')
+        game_logic(0, 1, 'Spock', 'Scissors')
+        game_logic(1, 0, 'Rock', 'Paper')
+        game_logic(0, 1, 'Scissors', 'Rock')
+        game_logic(1, 0, 'Paper', 'Rock')
+        game_logic(0, 1, 'Rock', 'Scissors')
+        game_logic(1, 0, 'Scissors', 'Paper')
+        game_logic(0, 1, 'Lizard', 'Spock')
+        game_logic(1, 0, 'Spock', 'Scissors')
+        game_logic(0, 1, 'Rock', 'Paper')
+        game_logic(1, 0, 'Scissors', 'Rock')
+        game_logic(0, 1, 'Paper', 'Scissors')
+        game_logic(1, 0, 'Rock', 'Paper')
+        game_logic(0, 1, 'Paper', 'Rock')
+        game_logic(1, 0, 'Rock', 'Scissors')
+        game_logic(0, 1, 'Scissors', 'Paper')
+        game_logic(1, 0, 'Lizard', 'Spock')
+        game_logic(0, 1, 'Spock', 'Scissors')
+        game_logic(1, 0, 'Rock', 'Paper')
+        game_logic(0, 1, 'Scissors', 'Rock')
+        game_logic(1, 0, 'Paper', 'Rock')
+        game_logic(0, 1, 'Rock', 'Scissors')
+        game_logic(1, 0, 'Scissors', 'Paper')
+        game_logic(0, 1, 'Lizard', 'Spock')
+        game_logic(1, 0, 'Spock', 'Scissors')
+        game_logic(0, 1, 'Rock', 'Paper')
+        game_logic(1, 0, 'Scissors', 'Rock')
+        game_logic(0, 1, 'Paper', 'Scissors')
 
       </code>
     </pre>
@@ -135,12 +131,6 @@
     <input type="text" id="answerInput" placeholder="Enter your answer" class="input input-bordered mb-2" />
     <button type="submit" class="btn btn-primary">Submit</button>
   </form>
-  <div class="tooltip tooltip-right">
-        <div class="tooltip-content">
-            <div class="animate-bounce text-orange-400 -rotate-10 text-2xl font-black">8 bits per letter</div>
-        </div>
-        <button class="btn">Clue</button>
-    </div>
 
   <!-- Clue Output -->
   <div id="clueOutput" class="mt-4 text-center text-lg font-semibold text-success hidden">
@@ -182,7 +172,7 @@
     const cleaned = raw
       .split("\n")
       .map(line => line.trim())
-      .filter(line => line.startsWith("logic_solver"))
+      .filter(line => line.startsWith("game_logic"))
       .join("\n");
 
     navigator.clipboard.writeText(cleaned).then(() => {
