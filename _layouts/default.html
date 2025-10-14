@@ -14,7 +14,7 @@
     
     <link rel="stylesheet" href="/css/hilightjs.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
-
+    <script src="{{ '/js/theme-switcher.js' | relative_url }}" defer></script>
     
   </head>
   <body>
@@ -38,24 +38,13 @@
       {% include analytics.html %}
     {% endif %}
   </body>
-  <script>    
-    function handleThemeChange() {
-      const newScheme = themeController.checked ? 'dark' : 'emerald';
-      setColorScheme(newScheme);
-      console.log("1 .handleThemeChange called from default HTML");
-    }
-
-    document.addEventListener("DOMContentLoaded", function() {
-    const themeController = document.querySelector('.theme-controller');
-    themeController.addEventListener('change', handleThemeChange);
-    });
-  </script>
+  <!-- Ko-fi Button -->
   <script src='https://storage.ko-fi.com/cdn/scripts/overlay-widget.js'></script>
 <script>
   kofiWidgetOverlay.draw('bitfez', {
     'type': 'floating-chat',
     'floating-chat.donateButton.text': 'Support me',
-    'floating-chat.donateButton.background-color': '#00b9fe',
+    'floating-chat.donateButton.background-color': '#00000000',
     'floating-chat.donateButton.text-color': '#fff'
   });
 </script>
