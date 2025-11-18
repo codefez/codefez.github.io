@@ -1,0 +1,129 @@
+---
+layout: code-layout
+---
+
+
+<h1 class="text-center text-xl font-bold"> Opening Files in Python </h1>
+<br>
+<div class="text-sm breadcrumbs">
+    <ul>
+      <li>
+        <a>
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="w-4 h-4 stroke-current"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"></path></svg>
+          <a href="/page/ks4.html">KS4 Home</a>
+        </a>
+      </li> 
+      <li>
+        <a>
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="w-4 h-4 stroke-current"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"></path></svg>
+          <a href="/page/ks4/python_ks4.html">KS4 Python</a>
+        </a>
+      </li> 
+      <li>
+        <a>
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="w-4 h-4 stroke-current"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"></path></svg>
+          Opening Files in Python
+        </a>
+      </li> 
+    </ul>
+</div>
+
+<br>
+
+<section>
+    <div role="alert" class="alert">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="stroke-info h-6 w-6 shrink-0">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+    </svg>
+    <span>
+        <h2 class="text-lg font-bold mb-1">Quick reference</h2>
+        <div class="grid gap-4 grid-cols-1 md:grid-cols-2">
+            <div class="mockup-window border bg-base-300 w-full">
+                <pre class="bg-base-200 px-4 pt-4">
+<code class="language-python"># read whole file
+    with open('sample_text.txt', 'r') as f:
+        contents = f.read()
+                </code></pre>
+            </div>
+
+            <div class="mockup-window border bg-base-300 w-full">
+                <pre class="bg-base-200 px-4 pt-4">
+<code class="language-python"># read lines and store in a list
+with open('sample_text.txt') as f:
+    lines = f.readlines()
+                </code></pre>
+            </div>
+
+        </div>
+        
+       
+
+    </span>
+    </div>
+  
+  
+</section>
+
+<section>
+  <h2>Interactive tasks (Codapi)</h2>
+  <p>Each task below is interactive. Edit the code in the editor and click Run.</p>
+
+  <h3>Task 1 — Read the first line</h3>
+  <p>Open <code class="language-python">sample_text.txt</code> and print only the first line.</p>
+
+  <pre><code id="task1-code" class="language-python"># Task 1: print the first line of sample_text.txt
+with open('sample_text.txt', 'r') as f:
+    first = f.readline()
+    print(first.strip())</code></pre>
+
+  <codapi-snippet engine="codapi" sandbox="python:3" files="#sample_text:sample_text.txt" editor="basic" output="@next" output-mode="text"></codapi-snippet>
+
+  <pre><code>
+Hello, world!
+This is a sample file.
+Goodbye.
+  </code></pre>
+
+  <h3>Task 2 — Count lines</h3>
+  <p>Open the same file and print the number of lines it contains.</p>
+
+  <pre><code id="task2-code"># Task 2: print number of lines in sample_text.txt
+with open('sample_text.txt', 'r') as f:
+    lines = f.readlines()
+print(len(lines))</code></pre>
+
+  <codapi-snippet engine="codapi" sandbox="python:3" files="#sample_text:sample_text.txt" editor="basic" output="@next" output-mode="text"></codapi-snippet>
+
+  <pre><code>3</code></pre>
+
+  <h3>Task 3 — Write a new file</h3>
+  <p>Create <code>student_notes.txt</code> and write three short notes (one per line). Print a confirmation message.</p>
+
+  <pre><code id="task3-code"># Task 3: write three notes to student_notes.txt
+with open('student_notes.txt', 'w') as f:
+    f.write("Note 1\n")
+    f.write("Note 2\n")
+    f.write("Note 3\n")
+print("Wrote student_notes.txt")</code></pre>
+
+  <codapi-snippet engine="codapi" sandbox="python:3" files="#sample_text:sample_text.txt" editor="basic" output="@next" output-mode="text"></codapi-snippet>
+
+  <pre><code>Wrote student_notes.txt</code></pre>
+</section>
+
+<section>
+  <h2>Files provided for the lesson</h2>
+  <ul>
+    <li><code>sample_text.txt</code> — a small sample file used by the exercises</li>
+  </ul>
+</section>
+
+<section>
+  <h2>Teacher notes</h2>
+  <p>Suggested checks: ensure students use <code>with open(...)</code>, correct mode strings (<code>'r'</code>, <code>'w'</code>), and that outputs match expectations.</p>
+</section>
+
+<!-- sample_text content provided to the snippet engine via an element reference -->
+<pre id="sample_text" style="display:none"><code>Hello, world!
+This is a sample file.
+Goodbye.</code></pre>
