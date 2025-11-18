@@ -65,65 +65,44 @@ with open('sample_text.txt') as f:
 </section>
 
 <section>
-  <h2>Interactive tasks (Codapi)</h2>
+  <h2 class="text-lg font-bold mb-1">Interactive tasks (trinket.io)</h2>
   <p>Each task below is interactive. Edit the code in the editor and click Run.</p>
 
-  <h3>Task 1 — Read the first line</h3>
-  <p>Open <code class="language-python">sample_text.txt</code> and print only the first line.</p>
+  <h3 class="text-md font-bold mb-1">Task 1 — Read the contents of the file</h3>
+  <p>Open <code class="language-python">wrestlers.txt</code> using the <code>read()</code> method and print its contents.</p>
 
-  <pre><code id="task1-code" class="language-python"># Task 1: print the first line of sample_text.txt
-with open('sample_text.txt', 'r') as f:
-    first = f.readline()
-    print(first.strip())</code></pre>
+  <iframe src="https://trinket.io/embed/python/8a8664d611" width="100%" height="400" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
 
-  <codapi-snippet engine="codapi" sandbox="python:3" files="#sample_text:sample_text.txt" editor="basic" output="@next" output-mode="text"></codapi-snippet>
+  <h3 class="text-md font-bold mb-1">Task 2 — Read the contents of the file as a list</h3>
+  <p>Editing the code above, change the <code>read()</code> method to <code>readlines()</code> and print each line.</p>
+  <p>If you print the <code>lines</code> list, you will see each line of the file as a separate item in the list.</p>
+  <p>You can also use a <code>for</code> loop to iterate over the <code>lines</code> list and print each line individually.</p>
+    <p>For example:</p>
+    <p>
+        <div role="alert" class="alert mb-4">
+  <pre class="bg-base-200 px-4 pt-4">
+<code class="language-python">for line in lines:
+    print(line)
+</code></pre>
+        </div>
+    
+    </p>
 
-  <pre><code>
-Hello, world!
-This is a sample file.
-Goodbye.
-  </code></pre>
 
-  <h3>Task 2 — Count lines</h3>
-  <p>Open the same file and print the number of lines it contains.</p>
+<h3 class="text-md font-bold mb-1">Task 3 — Read the contents of the file and print 1 line only</h3>
+<p>You can print individual lines if you use the <code>readlines()</code> method.</p>
+<p>For example:</p>
+<p>
+    <div role="alert" class="alert mb-4">
+        <pre class="bg-base-200 px-4 pt-4">
+<code class="language-python">lines = f.readlines()
+print(lines[0])  # prints the first line
+</code></pre>
+        </div>
+    
+    </p>
 
-  <pre><code id="task2-code"># Task 2: print number of lines in sample_text.txt
-with open('sample_text.txt', 'r') as f:
-    lines = f.readlines()
-print(len(lines))</code></pre>
+<p class="mx-4">Open <code class="language-python">wrestlers.txt</code> using the <code>readlines()</code> method and print line 0 and 2</p>
 
-  <codapi-snippet engine="codapi" sandbox="python:3" files="#sample_text:sample_text.txt" editor="basic" output="@next" output-mode="text"></codapi-snippet>
-
-  <pre><code>3</code></pre>
-
-  <h3>Task 3 — Write a new file</h3>
-  <p>Create <code>student_notes.txt</code> and write three short notes (one per line). Print a confirmation message.</p>
-
-  <pre><code id="task3-code"># Task 3: write three notes to student_notes.txt
-with open('student_notes.txt', 'w') as f:
-    f.write("Note 1\n")
-    f.write("Note 2\n")
-    f.write("Note 3\n")
-print("Wrote student_notes.txt")</code></pre>
-
-  <codapi-snippet engine="codapi" sandbox="python:3" files="#sample_text:sample_text.txt" editor="basic" output="@next" output-mode="text"></codapi-snippet>
-
-  <pre><code>Wrote student_notes.txt</code></pre>
 </section>
 
-<section>
-  <h2>Files provided for the lesson</h2>
-  <ul>
-    <li><code>sample_text.txt</code> — a small sample file used by the exercises</li>
-  </ul>
-</section>
-
-<section>
-  <h2>Teacher notes</h2>
-  <p>Suggested checks: ensure students use <code>with open(...)</code>, correct mode strings (<code>'r'</code>, <code>'w'</code>), and that outputs match expectations.</p>
-</section>
-
-<!-- sample_text content provided to the snippet engine via an element reference -->
-<pre id="sample_text" style="display:none"><code>Hello, world!
-This is a sample file.
-Goodbye.</code></pre>
