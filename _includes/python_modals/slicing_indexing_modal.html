@@ -1,0 +1,59 @@
+<dialog id="slicing_indexing_modal" class="modal">
+    <div class="modal-box max-h-[70vh] flex flex-col">
+        <form method="dialog">
+            <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
+        </form>
+        <div class="overflow-y-auto">
+            <h3 class="font-bold text-lg">Slicing / Indexing Characters</h3>
+            <p class="py-4 text-sm">
+                As well as indexing individual characters in a string, you can also extract a substring by using slicing. 
+                Slicing allows you to specify a range of indices to extract a portion of the string.
+            </p>
+            <div class="p-6 bg-base-200 rounded-xl flex flex-col gap-4">
+                <h2 class="text-xl font-bold mb-2">String Slicing: "Codefez"</h2>
+            <p>
+                Example 1<br>
+                <div class="flex-start">
+                    <div class="text-xs mr-1 mb-1">
+                        <div class="mockup-window border bg-base-300">
+                            <pre class="bg-base-200 px-4 pt-4">
+    <code class="language-python">string = "Codefez"
+    print(f"{string[0:4]}")</code>
+                            </pre>
+                        </div>
+                    </div>
+                    <div class="text-xs">
+                        <div class="mockup-code">
+                            <pre data-prefix=">">Code</pre>
+                        </div>
+                    </div>
+                </div>
+                
+            </p>
+
+            <p>
+                Example 2<br>
+                <div class="flex-start">
+                    <div class="text-xs mr-1 mb-1">
+                        <div class="mockup-window border bg-base-300">
+                            <pre class="bg-base-200 px-4 pt-4">
+    <code class="language-python">string = "Codefez"
+    print(f"{string[4:7]}")</code>
+                            </pre>
+                        </div>
+                    </div>
+                    <div class="text-xs">
+                        <div class="mockup-code">
+                            <pre data-prefix=">">fez</pre>
+                        </div>
+                    </div>
+                </div>
+                
+            </p>
+                    
+        </div>
+    </div>
+        <form method="dialog" class="modal-backdrop">
+      <button>close</button>
+    </form>
+</dialog>

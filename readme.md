@@ -18,6 +18,8 @@ I have now switched the site to run on docker locally
 - [ ] escape codes eg \n, \t etc (string methods)
 - [ ] constants (variables)
 - [ ] time delta (random functions)
+- [x] indexing characters
+- [x] slicing and indexing
 - [x] ~~2D arrays~~
 - [x] ~~elif~~
 - [x] ~~Tuples~~
