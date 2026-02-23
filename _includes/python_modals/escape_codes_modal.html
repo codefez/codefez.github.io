@@ -1,0 +1,33 @@
+<dialog id="escape_codes_modal" class="modal">
+    <div class="modal-box">
+        <form method="dialog">
+            <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
+        </form>
+        <h3 class="font-bold text-lg">Escape Codes (\n and \t)</h3>
+        <div class="modal-content py-4">
+            <p class="py-2">Escape codes let you represent special characters inside strings. The most common are <code class="text-accent">\n</code> (newline) and <code class="text-accent">\t</code> (tab).</p>
+
+            <div class="flex-start">
+                <div class="text-xs mr-1 mb-1">
+                    <div class="mockup-window border bg-base-300">
+                        <pre class="bg-base-200 px-4 pt-4"><code class="language-python"># Newline example
+print("Hello\nWorld")
+
+# Tab example
+print("Column1\tColumn2")</code></pre>
+                    </div>
+                </div>
+                <div class="text-xs">
+                    <div class="mockup-code">
+                        <pre data-prefix=">">Hello
+World</pre>
+                        <pre data-prefix=">">Column1	Column2</pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <form method="dialog" class="modal-backdrop">
+        <button>close</button>
+    </form>
+</dialog>
