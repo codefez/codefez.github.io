@@ -12,7 +12,7 @@
     <h3 class="font-bold text-lg mb-4">Python Code Editor</h3>
     
     <!-- Editor Container -->
-    <div class="python-editor">
+    <div class="modal-content python-editor">
       <textarea id="python-code">
 def greet(name):
     return f"Hello, {name}!"
@@ -42,13 +42,16 @@ print(greet("World"))
 
 <!-- Styles for the editor -->
 <style>
+# Use flex behaviour so modal scrolling works correctly
 .python-editor {
-  height: calc(100% - 100px);
+  flex: 1 1 auto;
+  min-height: 0;
 }
 .python-editor .CodeMirror {
   height: 100% !important;
   border: 1px solid hsl(var(--bc) / 0.2);
   border-radius: var(--rounded-box);
+  min-height: 0;
 }
 #python-output {
   min-height: 100px;

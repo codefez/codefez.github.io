@@ -20,21 +20,19 @@
   </form>
     <!-- Modal Heading -->
     <h3 class="font-bold text-lg">Clear Screen</h3>
-    
-    <!-- Paragraph explaining Python skill concisely -->
-    <p class="py-4">
-      To clear the screen, you first need to <code class="text-accent">import os</code> then using <code class="text-accent">os.system('clear')</code> you will successfully clear it.
-      For demonstration purposes, I have also used a sleep function which you can find in the cheatsheet also.
-    </p>
 
-    <!-- This paragraph contains example code and resulting output -->
-    <p>
-    
-    <!-- Start of Python Editor Mockup Window -->
-    <div class="flex-start ">
-      <div class="text-xs mr-1 mb-1">
-        <div class="mockup-window border bg-base-300">
-          <pre class="bg-base-200 px-4 pt-4">
+    <div class="modal-content py-4">
+      <!-- Paragraph explaining Python skill concisely -->
+      <p>
+        To clear the screen, you first need to <code class="text-accent">import os</code> then using <code class="text-accent">os.system('clear')</code> you will successfully clear it.
+        For demonstration purposes, I have also used a sleep function which you can find in the cheatsheet also.
+      </p>
+
+      <!-- Start of Python Editor Mockup Window -->
+      <div class="flex-start ">
+        <div class="text-xs mr-1 mb-1">
+          <div class="mockup-window border bg-base-300">
+            <pre class="bg-base-200 px-4 pt-4">
 <code class="language-python">
   import os
   from time import sleep
@@ -43,20 +41,20 @@
   sleep(1) # Waits for 1 second
   os.system('clear') # Clears screen
 </code>
-          </pre>
+            </pre>
+          </div>
+        </div>
+        
+        <!-- Start of Output Mockup Window -->
+        <div class="text-xs">
+          <button class="btn btn-warning" onclick="hidden_text()">run</button>
+          <div class="mockup-code">
+            <pre data-prefix=">" id="textField">Hello World</pre>
+          </div>
         </div>
       </div>
-      
-      <!-- Start of Output Mockup Window -->
-      <div class="text-xs">
-        <button class="btn btn-warning" onclick="hidden_text()">run</button>
-        <div class="mockup-code">
-          <pre data-prefix=">" id="textField">Hello World</pre>
-        </div>
-      </div>
+      <!-- End of Output Mockup Window -->
     </div>
-    <!-- End of Output Mockup Window -->
-    </p>
 
   </div>
   <form method="dialog" class="modal-backdrop">

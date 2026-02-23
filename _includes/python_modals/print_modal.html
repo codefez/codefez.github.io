@@ -4,18 +4,17 @@
             <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
         </form>
         <h3 class="font-bold text-lg px-3">Print</h3>
-        <p class="py-4 px-3">
-            <code class="text-accent">print()</code> is a Python function for displaying text on the screen.
-            Anything between the parenthesis is <i>printed</i> on the screen. <br>
-            <br>However! Python can only handle one datatype at a time. 
-            (see 
-            <button class="btn btn-primary btn-xs mb-1" onclick="casting_modal.showModal()">casting</button>
-             or <button class="btn btn-primary btn-xs mb-1" onclick="simple_f_string_modal.showModal()">f-strings 1</button>
-              for more info) <br>
-            You can print any datatype. 
-        </p>
-        <p>
-            
+        <div class="modal-content py-4 px-3">
+            <p class="py-4 px-3">
+                <code class="text-accent">print()</code> is a Python function for displaying text on the screen.
+                Anything between the parenthesis is <i>printed</i> on the screen. <br>
+                <br>However! Python can only handle one datatype at a time. 
+                (see 
+                <button class="btn btn-primary btn-xs mb-1" onclick="casting_modal.showModal()">casting</button>
+                 or <button class="btn btn-primary btn-xs mb-1" onclick="simple_f_string_modal.showModal()">f-strings 1</button>
+                  for more info) <br>
+                You can print any datatype. 
+            </p>
             <div class="flex-start ">
                 <div class="text-xs mr-1 mb-1">
                     <div class="mockup-window border bg-base-300">
@@ -34,7 +33,7 @@ print(2+2) # calculates a result!</code>
                 </div>
             </div>
             
-        </p>
+        </div>
                    
     </div>
     <form method="dialog" class="modal-backdrop">

@@ -4,13 +4,12 @@
             <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
         </form>
         <h3 class="font-bold text-lg">isdigit()</h3>
-        <p class="py-4">
-            The <code class="text-accent">isdigit()</code> string method will check if a variable is numeric and return a 
-            <code class="text-accent">True</code> or <code class="text-accent">False</code> result.
-        </p>
+        <div class="modal-content py-4">
+            <p class="py-4">
+                The <code class="text-accent">isdigit()</code> string method will check if a variable is numeric and return a
+                <code class="text-accent">True</code> or <code class="text-accent">False</code> result.
+            </p>
 
-        <!-- This paragraph contains example code and resulting output -->
-        <p>
             <!-- START OF PYTHON EDITOR MOCKUP WINDOW -->
             <div class="flex-start ">
                 <div class="text-xs mr-1 mb-1">
@@ -37,16 +36,15 @@ print(var2.isdigit())
                 </div>
             </div>
 
-            <script type="text/javascript">
-                function isdigit_runCode(){
-                    document.getElementById("output_isdigit").innerHTML = "True\n  False";
-                }
-            </script>
+            <!-- END OF OUTPUT MOCKUP WINDOW -->
 
             <button class="btn btn-primary btn-sm" onclick="isdigit_runCode()">Run Code</button>
-
-            <!-- END OF OUTPUT MOCKUP WINDOW -->
-        </p>
+        </div>
+        <script type="text/javascript">
+            function isdigit_runCode(){
+                document.getElementById("output_isdigit").innerHTML = "True\n  False";
+            }
+        </script>
     </div>
     <form method="dialog" class="modal-backdrop">
         <button>close</button>

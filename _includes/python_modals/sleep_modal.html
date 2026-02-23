@@ -24,14 +24,14 @@ function hidden_text() {
     </form>
     <!-- Modal Heading -->
     <h3 class="font-bold text-lg">sleep</h3>
-    
-    <!-- Explanation Paragraph -->
-    <p class="py-4">
-      To be able to use sleep you need to <code class="text-accent">from time import sleep</code>. Then, using the function <code class="text-accent">sleep(1)</code>, you can specify the amount of seconds within the parentheses <code class="text-accent">()</code>.
-    </p>
-    
-    <!-- Example Code and Output -->
-    <p>
+
+    <div class="modal-content py-4">
+      <!-- Explanation Paragraph -->
+      <p>
+        To be able to use sleep you need to <code class="text-accent">from time import sleep</code>. Then, using the function <code class="text-accent">sleep(1)</code>, you can specify the amount of seconds within the parentheses <code class="text-accent">()</code>.
+      </p>
+
+      <!-- Example Code and Output -->
       <!-- START OF PYTHON EDITOR MOCKUP WINDOW -->
       <div class="flex-start">
         <div class="text-xs mr-1 mb-1">
@@ -49,19 +49,19 @@ print("World")
           </div>
         </div>
       </div>
-        <!-- END OF PYTHON EDITOR MOCKUP WINDOW -->
-        
-        <!-- START OF OUTPUT MOCKUP WINDOW -->
-        <div class="text-xs">
-          <button class="btn btn-warning" onclick="hidden_text()">run</button>
-          <div class="mockup-code">
-            <!-- Python output goes here -->
-           <pre data-prefix=">" id="textFieldHello" style="display: none;"> Hello</pre>
-           <pre data-prefix=">" id="textFieldWorld" style="display: none;"> World</pre>
+      <!-- END OF PYTHON EDITOR MOCKUP WINDOW -->
+
+      <!-- START OF OUTPUT MOCKUP WINDOW -->
+      <div class="text-xs">
+        <button class="btn btn-warning" onclick="hidden_text()">run</button>
+        <div class="mockup-code">
+          <!-- Python output goes here -->
+          <pre data-prefix=">" id="textFieldHello" style="display: none;"> Hello</pre>
+          <pre data-prefix=">" id="textFieldWorld" style="display: none;"> World</pre>
         </div>
       </div>
       <!-- END OF OUTPUT MOCKUP WINDOW -->
-    </p>
+    </div>
   </div>
   <form method="dialog" class="modal-backdrop">
     <button>close</button>

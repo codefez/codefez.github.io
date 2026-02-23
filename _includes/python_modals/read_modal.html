@@ -1,9 +1,10 @@
-<dialog id="read_modal" class="modal">
+<dialog id="read_modal" class="modal mb-2">
     <div class="modal-box">
         <form method="dialog">
             <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
           </form>
         <h3 class="font-bold text-lg">read</h3>
+        <div class="modal-content py-4">
         <p class="py-4">
             The <code class="text-accent">read()</code> function reads the contents of an opened file.
             The example is set up as if the file is called names.txt with 3 names.
@@ -17,19 +18,17 @@
             </div>
         </div>
         
-        <p>
-            
-            <div class="flex-start ">
-                <div class="text-xs mr-1 mb-1">
-                    <div class="mockup-window border bg-base-300">
-                        <pre class="bg-base-200 px-4 pt-4">
+        <div class="flex-start ">
+            <div class="text-xs mr-1 mb-1">
+                <div class="mockup-window border bg-base-300">
+                    <pre class="bg-base-200 px-4 pt-4">
 <code class="language-python">file = open("names.txt", "r")
 data = file.readlines()
 file.close()
 print(data)</code>
-                        </pre>
-                    </div>
+                    </pre>
                 </div>
+            </div>
                 <div class="text-xs">
                     <div class="mockup-code">
                         <pre data-prefix=">">['Alice\n', 'Barbara\n', 'Chelsea']</pre>
@@ -37,13 +36,12 @@ print(data)</code>
                 </div>
             </div>
             
-        </p>
-        <div role="alert" class="alert alert-warning">
-            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
-            <span>As you can see, each username has a \n at the end of the name. We can remove that using the rstrip() method</span>
-        </div>   
         
-        <p>
+            <div role="alert" class="alert alert-warning">
+                <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+                <span>As you can see, each username has a \n at the end of the name. We can remove that using the rstrip() method</span>
+            </div>   
+        
             <div class="flex-start ">
                 <div class="text-xs mr-1 mb-1">
                     <div class="mockup-window border bg-base-300">
@@ -66,7 +64,8 @@ print(data)</code>
                     </div>
                 </div>
             </div>
-        </p>
+            </div>
+        </div>
     </div>
     <form method="dialog" class="modal-backdrop">
       <button>close</button>

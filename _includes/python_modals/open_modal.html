@@ -4,14 +4,14 @@
             <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
         </form>
         <h3 class="font-bold text-lg">Open</h3>
-        <p class="py-4">
-            The <code class="text-accent">open()</code> function will take a filepath as an argument to open a file.
-            <br>
-            There are 2 methods to opening a file. Both methods will assign the open file to a variable.
-            <br>
-            Notice the 2 examples below have 2 arguments. The filename and then the access mode.
-        </p>
-        <p>
+        <div class="modal-content py-4">
+            <p>
+                The <code class="text-accent">open()</code> function will take a filepath as an argument to open a file.
+                <br>
+                There are 2 methods to opening a file. Both methods will assign the open file to a variable.
+                <br>
+                Notice the 2 examples below have 2 arguments. The filename and then the access mode.
+            </p>
             <div class="flex-start ">
                 <div class="text-xs mr-1 mb-1">
                     <div class="mockup-window border bg-base-300">
@@ -38,20 +38,18 @@ with open("filename.txt", "r") as file:
                 
             </div>
             <br>
-        
-        </p>
-        <div role="alert" class="alert alert-info">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="stroke-current shrink-0 w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-            <span>
-                <p>Files should be opened with an access mode. </p>
-                <ul class="list-disc p-2">
-                    <li><kbd class="kbd kbd-sm">"r"</kbd> is for opening a file only for reading it.</li>
-                    <li><kbd class="kbd kbd-sm">"w"</kbd> is for overwriting all contents of the file.</li>
-                    <li><kbd class="kbd kbd-sm">"a"</kbd> is for appending to a file.</li>
-                </ul>
-            </span>
+            <div role="alert" class="alert alert-info">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="stroke-current shrink-0 w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                <span>
+                    <p>Files should be opened with an access mode. </p>
+                    <ul class="list-disc p-2">
+                        <li><kbd class="kbd kbd-sm">"r"</kbd> is for opening a file only for reading it.</li>
+                        <li><kbd class="kbd kbd-sm">"w"</kbd> is for overwriting all contents of the file.</li>
+                        <li><kbd class="kbd kbd-sm">"a"</kbd> is for appending to a file.</li>
+                    </ul>
+                </span>
+            </div>
         </div>
-                   
     </div>
     <form method="dialog" class="modal-backdrop">
       <button>close</button>
