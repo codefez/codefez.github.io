@@ -12,14 +12,14 @@ I have now switched the site to run on docker locally
 - Firebase API key is stored as a Github secret
 
 # Modals to-do still
-- [x] List slicing (lists / arrays)
-- [x] list comprehensions (lists /arrays)
-- [x] comparative operators (comparative operators)
-- [x] escape codes eg \n, \t etc (string methods)
-- [x] constants (variables)
-- [ ] time delta (random functions)
-- [x] indexing characters
-- [x] slicing and indexing
+- [x] ~~List slicing (lists / arrays)~~
+- [x] ~~list comprehensions (lists /arrays)~~
+- [x] ~~comparative operators (comparative operators)~~
+- [x] ~~escape codes eg \n, \t etc (string methods)~~
+- [x] ~~constants (variables)~~
+- [x] ~~time delta (random functions)~~
+- [x] ~~indexing characters~~
+- [x] ~~slicing and indexing~~
 - [x] ~~2D arrays~~
 - [x] ~~elif~~
 - [x] ~~Tuples~~
