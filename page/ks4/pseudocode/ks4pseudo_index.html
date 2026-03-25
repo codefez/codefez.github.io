@@ -49,7 +49,7 @@ layout: default
       <p>This is the OUTPUT section for the pseudocode lessons.</p> 
       
       
-      <div class="card-actions justify-end join join-vertical">
+      <div class="card-actions justify-end join join-horizontal">
         <!-- output 1 -->
         <button class="btn join-item" onclick="output1.showModal()">
           1️⃣<span id="output1_status"><i class="fa-regular fa-square-xmark text-error"></i></span>
@@ -105,18 +105,19 @@ layout: default
   const SAVE_KEY = "myGameSave_v1";
 
   function updateScoreFromChallenges() {
-    score = Object.values(challenges).reduce((total, group) => {
-      if (!group || typeof group !== "object") {
-        return total;
-      }
+    const totals = Object.values(challenges).reduce((acc, group) => {
+      if (!group || typeof group !== "object") return acc;
+      const values = Object.values(group);
+      acc.score += values.filter((v) => v === true).length;
+      acc.total += values.length;
+      return acc;
+    }, { score: 0, total: 0 });
 
-      const trueCount = Object.values(group).filter((value) => value === true).length;
-      return total + trueCount;
-    }, 0);
+    score = totals.score;
 
     const scoreElement = document.getElementById("challenge_score");
     if (scoreElement) {
-      scoreElement.textContent = `${score}/10`;
+      scoreElement.textContent = `${totals.score}/${totals.total}`;
     }
 
     for (const group of Object.values(challenges)) {
