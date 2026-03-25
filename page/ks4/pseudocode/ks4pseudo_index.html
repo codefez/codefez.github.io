@@ -1,0 +1,199 @@
+---
+layout: default
+---
+
+<h1 class="text-center text-xl font-bold">Year 10 & 11 Pseudocode Challenges</h1>
+<br>
+<div class="flex flex-row justify-between">
+  <div class="basis 9/12">
+    <div class="text-sm breadcrumbs">
+        <ul>
+          <li>
+            <a>
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="w-4 h-4 stroke-current"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"></path></svg>
+              <a href="/page/ks4.html">KS4 Home</a>
+            </a>
+          </li> 
+          <li>
+            <a>
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="w-4 h-4 stroke-current"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"></path></svg>
+              Year KS4 Pseudocode
+            </a>
+          </li> 
+          
+        </ul>
+    </div>
+  </div>
+  <div class="basis 3/12">
+    <div class="alert">
+      <p>Score: <span id="challenge_score">0</span></p>
+    </div>
+  </div>
+</div>
+
+<br>
+<div class="alert">
+  <p>OCR pseudocode lessons for Year 10 and 11.</p>
+</div>
+<br>
+<div class="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+  
+  <div role="alert" class="alert column">
+    <div class="avatar">
+      <div class="mask mask-squircle w-12">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-12 h-12 bg-warning" viewBox="0 0 512 512"><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M177.9 494.1c-18.7 18.7-49.1 18.7-67.9 0L17.9 401.9c-18.7-18.7-18.7-49.1 0-67.9l50.7-50.7 48 48c6.2 6.2 16.4 6.2 22.6 0s6.2-16.4 0-22.6l-48-48 41.4-41.4 48 48c6.2 6.2 16.4 6.2 22.6 0s6.2-16.4 0-22.6l-48-48 41.4-41.4 48 48c6.2 6.2 16.4 6.2 22.6 0s6.2-16.4 0-22.6l-48-48 41.4-41.4 48 48c6.2 6.2 16.4 6.2 22.6 0s6.2-16.4 0-22.6l-48-48 50.7-50.7c18.7-18.7 49.1-18.7 67.9 0l92.1 92.1c18.7 18.7 18.7 49.1 0 67.9L177.9 494.1z"/></svg>
+      </div>
+    </div>
+    <span>
+      <h1 class="text-xl font-bold">OUTPUT</h1>
+      <p>This is the OUTPUT section for the pseudocode lessons.</p> 
+      
+      
+      <div class="card-actions justify-end join join-horizontal">
+        <!-- output 1 -->
+        <button class="btn join-item" onclick="output1.showModal()">
+          1️⃣<span id="output1_status"><i class="fa-regular fa-square-xmark text-error"></i></span>
+        </button>
+
+        <!-- output 2 -->
+        <button class="btn join-item" onclick="output2.showModal()">
+          2️⃣<span id="output2_status"><i class="fa-regular fa-square text-error"></i></span>
+        </button>
+      </div>
+
+    </span>
+    
+  </div>
+
+
+</div>
+
+<div class="mb-20 mt-4">
+  <p>
+    
+  </p>
+
+</div>
+
+<!-- Open the modal using ID.showModal() method -->
+
+<dialog id="output1" class="modal">
+  <div class="modal-box">
+    <h3 class="text-lg font-bold">Hello World!</h3>
+    <p class="py-4">
+      What would the output of the following pseudocode be?
+      <br>
+      <pre><code>print("Merhaba Dunya!")</code></pre>
+    </p>
+    <input type="text" id="output1_in" placeholder="Enter your answer here...">
+    <button class="btn" onclick="checkAnswer('output1_in', 'Merhaba Dunya!')">Check Answer</button>
+  </div>
+  <form method="dialog" class="modal-backdrop">
+    <button>close</button>
+  </form>
+</dialog>
+
+<script>
+  let playerName = "Alex";
+  let challenges = {
+    "output": {"output1": false, "output2": false},
+    "variables": {"variables1": false}
+  };
+  let score = 0;
+  let soundOn = true;
+
+  const SAVE_KEY = "myGameSave_v1";
+
+  function updateScoreFromChallenges() {
+    const totals = Object.values(challenges).reduce((acc, group) => {
+      if (!group || typeof group !== "object") return acc;
+      const values = Object.values(group);
+      acc.score += values.filter((v) => v === true).length;
+      acc.total += values.length;
+      return acc;
+    }, { score: 0, total: 0 });
+
+    score = totals.score;
+
+    const scoreElement = document.getElementById("challenge_score");
+    if (scoreElement) {
+      scoreElement.textContent = `${totals.score}/${totals.total}`;
+    }
+
+    for (const group of Object.values(challenges)) {
+      if (!group || typeof group !== "object") continue;
+      for (const [id, completed] of Object.entries(group)) {
+        const statusEl = document.getElementById(`${id}_status`);
+        if (statusEl) {
+          statusEl.innerHTML = completed
+            ? '<i class="fa-regular fa-square-check text-success"></i>'
+            : '<i class="fa-regular fa-square text-error"></i>';
+        }
+      }
+    }
+  }
+
+  // Persist current game state to localStorage.
+  function saveGame() {
+    const gameData = {
+      playerName,
+      challenges,
+      score,
+      soundOn,
+      savedAt: new Date().toISOString()
+    };
+
+    localStorage.setItem(SAVE_KEY, JSON.stringify(gameData));
+    console.log("Game saved:", gameData);
+  }
+
+  function loadGame() {
+    const raw = localStorage.getItem(SAVE_KEY);
+    if (!raw) {
+      updateScoreFromChallenges();
+      return;
+    }
+
+    try {
+      const gameData = JSON.parse(raw);
+      playerName = gameData.playerName ?? playerName;
+      soundOn = gameData.soundOn ?? soundOn;
+
+      const savedOutput = gameData.challenges?.output ?? {};
+      const savedVariables = gameData.challenges?.variables ?? {};
+      challenges.output = { ...challenges.output, ...savedOutput };
+      challenges.variables = { ...challenges.variables, ...savedVariables };
+      updateScoreFromChallenges();
+
+      console.log("Game loaded:", gameData);
+    } catch (err) {
+      console.error("Save data is invalid JSON:", err);
+    }
+  }
+
+  function checkAnswer(inputId, expectedAnswer) {
+    const input = document.getElementById(inputId);
+    if (!input) {
+      return;
+    }
+
+    const userAnswer = input.value;//.trim().toLowerCase();
+    const expected = expectedAnswer;//.trim().toLowerCase();
+
+    if (userAnswer === expected) {
+      const challengeId = inputId.replace("_in", "");
+      if (challenges.output[challengeId] !== undefined) {
+        challenges.output[challengeId] = true;
+      }
+
+      updateScoreFromChallenges();
+
+      saveGame();
+      alert("Correct. Progress saved.");
+    } else {
+      alert("Not quite. Try again.");
+    }
+  }
+
+  loadGame();
+</script>
