@@ -2,25 +2,35 @@
 layout: default
 ---
 
-<h1 class="text-center text-xl font-bold"> Year 10 & 11 Python Programming </h1>
+<h1 class="text-center text-xl font-bold">Year 10 & 11 Pseudocode Challenges</h1>
 <br>
-<div class="text-sm breadcrumbs">
-    <ul>
-      <li>
-        <a>
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="w-4 h-4 stroke-current"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"></path></svg>
-          <a href="/page/ks4.html">KS4 Home</a>
-        </a>
-      </li> 
-      <li>
-        <a>
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="w-4 h-4 stroke-current"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"></path></svg>
-          Year KS4 Pseudocode
-        </a>
-      </li> 
-      
-    </ul>
+<div class="flex flex-row justify-between">
+  <div class="basis 9/12">
+    <div class="text-sm breadcrumbs">
+        <ul>
+          <li>
+            <a>
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="w-4 h-4 stroke-current"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"></path></svg>
+              <a href="/page/ks4.html">KS4 Home</a>
+            </a>
+          </li> 
+          <li>
+            <a>
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="w-4 h-4 stroke-current"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"></path></svg>
+              Year KS4 Pseudocode
+            </a>
+          </li> 
+          
+        </ul>
+    </div>
+  </div>
+  <div class="basis 3/12">
+    <div class="alert">
+      <p>Score: <span id="challenge_score">0</span></p>
+    </div>
+  </div>
 </div>
+
 <br>
 <div class="alert">
   <p>OCR pseudocode lessons for Year 10 and 11.</p>
@@ -37,15 +47,24 @@ layout: default
     <span>
       <h1 class="text-xl font-bold">OUTPUT</h1>
       <p>This is the OUTPUT section for the pseudocode lessons.</p> 
+      
+      
+      <div class="card-actions justify-end join join-vertical">
+        <!-- output 1 -->
+        <button class="btn join-item" onclick="output1.showModal()">
+          1️⃣<span id="output1_status"><i class="fa-regular fa-square-xmark text-error"></i></span>
+        </button>
+
+        <!-- output 2 -->
+        <button class="btn join-item" onclick="output2.showModal()">
+          2️⃣<span id="output2_status"><i class="fa-regular fa-square text-error"></i></span>
+        </button>
+      </div>
+
     </span>
-    <div class="card-actions justify-end">
-      <a class="btn btn-sm btn-primary" href="#" target="_blank">Go to lesson</a>
-    </div>
+    
   </div>
 
-
-
-  
 
 </div>
 
@@ -56,27 +75,70 @@ layout: default
 
 </div>
 
+<!-- Open the modal using ID.showModal() method -->
+
+<dialog id="output1" class="modal">
+  <div class="modal-box">
+    <h3 class="text-lg font-bold">Hello World!</h3>
+    <p class="py-4">
+      What would the output of the following pseudocode be?
+      <br>
+      <pre><code>print("Merhaba Dunya!")</code></pre>
+    </p>
+    <input type="text" id="output1_in" placeholder="Enter your answer here...">
+    <button class="btn" onclick="checkAnswer('output1_in', 'Merhaba Dunya!')">Check Answer</button>
+  </div>
+  <form method="dialog" class="modal-backdrop">
+    <button>close</button>
+  </form>
+</dialog>
 
 <script>
-  // Example game state variables
   let playerName = "Alex";
-  let level = 3;
-  let score = 1250;
-  let lives = 2;
+  let challenges = {
+    "output": {"output1": false, "output2": false},
+    "variables": {"variables1": false}
+  };
+  let score = 0;
   let soundOn = true;
-  let inventory = ["key", "torch", "map"];
 
   const SAVE_KEY = "myGameSave_v1";
 
-  // Save current variables to localStorage
+  function updateScoreFromChallenges() {
+    score = Object.values(challenges).reduce((total, group) => {
+      if (!group || typeof group !== "object") {
+        return total;
+      }
+
+      const trueCount = Object.values(group).filter((value) => value === true).length;
+      return total + trueCount;
+    }, 0);
+
+    const scoreElement = document.getElementById("challenge_score");
+    if (scoreElement) {
+      scoreElement.textContent = `${score}/10`;
+    }
+
+    for (const group of Object.values(challenges)) {
+      if (!group || typeof group !== "object") continue;
+      for (const [id, completed] of Object.entries(group)) {
+        const statusEl = document.getElementById(`${id}_status`);
+        if (statusEl) {
+          statusEl.innerHTML = completed
+            ? '<i class="fa-regular fa-square-check text-success"></i>'
+            : '<i class="fa-regular fa-square text-error"></i>';
+        }
+      }
+    }
+  }
+
+  // Persist current game state to localStorage.
   function saveGame() {
     const gameData = {
       playerName,
-      level,
+      challenges,
       score,
-      lives,
       soundOn,
-      inventory,
       savedAt: new Date().toISOString()
     };
 
@@ -84,25 +146,23 @@ layout: default
     console.log("Game saved:", gameData);
   }
 
-  // Load variables from localStorage into your current variables
   function loadGame() {
     const raw = localStorage.getItem(SAVE_KEY);
-
     if (!raw) {
-      console.log("No save file found in localStorage.");
+      updateScoreFromChallenges();
       return;
     }
 
     try {
       const gameData = JSON.parse(raw);
+      playerName = gameData.playerName ?? playerName;
+      soundOn = gameData.soundOn ?? soundOn;
 
-      // Use defaults in case older saves are missing fields
-      playerName = gameData.playerName ?? "Player";
-      level = gameData.level ?? 1;
-      score = gameData.score ?? 0;
-      lives = gameData.lives ?? 3;
-      soundOn = gameData.soundOn ?? true;
-      inventory = gameData.inventory ?? [];
+      const savedOutput = gameData.challenges?.output ?? {};
+      const savedVariables = gameData.challenges?.variables ?? {};
+      challenges.output = { ...challenges.output, ...savedOutput };
+      challenges.variables = { ...challenges.variables, ...savedVariables };
+      updateScoreFromChallenges();
 
       console.log("Game loaded:", gameData);
     } catch (err) {
@@ -110,36 +170,29 @@ layout: default
     }
   }
 
-  // Optional: remove save
-  function deleteSave() {
-    localStorage.removeItem(SAVE_KEY);
-    console.log("Save deleted.");
+  function checkAnswer(inputId, expectedAnswer) {
+    const input = document.getElementById(inputId);
+    if (!input) {
+      return;
+    }
+
+    const userAnswer = input.value;//.trim().toLowerCase();
+    const expected = expectedAnswer;//.trim().toLowerCase();
+
+    if (userAnswer === expected) {
+      const challengeId = inputId.replace("_in", "");
+      if (challenges.output[challengeId] !== undefined) {
+        challenges.output[challengeId] = true;
+      }
+
+      updateScoreFromChallenges();
+
+      saveGame();
+      alert("Correct. Progress saved.");
+    } else {
+      alert("Not quite. Try again.");
+    }
   }
 
-  // Optional: reset game variables in memory (not storage)
-  function resetVariables() {
-    playerName = "Alex";
-    level = 1;
-    score = 0;
-    lives = 3;
-    soundOn = true;
-    inventory = [];
-  }
-
-  // Example usage:
-  // 1) Change some variables
-  level = 4;
-  score = 2000;
-  inventory.push("coin");
-
-  // 2) Save
-  saveGame();
-
-  // 3) Reset in-memory variables to show load works
-  resetVariables();
-  console.log("After reset:", { playerName, level, score, lives, soundOn, inventory });
-
-  // 4) Load back from localStorage
   loadGame();
-  console.log("After load:", { playerName, level, score, lives, soundOn, inventory });
 </script>
