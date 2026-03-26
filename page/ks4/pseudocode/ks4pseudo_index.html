@@ -60,7 +60,19 @@ layout: default
       <button class="join-item btn btn-xs btn-primary" onclick="ps_output1_modal.showModal()">Output 1</button>
       <button class="join-item btn btn-xs btn-primary" onclick="ps_output2_modal.showModal()">Output 2</button>
       <button class="join-item btn btn-xs btn-secondary" onclick="ps_var_modal.showModal()">Variables 1</button>
+      <button class="join-item btn btn-xs btn-secondary" onclick="ps_var_modal2.showModal()">Variables 2</button>
+    </div>
+
+    <div class="join join-horizontal">
+      <button class="join-item btn btn-xs btn-primary" onclick="ps_output3_modal.showModal()">Output 3</button>
       <button class="join-item btn btn-xs btn-secondary" onclick="ps_cast_modal.showModal()">Casting</button>
+      <button class="join-item btn btn-xs btn-secondary" onclick="ps_cast_modal2.showModal()">Casting 2</button>
+    </div>
+
+    <div class="join join-horizontal">
+      <button class="join-item btn btn-xs btn-primary" onclick="ps_output3_modal.showModal()">Output 3</button>
+      <button class="join-item btn btn-xs btn-secondary" onclick="ps_cast_modal.showModal()">Casting</button>
+      <button class="join-item btn btn-xs btn-secondary" onclick="ps_cast_modal2.showModal()">Casting 2</button>
     </div>
   </span>
   
@@ -94,6 +106,16 @@ layout: default
         <button class="btn btn-sm join-item p-1 m-0" onclick="output3.showModal()">
           3️⃣<span id="output3_status"><i class="fa-regular fa-square text-error"></i></span>
         </button>
+
+        <!-- output 4 -->
+        <button class="btn btn-sm join-item p-1 m-0" onclick="output4.showModal()">
+          4️⃣<span id="output4_status"><i class="fa-regular fa-square text-error"></i></span>
+        </button>
+
+        <!-- output 5 -->
+        <button class="btn btn-sm join-item p-1 m-0" onclick="output5.showModal()">
+          5️⃣<span id="output5_status"><i class="fa-regular fa-square text-error"></i></span>     
+        </button>
       </div>
 
     </span>
@@ -113,19 +135,29 @@ layout: default
       
       
       <div class="join join-horizontal">
-        <!-- output 1 -->
+        <!-- variables 1 -->
         <button class="btn btn-sm join-item p-1 m-0" onclick="variables1.showModal()">
           1️⃣<span id="variables1_status"><i class="fa-regular fa-square-xmark fa-lg text-error"></i></span>
         </button>
 
-        <!-- output 2 -->
+        <!-- variables 2 -->
         <button class="btn btn-sm join-item p-1 m-0" onclick="variables2.showModal()">
           2️⃣<span id="variables2_status"><i class="fa-regular fa-square text-error"></i></span>
         </button>
 
-        <!-- output 3 -->
+        <!-- variables 3 -->
         <button class="btn btn-sm join-item p-1 m-0" onclick="variables3.showModal()">
           3️⃣<span id="variables3_status"><i class="fa-regular fa-square text-error"></i></span>
+        </button>
+
+        <!-- variables 4 -->
+        <button class="btn btn-sm join-item p-1 m-0" onclick="variables4.showModal()">
+          4️⃣<span id="variables4_status"><i class="fa-regular fa-square text-error"></i></span>
+        </button>
+
+        <!-- variables 5 -->
+        <button class="btn btn-sm join-item p-1 m-0" onclick="variables5.showModal()">
+          5️⃣<span id="variables5_status"><i class="fa-regular fa-square text-error"></i></span>
         </button>
       </div>
 
@@ -142,89 +174,14 @@ layout: default
 
 </div>
 
-<dialog id="output1" class="modal">
-  <div class="modal-box">
-    <h3 class="text-lg font-bold">Hello World!</h3>
-    <p class="py-4">
-      What would the output of the following pseudocode be?
-      <br>
-      <pre><code>print("Hello123")</code></pre>
-    </p>
-    <div class="join">
-      <input type="text" class="input join-item" id="output1_in" placeholder="Enter your answer here...">
-      <button class="btn btn-primary join-item" onclick="checkAnswer('output1_in', 'Hello123')">Check Answer</button>
-    </div>
-    
-  </div>
-  <form method="dialog" class="modal-backdrop">
-    <button>close</button>
-  </form>
-</dialog>
-
-<dialog id="output2" class="modal">
-  <div class="modal-box">
-    <h3 class="text-lg font-bold">Hello World!</h3>
-    <p class="py-4">
-      What would the output of the following pseudocode be?
-      <br>
-      <pre><code>print("Merhaba Dunya!")</code></pre>
-    </p>
-    <div class="join">
-      <input type="text" class="input join-item" id="output2_in" placeholder="Enter your answer here...">
-      <button class="btn btn-primary join-item" onclick="checkAnswer('output2_in', 'Merhaba Dunya!')">Check Answer</button>
-    </div>
-    
-  </div>
-  <form method="dialog" class="modal-backdrop">
-    <button>close</button>
-  </form>
-</dialog>
-
-<dialog id="output3" class="modal">
-  <div class="modal-box">
-    <h3 class="text-lg font-bold">Hello World!</h3>
-    <p class="py-4">
-      What would the output of the following pseudocode be?
-      <br>
-      <pre><code>print("Hello 123")</code></pre>
-    </p>
-    <div class="join">
-      <input type="text" class="input join-item" id="output3_in" placeholder="Enter your answer here...">
-      <button class="btn btn-primary join-item" onclick="checkAnswer('output3_in', 'Hello 123')">Check Answer</button>
-    </div>
-    
-  </div>
-  <form method="dialog" class="modal-backdrop">
-    <button>close</button>
-  </form>
-</dialog>
-
-<dialog id="variables1" class="modal">
-  <div class="modal-box">
-    <h3 class="text-lg font-bold">Variables</h3>
-    <p class="py-4">
-      What would the output of the following pseudocode be?
-      <br>
-      <pre><code>name = "CodeFez"
-print(name)</code></pre>
-    </p>
-    <div class="join">
-      <input type="text" class="input join-item" id="variables1_in" placeholder="Enter your answer here...">
-      <button class="btn btn-primary join-item" onclick="checkAnswer('variables1_in', 'CodeFez')">Check Answer</button>
-    </div>
-    
-  </div>
-  <form method="dialog" class="modal-backdrop">
-    <button>close</button>
-  </form>
-</dialog>
+{% include pseudocode_tasks.html  %}
 {% include pseudocode_modals.html  %}
 
 <script>
   let playerName = "Alex";
   let challenges = {
-    "output": {"output1": false, "output2": false, "output3": false},
-    "variables": {"variables1": false}
+    "output": {"output1": false, "output2": false, "output3": false, "output4": false, "output5": false},
+    "variables": {"variables1": false, "variables2": false, "variables3": false, "variables4": false, "variables5": false},
   };
   let score = 0;
   let soundOn = true;
@@ -304,13 +261,22 @@ print(name)</code></pre>
       return;
     }
 
-    const userAnswer = input.value;//.trim().toLowerCase();
-    const expected = expectedAnswer;//.trim().toLowerCase();
+    const normalizeAnswer = (value) => String(value ?? "")
+      .trim()
+      .replace(/\s+/g, " ")
+      .toLowerCase();
 
-    if (userAnswer === expected) {
+    const userAnswer = normalizeAnswer(input.value);
+    const expectedAnswers = Array.isArray(expectedAnswer) ? expectedAnswer : [expectedAnswer];
+    const isCorrect = expectedAnswers.some((answer) => normalizeAnswer(answer) === userAnswer);
+
+    if (isCorrect) {
       const challengeId = inputId.replace("_in", "");
-      if (challenges.output[challengeId] !== undefined) {
-        challenges.output[challengeId] = true;
+      for (const group of Object.values(challenges)) {
+        if (group[challengeId] !== undefined) {
+          group[challengeId] = true;
+          break;
+        }
       }
 
       updateScoreFromChallenges();

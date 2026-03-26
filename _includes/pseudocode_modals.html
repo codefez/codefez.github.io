@@ -24,7 +24,6 @@
             <li>Text to be printed should be enclosed in quotes.</li>
             <li><code class="text-primary">print</code> is a function. Functions can take more than arguments by using a comma eg:<br>    
                 <pre><code style="margin-left: 2rem;">print("Hello", "World!")</code></pre></li>
-
         </ul>
     </p>
   </div>
@@ -63,7 +62,6 @@
   </form>
 </dialog>
 
-
 <dialog id="ps_var_modal" class="modal">
   <div class="modal-box">
     <h3 class="text-lg font-bold">Variables</h3>
@@ -92,6 +90,41 @@ global score = 100</code></pre>
   </form>
 </dialog>
 
+<dialog id="ps_var_modal2" class="modal">
+  <div class="modal-box">
+    <h3 class="text-lg font-bold">Variables 2</h3>
+    <p class="">Variables can be reassigned to different values during the execution of the program.
+        <div class="alert bg-base-300 border-none">
+          <div>
+            <span><pre><code>shoe_size = 5
+name = "Alice"
+shoe_size = 8
+print(shoe_size)</code></pre>
+            </div>
+        </div> 
+        
+    Should result in the following output:
+      <div class="alert bg-neutral border-none">
+        <div>
+          <span class="text-white">8</span>
+        </div>
+      </div>
+    </p>
+    <p class="">
+        Key points: <br>
+        <ul class="list-disc px-2">
+            <li>The <code class="text-primary">=</code> operator is used to assign a value to a variable.</li>
+            <li>Variable names cannot have spaces. You can use an underscore if the name has 2 or more words eg:<br><pre><code style="margin-left: 2rem;">shoe_size = 5</code></pre></li>
+            <li>Variables can be reassigned to different values during the execution of the program.</li>
+            <li>a variable can be given global scope by using the <code class="text-primary">global</code> keyword.</li>
+        </ul>
+    </p>
+  </div>
+  <form method="dialog" class="modal-backdrop">
+    <button>close</button>
+  </form>
+</dialog>
+
 <dialog id="ps_cast_modal" class="modal">
   <div class="modal-box">
     <h3 class="text-lg font-bold">Casting Variables</h3>
@@ -104,6 +137,90 @@ global score = 100</code></pre>
         </ul>
     </p>
   </div>
+  <form method="dialog" class="modal-backdrop">
+    <button>close</button>
+  </form>
+</dialog>
+
+<dialog id="ps_output3_modal" class="modal">
+  <div class="modal-box">
+    <h3 class="text-lg font-bold">Output 3</h3>
+    <p class=""><code class="text-primary">We can join several strings together using the <code>+</code> operator. <br>This is called concatenation.</p>
+        <div class="alert bg-base-300 border-none">
+          <div>
+            <span class="text-white"><pre><code>print("Hello" + " " + "you.")</code></pre></span>
+          </div>
+        </div>
+        
+        Should result in the following output:
+        <div class="alert bg-neutral border-none">
+          <div>
+            <span class="text-white">Hello you.</span>
+          </div>
+        </div>
+    </p>
+    <p class=""><code class="text-primary">We can actually concatenate variables as well.</p>
+        <div class="alert bg-base-300 border-none">
+          <div>
+            <span class="text-white"><pre><code>name = "Alice"
+print("Hello, " + name + "!")</code></pre></span>
+          </div>
+        </div>
+        
+        Should result in the following output:
+        <div class="alert bg-neutral border-none">
+          <div>
+            <span class="text-white">Hello, Alice!</span>
+          </div>
+        </div>
+    </p>
+    
+    <div role="alert" class="alert alert-info">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="h-6 w-6 shrink-0 stroke-current">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+        </svg>
+        <span>Passing multiple arguments negates the need for casting</span>
+    </div>
+  </div>
+  <form method="dialog" class="modal-backdrop">
+    <button>close</button>
+  </form>
+</dialog>
+
+<dialog id="ps_cast_modal2" class="modal">
+  <div class="modal-box">
+    <h3 class="text-lg font-bold">Casting Variables 2</h3>
+    <p class=""><code class="text-primary">We can join several strings together using the <code>+</code> operator. <br>This is called concatenation.</p>
+        <div class="alert bg-base-300 border-none">
+          <div>
+            <span class="text-white"><pre><code>print("Hello" + " " + "you.")</code></pre></span>
+          </div>
+        </div>
+        
+        Should result in the following output:
+        <div class="alert bg-neutral border-none">
+          <div>
+            <span class="text-white">Hello you.</span>
+          </div>
+        </div>
+    </p>
+    <p class=""><code class="text-primary">If we concatenate variables from different datatypes, we need to cast them to strings first.</p>
+        <div class="alert bg-base-300 border-none">
+          <div>
+            <span class="text-white"><pre><code>name = "Alice"
+age = 25
+print(name + " is " + str(age) + ".")</code></pre></span>
+          </div>
+        </div>
+        
+        Should result in the following output:
+        <div class="alert bg-neutral border-none">
+          <div>
+            <span class="text-white">Alice is 25.</span>
+          </div>
+        </div>
+    </p>
+    
   <form method="dialog" class="modal-backdrop">
     <button>close</button>
   </form>
