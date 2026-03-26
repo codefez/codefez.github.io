@@ -1,18 +1,30 @@
 
-<dialog id="ps_var_modal" class="modal">
+<dialog id="ps_output1_modal" class="modal">
   <div class="modal-box">
-    <h3 class="text-lg font-bold">Variables</h3>
-    <p class="">Variables are used to store data in a program.
-        <br>
-        <pre class="bg-base-200"><code>variable_name = value</code></pre>
+    <h3 class="text-lg font-bold">Output 1</h3>
+    <p class="">Outputting to the screen is done with the <code>print</code> command.
+        <div class="alert bg-base-300 border-none">
+          <div>
+            <span class="text-white"><pre><code>print("Hello, World!")</code></pre></span>
+          </div>
+        </div>
         
+        Should result in the following output:
+        <div class="alert bg-neutral border-none">
+          <div>
+            <span class="text-white">Hello, World!</span>
+          </div>
+        </div>
+
     </p>
     <p class="">
-        There are some golden rules when assigning variables <br>
-        <ul class="list-decimal px-2">
-            <li>Variable names cannot take the name of a pseudocode keyword such as <code class="text-accent">print</code></li>
-            <li>The name goes on the left ⬅ & the value goes on the right ➡ of the <code class="text-primary">=</code> operator </li>
-            <li>Variable names cannot have spaces.</li>
+        Key points: <br>
+        <ul class="list-disc px-2">
+            <li>The <code class="text-primary">print</code> function is used to output text to the screen.</li>
+            <li>Text to be printed should be enclosed in quotes.</li>
+            <li><code class="text-primary">print</code> is a function. Functions can take more than arguments by using a comma eg:<br>    
+                <pre><code style="margin-left: 2rem;">print("Hello", "World!")</code></pre></li>
+
         </ul>
     </p>
   </div>
@@ -21,5 +33,60 @@
   </form>
 </dialog>
 
+<dialog id="ps_output2_modal" class="modal">
+  <div class="modal-box">
+    <h3 class="text-lg font-bold">Output 2</h3>
+    <p class=""><code class="text-primary">print</code> is a function. Functions can take more than one argument by using a comma 
+        <div class="alert bg-base-300 border-none">
+          <div>
+            <span class="text-white"><pre><code>print("Hello",2, "you.")</code></pre></span>
+          </div>
+        </div>
+        
+        Should result in the following output:
+        <div class="alert bg-neutral border-none">
+          <div>
+            <span class="text-white">Hello 2 you.</span>
+          </div>
+        </div>
+    </p>
+    
+    <div role="alert" class="alert alert-info">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="h-6 w-6 shrink-0 stroke-current">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+        </svg>
+        <span>Passing multiple arguments negates the need for casting</span>
+    </div>
+  </div>
+  <form method="dialog" class="modal-backdrop">
+    <button>close</button>
+  </form>
+</dialog>
 
+
+<dialog id="ps_var_modal" class="modal">
+  <div class="modal-box">
+    <h3 class="text-lg font-bold">Variables</h3>
+    <p class="">Variables are used to store data in a program.
+        <br>
+        <pre class="bg-base-300"><code>variable_name = value
+name = "Alice"
+age = 30
+global score = 100
+        </code></pre>
+        
+    </p>
+    <p class="">
+        Key points: <br>
+        <ul class="list-disc px-2">
+            <li>The <code class="text-primary">=</code> operator is used to assign a value to a variable.</li>
+            <li>Variable names cannot have spaces. You can use an underscore if the name has 2 or more words eg:<br><pre><code style="margin-left: 2rem;">shoe_size = 5</code></pre></li>
+
+        </ul>
+    </p>
+  </div>
+  <form method="dialog" class="modal-backdrop">
+    <button>close</button>
+  </form>
+</dialog>
 
