@@ -68,20 +68,22 @@
   <div class="modal-box">
     <h3 class="text-lg font-bold">Variables</h3>
     <p class="">Variables are used to store data in a program.
-        <br>
-        <pre class="bg-base-300"><code>variable_name = value
+        <div class="alert bg-base-300 border-none">
+          <div>
+            <span><pre><code>variable_name = value
 name = "Alice"
 age = 30
-global score = 100
-        </code></pre>
-        
+global score = 100</code></pre>
+            </div>
+        </div>  
     </p>
     <p class="">
         Key points: <br>
         <ul class="list-disc px-2">
             <li>The <code class="text-primary">=</code> operator is used to assign a value to a variable.</li>
             <li>Variable names cannot have spaces. You can use an underscore if the name has 2 or more words eg:<br><pre><code style="margin-left: 2rem;">shoe_size = 5</code></pre></li>
-
+            <li>Variables can be reassigned to different values during the execution of the program.</li>
+            <li>a variable can be given global scope by using the <code class="text-primary">global</code> keyword.</li>
         </ul>
     </p>
   </div>
@@ -90,3 +92,19 @@ global score = 100
   </form>
 </dialog>
 
+<dialog id="ps_cast_modal" class="modal">
+  <div class="modal-box">
+    <h3 class="text-lg font-bold">Casting Variables</h3>
+    <p class="">The datatype of a variable can be changed using casting</p>
+    <p class="">
+        <ul class="list-disc px-2">
+            <li><code class="text-primary">str(500)</code> will cast (convert) the integer 500 to <code>"500"</code>.</li>
+            <li><code class="text-primary">int("500")</code> will cast (convert) the string "500" to the integer 500.</li>
+            <li><code class="text-primary">float("500.25")</code> will cast (convert) the string "500.25" to the float 500.25.</li>
+        </ul>
+    </p>
+  </div>
+  <form method="dialog" class="modal-backdrop">
+    <button>close</button>
+  </form>
+</dialog>
