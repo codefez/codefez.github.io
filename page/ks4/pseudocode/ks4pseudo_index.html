@@ -32,8 +32,18 @@ layout: default
 </div>
 
 <br>
-<div class="alert">
-  <p>OCR pseudocode lessons for Year 10 and 11.</p>
+<div class="alert column">
+  <div class="avatar">
+    <div class="mask mask-squircle w-12">
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-12 h-12 bg-warning" viewBox="0 0 512 512"><!--!Font Awesome Free v7.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2026 Fonticons, Inc.--><path d="M256 512a256 256 0 1 0 0-512 256 256 0 1 0 0 512zM224 160a32 32 0 1 1 64 0 32 32 0 1 1 -64 0zm-8 64l48 0c13.3 0 24 10.7 24 24l0 88 8 0c13.3 0 24 10.7 24 24s-10.7 24-24 24l-80 0c-13.3 0-24-10.7-24-24s10.7-24 24-24l24 0 0-64-24 0c-13.3 0-24-10.7-24-24s10.7-24 24-24z"/></svg>
+    </div>
+    
+  </div>
+  <div>OCR pseudocode lessons for Year 10 and 11.</div>
+  <div class="mt-2 flex gap-2">
+    <button class="btn btn-xs btn-primary" onclick="ps_output_modal.showModal()">Output modal</button>
+    <button class="btn btn-xs btn-secondary" onclick="ps_var_modal.showModal()">Variables modal</button>
+  </div>
 </div>
 <br>
 <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
@@ -41,7 +51,8 @@ layout: default
   <div role="alert" class="alert column">
     <div class="avatar">
       <div class="mask mask-squircle w-12">
-        <svg xmlns="http://www.w3.org/2000/svg" class="w-12 h-12 bg-warning" viewBox="0 0 512 512"><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M177.9 494.1c-18.7 18.7-49.1 18.7-67.9 0L17.9 401.9c-18.7-18.7-18.7-49.1 0-67.9l50.7-50.7 48 48c6.2 6.2 16.4 6.2 22.6 0s6.2-16.4 0-22.6l-48-48 41.4-41.4 48 48c6.2 6.2 16.4 6.2 22.6 0s6.2-16.4 0-22.6l-48-48 41.4-41.4 48 48c6.2 6.2 16.4 6.2 22.6 0s6.2-16.4 0-22.6l-48-48 41.4-41.4 48 48c6.2 6.2 16.4 6.2 22.6 0s6.2-16.4 0-22.6l-48-48 50.7-50.7c18.7-18.7 49.1-18.7 67.9 0l92.1 92.1c18.7 18.7 18.7 49.1 0 67.9L177.9 494.1z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-12 h-12 bg-warning" viewBox="0 0 512 512"><!--!Font Awesome Free v7.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2026 Fonticons, Inc.--><path d="M448 96l0 256-384 0 0-256 384 0zM64 32C28.7 32 0 60.7 0 96L0 352c0 35.3 28.7 64 64 64l144 0-16 48-72 0c-13.3 0-24 10.7-24 24s10.7 24 24 24l272 0c13.3 0 24-10.7 24-24s-10.7-24-24-24l-72 0-16-48 144 0c35.3 0 64-28.7 64-64l0-256c0-35.3-28.7-64-64-64L64 32z"/></svg>
+
       </div>
     </div>
     <span>
@@ -49,15 +60,20 @@ layout: default
       <p>This is the OUTPUT section for the pseudocode lessons.</p> 
       
       
-      <div class="card-actions justify-end join join-horizontal">
+      <div class="join join-horizontal">
         <!-- output 1 -->
-        <button class="btn join-item" onclick="output1.showModal()">
-          1️⃣<span id="output1_status"><i class="fa-regular fa-square-xmark text-error"></i></span>
+        <button class="btn btn-sm join-item p-1 m-0" onclick="output1.showModal()">
+          1️⃣<span id="output1_status"><i class="fa-regular fa-square-xmark fa-lg text-error"></i></span>
         </button>
 
         <!-- output 2 -->
-        <button class="btn join-item" onclick="output2.showModal()">
+        <button class="btn btn-sm join-item p-1 m-0" onclick="output2.showModal()">
           2️⃣<span id="output2_status"><i class="fa-regular fa-square text-error"></i></span>
+        </button>
+
+        <!-- output 3 -->
+        <button class="btn btn-sm join-item p-1 m-0" onclick="output3.showModal()">
+          3️⃣<span id="output3_status"><i class="fa-regular fa-square text-error"></i></span>
         </button>
       </div>
 
@@ -65,6 +81,38 @@ layout: default
     
   </div>
 
+  <div role="alert" class="alert column">
+    <div class="avatar">
+      <div class="mask mask-squircle w-12">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-12 h-12 bg-warning" viewBox="0 0 640 512"><!--!Font Awesome Free v7.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2026 Fonticons, Inc.--><path d="M560.3 237.2c10.4 11.8 28.3 14.4 41.8 5.5 14.7-9.8 18.7-29.7 8.9-44.4l-48-72c-2.8-4.2-6.6-7.7-11.1-10.2L351.4 4.7c-19.3-10.7-42.8-10.7-62.2 0L88.8 116c-5.4 3-9.7 7.4-12.6 12.8L27.7 218.7c-12.6 23.4-3.8 52.5 19.6 65.1l33 17.7 0 53.3c0 23 12.4 44.3 32.4 55.7l176 99.7c19.6 11.1 43.5 11.1 63.1 0l176-99.7c20.1-11.4 32.4-32.6 32.4-55.7l0-117.5zm-240-9.8L170.2 144 320.3 60.6 470.4 144 320.3 227.4zm-41.5 50.2l-21.3 46.2-165.8-88.8 25.4-47.2 161.7 89.8z"/></svg>
+
+      </div>
+    </div>
+    <span>
+      <h1 class="text-xl font-bold">Variables & Output</h1>
+      <p>This is the OUTPUT section for the pseudocode lessons.</p> 
+      
+      
+      <div class="join join-horizontal">
+        <!-- output 1 -->
+        <button class="btn btn-sm join-item p-1 m-0" onclick="variables1.showModal()">
+          1️⃣<span id="variables1_status"><i class="fa-regular fa-square-xmark fa-lg text-error"></i></span>
+        </button>
+
+        <!-- output 2 -->
+        <button class="btn btn-sm join-item p-1 m-0" onclick="variables2.showModal()">
+          2️⃣<span id="variables2_status"><i class="fa-regular fa-square text-error"></i></span>
+        </button>
+
+        <!-- output 3 -->
+        <button class="btn btn-sm join-item p-1 m-0" onclick="variables3.showModal()">
+          3️⃣<span id="variables3_status"><i class="fa-regular fa-square text-error"></i></span>
+        </button>
+      </div>
+
+    </span>
+    
+  </div>
 
 </div>
 
@@ -75,9 +123,26 @@ layout: default
 
 </div>
 
-<!-- Open the modal using ID.showModal() method -->
-
 <dialog id="output1" class="modal">
+  <div class="modal-box">
+    <h3 class="text-lg font-bold">Hello World!</h3>
+    <p class="py-4">
+      What would the output of the following pseudocode be?
+      <br>
+      <pre><code>print("Hello123")</code></pre>
+    </p>
+    <div class="join">
+      <input type="text" class="input join-item" id="output1_in" placeholder="Enter your answer here...">
+      <button class="btn btn-primary join-item" onclick="checkAnswer('output1_in', 'Hello123')">Check Answer</button>
+    </div>
+    
+  </div>
+  <form method="dialog" class="modal-backdrop">
+    <button>close</button>
+  </form>
+</dialog>
+
+<dialog id="output2" class="modal">
   <div class="modal-box">
     <h3 class="text-lg font-bold">Hello World!</h3>
     <p class="py-4">
@@ -85,18 +150,61 @@ layout: default
       <br>
       <pre><code>print("Merhaba Dunya!")</code></pre>
     </p>
-    <input type="text" id="output1_in" placeholder="Enter your answer here...">
-    <button class="btn" onclick="checkAnswer('output1_in', 'Merhaba Dunya!')">Check Answer</button>
+    <div class="join">
+      <input type="text" class="input join-item" id="output2_in" placeholder="Enter your answer here...">
+      <button class="btn btn-primary join-item" onclick="checkAnswer('output2_in', 'Merhaba Dunya!')">Check Answer</button>
+    </div>
+    
   </div>
   <form method="dialog" class="modal-backdrop">
     <button>close</button>
   </form>
 </dialog>
 
+<dialog id="output3" class="modal">
+  <div class="modal-box">
+    <h3 class="text-lg font-bold">Hello World!</h3>
+    <p class="py-4">
+      What would the output of the following pseudocode be?
+      <br>
+      <pre><code>print("Hello 123")</code></pre>
+    </p>
+    <div class="join">
+      <input type="text" class="input join-item" id="output3_in" placeholder="Enter your answer here...">
+      <button class="btn btn-primary join-item" onclick="checkAnswer('output3_in', 'Hello 123')">Check Answer</button>
+    </div>
+    
+  </div>
+  <form method="dialog" class="modal-backdrop">
+    <button>close</button>
+  </form>
+</dialog>
+
+<dialog id="variables1" class="modal">
+  <div class="modal-box">
+    <h3 class="text-lg font-bold">Variables</h3>
+    <p class="py-4">
+      What would the output of the following pseudocode be?
+      <br>
+      <pre><code>name = "CodeFez"
+print(name)</code></pre>
+    </p>
+    <div class="join">
+      <input type="text" class="input join-item" id="variables1_in" placeholder="Enter your answer here...">
+      <button class="btn btn-primary join-item" onclick="checkAnswer('variables1_in', 'CodeFez')">Check Answer</button>
+    </div>
+    
+  </div>
+  <form method="dialog" class="modal-backdrop">
+    <button>close</button>
+  </form>
+</dialog>
+{% include pseudocode_modals.html  %}
+
 <script>
   let playerName = "Alex";
   let challenges = {
-    "output": {"output1": false, "output2": false},
+    "output": {"output1": false, "output2": false, "output3": false},
     "variables": {"variables1": false}
   };
   let score = 0;
