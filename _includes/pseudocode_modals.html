@@ -225,3 +225,165 @@ print(name + " is " + str(age) + ".")</code></pre></span>
     <button>close</button>
   </form>
 </dialog>
+
+<dialog id="ps_inp_modal1" class="modal">
+  <div class="modal-box">
+    <h3 class="text-lg font-bold">Input and Output</h3>
+    <p class=""><code class="text-primary">We can use the <code>input()</code> function to get user input and the <code>print()</code> function to display output.</p>
+        <div class="alert bg-base-300 border-none">
+          <div>
+            <span class="text-white"><pre><code>name = input("What is your name? ")
+print("Hello, " + name + "!")</code></pre></span>
+          </div>
+        </div>
+      <br>
+      The above code will prompt the user to enter their name and then greet them with a personalized message. For example, if the user enters "Alice", the output will be:
+        <div class="alert bg-neutral border-none">
+          <div>
+            <span class="text-white">Hello, Alice!</span>
+          </div>
+        </div>        
+    </p>
+    
+  <form method="dialog" class="modal-backdrop">
+    <button>close</button>
+  </form>
+</dialog>
+
+<dialog id="ps_inp_modal2" class="modal">
+  <div class="modal-box">
+    <h3 class="text-lg font-bold">Input and Casting</h3>
+    <p class=""><code class="text-primary">We can cast the result of <code>input()</code> to a different datatype if needed.</p>
+        <div class="alert bg-base-300 border-none">
+          <div>
+            <span class="text-white"><pre><code>number = int(input("Enter a number to work out the square: "))
+print("The square of " + str(number) + " is " + str(number * number) + ".")</code></pre></span>
+          </div>
+        </div>
+      <br>
+      The above code will prompt the user to enter a number and then display its square. For example, if the user enters "5", the output will be:
+        <div class="alert bg-neutral border-none">
+          <div>
+            <span class="text-white">The square of 5 is 25.</span>
+          </div>
+        </div> <br>
+        By default, the <code>input()</code> function returns a string, so we need to cast it to an integer using <code>int()</code> before performing the calculation.       
+    </p>
+    
+  <form method="dialog" class="modal-backdrop">
+    <button>close</button>
+  </form>
+</dialog>
+
+<dialog id="ps_string_modal1" class="modal">
+  <div class="modal-box">
+    <h3 class="text-lg font-bold">String length</h3>
+    <p class=""><code class="text-primary">We can use the <code>.length</code> method to get the length of a string.</p>
+        <div class="alert bg-base-300 border-none">
+          <div>
+            <span class="text-white"><pre><code>string = "codefez"
+print(string.length)</code></pre></span>
+          </div>
+        </div>
+      <br>
+      The above code will output the length of the string "codefez", which is 7. For example, the output will be:
+        <div class="alert bg-neutral border-none">
+          <div>
+            <span class="text-white">7</span>
+          </div>
+        </div>
+    </p>
+    
+  <form method="dialog" class="modal-backdrop">
+    <button>close</button>
+  </form>
+</dialog>
+
+<dialog id="ps_string_modal2" class="modal">
+  <div class="modal-box">
+    <h3 class="text-lg font-bold">String Indexing</h3>
+    <p class=""><code class="text-primary">We can use indexing to access individual characters in a string. with pseudocode this is done by using the substring method.</p>
+        <div class="alert bg-base-300 border-none">
+          <div>
+            <span class="text-white"><pre><code>string = "codefez"
+print(string.substring(0))
+print(string.substring(4,6))</code></pre></span>
+          </div>
+        </div>
+      <br>
+The above code will output the first character of the string "codefez" and then the characters from index 4 to 5. For example, the output will be:
+        <div class="alert bg-neutral border-none">
+          <div>
+            <span class="text-white">c
+fez</span>
+          </div>
+        </div>
+    </p>
+    
+  <form method="dialog" class="modal-backdrop">
+    <button>close</button>
+  </form>
+</dialog>
+
+<dialog id="ps_for_modal1" class="modal">
+  <div class="modal-box">
+    <h3 class="text-lg font-bold">for loops</h3>
+    <p class=""><code class="text-primary">We can use for loops to repeat a block of code a specific number of times.</p>
+    <p>This is known as a counter-controlled loop because we use it when we know the number of iterations in advance.</p>
+        <div class="alert bg-base-300 border-none">
+          <div>
+            <span class="text-white"><pre><code>for i=1 to 5
+    print(i)</code></pre></span>
+          </div>
+        </div>
+      <br>
+      The above code will repeat the print statement 5 times. For example, the output will be:
+        <div class="alert bg-neutral border-none">
+          <div>
+            <span class="text-white">1
+2
+3
+4
+5</span>
+          </div>
+        </div> <br>
+        The variable <code>i</code> is called the loop counter. It is initialized to 1 and incremented by 1 each time the loop 
+        executes, taking on the values from 1 to 5 during the execution of the <code>for</code> loop.
+        <br>It is also known as a local variable because it only exists within the scope of the loop. It cannot be accessed outside of the loop.       
+    </p>
+    
+  <form method="dialog" class="modal-backdrop">
+    <button>close</button>
+  </form>
+</dialog>
+
+<dialog id="ps_for_modal2" class="modal">
+  <div class="modal-box">
+    <h3 class="text-lg font-bold">for loops</h3>
+    <p class=""><code class="text-primary">We can use a for loop to iterate over each character of a string.</p>
+        <div class="alert bg-base-300 border-none">
+          <div>
+            <span class="text-white"><pre><code>string = "codefez"
+for i=1 to string.length
+    print(string[i])</code></pre></span>
+          </div>
+        </div>
+      <br>
+      The above code will repeat the print statement for each character in the string. For example, the output will be:
+        <div class="alert bg-neutral border-none">
+          <div>
+            <span class="text-white">c
+o
+d
+e
+f
+e
+z</span>
+          </div>
+        </div>
+    </p>
+    
+  <form method="dialog" class="modal-backdrop">
+    <button>close</button>
+  </form>
+</dialog>
