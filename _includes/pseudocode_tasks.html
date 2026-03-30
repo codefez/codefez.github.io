@@ -208,6 +208,39 @@ print(string + int(num) + num2 + name + string2)</code></pre>
   </form>
 </dialog>
 
+
+<script>
+  const answers_ps_if_1 = ['3 x 5 = 15'];
+</script>
+<dialog id="ps_if_1" class="modal">
+  <div class="modal-box">
+    <h3 class="text-lg font-bold">If Statements</h3>
+    <p class="py-4">
+      What will be the result of the output from this code?
+      <br>
+      <div class="alert bg-base-300 border-none">
+        <div>
+          <span class="text-white"><pre><code>age = 15
+if age > 18
+   print("You are an adult.")
+else
+   print("You are not an adult.")
+</code></pre>
+        </div>
+      </div>
+    </p>
+    <div class="join">
+      <input type="text" class="input join-item" id="ps_if_1_in" placeholder="Enter the corrected line here...">
+      <button class="btn btn-primary join-item" onclick="checkAnswer('ps_if_1_in', answers_ps_if_1)">Check Answer</button>
+    </div>
+    
+  </div>
+  <form method="dialog" class="modal-backdrop">
+    <button>close</button>
+  </form>
+</dialog>
+
+
 <script>
   const answers_ps_for_loops_1 = ['for i=0 to 2', 'for i=1 to 3'];
 </script>

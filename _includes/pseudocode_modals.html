@@ -489,3 +489,86 @@ False
     <button>close</button>
   </form>
 </dialog>
+
+<dialog id="ps_if_modal1" class="modal">
+  <div class="modal-box">
+    <h3 class="text-lg font-bold">If Statements</h3>
+    <p class="">If statements allow us to execute code based on certain conditions. <br>
+    We can use comparison operators to define these conditions. See <button class="btn btn-sm btn-primary" onclick="document.getElementById('ps_operators_modal2').showModal();">Comparison Operators</button>.</p>
+    <div class="alert bg-base-300 border-none">
+      <div>
+        <span class="text-white"><pre><code>password = "c0d£f£z"
+if len(password) < 8 then
+    print("Password is less than 8 characters long.")
+endif
+</code></pre></span>
+      </div>
+    </div>
+    <div class="alert bg-neutral border-none">
+      <div>
+        <span class="text-white">Password is less than 8 characters long.</span>
+      </div>
+    </div>
+  </div>
+
+  <form method="dialog" class="modal-backdrop">
+    <button>close</button>
+  </form>
+</dialog>
+
+  <dialog id="ps_if_modal2" class="modal">
+  <div class="modal-box">
+    <h3 class="text-lg font-bold">If Statements 2</h3>
+    <p class="">We can use boolean operators to combine multiple conditions in an if statement. See <button class="btn btn-sm btn-primary" onclick="document.getElementById('ps_operators_modal3').showModal();">Boolean Operators</button>.</p>
+    <div class="alert bg-base-300 border-none">
+      <div>
+        <span class="text-white"><pre><code>age = 25
+if age >= 18 AND age < 68 then
+    print("You are of working age.")
+else
+    print("You are not of working age.")
+endif
+</code></pre></span>
+      </div>
+    </div>
+    <div class="alert bg-neutral border-none">
+      <div>
+        <span class="text-white">You are of working age.</span>
+      </div>
+    </div>
+  </div>
+
+  <form method="dialog" class="modal-backdrop">
+    <button>close</button>
+  </form>
+</dialog>
+
+<dialog id="ps_if_modal3" class="modal">
+  <div class="modal-box">
+    <h3 class="text-lg font-bold">If Statements 3</h3>
+    <p class="">We can use <code>elseif</code> statements to combine multiple conditions in an if statement. <br></p>
+    <div class="alert bg-base-300 border-none">
+      <div>
+        <span class="text-white"><pre><code>age = 25
+if age >= 18 AND age < 68 then
+    print("You are of working age.")
+elseif age >= 68 then
+    print("You are of retirement age.")
+else
+    print("You are not of working age.")
+endif
+</code></pre></span>
+      </div>
+    </div>
+    <div class="alert bg-neutral border-none">
+      <div>
+        <span class="text-white">You are of working age.</span>
+      </div>
+    </div>
+  </div>
+
+  <form method="dialog" class="modal-backdrop">
+    <button>close</button>
+  </form>
+</dialog>
+
