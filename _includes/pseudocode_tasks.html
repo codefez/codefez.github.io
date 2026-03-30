@@ -207,3 +207,116 @@ print(string + int(num) + num2 + name + string2)</code></pre>
     <button>close</button>
   </form>
 </dialog>
+
+<script>
+  const answers_ps_for_loops_1 = ['for i=0 to 2', 'for i=1 to 3'];
+</script>
+<dialog id="ps_for_loops_1" class="modal">
+  <div class="modal-box">
+    <h3 class="text-lg font-bold">For Loops</h3>
+    <p class="py-4">
+      One of the lines line below needs correcting. Can you spot the error and fix it?
+      <br>
+      <div class="alert bg-base-300 border-none">
+        <div>
+          <span class="text-white"><pre><code>print("The wheels on the bus go")
+for i=0 to 5
+  print("round and round")
+next i
+</code></pre>
+        </div>
+      </div>
+      <div class="alert bg-neutral border-none">
+            <div>
+              <span class="text-white">The wheels on the bus go <br>
+round and round <br>
+round and round <br>
+round and round
+      </span>
+      </div>
+    </div>
+    </p>
+    <div class="join">
+      <input type="text" class="input join-item" id="ps_for_loops_1_in" placeholder="Enter the corrected line here...">
+      <button class="btn btn-primary join-item" onclick="checkAnswer('ps_for_loops_1_in', answers_ps_for_loops_1)">Check Answer</button>
+    </div>
+    
+  </div>
+  <form method="dialog" class="modal-backdrop">
+    <button>close</button>
+  </form>
+</dialog>
+
+<script>
+  const answers_ps_for_loops_2 = ['for i=0 to 1', 'for i=1 to 2'];
+</script>
+<dialog id="ps_for_loops_2" class="modal">
+  <div class="modal-box">
+    <h3 class="text-lg font-bold">For Loops</h3>
+    <p class="py-4">
+      One of the lines line below needs correcting. Can you spot the error and fix it?
+      <br>
+      <div class="alert bg-base-300 border-none">
+        <div>
+          <span class="text-white"><pre><code>for i=1 to i=4
+  print("The wheels on the bus go")
+  for i=0 to 2
+    print("round and round")
+  next i
+next i
+</code></pre>
+        </div>
+      </div>
+      <div class="alert bg-neutral border-none">
+            <div>
+              <span class="text-white">The wheels on the bus go <br>
+round and round <br>
+round and round <br>
+round and round <br>
+The wheels on the bus go <br>
+round and round <br>
+round and round <br>
+round and round
+      </span>
+      </div>
+    </div>
+    </p>
+    <div class="join">
+      <input type="text" class="input join-item" id="ps_for_loops_2_in" placeholder="Enter the corrected line here...">
+      <button class="btn btn-primary join-item" onclick="checkAnswer('ps_for_loops_2_in', answers_ps_for_loops_2)">Check Answer</button>
+    </div>
+    
+  </div>
+  <form method="dialog" class="modal-backdrop">
+    <button>close</button>
+  </form>
+</dialog>
+
+<script>
+  const answers_ps_for_loops_3 = ['3 x 5 = 15'];
+</script>
+<dialog id="ps_for_loops_3" class="modal">
+  <div class="modal-box">
+    <h3 class="text-lg font-bold">For Loops</h3>
+    <p class="py-4">
+      What will be the result of the last output from this code?
+      <br>
+      <div class="alert bg-base-300 border-none">
+        <div>
+          <span class="text-white"><pre><code>for i=1 to i=3
+  print(i + str(" x 5 = ") + i*5)
+next i
+</code></pre>
+        </div>
+      </div>
+    </p>
+    <div class="join">
+      <input type="text" class="input join-item" id="ps_for_loops_3_in" placeholder="Enter the corrected line here...">
+      <button class="btn btn-primary join-item" onclick="checkAnswer('ps_for_loops_3_in', answers_ps_for_loops_3)">Check Answer</button>
+    </div>
+    
+  </div>
+  <form method="dialog" class="modal-backdrop">
+    <button>close</button>
+  </form>
+</dialog>
