@@ -2,30 +2,26 @@
 <dialog id="ps_output1_modal" class="modal">
   <div class="modal-box">
     <h3 class="text-lg font-bold">Output 1</h3>
-    <p class="">Outputting to the screen is done with the <code>print</code> command.
-        <div class="alert bg-base-300 border-none">
-          <div>
-            <span class="text-white"><pre><code>print("Hello, World!")</code></pre></span>
-          </div>
-        </div>
-        
-        Should result in the following output:
-        <div class="alert bg-neutral border-none">
-          <div>
-            <span class="text-white">Hello, World!</span>
-          </div>
-        </div>
+    <p class="">Outputting to the screen is done with the <code>print</code> command.</p>
+    <div class="alert bg-base-300 border-none">
+      <div>
+        <span class="text-white"><pre><code>print("Hello, World!")</code></pre></span>
+      </div>
+    </div>
 
-    </p>
-    <p class="">
-        Key points: <br>
-        <ul class="list-disc px-2">
-            <li>The <code class="text-primary">print</code> function is used to output text to the screen.</li>
-            <li>Text to be printed should be enclosed in quotes.</li>
-            <li><code class="text-primary">print</code> is a function. Functions can take more than arguments by using a comma eg:<br>    
-                <pre><code style="margin-left: 2rem;">print("Hello", "World!")</code></pre></li>
-        </ul>
-    </p>
+    <p class="">Should result in the following output:</p>
+    <div class="alert bg-neutral border-none">
+      <div>
+        <span class="text-white">Hello, World!</span>
+      </div>
+    </div>
+
+    <p class="">Key points:</p>
+    <ul class="list-disc px-2">
+      <li>The <code class="text-primary">print</code> function is used to output text to the screen.</li>
+      <li>Text to be printed should be enclosed in quotes.</li>
+      <li><code class="text-primary">print</code> is a function. Functions can take more than arguments by using a comma eg:<br><pre><code style="margin-left: 2rem;">print("Hello", "World!")</code></pre></li>
+    </ul>
   </div>
   <form method="dialog" class="modal-backdrop">
     <button>close</button>
@@ -35,20 +31,19 @@
 <dialog id="ps_output2_modal" class="modal">
   <div class="modal-box">
     <h3 class="text-lg font-bold">Output 2</h3>
-    <p class=""><code class="text-primary">print</code> is a function. Functions can take more than one argument by using a comma 
-        <div class="alert bg-base-300 border-none">
-          <div>
-            <span class="text-white"><pre><code>print("Hello",2, "you.")</code></pre></span>
-          </div>
-        </div>
-        
-        Should result in the following output:
-        <div class="alert bg-neutral border-none">
-          <div>
-            <span class="text-white">Hello 2 you.</span>
-          </div>
-        </div>
-    </p>
+    <p class=""><code class="text-primary">print</code> is a function. Functions can take more than one argument by using a comma.</p>
+    <div class="alert bg-base-300 border-none">
+      <div>
+        <span class="text-white"><pre><code>print("Hello",2, "you.")</code></pre></span>
+      </div>
+    </div>
+
+    <p class="">Should result in the following output:</p>
+    <div class="alert bg-neutral border-none">
+      <div>
+        <span class="text-white">Hello 2 you.</span>
+      </div>
+    </div>
     
     <div role="alert" class="alert alert-info">
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="h-6 w-6 shrink-0 stroke-current">
@@ -65,25 +60,22 @@
 <dialog id="ps_var_modal" class="modal">
   <div class="modal-box">
     <h3 class="text-lg font-bold">Variables</h3>
-    <p class="">Variables are used to store data in a program.
-        <div class="alert bg-base-300 border-none">
-          <div>
-            <span><pre><code>variable_name = value
+    <p class="">Variables are used to store data in a program.</p>
+    <div class="alert bg-base-300 border-none">
+      <div>
+        <span><pre><code>variable_name = value
 name = "Alice"
 age = 30
-global score = 100</code></pre>
-            </div>
-        </div>  
-    </p>
-    <p class="">
-        Key points: <br>
-        <ul class="list-disc px-2">
-            <li>The <code class="text-primary">=</code> operator is used to assign a value to a variable.</li>
-            <li>Variable names cannot have spaces. You can use an underscore if the name has 2 or more words eg:<br><pre><code style="margin-left: 2rem;">shoe_size = 5</code></pre></li>
-            <li>Variables can be reassigned to different values during the execution of the program.</li>
-            <li>a variable can be given global scope by using the <code class="text-primary">global</code> keyword.</li>
-        </ul>
-    </p>
+global score = 100</code></pre></span>
+      </div>
+    </div>
+    <p class="">Key points:</p>
+    <ul class="list-disc px-2">
+      <li>The <code class="text-primary">=</code> operator is used to assign a value to a variable.</li>
+      <li>Variable names cannot have spaces. You can use an underscore if the name has 2 or more words eg:<br><pre><code style="margin-left: 2rem;">shoe_size = 5</code></pre></li>
+      <li>Variables can be reassigned to different values during the execution of the program.</li>
+      <li>a variable can be given global scope by using the <code class="text-primary">global</code> keyword.</li>
+    </ul>
   </div>
   <form method="dialog" class="modal-backdrop">
     <button>close</button>
@@ -93,32 +85,30 @@ global score = 100</code></pre>
 <dialog id="ps_var_modal2" class="modal">
   <div class="modal-box">
     <h3 class="text-lg font-bold">Variables 2</h3>
-    <p class="">Variables can be reassigned to different values during the execution of the program.
-        <div class="alert bg-base-300 border-none">
-          <div>
-            <span><pre><code>shoe_size = 5
+    <p class="">Variables can be reassigned to different values during the execution of the program.</p>
+    <div class="alert bg-base-300 border-none">
+      <div>
+        <span><pre><code>shoe_size = 5
 name = "Alice"
 shoe_size = 8
-print(shoe_size)</code></pre>
-            </div>
-        </div> 
-        
-    Should result in the following output:
-      <div class="alert bg-neutral border-none">
-        <div>
-          <span class="text-white">8</span>
-        </div>
+print(shoe_size)</code></pre></span>
       </div>
-    </p>
-    <p class="">
-        Key points: <br>
-        <ul class="list-disc px-2">
-            <li>The <code class="text-primary">=</code> operator is used to assign a value to a variable.</li>
-            <li>Variable names cannot have spaces. You can use an underscore if the name has 2 or more words eg:<br><pre><code style="margin-left: 2rem;">shoe_size = 5</code></pre></li>
-            <li>Variables can be reassigned to different values during the execution of the program.</li>
-            <li>a variable can be given global scope by using the <code class="text-primary">global</code> keyword.</li>
-        </ul>
-    </p>
+    </div>
+
+    <p class="">Should result in the following output:</p>
+    <div class="alert bg-neutral border-none">
+      <div>
+        <span class="text-white">8</span>
+      </div>
+    </div>
+
+    <p class="">Key points:</p>
+    <ul class="list-disc px-2">
+      <li>The <code class="text-primary">=</code> operator is used to assign a value to a variable.</li>
+      <li>Variable names cannot have spaces. You can use an underscore if the name has 2 or more words eg:<br><pre><code style="margin-left: 2rem;">shoe_size = 5</code></pre></li>
+      <li>Variables can be reassigned to different values during the execution of the program.</li>
+      <li>a variable can be given global scope by using the <code class="text-primary">global</code> keyword.</li>
+    </ul>
   </div>
   <form method="dialog" class="modal-backdrop">
     <button>close</button>
@@ -129,13 +119,11 @@ print(shoe_size)</code></pre>
   <div class="modal-box">
     <h3 class="text-lg font-bold">Casting Variables</h3>
     <p class="">The datatype of a variable can be changed using casting</p>
-    <p class="">
-        <ul class="list-disc px-2">
-            <li><code class="text-primary">str(500)</code> will cast (convert) the integer 500 to <code>"500"</code>.</li>
-            <li><code class="text-primary">int("500")</code> will cast (convert) the string "500" to the integer 500.</li>
-            <li><code class="text-primary">float("500.25")</code> will cast (convert) the string "500.25" to the float 500.25.</li>
-        </ul>
-    </p>
+    <ul class="list-disc px-2">
+      <li><code class="text-primary">str(500)</code> will cast (convert) the integer 500 to <code>"500"</code>.</li>
+      <li><code class="text-primary">int("500")</code> will cast (convert) the string "500" to the integer 500.</li>
+      <li><code class="text-primary">float("500.25")</code> will cast (convert) the string "500.25" to the float 500.25.</li>
+    </ul>
   </div>
   <form method="dialog" class="modal-backdrop">
     <button>close</button>
@@ -145,35 +133,33 @@ print(shoe_size)</code></pre>
 <dialog id="ps_output3_modal" class="modal">
   <div class="modal-box">
     <h3 class="text-lg font-bold">Output 3</h3>
-    <p class=""><code class="text-primary">We can join several strings together using the <code>+</code> operator. <br>This is called concatenation.</p>
-        <div class="alert bg-base-300 border-none">
-          <div>
-            <span class="text-white"><pre><code>print("Hello" + " " + "you.")</code></pre></span>
-          </div>
-        </div>
-        
-        Should result in the following output:
-        <div class="alert bg-neutral border-none">
-          <div>
-            <span class="text-white">Hello you.</span>
-          </div>
-        </div>
-    </p>
-    <p class=""><code class="text-primary">We can actually concatenate variables as well.</p>
-        <div class="alert bg-base-300 border-none">
-          <div>
-            <span class="text-white"><pre><code>name = "Alice"
+    <p class="">We can join several strings together using the <code class="text-primary">+</code> operator.<br>This is called concatenation.</p>
+    <div class="alert bg-base-300 border-none">
+      <div>
+        <span class="text-white"><pre><code>print("Hello" + " " + "you.")</code></pre></span>
+      </div>
+    </div>
+    <p class="">Should result in the following output:</p>
+    <div class="alert bg-neutral border-none">
+      <div>
+        <span class="text-white">Hello you.</span>
+      </div>
+    </div>
+
+    <p class="">We can actually concatenate variables as well.</p>
+    <div class="alert bg-base-300 border-none">
+      <div>
+        <span class="text-white"><pre><code>name = "Alice"
 print("Hello, " + name + "!")</code></pre></span>
-          </div>
-        </div>
-        
-        Should result in the following output:
-        <div class="alert bg-neutral border-none">
-          <div>
-            <span class="text-white">Hello, Alice!</span>
-          </div>
-        </div>
-    </p>
+      </div>
+    </div>
+
+    <p class="">Should result in the following output:</p>
+    <div class="alert bg-neutral border-none">
+      <div>
+        <span class="text-white">Hello, Alice!</span>
+      </div>
+    </div>
     
     <div role="alert" class="alert alert-info">
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="h-6 w-6 shrink-0 stroke-current">
@@ -190,37 +176,37 @@ print("Hello, " + name + "!")</code></pre></span>
 <dialog id="ps_cast_modal2" class="modal">
   <div class="modal-box">
     <h3 class="text-lg font-bold">Casting Variables 2</h3>
-    <p class=""><code class="text-primary">We can join several strings together using the <code>+</code> operator. <br>This is called concatenation.</p>
-        <div class="alert bg-base-300 border-none">
-          <div>
-            <span class="text-white"><pre><code>print("Hello" + " " + "you.")</code></pre></span>
-          </div>
-        </div>
-        
-        Should result in the following output:
-        <div class="alert bg-neutral border-none">
-          <div>
-            <span class="text-white">Hello you.</span>
-          </div>
-        </div>
-    </p>
-    <p class=""><code class="text-primary">If we concatenate variables from different datatypes, we need to cast them to strings first.</p>
-        <div class="alert bg-base-300 border-none">
-          <div>
-            <span class="text-white"><pre><code>name = "Alice"
+    <p class="">We can join several strings together using the <code class="text-primary">+</code> operator.<br>This is called concatenation.</p>
+    <div class="alert bg-base-300 border-none">
+      <div>
+        <span class="text-white"><pre><code>print("Hello" + " " + "you.")</code></pre></span>
+      </div>
+    </div>
+
+    <p class="">Should result in the following output:</p>
+    <div class="alert bg-neutral border-none">
+      <div>
+        <span class="text-white">Hello you.</span>
+      </div>
+    </div>
+
+    <p class="">If we concatenate variables from different datatypes, we need to cast them to strings first.</p>
+    <div class="alert bg-base-300 border-none">
+      <div>
+        <span class="text-white"><pre><code>name = "Alice"
 age = 25
 print(name + " is " + str(age) + ".")</code></pre></span>
-          </div>
-        </div>
-        
-        Should result in the following output:
-        <div class="alert bg-neutral border-none">
-          <div>
-            <span class="text-white">Alice is 25.</span>
-          </div>
-        </div>
-    </p>
-    
+      </div>
+    </div>
+
+    <p class="">Should result in the following output:</p>
+    <div class="alert bg-neutral border-none">
+      <div>
+        <span class="text-white">Alice is 25.</span>
+      </div>
+    </div>
+  </div>
+
   <form method="dialog" class="modal-backdrop">
     <button>close</button>
   </form>
@@ -229,22 +215,21 @@ print(name + " is " + str(age) + ".")</code></pre></span>
 <dialog id="ps_inp_modal1" class="modal">
   <div class="modal-box">
     <h3 class="text-lg font-bold">Input and Output</h3>
-    <p class=""><code class="text-primary">We can use the <code>input()</code> function to get user input and the <code>print()</code> function to display output.</p>
-        <div class="alert bg-base-300 border-none">
-          <div>
-            <span class="text-white"><pre><code>name = input("What is your name? ")
+    <p class="">We can use the <code>input()</code> function to get user input and the <code>print()</code> function to display output.</p>
+    <div class="alert bg-base-300 border-none">
+      <div>
+        <span class="text-white"><pre><code>name = input("What is your name? ")
 print("Hello, " + name + "!")</code></pre></span>
-          </div>
-        </div>
-      <br>
-      The above code will prompt the user to enter their name and then greet them with a personalized message. For example, if the user enters "Alice", the output will be:
-        <div class="alert bg-neutral border-none">
-          <div>
-            <span class="text-white">Hello, Alice!</span>
-          </div>
-        </div>        
-    </p>
-    
+      </div>
+    </div>
+    <p class="">The above code will prompt the user to enter their name and then greet them with a personalized message. For example, if the user enters "Alice", the output will be:</p>
+    <div class="alert bg-neutral border-none">
+      <div>
+        <span class="text-white">Hello, Alice!</span>
+      </div>
+    </div>
+  </div>
+
   <form method="dialog" class="modal-backdrop">
     <button>close</button>
   </form>
@@ -253,23 +238,22 @@ print("Hello, " + name + "!")</code></pre></span>
 <dialog id="ps_inp_modal2" class="modal">
   <div class="modal-box">
     <h3 class="text-lg font-bold">Input and Casting</h3>
-    <p class=""><code class="text-primary">We can cast the result of <code>input()</code> to a different datatype if needed.</p>
-        <div class="alert bg-base-300 border-none">
-          <div>
-            <span class="text-white"><pre><code>number = int(input("Enter a number to work out the square: "))
+    <p class="">We can cast the result of <code>input()</code> to a different datatype if needed.</p>
+    <div class="alert bg-base-300 border-none">
+      <div>
+        <span class="text-white"><pre><code>number = int(input("Enter a number to work out the square: "))
 print("The square of " + str(number) + " is " + str(number * number) + ".")</code></pre></span>
-          </div>
-        </div>
-      <br>
-      The above code will prompt the user to enter a number and then display its square. For example, if the user enters "5", the output will be:
-        <div class="alert bg-neutral border-none">
-          <div>
-            <span class="text-white">The square of 5 is 25.</span>
-          </div>
-        </div> <br>
-        By default, the <code>input()</code> function returns a string, so we need to cast it to an integer using <code>int()</code> before performing the calculation.       
-    </p>
-    
+      </div>
+    </div>
+    <p class="">The above code will prompt the user to enter a number and then display its square. For example, if the user enters "5", the output will be:</p>
+    <div class="alert bg-neutral border-none">
+      <div>
+        <span class="text-white">The square of 5 is 25.</span>
+      </div>
+    </div>
+    <p class="">By default, the <code>input()</code> function returns a string, so we need to cast it to an integer using <code>int()</code> before performing the calculation.</p>
+  </div>
+
   <form method="dialog" class="modal-backdrop">
     <button>close</button>
   </form>
@@ -278,22 +262,21 @@ print("The square of " + str(number) + " is " + str(number * number) + ".")</cod
 <dialog id="ps_string_modal1" class="modal">
   <div class="modal-box">
     <h3 class="text-lg font-bold">String length</h3>
-    <p class=""><code class="text-primary">We can use the <code>.length</code> method to get the length of a string.</p>
-        <div class="alert bg-base-300 border-none">
-          <div>
-            <span class="text-white"><pre><code>string = "codefez"
+    <p class="">We can use the <code>.length</code> method to get the length of a string.</p>
+    <div class="alert bg-base-300 border-none">
+      <div>
+        <span class="text-white"><pre><code>string = "codefez"
 print(string.length)</code></pre></span>
-          </div>
-        </div>
-      <br>
-      The above code will output the length of the string "codefez", which is 7. For example, the output will be:
-        <div class="alert bg-neutral border-none">
-          <div>
-            <span class="text-white">7</span>
-          </div>
-        </div>
-    </p>
-    
+      </div>
+    </div>
+    <p class="">The above code will output the length of the string "codefez", which is 7. For example, the output will be:</p>
+    <div class="alert bg-neutral border-none">
+      <div>
+        <span class="text-white">7</span>
+      </div>
+    </div>
+  </div>
+
   <form method="dialog" class="modal-backdrop">
     <button>close</button>
   </form>
@@ -302,24 +285,23 @@ print(string.length)</code></pre></span>
 <dialog id="ps_string_modal2" class="modal">
   <div class="modal-box">
     <h3 class="text-lg font-bold">String Indexing</h3>
-    <p class=""><code class="text-primary">We can use indexing to access individual characters in a string. with pseudocode this is done by using the substring method.</p>
-        <div class="alert bg-base-300 border-none">
-          <div>
-            <span class="text-white"><pre><code>string = "codefez"
+    <p class="">We can use indexing to access individual characters in a string. With pseudocode this is done by using the substring method.</p>
+    <div class="alert bg-base-300 border-none">
+      <div>
+        <span class="text-white"><pre><code>string = "codefez"
 print(string.substring(0))
 print(string.substring(4,6))</code></pre></span>
-          </div>
-        </div>
-      <br>
-The above code will output the first character of the string "codefez" and then the characters from index 4 to 5. For example, the output will be:
-        <div class="alert bg-neutral border-none">
-          <div>
-            <span class="text-white">c
+      </div>
+    </div>
+    <p class="">The above code will output the first character of the string "codefez" and then the characters from index 4 to 5. For example, the output will be:</p>
+    <div class="alert bg-neutral border-none">
+      <div>
+        <span class="text-white">c <br>
 fez</span>
-          </div>
-        </div>
-    </p>
-    
+      </div>
+    </div>
+  </div>
+
   <form method="dialog" class="modal-backdrop">
     <button>close</button>
   </form>
@@ -328,30 +310,27 @@ fez</span>
 <dialog id="ps_for_modal1" class="modal">
   <div class="modal-box">
     <h3 class="text-lg font-bold">for loops</h3>
-    <p class=""><code class="text-primary">We can use for loops to repeat a block of code a specific number of times.</p>
+    <p class="">We can use for loops to repeat a block of code a specific number of times.</p>
     <p>This is known as a counter-controlled loop because we use it when we know the number of iterations in advance.</p>
-        <div class="alert bg-base-300 border-none">
-          <div>
-            <span class="text-white"><pre><code>for i=1 to 5
+    <div class="alert bg-base-300 border-none">
+      <div>
+        <span class="text-white"><pre><code>for i=1 to 5
     print(i)</code></pre></span>
-          </div>
-        </div>
-      <br>
-      The above code will repeat the print statement 5 times. For example, the output will be:
-        <div class="alert bg-neutral border-none">
-          <div>
-            <span class="text-white">1
-2
-3
-4
+      </div>
+    </div>
+    <p class="">The above code will repeat the print statement 5 times. For example, the output will be:</p>
+    <div class="alert bg-neutral border-none">
+      <div>
+        <span class="text-white">1 <br>
+2 <br>
+3 <br>
+4 <br>
 5</span>
-          </div>
-        </div> <br>
-        The variable <code>i</code> is called the loop counter. It is initialized to 1 and incremented by 1 each time the loop 
-        executes, taking on the values from 1 to 5 during the execution of the <code>for</code> loop.
-        <br>It is also known as a local variable because it only exists within the scope of the loop. It cannot be accessed outside of the loop.       
-    </p>
-    
+      </div>
+    </div>
+    <p class="">The variable <code>i</code> is called the loop counter. It is initialized to 1 and incremented by 1 each time the loop executes, taking on the values from 1 to 5 during the execution of the <code>for</code> loop.<br>It is also known as a local variable because it only exists within the scope of the loop. It cannot be accessed outside of the loop.</p>
+  </div>
+
   <form method="dialog" class="modal-backdrop">
     <button>close</button>
   </form>
@@ -360,29 +339,150 @@ fez</span>
 <dialog id="ps_for_modal2" class="modal">
   <div class="modal-box">
     <h3 class="text-lg font-bold">for loops</h3>
-    <p class=""><code class="text-primary">We can use a for loop to iterate over each character of a string.</p>
-        <div class="alert bg-base-300 border-none">
-          <div>
-            <span class="text-white"><pre><code>string = "codefez"
+    <p class="">We can use a for loop to iterate over each character of a string.</p>
+    <div class="alert bg-base-300 border-none">
+      <div>
+        <span class="text-white"><pre><code>string = "codefez"
 for i=1 to string.length
     print(string[i])</code></pre></span>
-          </div>
-        </div>
-      <br>
-      The above code will repeat the print statement for each character in the string. For example, the output will be:
-        <div class="alert bg-neutral border-none">
-          <div>
-            <span class="text-white">c
-o
-d
-e
-f
-e
+      </div>
+    </div>
+    <p class="">The above code will repeat the print statement for each character in the string. For example, the output will be:</p>
+    <div class="alert bg-neutral border-none">
+      <div>
+        <span class="text-white">c <br> 
+o <br>
+d <br>
+e <br>
+f <br>
+e <br>
 z</span>
-          </div>
-        </div>
-    </p>
-    
+      </div>
+    </div>
+  </div>
+
+  <form method="dialog" class="modal-backdrop">
+    <button>close</button>
+  </form>
+</dialog>
+
+<dialog id="ps_operators_modal1" class="modal">
+  <div class="modal-box">
+    <h3 class="text-lg font-bold">Operators</h3>
+    <p class="">We can use various operators to perform operations on variables.</p>
+    <div class="alert bg-base-300 border-none">
+      <div>
+        <span class="text-white"><pre><code>print(5 + 3)   // Addition  <br>
+print(5 - 3)   // Subtraction <br>
+print(5 * 3)   // Multiplication <br>
+print(5 / 3)   // Division <br>
+print(5 MOD 3)   // Modulus (result only returns remainder) <br>
+print(5 DIV 3)   // Integer division (result without a remainder) <br>
+print(5 ^ 3)   // Exponentiation (5 to the power of 3)</code></pre></span>
+      </div>
+    </div>
+
+    <div class="alert bg-neutral border-none">
+      <div>
+        <span class="text-white">8 <br>
+2 <br>
+15 <br>
+1.6666666666666667 <br>
+2 <br>
+1 <br>
+125
+
+</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="alert">
+    <div>
+      <span class="text-white">Note: The <pre><code>^</code></pre> operator is used as the BITWISE XOR operator in Python. Although OCR reference language has many similarities, Python uses the <code>**</code> operator for exponentiation.</span>
+    </div>
+  </div>
+
+  <form method="dialog" class="modal-backdrop">
+    <button>close</button>
+  </form>
+</dialog>
+
+<dialog id="ps_operators_modal2" class="modal">
+  <div class="modal-box">
+    <h3 class="text-lg font-bold">Comparison Operators</h3>
+    <p class="">We use various operators to compare values.</p>
+    <div class="alert bg-base-300 border-none">
+      <div>
+        <span class="text-white"><pre><code>print(5 == 3)   // Equal to  <br>
+print(5 != 3)   // Not equal to <br>
+print(5 > 3)    // Greater than <br>
+print(5 < 3)    // Less than <br>
+print(5 >= 3)   // Greater than or equal to <br>
+print(5 <= 3)   // Less than or equal to 
+
+a= 5
+b = 3
+if a > 3 AND b < 4
+    print(True)
+else
+    print(False)
+</code></pre></span>
+      </div>
+    </div>
+    <div class="alert bg-neutral border-none">
+      <div>
+        <span class="text-white">True <br>
+False <br>
+True <br>
+False <br>
+True <br>
+False <br>
+True
+</span>
+      </div>
+    </div>
+  </div>
+
+  <form method="dialog" class="modal-backdrop">
+    <button>close</button>
+  </form>
+</dialog>
+
+<dialog id="ps_operators_modal3" class="modal">
+  <div class="modal-box">
+    <h3 class="text-lg font-bold">Boolean Operators</h3>
+    <p class="">We use various operators to perform boolean operations.</p>
+    <div class="alert bg-base-300 border-none">
+      <div>
+        <span class="text-white"><pre><code>print(True AND False)  // --> False <br>
+print(True OR False)   // --> True <br>
+print(NOT True)        // --> False
+
+a = 5
+b = 3
+print(a != b)  // True <br>
+print(a > 2 AND b < 4)  // True AND True -> True <br>
+print(a > 2 OR b > 4)   // True OR False -> True <br>
+print(NOT (a > 2 AND b < 4))  // NOT (True AND True) -> NOT True -> False
+</code></pre></span>
+      </div>
+    </div>
+    <div class="alert bg-neutral border-none">
+      <div>
+        <span class="text-white">False <br>
+True <br>
+False <br>
+True <br>
+True <br>
+True <br>
+False 
+
+</span>
+      </div>
+    </div>
+  </div>
+
   <form method="dialog" class="modal-backdrop">
     <button>close</button>
   </form>
