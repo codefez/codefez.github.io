@@ -1001,3 +1001,307 @@ else:
   </div>
   <form method="dialog" class="modal-backdrop"><button>close</button></form>
 </dialog>
+
+
+<script>
+  const answers_ps_array_1 = ['Green'];
+</script>
+<dialog id="ps_array_1" class="modal">
+  <div class="modal-box">
+    <h3 class="text-lg font-bold">Arrays: 0-Indexing</h3>
+    <p class="py-4">
+      What is the output of the following code?
+      <div class="alert bg-base-300 border-none mt-4">
+        <span class="text-white"><pre><code>array colours = ["Blue", "Pink", "Green", "Yellow", "Red"]
+print(colours[2])</code></pre></span>
+      </div>
+    </p>
+    <div class="join">
+      <input type="text" class="input join-item" id="ps_array_1_in" placeholder="Enter color...">
+      <button class="btn btn-primary join-item" onclick="checkAnswer('ps_array_1_in', answers_ps_array_1)">Check Answer</button>
+    </div>
+  </div>
+  <form method="dialog" class="modal-backdrop"><button>close</button></form>
+</dialog>
+
+
+<script>
+  const answers_ps_array_2 = ['Peter'];
+</script>
+<dialog id="ps_array_2" class="modal">
+  <div class="modal-box">
+    <h3 class="text-lg font-bold">Arrays: Assignment</h3>
+    <p class="py-4">
+      What is the value of <code>names[1]</code> at the end of this script?
+      <div class="alert bg-base-300 border-none mt-4">
+        <span class="text-white"><pre><code>array names = ["Aria", "Ben", "Caleb"]
+names[0] = "muhammad"
+names[1] = "Peter"
+names[2] = names[0]
+print(names[1])</code></pre></span>
+      </div>
+    </p>
+    <div class="join">
+      <input type="text" class="input join-item" id="ps_array_2_in" placeholder="Enter name...">
+      <button class="btn btn-primary join-item" onclick="checkAnswer('ps_array_2_in', answers_ps_array_2)">Check Answer</button>
+    </div>
+  </div>
+  <form method="dialog" class="modal-backdrop"><button>close</button></form>
+</dialog>
+
+
+<script>
+  const answers_ps_array_3 = ['Pawn'];
+</script>
+<dialog id="ps_array_3" class="modal">
+  <div class="modal-box">
+    <h3 class="text-lg font-bold">2D Arrays: Coordinates</h3>
+    <p class="py-4">
+      What is the output of the following code?
+      <div class="alert bg-base-300 border-none mt-4">
+        <span class="text-white"><pre><code>array board[3,3]
+board[0,0] = "Rook"
+board[1,0] = "Pawn"
+board[0,1] = "Knight"
+
+print(board[1,0])</code></pre></span>
+      </div>
+    </p>
+    <div class="join">
+      <input type="text" class="input join-item" id="ps_array_3_in" placeholder="Enter value...">
+      <button class="btn btn-primary join-item" onclick="checkAnswer('ps_array_3_in', answers_ps_array_3)">Check Answer</button>
+    </div>
+  </div>
+  <form method="dialog" class="modal-backdrop"><button>close</button></form>
+</dialog>
+
+
+<script>
+  const answers_ps_array_4 = ['12'];
+</script>
+<dialog id="ps_array_4" class="modal">
+  <div class="modal-box">
+    <h3 class="text-lg font-bold">Arrays: Iteration</h3>
+    <p class="py-4">
+      What is the final value of <b>total</b>?
+      <div class="alert bg-base-300 border-none mt-4">
+        <span class="text-white"><pre><code>array scores = [2, 4, 6]
+total = 0
+for i = 0 to 2
+    total = total + scores[i]
+next i
+print(total)</code></pre></span>
+      </div>
+    </p>
+    <div class="join">
+      <input type="text" class="input join-item" id="ps_array_4_in" placeholder="Enter total...">
+      <button class="btn btn-primary join-item" onclick="checkAnswer('ps_array_4_in', answers_ps_array_4)">Check Answer</button>
+    </div>
+  </div>
+  <form method="dialog" class="modal-backdrop"><button>close</button></form>
+</dialog>
+
+
+<script>
+  const answers_ps_array_5 = ['1'];
+</script>
+<dialog id="ps_array_5" class="modal">
+  <div class="modal-box">
+    <h3 class="text-lg font-bold">2D Arrays: Logic Search</h3>
+    <p class="py-4">
+      How many times is <b>"Target Found"</b> printed?
+      <div class="alert bg-base-300 border-none mt-4">
+        <span class="text-white"><pre><code>array grid[2,2]
+grid[0,0] = 5
+grid[0,1] = 10
+grid[1,0] = 10
+grid[1,1] = 5
+
+for row = 0 to 1
+    if grid[row, 1] == 5 then
+        print("Target Found")
+    endif
+next row</code></pre></span>
+      </div>
+    </p>
+    <div class="join">
+      <input type="text" class="input join-item" id="ps_array_5_in" placeholder="Enter count...">
+      <button class="btn btn-primary join-item" onclick="checkAnswer('ps_array_5_in', answers_ps_array_5)">Check Answer</button>
+    </div>
+  </div>
+  <form method="dialog" class="modal-backdrop"><button>close</button></form>
+</dialog>
+
+
+<script>
+  const answers_ps_file_handling_1 = ['Admin'];
+</script>
+<dialog id="ps_file_handling_1" class="modal">
+  <div class="modal-box">
+    <h3 class="text-lg font-bold">File Handling: readLine</h3>
+    <p class="py-4">What is the output of the code? Check the file tab to see the content.</p>
+    <!-- name of each tab group should be unique -->
+    <div class="tabs tabs-lift">
+      <input type="radio" name="my_tabs_file_handling_1" class="tab" aria-label='🧑🏽‍💻 pseudocode' checked="checked" />
+      <div class="tab-content bg-base-300 border-base-300 p-6">
+        <pre class="text-white"><code>myFile = open("user.txt")
+line = myFile.readLine()
+print(line)
+myFile.close()</code></pre>
+      </div>
+
+      <input type="radio" name="my_tabs_file_handling_1" class="tab" aria-label="📄 user.txt"  />
+      <div class="tab-content bg-base-100 border-base-300 p-6">
+        <pre class="text-info"><code>Admin
+Password123
+Guest</code></pre>
+      </div>
+    </div>
+
+    <div class="join mt-4">
+      <input type="text" class="input join-item" id="ps_file_handling_1_in" placeholder="Output?">
+      <button class="btn btn-primary join-item" onclick="checkAnswer('ps_file_handling_1_in', answers_ps_file_handling_1)">Check</button>
+    </div>
+  </div>
+  <form method="dialog" class="modal-backdrop"><button>close</button></form>
+</dialog>
+
+
+<script>
+  const answers_ps_file_handling_2 = ['80'];
+</script>
+<dialog id="ps_file_handling_2" class="modal">
+  <div class="modal-box">
+    <h3 class="text-lg font-bold">File Handling: readLine</h3>
+    <p class="py-4">What is the output of the code? Check the file tab to see the content.</p>
+    <!-- name of each tab group should be unique -->
+    <div class="tabs tabs-lift">
+      <input type="radio" name="my_tabs_file_handling_2" class="tab" aria-label='🧑🏽‍💻 pseudocode' checked="checked" />
+      <div class="tab-content bg-base-300 border-base-300 p-6">
+        <pre class="text-white"><code>f = open("scores.txt")
+temp = f.readLine()
+score = f.readLine()
+f.close()
+print(score)</code></pre>
+      </div>
+
+      <input type="radio" name="my_tabs_file_handling_2" class="tab" aria-label="📄 scores.txt"  />
+      <div class="tab-content bg-base-100 border-base-300 p-6">
+        <pre class="text-info"><code>100
+80
+45</code></pre>
+      </div>
+    </div>
+
+    <div class="join mt-4">
+      <input type="text" class="input join-item" id="ps_file_handling_2_in" placeholder="Output?">
+      <button class="btn btn-primary join-item" onclick="checkAnswer('ps_file_handling_2_in', answers_ps_file_handling_2)">Check</button>
+    </div>
+  </div>
+  <form method="dialog" class="modal-backdrop"><button>close</button></form>
+</dialog>
+
+
+<script>
+  const answers_ps_file_handling_3 = ['Data saved successfully'];
+</script>
+<dialog id="ps_file_handling_3" class="modal">
+  <div class="modal-box">
+    <h3 class="text-lg font-bold">File Handling: Loops</h3>
+    <p class="py-4">What is the output of the code? Check the file tab to see the content.</p>
+    <!-- name of each tab group should be unique -->
+    <div class="tabs tabs-lift">
+      <input type="radio" name="my_tabs_file_handling_3" class="tab" aria-label='🧑🏽‍💻 pseudocode' checked="checked" />
+      <div class="tab-content bg-base-300 border-base-300 p-6">
+        <pre class="text-white"><code>count = 0
+file = open("data.txt")
+while NOT file.endOfFile()
+    line = file.readLine()
+    count = count + 1
+endwhile
+print(count)</code></pre>
+      </div>
+
+      <input type="radio" name="my_tabs_file_handling_3" class="tab" aria-label="📄 data.txt"  />
+      <div class="tab-content bg-base-100 border-base-300 p-6">
+        <pre class="text-info"><code>Apple
+Banana
+Cherry</code></pre>
+      </div>
+    </div>
+
+    <div class="join mt-4">
+      <input type="text" class="input join-item" id="ps_file_handling_3_in" placeholder="Output?">
+      <button class="btn btn-primary join-item" onclick="checkAnswer('ps_file_handling_3_in', answers_ps_file_handling_3)">Check</button>
+    </div>
+  </div>
+  <form method="dialog" class="modal-backdrop"><button>close</button></form>
+</dialog>
+
+<script>
+  const answers_ps_file_handling_4 = ['20'];
+</script>
+<dialog id="ps_file_handling_4" class="modal">
+  <div class="modal-box">
+    <h3 class="text-lg font-bold">File Handling: Loops</h3>
+    <p class="py-4">What is the output of the code? Check the file tab to see the content.</p>
+    <!-- name of each tab group should be unique -->
+    <div class="tabs tabs-lift">
+      <input type="radio" name="my_tabs_file_handling_4" class="tab" aria-label='🧑🏽‍💻 pseudocode' checked="checked" />
+      <div class="tab-content bg-base-300 border-base-300 p-6">
+        <pre class="text-white"><code>val = 10
+f = open("log.txt")
+f.writeLine(val)
+f.writeLine(val * 2)
+f.close()</code></pre>
+      </div>
+
+      <input type="radio" name="my_tabs_file_handling_4" class="tab" aria-label="📄 log.txt"  />
+      <div class="tab-content bg-base-100 border-base-300 p-6">
+        (New File)
+      </div>
+    </div>
+
+    <div class="join mt-4">
+      <input type="text" class="input join-item" id="ps_file_handling_4_in" placeholder="Output?">
+      <button class="btn btn-primary join-item" onclick="checkAnswer('ps_file_handling_4_in', answers_ps_file_handling_4)">Check</button>
+    </div>
+  </div>
+  <form method="dialog" class="modal-backdrop"><button>close</button></form>
+</dialog>
+
+
+<script>
+  const answers_ps_file_handling_5 = ['Found'];
+</script>
+<dialog id="ps_file_handling_5" class="modal">
+  <div class="modal-box">
+    <h3 class="text-lg font-bold">File Handling: Loops</h3>
+    <p class="py-4">What is the output of the code? Check the file tab to see the content.</p>
+    <!-- name of each tab group should be unique -->
+    <div class="tabs tabs-lift">
+      <input type="radio" name="my_tabs_file_handling_5" class="tab" aria-label='🧑🏽‍💻 pseudocode' checked="checked" />
+      <div class="tab-content bg-base-300 border-base-300 p-6">
+        <pre class="text-white"><code>status = "Not Found"
+f = open("inv.txt")
+while NOT f.endOfFile()
+    if f.readLine() == "CPU" then
+        status = "Found"
+    endif
+endwhile
+print(status)</code></pre>
+      </div>
+
+      <input type="radio" name="my_tabs_file_handling_5" class="tab" aria-label="📄 inv.txt"  />
+      <div class="tab-content bg-base-100 border-base-300 p-6">
+        <pre class="text-info"><code>RAM, GPU, CPU</code></pre>
+      </div>
+    </div>
+
+    <div class="join mt-4">
+      <input type="text" class="input join-item" id="ps_file_handling_5_in" placeholder="Output?">
+      <button class="btn btn-primary join-item" onclick="checkAnswer('ps_file_handling_5_in', answers_ps_file_handling_5)">Check</button>
+    </div>
+  </div>
+  <form method="dialog" class="modal-backdrop"><button>close</button></form>
+</dialog>
