@@ -653,6 +653,146 @@ print(temp)</code></pre></span>
 
 
 <script>
+  const answers_ps_sub_1 = ['30'];
+</script>
+<dialog id="ps_sub_1" class="modal">
+  <div class="modal-box">
+    <h3 class="text-lg font-bold">Sub-routines: Function Returns</h3>
+    <p class="py-4">
+      What is the final value of <b>result</b>?
+      <div class="alert bg-base-300 border-none mt-4">
+        <span class="text-white"><pre><code>function calculate(num)
+    return num * 3
+endfunction
+
+x = 10
+result = calculate(x)
+print(result)</code></pre></span>
+      </div>
+    </p>
+    <div class="join">
+      <input type="text" class="input join-item" id="ps_sub_1_in" placeholder="Enter result...">
+      <button class="btn btn-primary join-item" onclick="checkAnswer('ps_sub_1_in', answers_ps_sub_1)">Check Answer</button>
+    </div>
+  </div>
+  <form method="dialog" class="modal-backdrop"><button>close</button></form>
+</dialog>
+
+
+<script>
+  const answers_ps_sub_2 = ['50'];
+</script>
+<dialog id="ps_sub_2" class="modal">
+  <div class="modal-box">
+    <h3 class="text-lg font-bold">Sub-routines: Variable Scope</h3>
+    <p class="py-4">
+      What value is printed for <b>score</b> at the end?
+      <div class="alert bg-base-300 border-none mt-4">
+        <span class="text-white"><pre><code>score = 50
+
+procedure updateScore(points)
+    score = points + 10
+endprocedure
+
+updateScore(100)
+print(score)</code></pre></span>
+      </div>
+    </p>
+    <div class="join">
+      <input type="text" class="input join-item" id="ps_sub_2_in" placeholder="Enter score...">
+      <button class="btn btn-primary join-item" onclick="checkAnswer('ps_sub_2_in', answers_ps_sub_2)">Check Answer</button>
+    </div>
+  </div>
+  <form method="dialog" class="modal-backdrop"><button>close</button></form>
+</dialog>
+
+
+<script>
+  const answers_ps_sub_3 = ['11'];
+</script>
+<dialog id="ps_sub_3" class="modal">
+  <div class="modal-box">
+    <h3 class="text-lg font-bold">Sub-routines: Nested Calls</h3>
+    <p class="py-4">
+      What is the output of <code>finalValue(5)</code>?
+      <div class="alert bg-base-300 border-none mt-4">
+        <span class="text-white"><pre><code>function double(n)
+    return n * 2
+endfunction
+
+function finalValue(n)
+    return double(n) + 1
+endfunction
+
+print(finalValue(5))</code></pre></span>
+      </div>
+    </p>
+    <div class="join">
+      <input type="text" class="input join-item" id="ps_sub_3_in" placeholder="Enter value...">
+      <button class="btn btn-primary join-item" onclick="checkAnswer('ps_sub_3_in', answers_ps_sub_3)">Check Answer</button>
+    </div>
+  </div>
+  <form method="dialog" class="modal-backdrop"><button>close</button></form>
+</dialog>
+
+<script>
+  const answers_ps_sub_4 = ['Pass'];
+</script>
+<dialog id="ps_sub_4" class="modal">
+  <div class="modal-box">
+    <h3 class="text-lg font-bold">Sub-routines: Logic Check</h3>
+    <p class="py-4">
+      What is the output of <code>checkLevel(85)</code>?
+      <div class="alert bg-base-300 border-none mt-4">
+        <span class="text-white"><pre><code>function checkLevel(xp)
+    if xp > 80 then
+        return "Pass"
+    else
+        return "Fail"
+    endif
+endfunction
+
+print(checkLevel(85))</code></pre></span>
+      </div>
+    </p>
+    <div class="join">
+      <input type="text" class="input join-item" id="ps_sub_4_in" placeholder="Enter string...">
+      <button class="btn btn-primary join-item" onclick="checkAnswer('ps_sub_4_in', answers_ps_sub_4)">Check Answer</button>
+    </div>
+  </div>
+  <form method="dialog" class="modal-backdrop"><button>close</button></form>
+</dialog>
+
+
+<script>
+  const answers_ps_sub_5 = ['110'];
+</script>
+<dialog id="ps_sub_5" class="modal">
+  <div class="modal-box">
+    <h3 class="text-lg font-bold">Sub-routines: Variable Scope 2</h3>
+    <p class="py-4">
+      What value is printed for <b>score</b> at the end?
+      <div class="alert bg-base-300 border-none mt-4">
+        <span class="text-white"><pre><code>score = 50
+
+procedure updateScore(points)
+    global score = points + 10
+endprocedure
+
+updateScore(100)
+print(score)</code></pre></span>
+      </div>
+    </p>
+    <div class="join">
+      <input type="text" class="input join-item" id="ps_sub_5_in" placeholder="Enter score...">
+      <button class="btn btn-primary join-item" onclick="checkAnswer('ps_sub_5_in', answers_ps_sub_5)">Check Answer</button>
+    </div>
+  </div>
+  <form method="dialog" class="modal-backdrop"><button>close</button></form>
+</dialog>
+
+
+<script>
   const answers_ps_string_1 = ['Secu'];
 </script>
 <dialog id="ps_string_1" class="modal">
