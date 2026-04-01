@@ -225,6 +225,7 @@ if age > 18
    print("You are an adult.")
 else
    print("You are not an adult.")
+endif
 </code></pre>
         </div>
       </div>
@@ -234,6 +235,173 @@ else
       <button class="btn btn-primary join-item" onclick="checkAnswer('ps_if_1_in', answers_ps_if_1)">Check Answer</button>
     </div>
     
+  </div>
+  <form method="dialog" class="modal-backdrop">
+    <button>close</button>
+  </form>
+</dialog>
+
+
+<script>
+  const answers_ps_if_2 = ['else if score >= 50', 'else if score > 49'];
+</script>
+<dialog id="ps_if_2" class="modal">
+  <div class="modal-box">
+    <h3 class="text-lg font-bold">Else If Statements</h3>
+    <p class="py-4">
+      Line 6 is missing from the pseudocode below. Can you spot the error and fix it? Users must achieve a score of 50 and above to achieve a C. <br>
+      Write the missing line in the input box below and click "Check Answer" to see if you are correct!
+      <br>
+      <div class="alert bg-base-300 border-none">
+        <div>
+          <span class="text-white"><pre><code>score = 15
+if score >= 80
+   print("You got an A!")
+else if score >= 70
+   print("You got a B!")
+
+   print("You got a C!")
+else
+   print("You failed the test.")
+endif
+</code></pre>
+        </div>
+      </div>
+    </p>
+    <div class="join">
+      <input type="text" class="input join-item" id="ps_if_2_in" placeholder="Enter the corrected line here...">
+      <button class="btn btn-primary join-item" onclick="checkAnswer('ps_if_2_in', answers_ps_if_2)">Check Answer</button>
+    </div>
+    
+  </div>
+  <form method="dialog" class="modal-backdrop">
+    <button>close</button>
+  </form>
+</dialog>
+
+
+<script>
+  const answers_ps_if_3 = [
+    'else if alarm_armed == True and (door_open == True or window_open == True)', 
+    'else if alarm_armed == True and (window_open == True or door_open == True)',
+    'else if (window_open == True or door_open == True) and alarm_armed == True',
+    'else if (door_open == True or window_open == True) and alarm_armed == True'
+    ];
+</script>
+<dialog id="ps_if_3" class="modal">
+  <div class="modal-box">
+    <h3 class="text-lg font-bold">Else If Statements & Boolean Operators</h3>
+    <p class="py-4">
+      The solution below compares more than one condition. Can you add the missing line? <br>
+      Write the missing line in the input box below and click "Check Answer" to see if you are correct!
+      <br>
+      <div class="alert bg-base-300 border-none">
+        <div>
+          <span class="text-white"><pre><code>alarm_armed = True
+door_open = False
+window_open = False
+if alarm_armed == True and (door_open == False or window_open == False)
+   print("Alarm is not triggered!")
+???
+   print("Alarm is triggered!")  
+else
+   print("Alarm is not armed!") 
+endif
+</code></pre>
+        </div>
+      </div>
+    </p>
+    <div class="join">
+      <input type="text" class="input join-item" id="ps_if_3_in" placeholder="Enter the corrected line here...">
+      <button class="btn btn-primary join-item" onclick="checkAnswer('ps_if_3_in', answers_ps_if_3)">Check Answer</button>
+    </div>
+    
+  </div>
+  <form method="dialog" class="modal-backdrop">
+    <button>close</button>
+  </form>
+</dialog>
+
+
+<dialog id="ps_if_4" class="modal">
+  <div class="modal-box">
+    <h3 class="text-lg font-bold">Else If Statements & Boolean Operators</h3>
+    <p class="py-4">
+      The solution below compares more than one condition. Can you workout what the output is?
+      <br>
+      <b>Scenario:</b> A high-security vault uses four inputs to determine its status. You must determine if the variable vault_breach evaluates to True or False based on the logic below. <br>
+      The Inputs:
+      <ul class="list-disc px-2">
+        <li><code>authenticated = True</code> (The correct PIN was entered)</li>
+        <li><code>motion_detected = True</code> (Movement inside the vault)</li>
+        <li><code>door_locked = False</code> (The physical bolt is retracted)</li>
+        <li><code>business_hours = False</code> (It is currently 2:00 AM)</li>
+      </ul>
+
+      <div class="alert bg-base-300 border-none">
+        <div>
+          <span class="text-white"><pre><code>if authenticated and business_hours:
+    vault_breach = False
+else:
+    if not door_locked:
+        if motion_detected or not authenticated:
+            vault_breach = True
+        else:
+            vault_breach = False
+    else:
+        vault_breach = False
+    endif
+endif
+</code></pre>
+        </div>
+      </div>
+    </p>
+    <div class="join">
+      <input type="text" class="input join-item" id="ps_if_4_in" placeholder="Enter the corrected line here...">
+      <button class="btn btn-primary join-item" onclick="checkAnswer('ps_if_4_in', 'True')">Check Answer</button>
+    </div>
+    
+  </div>
+  <form method="dialog" class="modal-backdrop">
+    <button>close</button>
+  </form>
+</dialog>
+
+
+<dialog id="ps_if_5" class="modal">
+  <div class="modal-box">
+    <h3 class="text-lg font-bold">Complex Logic: Smart Irrigation</h3>
+    <p class="py-4">
+      The system needs to decide if <code>sprinklers_on</code> is <b>True</b> or <b>False</b>. Note the use of the <code>not</code> operator and the order of operations.
+      <br><br>
+      <b>Inputs:</b>
+      <ul class="list-disc px-6">
+        <li><code>moisture_level = 15</code></li>
+        <li><code>rain_forecasted = True</code></li>
+        <li><code>manual_override = False</code></li>
+        <li><code>water_restricted = False</code></li>
+      </ul>
+
+      <div class="alert bg-base-300 border-none mt-4">
+        <div>
+          <span class="text-white"><pre><code>if water_restricted:
+    sprinklers_on = False
+else if manual_override:
+    sprinklers_on = True
+else:
+    if moisture_level < 20 and not rain_forecasted:
+        sprinklers_on = True
+    else:
+        sprinklers_on = False</code></pre></span>
+    endif
+endif
+        </div>
+      </div>
+    </p>
+    <div class="join">
+      <input type="text" class="input join-item" id="ps_if_5_in" placeholder="True or False?">
+      <button class="btn btn-primary join-item" onclick="checkAnswer('ps_if_5_in', 'False')">Check Answer</button>
+    </div>
   </div>
   <form method="dialog" class="modal-backdrop">
     <button>close</button>
@@ -352,4 +520,133 @@ next i
   <form method="dialog" class="modal-backdrop">
     <button>close</button>
   </form>
+</dialog>
+
+
+<script>
+  const answers_ps_while_1 = ['Rocket launched!'];
+</script>
+<dialog id="ps_while_1" class="modal">
+  <div class="modal-box">
+    <h3 class="text-lg font-bold">While Loop: The Countdown</h3>
+    <p class="py-4">
+      What is the <b>final</b> output printed by this script?
+      <div class="alert bg-base-300 border-none mt-4">
+        <span class="text-white"><pre><code>count = 3
+while count > 0:
+    print("T-minus " + count)
+    count = count - 1
+endwhile
+print("Rocket launched!")</code></pre></span>
+      </div>
+    </p>
+    <div class="join">
+      <input type="text" class="input join-item" id="ps_while_1_in" placeholder="Last printed line...">
+      <button class="btn btn-primary join-item" onclick="checkAnswer('ps_while_1_in', answers_ps_while_1)">Check Answer</button>
+    </div>
+  </div>
+  <form method="dialog" class="modal-backdrop"><button>close</button></form>
+</dialog>
+
+
+<script>
+  const answers_ps_while_2 = ['25', '25.0', 'twenty five', 'twenty-five'];
+</script>
+<dialog id="ps_while_2" class="modal">
+  <div class="modal-box">
+    <h3 class="text-lg font-bold">While Loop: The Accumulator</h3>
+    <p class="py-4">
+      What is the value of <b>total</b> when the loop finishes?
+      <div class="alert bg-base-300 border-none mt-4">
+        <span class="text-white"><pre><code>total = 1
+while total < 20:
+    total = total * 5
+endwhile
+print(total)</code></pre></span>
+      </div>
+    </p>
+    <div class="join">
+      <input type="text" class="input join-item" id="ps_while_2_in" placeholder="Enter number...">
+      <button class="btn btn-primary join-item" onclick="checkAnswer('ps_while_2_in', answers_ps_while_2)">Check Answer</button>
+    </div>
+  </div>
+  <form method="dialog" class="modal-backdrop"><button>close</button></form>
+</dialog>
+
+
+<script>
+  const answers_ps_while_3 = ['80'];
+</script>
+<dialog id="ps_while_3" class="modal">
+  <div class="modal-box">
+    <h3 class="text-lg font-bold">While Loop: Charging Logic</h3>
+    <p class="py-4">
+      What is the <b>final value</b> of <code>charge</code> when the loop finishes?
+      <div class="alert bg-base-300 border-none mt-4">
+        <span class="text-white"><pre><code>charge = 20
+is_plugged_in = True
+
+while charge < 80:
+    charge = charge + 30
+    if charge > 100:
+        is_plugged_in = False
+    endif
+endwhile
+print(charge)</code></pre></span>
+      </div>
+    </p>
+    <div class="join">
+      <input type="text" class="input join-item" id="ps_while_3_in" placeholder="Enter final number...">
+      <button class="btn btn-primary join-item" onclick="checkAnswer('ps_while_3_in', answers_ps_while_3)">Check Answer</button>
+    </div>
+  </div>
+  <form method="dialog" class="modal-backdrop"><button>close</button></form>
+</dialog>
+
+<script>
+  const answers_ps_until_1 = ['21'];
+</script>
+<dialog id="ps_until_1" class="modal">
+  <div class="modal-box">
+    <h3 class="text-lg font-bold">Do...Until: Post-Test Logic</h3>
+    <p class="py-4">
+      In a <code>do...until</code> loop, the code runs <b>before</b> checking the condition. What is the value of <b>score</b>?
+      <div class="alert bg-base-300 border-none mt-4">
+        <span class="text-white"><pre><code>score = 6
+do
+    score = score + 3
+until score >= 20
+print(score)</code></pre></span>
+      </div>
+    </p>
+    <div class="join">
+      <input type="text" class="input join-item" id="ps_until_1_in" placeholder="Resulting score...">
+      <button class="btn btn-primary join-item" onclick="checkAnswer('ps_until_1_in', answers_ps_until_1)">Check Answer</button>
+    </div>
+  </div>
+  <form method="dialog" class="modal-backdrop"><button>close</button></form>
+</dialog>
+
+<script>
+  const answers_ps_until_2 = ['22'];
+</script>
+<dialog id="ps_until_2" class="modal">
+  <div class="modal-box">
+    <h3 class="text-lg font-bold">Do...Until: Iteration Tracking</h3>
+    <p class="py-4">
+      How many degrees is the <b>temp</b> when the loop finally stops?
+      <div class="alert bg-base-300 border-none mt-4">
+        <span class="text-white"><pre><code>temp = 18
+do
+    temp = temp + 2
+until temp >= 21
+print(temp)</code></pre></span>
+      </div>
+    </p>
+    <div class="join">
+      <input type="text" class="input join-item" id="ps_until_2_in" placeholder="Final temp...">
+      <button class="btn btn-primary join-item" onclick="checkAnswer('ps_until_2_in', answers_ps_until_2)">Check Answer</button>
+    </div>
+  </div>
+  <form method="dialog" class="modal-backdrop"><button>close</button></form>
 </dialog>
