@@ -285,20 +285,32 @@ print(string.length)</code></pre></span>
 <dialog id="ps_string_modal2" class="modal">
   <div class="modal-box">
     <h3 class="text-lg font-bold">String Indexing</h3>
-    <p class="">We can use indexing to access individual characters in a string. With pseudocode this is done by using the substring method.</p>
+    <p class="">We can use indexing to access individual characters in a string. With pseudocode this is done by using the 
+      substring method.
+      <br>The first argument given as a parameter is the starting index, and the second argument is the number of characters 
+      to extract beginning from the index position.
+    </p>
     <div class="alert bg-base-300 border-none">
       <div>
         <span class="text-white"><pre><code>string = "codefez"
 print(string.substring(0))
-print(string.substring(4,6))</code></pre></span>
+print(string.substring(4,3))</code></pre></span>
       </div>
     </div>
-    <p class="">The above code will output the first character of the string "codefez" and then the characters from index 4 to 5. For example, the output will be:</p>
+    <p class="">The above code will output the first character of the string "codefez" and then the characters from index 4 to 6. For example, the output will be:</p>
     <div class="alert bg-neutral border-none">
       <div>
         <span class="text-white">c <br>
 fez</span>
       </div>
+    </div>
+    <div class="alert alert-info">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="h-6 w-6 shrink-0 stroke-current">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+      </svg>
+      <span><b>Note:</b>The substring method second argument differs from most programming languages such as Python, where the second 
+        argument represents the ending index.
+      </span>
     </div>
   </div>
 

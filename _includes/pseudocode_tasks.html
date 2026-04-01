@@ -650,3 +650,214 @@ print(temp)</code></pre></span>
   </div>
   <form method="dialog" class="modal-backdrop"><button>close</button></form>
 </dialog>
+
+
+<script>
+  const answers_ps_string_1 = ['Secu'];
+</script>
+<dialog id="ps_string_1" class="modal">
+  <div class="modal-box">
+    <h3 class="text-lg font-bold">String Handling: Substrings</h3>
+    <p class="py-4">
+      What is the output of the following code? Remember: <code>.substring(x, i)</code> starts at index <b>x</b> and extracts 
+      <b>i</b> characters from the string.
+      <div class="alert bg-base-300 border-none mt-4">
+        <span class="text-white"><pre><code>word = "CyberSecurity"
+result = word.substring(5, 4)
+print(result)</code></pre></span>
+      </div>
+    </p>
+    <div class="join">
+      <input type="text" class="input join-item" id="ps_string_1_in" placeholder="Enter output...">
+      <button class="btn btn-primary join-item" onclick="checkAnswer('ps_string_1_in', answers_ps_string_1)">Check Answer</button>
+    </div>
+  </div>
+  <form method="dialog" class="modal-backdrop"><button>close</button></form>
+</dialog>
+
+<script>
+  const answers_ps_string_2 = ['AYsky'];
+</script>
+<dialog id="ps_string_2" class="modal">
+  <div class="modal-box">
+    <h3 class="text-lg font-bold">Sub-routines & String Methods</h3>
+    <p class="py-4">
+      What is the return value of <code>generateID("Skylar", "Gray")</code>?
+      <div class="alert bg-base-300 border-none mt-4">
+        <span class="text-white"><pre><code>function generateID(first, last)
+    part1 = first.left(3)
+    part2 = last.right(2)
+    return part2.upper + part1.lower
+endfunction</code></pre></span>
+      </div>
+    </p>
+    <div class="join">
+      <input type="text" class="input join-item" id="ps_string_2_in" placeholder="Enter return value...">
+      <button class="btn btn-primary join-item" onclick="checkAnswer('ps_string_2_in', answers_ps_string_2)">Check Answer</button>
+    </div>
+  </div>
+  <form method="dialog" class="modal-backdrop"><button>close</button></form>
+</dialog>
+
+<script>
+  const answers_ps_string_3 = ['Valid: X1200'];
+</script>
+<dialog id="ps_string_3" class="modal">
+  <div class="modal-box">
+    <h3 class="text-lg font-bold">Iterative String Building</h3>
+    <p class="py-4">
+      What is the final output of this script? Pay close attention to the <code>.right(2)</code> check.
+      <div class="alert bg-base-300 border-none mt-4">
+        <span class="text-white"><pre><code>code = "X12"
+while code.length < 5:
+    code = code + "0"
+endwhile
+
+if code.right(2) == "00":
+    print("Valid: " + code)
+else:
+    print("Invalid")
+endif</code></pre></span>
+      </div>
+    </p>
+    <div class="join">
+      <input type="text" class="input join-item" id="ps_string_3_in" placeholder="Enter printed string...">
+      <button class="btn btn-primary join-item" onclick="checkAnswer('ps_string_3_in', answers_ps_string_3)">Check Answer</button>
+    </div>
+  </div>
+  <form method="dialog" class="modal-backdrop"><button>close</button></form>
+</dialog>
+
+
+<script>
+  const answers_ps_string_4 = ['D'];
+</script>
+<dialog id="ps_string_4" class="modal">
+  <div class="modal-box">
+    <h3 class="text-lg font-bold">ASCII Conversion</h3>
+    <p class="py-4">
+      Determine the output. (Given: <code>ASC("A")</code> is 65, <code>ASC("B")</code> is 66).
+      <div class="alert bg-base-300 border-none mt-4">
+        <span class="text-white"><pre><code>char1 = "B"
+val = ASC(char1) + 2
+result = CHR(val)
+print(result)</code></pre></span>
+      </div>
+    </p>
+    <div class="join">
+      <input type="text" class="input join-item" id="ps_string_4_in" placeholder="Enter single character...">
+      <button class="btn btn-primary join-item" onclick="checkAnswer('ps_string_4_in', answers_ps_string_4)">Check Answer</button>
+    </div>
+  </div>
+  <form method="dialog" class="modal-backdrop"><button>close</button></form>
+</dialog>
+
+
+<script>
+  const answers_ps_string_5 = ['2'];
+</script>
+<dialog id="ps_string_5" class="modal">
+  <div class="modal-box">
+    <h3 class="text-lg font-bold">Iteration & Case Sensitivity</h3>
+    <p class="py-4">
+      How many times is the letter "e" printed in this loop? 
+      <div class="alert bg-base-300 border-none mt-4">
+        <span class="text-white"><pre><code>sentence = "LevelUp"
+count = 0
+for i = 0 to sentence.length - 1
+    char = sentence.substring(i, 1)
+    if char.lower == "e" then
+        count = count + 1
+    endif
+next i
+print(count)</code></pre></span>
+      </div>
+    </p>
+    <div class="join">
+      <input type="text" class="input join-item" id="ps_string_5_in" placeholder="Enter count...">
+      <button class="btn btn-primary join-item" onclick="checkAnswer('ps_string_5_in', answers_ps_string_5)">Check Answer</button>
+    </div>
+  </div>
+  <form method="dialog" class="modal-backdrop"><button>close</button></form>
+</dialog>
+
+
+<script>
+  const answers_ps_string_6 = ['MAET'];
+</script>
+<dialog id="ps_string_6" class="modal">
+  <div class="modal-box">
+    <h3 class="text-lg font-bold">String Manipulation</h3>
+    <p class="py-4">
+      What is the final value of <b>newString</b>?
+      <div class="alert bg-base-300 border-none mt-4">
+        <span class="text-white"><pre><code>word = "TEAM"
+newString = ""
+for i = 0 to 3
+    newString = word.substring(i, 1) + newString
+next i
+print(newString)</code></pre></span>
+      </div>
+    </p>
+    <div class="join">
+      <input type="text" class="input join-item" id="ps_string_6_in" placeholder="Enter string...">
+      <button class="btn btn-primary join-item" onclick="checkAnswer('ps_string_6_in', answers_ps_string_6)">Check Answer</button>
+    </div>
+  </div>
+  <form method="dialog" class="modal-backdrop"><button>close</button></form>
+</dialog>
+
+
+<script>
+  const answers_ps_string_7 = ['Pala'];
+</script>
+<dialog id="ps_string_7" class="modal">
+  <div class="modal-box">
+    <h3 class="text-lg font-bold">Do...Until: String Parsing</h3>
+    <p class="py-4">
+      What is the final value of <b>buffer</b>?
+      <div class="alert bg-base-300 border-none mt-4">
+        <span class="text-white"><pre><code>data = "Pala-Remzi Was Known for his kind heart and bravery."
+buffer = ""
+i = 0
+do
+    char = data.substring(i, 1)
+    if char != "-":
+        buffer = buffer + char
+    endif
+    i = i + 1
+until char == "-"
+print(buffer)</code></pre></span>
+      </div>
+    </p>
+    <div class="join">
+      <input type="text" class="input join-item" id="ps_string_7_in" placeholder="Enter string...">
+      <button class="btn btn-primary join-item" onclick="checkAnswer('ps_string_7_in', answers_ps_string_7)">Check Answer</button>
+    </div>
+  </div>
+  <form method="dialog" class="modal-backdrop"><button>close</button></form>
+</dialog>
+
+<script>
+  const answers_ps_string_8 = ['Coe'];
+</script>
+<dialog id="ps_string_8" class="modal">
+  <div class="modal-box">
+    <h3 class="text-lg font-bold">Left & Right Methods</h3>
+    <p class="py-4">
+      What will the following code print?
+      <div class="alert bg-base-300 border-none mt-4">
+        <span class="text-white"><pre><code>phrase = "Code"
+if phrase.length > 5:
+    print(phrase.upper)
+else:
+    print(phrase.left(2) + phrase.right(1))</code></pre></span>
+      </div>
+    </p>
+    <div class="join">
+      <input type="text" class="input join-item" id="ps_string_8_in" placeholder="Enter output...">
+      <button class="btn btn-primary join-item" onclick="checkAnswer('ps_string_8_in', answers_ps_string_8)">Check Answer</button>
+    </div>
+  </div>
+  <form method="dialog" class="modal-backdrop"><button>close</button></form>
+</dialog>
