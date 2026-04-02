@@ -319,6 +319,127 @@ fez</span>
   </form>
 </dialog>
 
+<dialog id="ps_string_modal3" class="modal">
+  <div class="modal-box">
+    <h3 class="text-lg font-bold">Substring, .left() and .right()</h3>
+    <p class="">OCR pseudocode includes string methods for extracting part of a string.</p>
+    <div class="alert bg-base-300 border-none">
+      <div>
+        <span class="text-white"><pre><code>word = "codefez"
+print(word.substring(1, 3))
+print(word.left(4))
+print(word.right(3))</code></pre></span>
+      </div>
+    </div>
+    <div class="alert bg-neutral border-none">
+      <div>
+        <span class="text-white">ode <br>
+code <br>
+fez</span>
+      </div>
+    </div>
+    <ul class="list-disc px-2">
+      <li><code class="text-primary">substring(start, length)</code> starts at an index and takes a number of characters.</li>
+      <li><code class="text-primary">left(n)</code> returns the first <code>n</code> characters.</li>
+      <li><code class="text-primary">right(n)</code> returns the last <code>n</code> characters.</li>
+    </ul>
+  </div>
+
+  <form method="dialog" class="modal-backdrop">
+    <button>close</button>
+  </form>
+</dialog>
+
+<dialog id="ps_string_modal4" class="modal">
+  <div class="modal-box">
+    <h3 class="text-lg font-bold">Uppercase</h3>
+    <p class="">The <code class="text-primary">upper()</code> method converts all letters in a string to uppercase.</p>
+    <div class="alert bg-base-300 border-none">
+      <div>
+        <span class="text-white"><pre><code>name = "CodeFez"
+print(name.upper())</code></pre></span>
+      </div>
+    </div>
+    <div class="alert bg-neutral border-none">
+      <div>
+        <span class="text-white">CODEFEZ</span>
+      </div>
+    </div>
+  </div>
+
+  <form method="dialog" class="modal-backdrop">
+    <button>close</button>
+  </form>
+</dialog>
+
+<dialog id="ps_string_modal5" class="modal">
+  <div class="modal-box">
+    <h3 class="text-lg font-bold">Lowercase</h3>
+    <p class="">The <code class="text-primary">lower()</code> method converts all letters in a string to lowercase.</p>
+    <div class="alert bg-base-300 border-none">
+      <div>
+        <span class="text-white"><pre><code>name = "CodeFez"
+print(name.lower())</code></pre></span>
+      </div>
+    </div>
+    <div class="alert bg-neutral border-none">
+      <div>
+        <span class="text-white">codefez</span>
+      </div>
+    </div>
+  </div>
+
+  <form method="dialog" class="modal-backdrop">
+    <button>close</button>
+  </form>
+</dialog>
+
+<dialog id="ps_string_modal6" class="modal">
+  <div class="modal-box">
+    <h3 class="text-lg font-bold">ASC()</h3>
+    <p class="">The <code class="text-primary">ASC()</code> function returns the ASCII value of a character.</p>
+    <div class="alert bg-base-300 border-none">
+      <div>
+        <span class="text-white"><pre><code>print(ASC("A"))
+print(ASC("a"))</code></pre></span>
+      </div>
+    </div>
+    <div class="alert bg-neutral border-none">
+      <div>
+        <span class="text-white">65 <br>
+97</span>
+      </div>
+    </div>
+  </div>
+
+  <form method="dialog" class="modal-backdrop">
+    <button>close</button>
+  </form>
+</dialog>
+
+<dialog id="ps_string_modal7" class="modal">
+  <div class="modal-box">
+    <h3 class="text-lg font-bold">CHR()</h3>
+    <p class="">The <code class="text-primary">CHR()</code> function converts an ASCII value into its matching character.</p>
+    <div class="alert bg-base-300 border-none">
+      <div>
+        <span class="text-white"><pre><code>print(CHR(65))
+print(CHR(97))</code></pre></span>
+      </div>
+    </div>
+    <div class="alert bg-neutral border-none">
+      <div>
+        <span class="text-white">A <br>
+a</span>
+      </div>
+    </div>
+  </div>
+
+  <form method="dialog" class="modal-backdrop">
+    <button>close</button>
+  </form>
+</dialog>
+
 <dialog id="ps_for_modal1" class="modal">
   <div class="modal-box">
     <h3 class="text-lg font-bold">for loops</h3>
@@ -371,6 +492,299 @@ e <br>
 z</span>
       </div>
     </div>
+  </div>
+
+  <form method="dialog" class="modal-backdrop">
+    <button>close</button>
+  </form>
+</dialog>
+
+<dialog id="ps_while_modal" class="modal">
+  <div class="modal-box">
+    <h3 class="text-lg font-bold">while loops</h3>
+    <p class="">A while loop is condition-controlled. The condition is checked before each loop iteration.</p>
+    <div class="alert bg-base-300 border-none">
+      <div>
+        <span class="text-white"><pre><code>while answer != "Correct"
+    answer = input("New answer")
+endwhile</code></pre></span>
+      </div>
+    </div>
+
+    <p class="">This loop continues until the user inputs the string <code>"Correct"</code>.</p>
+    <div class="alert bg-warning border-none">
+      <div>
+        <span class="text-white">The condition is checked first. If it is false at the start, the loop does not run.</span>
+      </div>
+    </div>
+
+    <p class="">Key points:</p>
+    <ul class="list-disc px-2">
+      <li><code class="text-primary">while ... endwhile</code> defines the loop block.</li>
+      <li>This is used when the number of repetitions is not known in advance.</li>
+      <li>The condition is checked before entering the loop body each time.</li>
+    </ul>
+  </div>
+
+  <form method="dialog" class="modal-backdrop">
+    <button>close</button>
+  </form>
+</dialog>
+
+<dialog id="ps_do_until_modal" class="modal">
+  <div class="modal-box">
+    <h3 class="text-lg font-bold">do...until loops</h3>
+    <p class="">A do-until loop is condition-controlled, but it checks the condition after the loop body runs.</p>
+    <div class="alert bg-base-300 border-none">
+      <div>
+        <span class="text-white"><pre><code>do
+    answer = input("New answer")
+until answer == "Correct"</code></pre></span>
+      </div>
+    </div>
+
+    <p class="">This loop continues until the user inputs the string <code>"Correct"</code>.</p>
+    <div class="alert bg-warning border-none">
+      <div>
+        <span class="text-white">The loop runs once before the condition check is carried out.</span>
+      </div>
+    </div>
+
+    <p class="">Key points:</p>
+    <ul class="list-disc px-2">
+      <li><code class="text-primary">do ... until ...</code> defines the loop.</li>
+      <li>This is useful when the loop must execute at least once.</li>
+      <li>The condition is checked at the end of each iteration.</li>
+    </ul>
+  </div>
+
+  <form method="dialog" class="modal-backdrop">
+    <button>close</button>
+  </form>
+</dialog>
+
+<dialog id="ps_array_intro_modal" class="modal">
+  <div class="modal-box">
+    <h3 class="text-lg font-bold">arrays: storing multiple items</h3>
+    <p class="">An array is a data structure used to store more than one item under one variable name.</p>
+    <div class="alert bg-base-300 border-none">
+      <div>
+        <span class="text-white"><pre><code>scores = [72, 68, 91, 84]
+print(scores)</code></pre></span>
+      </div>
+    </div>
+    <p class="">This keeps related values together in a single structure, which makes data easier to process.</p>
+    <ul class="list-disc px-2">
+      <li>Use an array when you need to store many values of the same type.</li>
+      <li>Items are stored in a fixed order.</li>
+      <li>Each item can be accessed by its index position.</li>
+    </ul>
+  </div>
+
+  <form method="dialog" class="modal-backdrop">
+    <button>close</button>
+  </form>
+</dialog>
+
+<dialog id="ps_array_index_modal" class="modal">
+  <div class="modal-box">
+    <h3 class="text-lg font-bold">arrays: indexing items</h3>
+    <p class="">Each item in an array has an index. The index is used to read or update one specific item.</p>
+    <div class="alert bg-base-300 border-none">
+      <div>
+        <span class="text-white"><pre><code>scores = [72, 68, 91, 84]
+print(scores[0])
+scores[1] = 70
+print(scores[1])</code></pre></span>
+      </div>
+    </div>
+
+    <div class="alert bg-neutral border-none">
+      <div>
+        <span class="text-white">In OCR-style pseudocode, indexing starts at 0, so <code>scores[0]</code> is the first item.</span>
+      </div>
+    </div>
+  </div>
+
+  <form method="dialog" class="modal-backdrop">
+    <button>close</button>
+  </form>
+</dialog>
+
+<dialog id="ps_array_2d_modal" class="modal">
+  <div class="modal-box">
+    <h3 class="text-lg font-bold">2D arrays</h3>
+    <p class="">A 2D array stores data in rows and columns (an array of arrays).</p>
+    <div class="alert bg-base-300 border-none">
+      <div>
+        <span class="text-white"><pre><code>seats = [["A1", "A2", "A3"],
+         ["B1", "B2", "B3"]]
+
+print(seats[1][2])</code></pre></span>
+      </div>
+    </div>
+
+    <div class="alert bg-neutral border-none">
+      <div>
+        <span class="text-white"><code>seats[row][column]</code> means row index first, then column index.</span>
+      </div>
+    </div>
+
+    <p class="">2D arrays are useful for grids, boards, timetables, and tables of values.</p>
+  </div>
+
+  <form method="dialog" class="modal-backdrop">
+    <button>close</button>
+  </form>
+</dialog>
+
+<dialog id="ps_sub_procedure_modal" class="modal">
+  <div class="modal-box">
+    <h3 class="text-lg font-bold">sub-routines: procedures</h3>
+    <p class="">A procedure is a named block of code that performs a task. It does not return a value.</p>
+    <div class="alert bg-base-300 border-none">
+      <div>
+        <span class="text-white"><pre><code>procedure showMenu()
+    print("1. Play")
+    print("2. Exit")
+endprocedure
+
+showMenu()</code></pre></span>
+      </div>
+    </div>
+    <ul class="list-disc px-2">
+      <li>Use a procedure to avoid repeating common steps.</li>
+      <li>Call the procedure by its name.</li>
+      <li>Procedures improve readability and structure.</li>
+    </ul>
+  </div>
+
+  <form method="dialog" class="modal-backdrop">
+    <button>close</button>
+  </form>
+</dialog>
+
+<dialog id="ps_sub_function_modal" class="modal">
+  <div class="modal-box">
+    <h3 class="text-lg font-bold">sub-routines: functions</h3>
+    <p class="">A function is a sub-routine that returns a value to the line of code that called it.</p>
+    <div class="alert bg-base-300 border-none">
+      <div>
+        <span class="text-white"><pre><code>function doubleNumber(n)
+    return n * 2
+endfunction
+
+result = doubleNumber(6)
+print(result)</code></pre></span>
+      </div>
+    </div>
+    <div class="alert bg-neutral border-none">
+      <div>
+        <span class="text-white">The function call gives back a value, so it can be stored in a variable.</span>
+      </div>
+    </div>
+  </div>
+
+  <form method="dialog" class="modal-backdrop">
+    <button>close</button>
+  </form>
+</dialog>
+
+<dialog id="ps_sub_params_modal" class="modal">
+  <div class="modal-box">
+    <h3 class="text-lg font-bold">sub-routines: parameters</h3>
+    <p class="">Parameters allow values to be passed into procedures or functions as arguments.</p>
+    <div class="alert bg-base-300 border-none">
+      <div>
+        <span class="text-white"><pre><code>procedure greet(name, yearGroup)
+    print("Hello " + name + " from Year " + yearGroup)
+endprocedure
+
+greet("Ava", "10")</code></pre></span>
+      </div>
+    </div>
+    <ul class="list-disc px-2">
+      <li><code class="text-primary">name</code> and <code class="text-primary">yearGroup</code> are parameters.</li>
+      <li><code class="text-primary">"Ava"</code> and <code class="text-primary">"10"</code> are arguments.</li>
+      <li>Arguments are matched to parameters by position.</li>
+    </ul>
+  </div>
+
+  <form method="dialog" class="modal-backdrop">
+    <button>close</button>
+  </form>
+</dialog>
+
+<dialog id="ps_file_read_modal" class="modal">
+  <div class="modal-box">
+    <h3 class="text-lg font-bold">file handling: reading a file</h3>
+    <p class="">To read data from a file, open the file, read from it, then close it when you are finished.</p>
+    <div class="alert bg-base-300 border-none">
+      <div>
+        <span class="text-white"><pre><code>myFile = open("user.txt")
+line = myFile.readLine()
+print(line)
+myFile.close()</code></pre></span>
+      </div>
+    </div>
+    <ul class="list-disc px-2">
+      <li><code class="text-primary">open()</code> opens the file.</li>
+      <li><code class="text-primary">readLine()</code> reads the next line from the file.</li>
+      <li><code class="text-primary">close()</code> closes the file when finished.</li>
+    </ul>
+  </div>
+
+  <form method="dialog" class="modal-backdrop">
+    <button>close</button>
+  </form>
+</dialog>
+
+<dialog id="ps_file_write_modal" class="modal">
+  <div class="modal-box">
+    <h3 class="text-lg font-bold">file handling: writing to a file</h3>
+    <p class="">We can write data to a file one line at a time using <code class="text-primary">writeLine()</code>.</p>
+    <div class="alert bg-base-300 border-none">
+      <div>
+        <span class="text-white"><pre><code>f = open("log.txt")
+f.writeLine("Start")
+f.writeLine("End")
+f.close()</code></pre></span>
+      </div>
+    </div>
+
+    <div class="alert bg-neutral border-none">
+      <div>
+        <span class="text-white">Each call to <code>writeLine()</code> writes one new line to the file.</span>
+      </div>
+    </div>
+  </div>
+
+  <form method="dialog" class="modal-backdrop">
+    <button>close</button>
+  </form>
+</dialog>
+
+<dialog id="ps_file_loop_modal" class="modal">
+  <div class="modal-box">
+    <h3 class="text-lg font-bold">file handling: looping through a file</h3>
+    <p class="">A common pattern is to loop through a file until the end is reached.</p>
+    <div class="alert bg-base-300 border-none">
+      <div>
+        <span class="text-white"><pre><code>count = 0
+file = open("data.txt")
+while NOT file.endOfFile()
+    line = file.readLine()
+    count = count + 1
+endwhile
+file.close()
+print(count)</code></pre></span>
+      </div>
+    </div>
+    <ul class="list-disc px-2">
+      <li><code class="text-primary">endOfFile()</code> checks whether there is any data left to read.</li>
+      <li>This pattern is useful for counting, searching, or processing every line.</li>
+      <li>Close the file after the loop has finished.</li>
+    </ul>
   </div>
 
   <form method="dialog" class="modal-backdrop">
@@ -577,6 +991,41 @@ endif
         <span class="text-white">You are of working age.</span>
       </div>
     </div>
+  </div>
+
+  <form method="dialog" class="modal-backdrop">
+    <button>close</button>
+  </form>
+</dialog>
+
+<dialog id="ps_case_modal" class="modal">
+  <div class="modal-box">
+    <h3 class="text-lg font-bold">Case-Switch Selection</h3>
+    <p class="">A case statement is used when one variable or expression can match several different fixed values.</p>
+    <div class="alert bg-base-300 border-none">
+      <div>
+        <span class="text-white"><pre><code>grade = "B"
+
+switch grade of
+    "A": print("Excellent")
+    "B": print("Good")
+    "C": print("Pass")
+    default: print("Keep trying")
+endswitch</code></pre></span>
+      </div>
+    </div>
+
+    <div class="alert bg-neutral border-none">
+      <div>
+        <span class="text-white">This would output: Good</span>
+      </div>
+    </div>
+
+    <ul class="list-disc px-2">
+      <li>Use <code class="text-primary">switch ... of</code> when checking one value against many options.</li>
+      <li>Each branch runs only if its value matches.</li>
+      <li><code class="text-primary">default</code> is used if no other case matches.</li>
+    </ul>
   </div>
 
   <form method="dialog" class="modal-backdrop">
