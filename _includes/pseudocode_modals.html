@@ -66,15 +66,13 @@
         <span><pre><code>variable_name = value
 name = "Alice"
 age = 30
-global score = 100</code></pre></span>
+score = 100</code></pre></span>
       </div>
     </div>
     <p class="">Key points:</p>
     <ul class="list-disc px-2">
       <li>The <code class="text-primary">=</code> operator is used to assign a value to a variable.</li>
       <li>Variable names cannot have spaces. You can use an underscore if the name has 2 or more words eg:<br><pre><code style="margin-left: 2rem;">shoe_size = 5</code></pre></li>
-      <li>Variables can be reassigned to different values during the execution of the program.</li>
-      <li>a variable can be given global scope by using the <code class="text-primary">global</code> keyword.</li>
     </ul>
   </div>
   <form method="dialog" class="modal-backdrop">
@@ -104,10 +102,8 @@ print(shoe_size)</code></pre></span>
 
     <p class="">Key points:</p>
     <ul class="list-disc px-2">
-      <li>The <code class="text-primary">=</code> operator is used to assign a value to a variable.</li>
-      <li>Variable names cannot have spaces. You can use an underscore if the name has 2 or more words eg:<br><pre><code style="margin-left: 2rem;">shoe_size = 5</code></pre></li>
       <li>Variables can be reassigned to different values during the execution of the program.</li>
-      <li>a variable can be given global scope by using the <code class="text-primary">global</code> keyword.</li>
+      <li>a variable can be given global scope by using the <code class="text-primary">global</code> keyword. see <button onclick="ps_sub_global_modal.showModal()" class="link link-info">Sub-routines: Global Variables</button></li>
     </ul>
   </div>
   <form method="dialog" class="modal-backdrop">
@@ -707,6 +703,38 @@ greet("Ava", "10")</code></pre></span>
       <li><code class="text-primary">name</code> and <code class="text-primary">yearGroup</code> are parameters.</li>
       <li><code class="text-primary">"Ava"</code> and <code class="text-primary">"10"</code> are arguments.</li>
       <li>Arguments are matched to parameters by position.</li>
+    </ul>
+  </div>
+
+  <form method="dialog" class="modal-backdrop">
+    <button>close</button>
+  </form>
+</dialog>
+
+<dialog id="ps_sub_global_modal" class="modal">
+  <div class="modal-box">
+    <h3 class="text-lg font-bold">sub-routines: global variables</h3>
+    <p class="">By default, variables declared inside a subroutine are <strong>local</strong> — they only exist within that subroutine. Use the <code class="text-primary">global</code> keyword to access and modify a variable that was declared outside.</p>
+    <div class="alert bg-base-300 border-none">
+      <div>
+        <span class="text-white"><pre><code>global score = 0
+
+procedure addPoint()
+    global score
+    score = score + 1
+endprocedure
+
+addPoint()
+print(score)</code></pre></span>
+      </div>
+    </div>
+    <div class="alert bg-neutral border-none">
+      <div><span class="text-white">1</span></div>
+    </div>
+    <ul class="list-disc px-2">
+      <li><code class="text-primary">global score = 0</code> declares <code class="text-primary">score</code> as a global variable.</li>
+      <li>Inside the procedure, <code class="text-primary">global score</code> tells the subroutine to use the global version.</li>
+      <li>Without the <code class="text-primary">global</code> keyword, <code class="text-primary">score</code> inside the procedure would be a separate local variable.</li>
     </ul>
   </div>
 
