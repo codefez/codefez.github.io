@@ -1,0 +1,880 @@
+<div class="alert column border border-[#d1d5db] mt-8">
+  <div class="avatar">
+    <div class="mask mask-squircle w-12">
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-12 h-12 bg-warning" viewBox="0 0 640 640"><path d="M320 96C302.3 96 288 110.3 288 128L288 320C288 337.7 302.3 352 320 352C337.7 352 352 337.7 352 320L352 128C352 110.3 337.7 96 320 96zM320 480C346.5 480 368 458.5 368 432C368 405.5 346.5 384 320 384C293.5 384 272 405.5 272 432C272 458.5 293.5 480 320 480zM64 320C64 178.6 178.6 64 320 64C461.4 64 576 178.6 576 320C576 461.4 461.4 576 320 576C178.6 576 64 461.4 64 320z"/></svg>
+    </div>
+  </div>
+  <span class="w-full">
+    <h1 class="text-lg font-bold">Python Function Challenges</h1>
+    <p class="pb-2">Write each function and run the built-in test cases. Pass all tests to complete each challenge.</p>
+
+    <div class="flex flex-wrap items-center gap-3 pb-3">
+      <p>Name: <span id="py_user_name">Alex</span></p>
+      <button id="py_edit_name_btn" type="button" class="btn btn-xs btn-outline btn-info" aria-label="Edit player name">Edit</button>
+      <p>Score: <span id="py_challenge_score">0/0</span></p>
+      <p class="join join-horizontal">
+        <button id="py_download_progress_btn" class="join-item tooltip tooltip-bottom btn btn-xs btn-outline" data-tip="download encrypted progress" aria-label="Download encrypted progress">
+          <i class="fa-solid fa-download" aria-hidden="true"></i>
+        </button>
+        <button id="py_upload_progress_btn" class="join-item tooltip tooltip-bottom btn btn-xs btn-outline" data-tip="upload encrypted progress" aria-label="Upload encrypted progress">
+          <i class="fa-solid fa-file-arrow-up" aria-hidden="true"></i>
+        </button>
+      </p>
+      <input id="py_upload_progress_input" type="file" accept=".cfsave,.txt" class="hidden" aria-label="Select encrypted progress file">
+      <button id="py_reset_progress_btn" type="button" class="btn btn-xs btn-outline btn-error">Reset Progress</button>
+    </div>
+
+    <p id="py_transfer_meta" class="text-xs opacity-70 pb-3">Last imported: Never | Last exported: Never</p>
+
+    <div id="py_task_grid" class="grid gap-4 sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-3"></div>
+  </span>
+</div>
+
+<dialog id="py_task_modal" class="modal">
+  <div class="modal-box max-w-5xl h-[90vh] flex flex-col">
+    <form method="dialog">
+      <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">x</button>
+    </form>
+    <h3 id="py_modal_title" class="font-bold text-lg mb-2">Python Task</h3>
+    <p id="py_modal_prompt" class="mb-3"></p>
+    <p id="py_attempt_meta" class="text-xs opacity-80 mb-2">Attempts: 0 | Last attempt: Never</p>
+
+    <div class="grid gap-2 min-h-0 overflow-y-auto pr-1">
+      <label class="font-semibold" for="py_code_input">Write your function below</label>
+      <textarea id="py_code_input" class="textarea textarea-bordered min-h-64 h-64 md:h-72 w-full font-mono text-sm" spellcheck="false"></textarea>
+      <div class="flex items-center gap-2 sticky bottom-0 bg-base-100 py-2 z-10 border-t border-base-300">
+        <button id="py_run_tests_btn" class="btn btn-primary btn-sm" type="button" disabled>Run Tests</button>
+        <span id="py_runtime_status" class="text-xs opacity-80">Loading Python runtime...</span>
+      </div>
+    </div>
+
+    <div class="mt-4">
+      <h4 class="font-semibold mb-1">Test Results</h4>
+      <pre id="py_test_output" class="bg-base-200 p-3 rounded-lg whitespace-pre-wrap min-h-24">Open a task to begin.</pre>
+    </div>
+
+    <div class="modal-action mt-2">
+      <form method="dialog">
+        <button class="btn">Close</button>
+      </form>
+    </div>
+  </div>
+  <form method="dialog" class="modal-backdrop">
+    <button>close</button>
+  </form>
+</dialog>
+
+<script>
+(function initPythonFunctionTasks() {
+  const SAVE_KEY = "ks4PythonFunctionTasks_v1";
+  const PYODIDE_SRC = "https://cdn.jsdelivr.net/pyodide/v0.23.4/full/pyodide.js";
+  const CFEZ_ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789:_";
+  const CFEZ_INDEX = Object.fromEntries(Array.from(CFEZ_ALPHABET).map((ch, idx) => [ch, idx]));
+  const CFEZ_BLOCK_SIZE = 5;
+
+  const TASKS = [
+    {
+      id: "sumup_1",
+      title: "sumup(a, b)",
+      prompt: "Write a function called sumup that takes 2 parameters and returns their sum.",
+      functionName: "sumup",
+      starterCode: "def sumup(a, b):\n    # your code here\n    return 0",
+      tests: [
+        { args: [2, 2], expected: 4 },
+        { args: [0.5, 0.5], expected: 1.0 },
+        { args: [5, 5], expected: 10 }
+      ]
+    },
+    {
+      id: "diff_1",
+      title: "difference(a, b)",
+      prompt: "Write a function called difference that returns a - b.",
+      functionName: "difference",
+      starterCode: "def difference(a, b):\n    # your code here\n    return 0",
+      tests: [
+        { args: [10, 3], expected: 7 },
+        { args: [3, 10], expected: -7 },
+        { args: [0, 0], expected: 0 }
+      ]
+    },
+    {
+      id: "is_even_1",
+      title: "is_even(n)",
+      prompt: "Write a function called is_even that returns True when n is even, otherwise False.",
+      functionName: "is_even",
+      starterCode: "def is_even(n):\n    # your code here\n    return False",
+      tests: [
+        { args: [4], expected: true },
+        { args: [7], expected: false },
+        { args: [0], expected: true }
+      ]
+    },
+    {
+      id: "max_of_three_1",
+      title: "max_of_three(a, b, c)",
+      prompt: "Write a function called max_of_three that returns the largest of 3 numbers.",
+      functionName: "max_of_three",
+      starterCode: "def max_of_three(a, b, c):\n    # your code here\n    return 0",
+      tests: [
+        { args: [1, 9, 3], expected: 9 },
+        { args: [5, 5, 2], expected: 5 },
+        { args: [-1, -4, -2], expected: -1 }
+      ]
+    },
+    {
+      id: "factorial_1",
+      title: "factorial(n)",
+      prompt: "Write a function called factorial that returns n! for n >= 0.",
+      functionName: "factorial",
+      starterCode: "def factorial(n):\n    # your code here\n    return 1",
+      tests: [
+        { args: [0], expected: 1 },
+        { args: [1], expected: 1 },
+        { args: [5], expected: 120 }
+      ]
+    },
+    {
+      id: "reverse_text_1",
+      title: "reverse_text(text)",
+      prompt: "Write a function called reverse_text that returns the text reversed.",
+      functionName: "reverse_text",
+      starterCode: "def reverse_text(text):\n    # your code here\n    return text",
+      tests: [
+        { args: ["Code"], expected: "edoC" },
+        { args: ["Python"], expected: "nohtyP" },
+        { args: [""], expected: "" }
+      ]
+    },
+    {
+      id: "count_vowels_1",
+      title: "count_vowels(text)",
+      prompt: "Write a function called count_vowels that counts vowels (a, e, i, o, u), case-insensitive.",
+      functionName: "count_vowels",
+      starterCode: "def count_vowels(text):\n    # your code here\n    return 0",
+      tests: [
+        { args: ["codefez"], expected: 3 },
+        { args: ["PYTHON"], expected: 1 },
+        { args: ["rhythm"], expected: 0 }
+      ]
+    },
+    {
+      id: "area_rectangle_1",
+      title: "area_rectangle(width, height)",
+      prompt: "Write a function called area_rectangle that returns width * height.",
+      functionName: "area_rectangle",
+      starterCode: "def area_rectangle(width, height):\n    # your code here\n    return 0",
+      tests: [
+        { args: [3, 4], expected: 12 },
+        { args: [5.5, 2], expected: 11.0 },
+        { args: [0, 9], expected: 0 }
+      ]
+    },
+    {
+      id: "clamp_1",
+      title: "clamp(value, low, high)",
+      prompt: "Write a function called clamp that keeps value between low and high.",
+      functionName: "clamp",
+      starterCode: "def clamp(value, low, high):\n    # your code here\n    return value",
+      tests: [
+        { args: [5, 1, 10], expected: 5 },
+        { args: [-2, 1, 10], expected: 1 },
+        { args: [100, 1, 10], expected: 10 }
+      ]
+    },
+    {
+      id: "average_1",
+      title: "average(nums)",
+      prompt: "Write a function called average that returns the mean of a list of numbers.",
+      functionName: "average",
+      starterCode: "def average(nums):\n    # your code here\n    return 0",
+      tests: [
+        { args: [[2, 4, 6]], expected: 4 },
+        { args: [[1, 1, 2, 2]], expected: 1.5 },
+        { args: [[10]], expected: 10 }
+      ]
+    }
+  ];
+
+  let pyodide = null;
+  let pyodideReady = false;
+  let currentTask = null;
+
+  const state = {
+    playerName: "Alex",
+    challenges: Object.fromEntries(TASKS.map((task) => [task.id, false])),
+    score: 0,
+    codeDrafts: Object.fromEntries(TASKS.map((task) => [task.id, task.starterCode])),
+    attempts: Object.fromEntries(TASKS.map((task) => [task.id, 0])),
+    lastAttemptOutput: Object.fromEntries(TASKS.map((task) => [task.id, ""])),
+    lastAttemptAt: Object.fromEntries(TASKS.map((task) => [task.id, null])),
+    transferMeta: {
+      lastImportedAt: null,
+      lastExportedAt: null,
+      lastImportedFileExportedAt: null
+    }
+  };
+
+  const taskGrid = document.getElementById("py_task_grid");
+  const modal = document.getElementById("py_task_modal");
+  const modalTitle = document.getElementById("py_modal_title");
+  const modalPrompt = document.getElementById("py_modal_prompt");
+  const codeInput = document.getElementById("py_code_input");
+  const runBtn = document.getElementById("py_run_tests_btn");
+  const output = document.getElementById("py_test_output");
+  const runtimeStatus = document.getElementById("py_runtime_status");
+  const attemptMeta = document.getElementById("py_attempt_meta");
+  const transferMeta = document.getElementById("py_transfer_meta");
+  const INDENT = "    ";
+
+  function formatTimestamp(isoText) {
+    if (!isoText) {
+      return "Never";
+    }
+
+    const asDate = new Date(isoText);
+    if (Number.isNaN(asDate.getTime())) {
+      return "Never";
+    }
+
+    return asDate.toLocaleString();
+  }
+
+  function updateTransferMetaDisplay() {
+    if (!transferMeta) {
+      return;
+    }
+
+    transferMeta.textContent = "Last imported: " + formatTimestamp(state.transferMeta.lastImportedAt) + " | Last exported: " + formatTimestamp(state.transferMeta.lastExportedAt);
+  }
+
+  function updateAttemptMetaDisplay(taskId) {
+    if (!attemptMeta) {
+      return;
+    }
+
+    const count = state.attempts[taskId] || 0;
+    const lastAttempt = formatTimestamp(state.lastAttemptAt[taskId]);
+    attemptMeta.textContent = "Attempts: " + count + " | Last attempt: " + lastAttempt;
+  }
+
+  function recordAttempt(taskId, resultText) {
+    state.attempts[taskId] = (state.attempts[taskId] || 0) + 1;
+    state.lastAttemptAt[taskId] = new Date().toISOString();
+    state.lastAttemptOutput[taskId] = resultText;
+    updateAttemptMetaDisplay(taskId);
+  }
+
+  function updateNameDisplay() {
+    const nameEl = document.getElementById("py_user_name");
+    if (nameEl) {
+      nameEl.textContent = state.playerName;
+    }
+  }
+
+  function updateScoreDisplay() {
+    const completed = Object.values(state.challenges).filter(Boolean).length;
+    const total = TASKS.length;
+    state.score = completed;
+
+    const scoreEl = document.getElementById("py_challenge_score");
+    if (scoreEl) {
+      scoreEl.textContent = completed + "/" + total;
+    }
+
+    for (const task of TASKS) {
+      const statusEl = document.getElementById(task.id + "_status");
+      if (statusEl) {
+        statusEl.innerHTML = state.challenges[task.id]
+          ? '<i class="fa-regular fa-square-check text-success"></i>'
+          : '<i class="fa-regular fa-square text-error"></i>';
+      }
+    }
+  }
+
+  function saveState() {
+    const payload = {
+      playerName: state.playerName,
+      challenges: state.challenges,
+      score: state.score,
+      codeDrafts: state.codeDrafts,
+      attempts: state.attempts,
+      lastAttemptOutput: state.lastAttemptOutput,
+      lastAttemptAt: state.lastAttemptAt,
+      transferMeta: state.transferMeta,
+      savedAt: new Date().toISOString()
+    };
+    localStorage.setItem(SAVE_KEY, JSON.stringify(payload));
+  }
+
+  function buildExportPayload() {
+    return {
+      schema: "ks4-python-function-progress-v1",
+      exportedAt: new Date().toISOString(),
+      playerName: state.playerName,
+      challenges: state.challenges,
+      score: state.score,
+      codeDrafts: state.codeDrafts,
+      attempts: state.attempts,
+      lastAttemptOutput: state.lastAttemptOutput,
+      lastAttemptAt: state.lastAttemptAt,
+      transferMeta: state.transferMeta
+    };
+  }
+
+  function restoreFromPayload(payload) {
+    if (!payload || payload.schema !== "ks4-python-function-progress-v1") {
+      throw new Error("Save schema is not supported.");
+    }
+
+    state.playerName = payload.playerName ?? state.playerName;
+    state.challenges = { ...state.challenges, ...(payload.challenges || {}) };
+    state.codeDrafts = { ...state.codeDrafts, ...(payload.codeDrafts || {}) };
+    state.attempts = { ...state.attempts, ...(payload.attempts || {}) };
+    state.lastAttemptOutput = { ...state.lastAttemptOutput, ...(payload.lastAttemptOutput || {}) };
+    state.lastAttemptAt = { ...state.lastAttemptAt, ...(payload.lastAttemptAt || {}) };
+    state.transferMeta = { ...state.transferMeta, ...(payload.transferMeta || {}) };
+    state.transferMeta.lastImportedAt = new Date().toISOString();
+    state.transferMeta.lastImportedFileExportedAt = payload.exportedAt || null;
+
+    updateNameDisplay();
+    updateScoreDisplay();
+    updateTransferMetaDisplay();
+    saveState();
+  }
+
+  function reverseBlocks(value, blockSize) {
+    let outputText = "";
+    for (let i = 0; i < value.length; i += blockSize) {
+      outputText += value.slice(i, i + blockSize).split("").reverse().join("");
+    }
+    return outputText;
+  }
+
+  function computeChecksum(value) {
+    const sum = value
+      .split("")
+      .reduce((acc, ch, index) => acc + ch.charCodeAt(0) * ((index % 7) + 1), 0);
+    return String(sum % 97).padStart(2, "0");
+  }
+
+  function encodeCustomBase64(bytes) {
+    let encoded = "";
+
+    for (let i = 0; i < bytes.length; i += 3) {
+      const b1 = bytes[i];
+      const b2 = i + 1 < bytes.length ? bytes[i + 1] : 0;
+      const b3 = i + 2 < bytes.length ? bytes[i + 2] : 0;
+      const triple = (b1 << 16) | (b2 << 8) | b3;
+
+      encoded += CFEZ_ALPHABET[(triple >> 18) & 63];
+      encoded += CFEZ_ALPHABET[(triple >> 12) & 63];
+      encoded += i + 1 < bytes.length ? CFEZ_ALPHABET[(triple >> 6) & 63] : ".";
+      encoded += i + 2 < bytes.length ? CFEZ_ALPHABET[triple & 63] : ".";
+    }
+
+    return encoded;
+  }
+
+  function decodeCustomBase64(encoded, expectedLength) {
+    if (encoded.length % 4 !== 0) {
+      throw new Error("Encoded text length is invalid.");
+    }
+
+    const bytes = [];
+
+    for (let i = 0; i < encoded.length; i += 4) {
+      const c1 = encoded[i];
+      const c2 = encoded[i + 1];
+      const c3 = encoded[i + 2];
+      const c4 = encoded[i + 3];
+
+      const v1 = CFEZ_INDEX[c1];
+      const v2 = CFEZ_INDEX[c2];
+      const v3 = c3 === "." ? 0 : CFEZ_INDEX[c3];
+      const v4 = c4 === "." ? 0 : CFEZ_INDEX[c4];
+
+      if (v1 === undefined || v2 === undefined || (c3 !== "." && v3 === undefined) || (c4 !== "." && v4 === undefined)) {
+        throw new Error("Unexpected character in encoded payload.");
+      }
+
+      const triple = (v1 << 18) | (v2 << 12) | (v3 << 6) | v4;
+      bytes.push((triple >> 16) & 255);
+      if (c3 !== ".") {
+        bytes.push((triple >> 8) & 255);
+      }
+      if (c4 !== ".") {
+        bytes.push(triple & 255);
+      }
+    }
+
+    if (bytes.length !== expectedLength) {
+      throw new Error("Decoded byte length does not match header.");
+    }
+
+    return new Uint8Array(bytes);
+  }
+
+  function encryptForDownload(plainText) {
+    const bytes = new TextEncoder().encode(plainText);
+    const encoded = encodeCustomBase64(bytes);
+    const checksum = computeChecksum(encoded);
+    const obfuscated = reverseBlocks(encoded, CFEZ_BLOCK_SIZE);
+    return "CFEZ2." + bytes.length + "." + checksum + "." + obfuscated;
+  }
+
+  function decryptUploadedSave(encryptedText) {
+    if (typeof encryptedText !== "string" || !encryptedText.startsWith("CFEZ2.")) {
+      throw new Error("Invalid save format header.");
+    }
+
+    const match = encryptedText.match(/^CFEZ2\.(\d+)\.(\d{2})\.(.+)$/);
+    if (!match) {
+      throw new Error("Save file is incomplete.");
+    }
+
+    const byteLength = Number(match[1]);
+    const checksumFromFile = match[2];
+    const obfuscatedPayload = match[3];
+
+    if (!Number.isInteger(byteLength) || byteLength < 0) {
+      throw new Error("Byte length is invalid.");
+    }
+
+    const encodedPayload = reverseBlocks(obfuscatedPayload, CFEZ_BLOCK_SIZE);
+    const calculatedChecksum = computeChecksum(encodedPayload);
+
+    if (calculatedChecksum !== checksumFromFile) {
+      throw new Error("Checksum failed. File may be corrupted or tampered with.");
+    }
+
+    const bytes = decodeCustomBase64(encodedPayload, byteLength);
+    const decryptedText = new TextDecoder().decode(bytes);
+    return JSON.parse(decryptedText);
+  }
+
+  function downloadEncryptedProgress() {
+    try {
+      state.transferMeta.lastExportedAt = new Date().toISOString();
+      updateTransferMetaDisplay();
+      saveState();
+
+      const payload = buildExportPayload();
+      const encrypted = encryptForDownload(JSON.stringify(payload));
+
+      const blob = new Blob([encrypted], { type: "text/plain;charset=utf-8" });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      const safeName = String(state.playerName || "player").replace(/[^a-z0-9_-]/gi, "_");
+      const datePart = new Date().toISOString().slice(0, 10);
+
+      a.href = url;
+      a.download = "codefez_python_" + safeName + "_" + datePart + ".cfsave";
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      URL.revokeObjectURL(url);
+    } catch (err) {
+      console.error("Failed to export encrypted Python progress:", err);
+      alert("Could not download progress right now. Please try again.");
+    }
+  }
+
+  function openUploadPicker() {
+    const fileInput = document.getElementById("py_upload_progress_input");
+    if (fileInput) {
+      fileInput.click();
+    }
+  }
+
+  async function handleUploadProgress(event) {
+    const file = event?.target?.files?.[0];
+    if (!file) {
+      return;
+    }
+
+    try {
+      const text = await file.text();
+      const payload = decryptUploadedSave(String(text).trim());
+      restoreFromPayload(payload);
+      output.textContent = "Progress imported successfully.";
+      alert("Progress imported successfully.");
+    } catch (err) {
+      console.error("Failed to import encrypted Python progress:", err);
+      alert("Could not import this save file. Check the file and try again.");
+    } finally {
+      event.target.value = "";
+    }
+  }
+
+  function loadState() {
+    const raw = localStorage.getItem(SAVE_KEY);
+    if (!raw) {
+      updateNameDisplay();
+      updateScoreDisplay();
+      updateTransferMetaDisplay();
+      return;
+    }
+
+    try {
+      const payload = JSON.parse(raw);
+      state.playerName = payload.playerName ?? state.playerName;
+      state.challenges = { ...state.challenges, ...(payload.challenges || {}) };
+      state.codeDrafts = { ...state.codeDrafts, ...(payload.codeDrafts || {}) };
+      state.attempts = { ...state.attempts, ...(payload.attempts || {}) };
+      state.lastAttemptOutput = { ...state.lastAttemptOutput, ...(payload.lastAttemptOutput || {}) };
+      state.lastAttemptAt = { ...state.lastAttemptAt, ...(payload.lastAttemptAt || {}) };
+      state.transferMeta = { ...state.transferMeta, ...(payload.transferMeta || {}) };
+      updateNameDisplay();
+      updateScoreDisplay();
+      updateTransferMetaDisplay();
+    } catch (err) {
+      console.error("Failed to parse saved Python challenge data:", err);
+      updateNameDisplay();
+      updateScoreDisplay();
+      updateTransferMetaDisplay();
+    }
+  }
+
+  function editName() {
+    const entered = prompt("Enter your name:", state.playerName);
+    if (entered === null) {
+      return;
+    }
+
+    const clean = entered.trim();
+    if (!clean) {
+      alert("Name cannot be empty.");
+      return;
+    }
+
+    state.playerName = clean;
+    updateNameDisplay();
+    saveState();
+  }
+
+  function resetProgress() {
+    const proceed = confirm("Reset all Python function challenge progress?");
+    if (!proceed) {
+      return;
+    }
+
+    for (const task of TASKS) {
+      state.challenges[task.id] = false;
+      state.codeDrafts[task.id] = task.starterCode;
+      state.attempts[task.id] = 0;
+      state.lastAttemptOutput[task.id] = "";
+      state.lastAttemptAt[task.id] = null;
+    }
+
+    updateScoreDisplay();
+    updateAttemptMetaDisplay(currentTask ? currentTask.id : TASKS[0].id);
+    saveState();
+    output.textContent = "Progress reset.";
+  }
+
+  function renderTaskCards() {
+    const cards = TASKS.map((task, index) => {
+      return `
+        <div class="card shadow-md bg-[#e0f2fe] text-base-content border border-[#7dd3fc] w-full">
+          <span class="w-full p-3">
+            <p class="font-semibold mb-2">Task ${index + 1}: ${task.title}</p>
+            <p class="text-sm mb-3">${task.prompt}</p>
+            <button class="btn btn-sm btn-primary" type="button" data-open-task="${task.id}">
+              Open Task
+              <span id="${task.id}_status" class="ml-1"><i class="fa-regular fa-square text-error"></i></span>
+            </button>
+          </span>
+        </div>
+      `;
+    }).join("");
+
+    taskGrid.innerHTML = cards;
+
+    taskGrid.querySelectorAll("[data-open-task]").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const taskId = btn.getAttribute("data-open-task");
+        const task = TASKS.find((t) => t.id === taskId);
+        if (!task) {
+          return;
+        }
+        openTask(task);
+      });
+    });
+  }
+
+  function openTask(task) {
+    currentTask = task;
+    modalTitle.textContent = task.title;
+    modalPrompt.textContent = task.prompt;
+    codeInput.value = state.codeDrafts[task.id] || task.starterCode;
+    output.textContent = state.lastAttemptOutput[task.id] || "Press Run Tests to check your function.";
+    updateAttemptMetaDisplay(task.id);
+    modal.showModal();
+  }
+
+  function attachTextareaIndentShortcuts(textarea) {
+    if (!textarea) {
+      return;
+    }
+
+    textarea.addEventListener("keydown", (event) => {
+      if (event.key === "Enter") {
+        event.preventDefault();
+
+        const value = textarea.value;
+        const start = textarea.selectionStart;
+        const end = textarea.selectionEnd;
+        const lineStart = value.lastIndexOf("\n", start - 1) + 1;
+        const currentLine = value.slice(lineStart, start);
+        const leadingWhitespace = (currentLine.match(/^\s*/) || [""])[0];
+        const needsBlockIndent = currentLine.trimEnd().endsWith(":");
+        const nextIndent = needsBlockIndent ? leadingWhitespace + INDENT : leadingWhitespace;
+        const insertText = "\n" + nextIndent;
+
+        textarea.value = value.slice(0, start) + insertText + value.slice(end);
+        const newCursorPos = start + insertText.length;
+        textarea.selectionStart = textarea.selectionEnd = newCursorPos;
+        return;
+      }
+
+      if (event.key !== "Tab") {
+        return;
+      }
+
+      event.preventDefault();
+
+      const value = textarea.value;
+      const start = textarea.selectionStart;
+      const end = textarea.selectionEnd;
+
+      if (!event.shiftKey) {
+        if (start === end) {
+          textarea.value = value.slice(0, start) + INDENT + value.slice(end);
+          textarea.selectionStart = textarea.selectionEnd = start + INDENT.length;
+          return;
+        }
+
+        const lineStart = value.lastIndexOf("\n", start - 1) + 1;
+        const selected = value.slice(lineStart, end);
+        const indented = selected.split("\n").map((line) => INDENT + line).join("\n");
+
+        textarea.value = value.slice(0, lineStart) + indented + value.slice(end);
+        textarea.selectionStart = lineStart;
+        textarea.selectionEnd = lineStart + indented.length;
+        return;
+      }
+
+      const lineStart = value.lastIndexOf("\n", start - 1) + 1;
+      const selected = value.slice(lineStart, end);
+      const lines = selected.split("\n");
+      let removedBeforeStart = 0;
+      let totalRemoved = 0;
+
+      const unindented = lines.map((line, idx) => {
+        if (line.startsWith(INDENT)) {
+          if (idx === 0) {
+            removedBeforeStart = INDENT.length;
+          }
+          totalRemoved += INDENT.length;
+          return line.slice(INDENT.length);
+        }
+
+        if (line.startsWith("\t")) {
+          if (idx === 0) {
+            removedBeforeStart = 1;
+          }
+          totalRemoved += 1;
+          return line.slice(1);
+        }
+
+        return line;
+      }).join("\n");
+
+      textarea.value = value.slice(0, lineStart) + unindented + value.slice(end);
+      textarea.selectionStart = Math.max(lineStart, start - removedBeforeStart);
+      textarea.selectionEnd = Math.max(textarea.selectionStart, end - totalRemoved);
+    });
+  }
+
+  function hasForbiddenImports(source) {
+    return /(^|\n)\s*(import\s+(os|sys|subprocess|socket|shutil|pathlib)\b|from\s+(os|sys|subprocess|socket|shutil|pathlib)\s+import\b)/i.test(source);
+  }
+
+  async function runTestsForCurrentTask() {
+    if (!pyodideReady || !pyodide || !currentTask) {
+      return;
+    }
+
+    const studentCode = codeInput.value;
+    state.codeDrafts[currentTask.id] = studentCode;
+
+    if (hasForbiddenImports(studentCode)) {
+      const blockedMessage = "Blocked import found. This task runner does not allow os/sys/subprocess/socket/shutil/pathlib.";
+      output.textContent = blockedMessage;
+      recordAttempt(currentTask.id, blockedMessage);
+      saveState();
+      return;
+    }
+
+    runBtn.disabled = true;
+    output.textContent = "Running tests...\n";
+
+    try {
+      const testsJson = JSON.stringify(currentTask.tests);
+      const pythonScript = `
+import json
+
+student_code = ${JSON.stringify(studentCode)}
+function_name = ${JSON.stringify(currentTask.functionName)}
+tests = json.loads(${JSON.stringify(testsJson)})
+
+ns = {}
+
+result = {
+  "ok": True,
+  "error": "",
+  "results": []
+}
+
+try:
+  exec(student_code, ns)
+except Exception as e:
+  result["ok"] = False
+  result["error"] = "Code error: " + str(e)
+
+if result["ok"]:
+  fn = ns.get(function_name)
+  if not callable(fn):
+    result["ok"] = False
+    result["error"] = "Function '" + function_name + "' was not found."
+
+if result["ok"]:
+  def values_equal(a, b):
+    if isinstance(a, (int, float)) and isinstance(b, (int, float)):
+      return abs(float(a) - float(b)) <= 1e-9
+    return a == b
+
+  for idx, test in enumerate(tests, start=1):
+    args = test.get("args", [])
+    expected = test.get("expected")
+    row = {
+      "index": idx,
+      "args": args,
+      "expected": expected,
+      "actual": None,
+      "passed": False,
+      "error": ""
+    }
+    try:
+      actual = fn(*args)
+      row["actual"] = actual
+      row["passed"] = values_equal(actual, expected)
+    except Exception as e:
+      row["error"] = str(e)
+    result["results"].append(row)
+
+json.dumps(result)
+`;
+
+      const raw = await pyodide.runPythonAsync(pythonScript);
+      const testResult = JSON.parse(raw);
+
+      if (!testResult.ok) {
+        output.textContent = testResult.error;
+        state.challenges[currentTask.id] = false;
+        updateScoreDisplay();
+        recordAttempt(currentTask.id, testResult.error);
+        saveState();
+        return;
+      }
+
+      const lines = [];
+      let allPassed = true;
+
+      for (const row of testResult.results) {
+        const argsText = JSON.stringify(row.args).slice(1, -1);
+        const callText = currentTask.functionName + "(" + argsText + ")";
+        if (row.passed) {
+          lines.push("Test " + row.index + ": PASS | " + callText + " -> " + JSON.stringify(row.actual));
+        } else {
+          allPassed = false;
+          if (row.error) {
+            lines.push("Test " + row.index + ": FAIL | " + callText + " | Runtime error: " + row.error);
+          } else {
+            lines.push(
+              "Test " + row.index + ": FAIL | " + callText + " | expected " + JSON.stringify(row.expected) + " but got " + JSON.stringify(row.actual)
+            );
+          }
+        }
+      }
+
+      if (allPassed) {
+        lines.push("\nAll tests passed. Challenge complete.");
+        state.challenges[currentTask.id] = true;
+      } else {
+        lines.push("\nSome tests failed. Keep trying.");
+        state.challenges[currentTask.id] = false;
+      }
+
+      output.textContent = lines.join("\n");
+      recordAttempt(currentTask.id, lines.join("\n"));
+      updateScoreDisplay();
+      saveState();
+    } catch (err) {
+      const runnerMessage = "Runner error: " + err;
+      output.textContent = runnerMessage;
+      recordAttempt(currentTask.id, runnerMessage);
+      saveState();
+    } finally {
+      runBtn.disabled = false;
+    }
+  }
+
+  function setRuntimeReady(ready, text) {
+    pyodideReady = ready;
+    runBtn.disabled = !ready;
+    runtimeStatus.textContent = text;
+  }
+
+  async function ensurePyodideLoaded() {
+    if (window.loadPyodide) {
+      return;
+    }
+
+    await new Promise((resolve, reject) => {
+      const script = document.createElement("script");
+      script.src = PYODIDE_SRC;
+      script.onload = resolve;
+      script.onerror = () => reject(new Error("Could not load Pyodide script."));
+      document.head.appendChild(script);
+    });
+  }
+
+  async function initializeRuntime() {
+    try {
+      setRuntimeReady(false, "Loading Python runtime...");
+      await ensurePyodideLoaded();
+      pyodide = await loadPyodide({
+        indexURL: "https://cdn.jsdelivr.net/pyodide/v0.23.4/full/"
+      });
+      setRuntimeReady(true, "Python runtime ready.");
+    } catch (err) {
+      console.error("Pyodide failed to initialize:", err);
+      setRuntimeReady(false, "Python runtime failed to load.");
+      output.textContent = "Python runtime failed to load. Check your connection and refresh.";
+    }
+  }
+
+  document.getElementById("py_edit_name_btn").addEventListener("click", editName);
+  document.getElementById("py_download_progress_btn").addEventListener("click", downloadEncryptedProgress);
+  document.getElementById("py_upload_progress_btn").addEventListener("click", openUploadPicker);
+  document.getElementById("py_upload_progress_input").addEventListener("change", handleUploadProgress);
+  document.getElementById("py_reset_progress_btn").addEventListener("click", resetProgress);
+  runBtn.addEventListener("click", runTestsForCurrentTask);
+  attachTextareaIndentShortcuts(codeInput);
+
+  renderTaskCards();
+  loadState();
+  initializeRuntime();
+})();
+</script>
