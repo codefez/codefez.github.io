@@ -1,3 +1,4 @@
+<!-- Info card -->
 <div class="alert column border border-[#d1d5db] mt-8">
   <div class="avatar">
     <div class="mask mask-squircle w-12">
@@ -9,7 +10,7 @@
     <p class="pb-2">Write each function and run the built-in test cases. Pass all tests to complete each challenge.</p>
 
     <div class="flex flex-wrap items-center gap-3 pb-3">
-      <p>Name: <span id="py_user_name">Alex</span></p>
+      <p>Name: <span id="py_user_name">Amazing Codefez User</span></p>
       <button id="py_edit_name_btn" type="button" class="btn btn-xs btn-outline btn-info" aria-label="Edit player name">Edit</button>
       <p>Score: <span id="py_challenge_score">0/0</span></p>
       <p class="join join-horizontal">
@@ -25,11 +26,15 @@
     </div>
 
     <p id="py_transfer_meta" class="text-xs opacity-70 pb-3">Last imported: Never | Last exported: Never</p>
-
-    <div id="py_task_grid" class="grid gap-4 sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-3"></div>
   </span>
 </div>
 
+<!-- Task Grids -->
+<div class="alert column border border-[#d1d5db] mt-8">
+  <div id="py_task_grid" class="grid gap-4 sm:grid-cols-1 md:grid-cols-2 5xl:grid-cols-3"></div>
+</div>
+
+<!-- Task modal template -->
 <dialog id="py_task_modal" class="modal">
   <div class="modal-box max-w-5xl h-[90vh] flex flex-col">
     <form method="dialog">
@@ -67,152 +72,101 @@
 <script>
 (function initPythonFunctionTasks() {
   const SAVE_KEY = "ks4PythonFunctionTasks_v1";
+  const TASKS_DATA_URL = "/files/ks4_python_function_tasks.json";
   const PYODIDE_SRC = "https://cdn.jsdelivr.net/pyodide/v0.23.4/full/pyodide.js";
   const CFEZ_ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789:_";
   const CFEZ_INDEX = Object.fromEntries(Array.from(CFEZ_ALPHABET).map((ch, idx) => [ch, idx]));
   const CFEZ_BLOCK_SIZE = 5;
-
-  const TASKS = [
-    {
-      id: "sumup_1",
-      title: "sumup(a, b)",
-      prompt: "Write a function called sumup that takes 2 parameters and returns their sum.",
-      functionName: "sumup",
-      starterCode: "def sumup(a, b):\n    # your code here\n    return 0",
-      tests: [
-        { args: [2, 2], expected: 4 },
-        { args: [0.5, 0.5], expected: 1.0 },
-        { args: [5, 5], expected: 10 }
-      ]
-    },
-    {
-      id: "diff_1",
-      title: "difference(a, b)",
-      prompt: "Write a function called difference that returns a - b.",
-      functionName: "difference",
-      starterCode: "def difference(a, b):\n    # your code here\n    return 0",
-      tests: [
-        { args: [10, 3], expected: 7 },
-        { args: [3, 10], expected: -7 },
-        { args: [0, 0], expected: 0 }
-      ]
-    },
-    {
-      id: "is_even_1",
-      title: "is_even(n)",
-      prompt: "Write a function called is_even that returns True when n is even, otherwise False.",
-      functionName: "is_even",
-      starterCode: "def is_even(n):\n    # your code here\n    return False",
-      tests: [
-        { args: [4], expected: true },
-        { args: [7], expected: false },
-        { args: [0], expected: true }
-      ]
-    },
-    {
-      id: "max_of_three_1",
-      title: "max_of_three(a, b, c)",
-      prompt: "Write a function called max_of_three that returns the largest of 3 numbers.",
-      functionName: "max_of_three",
-      starterCode: "def max_of_three(a, b, c):\n    # your code here\n    return 0",
-      tests: [
-        { args: [1, 9, 3], expected: 9 },
-        { args: [5, 5, 2], expected: 5 },
-        { args: [-1, -4, -2], expected: -1 }
-      ]
-    },
-    {
-      id: "factorial_1",
-      title: "factorial(n)",
-      prompt: "Write a function called factorial that returns n! for n >= 0.",
-      functionName: "factorial",
-      starterCode: "def factorial(n):\n    # your code here\n    return 1",
-      tests: [
-        { args: [0], expected: 1 },
-        { args: [1], expected: 1 },
-        { args: [5], expected: 120 }
-      ]
-    },
-    {
-      id: "reverse_text_1",
-      title: "reverse_text(text)",
-      prompt: "Write a function called reverse_text that returns the text reversed.",
-      functionName: "reverse_text",
-      starterCode: "def reverse_text(text):\n    # your code here\n    return text",
-      tests: [
-        { args: ["Code"], expected: "edoC" },
-        { args: ["Python"], expected: "nohtyP" },
-        { args: [""], expected: "" }
-      ]
-    },
-    {
-      id: "count_vowels_1",
-      title: "count_vowels(text)",
-      prompt: "Write a function called count_vowels that counts vowels (a, e, i, o, u), case-insensitive.",
-      functionName: "count_vowels",
-      starterCode: "def count_vowels(text):\n    # your code here\n    return 0",
-      tests: [
-        { args: ["codefez"], expected: 3 },
-        { args: ["PYTHON"], expected: 1 },
-        { args: ["rhythm"], expected: 0 }
-      ]
-    },
-    {
-      id: "area_rectangle_1",
-      title: "area_rectangle(width, height)",
-      prompt: "Write a function called area_rectangle that returns width * height.",
-      functionName: "area_rectangle",
-      starterCode: "def area_rectangle(width, height):\n    # your code here\n    return 0",
-      tests: [
-        { args: [3, 4], expected: 12 },
-        { args: [5.5, 2], expected: 11.0 },
-        { args: [0, 9], expected: 0 }
-      ]
-    },
-    {
-      id: "clamp_1",
-      title: "clamp(value, low, high)",
-      prompt: "Write a function called clamp that keeps value between low and high.",
-      functionName: "clamp",
-      starterCode: "def clamp(value, low, high):\n    # your code here\n    return value",
-      tests: [
-        { args: [5, 1, 10], expected: 5 },
-        { args: [-2, 1, 10], expected: 1 },
-        { args: [100, 1, 10], expected: 10 }
-      ]
-    },
-    {
-      id: "average_1",
-      title: "average(nums)",
-      prompt: "Write a function called average that returns the mean of a list of numbers.",
-      functionName: "average",
-      starterCode: "def average(nums):\n    # your code here\n    return 0",
-      tests: [
-        { args: [[2, 4, 6]], expected: 4 },
-        { args: [[1, 1, 2, 2]], expected: 1.5 },
-        { args: [[10]], expected: 10 }
-      ]
-    }
-  ];
+  let TASKS = [];
 
   let pyodide = null;
   let pyodideReady = false;
   let currentTask = null;
 
   const state = {
-    playerName: "Alex",
-    challenges: Object.fromEntries(TASKS.map((task) => [task.id, false])),
+    playerName: "Amazing Codefez User",
+    challenges: {},
     score: 0,
-    codeDrafts: Object.fromEntries(TASKS.map((task) => [task.id, task.starterCode])),
-    attempts: Object.fromEntries(TASKS.map((task) => [task.id, 0])),
-    lastAttemptOutput: Object.fromEntries(TASKS.map((task) => [task.id, ""])),
-    lastAttemptAt: Object.fromEntries(TASKS.map((task) => [task.id, null])),
+    codeDrafts: {},
+    attempts: {},
+    lastAttemptOutput: {},
+    lastAttemptAt: {},
     transferMeta: {
       lastImportedAt: null,
       lastExportedAt: null,
       lastImportedFileExportedAt: null
     }
   };
+
+  function normalizeTask(task) {
+    if (!task || typeof task !== "object") {
+      return null;
+    }
+
+    const id = String(task.id || "").trim();
+    const functionName = String(task.functionName || "").trim();
+    if (!id || !functionName) {
+      return null;
+    }
+
+    return {
+      id,
+      title: String(task.title || functionName),
+      prompt: String(task.prompt || "Write the required function."),
+      functionName,
+      category: String(task.category || "Uncategorized"),
+      difficulty: Number(task.difficulty) || 1,
+      starterCode: String(task.starterCode || ("def " + functionName + "():\n    pass")),
+      tests: Array.isArray(task.tests) ? task.tests : []
+    };
+  }
+
+  function ensureTaskState(task) {
+    if (state.challenges[task.id] === undefined) {
+      state.challenges[task.id] = false;
+    }
+    if (state.codeDrafts[task.id] === undefined) {
+      state.codeDrafts[task.id] = task.starterCode;
+    }
+    if (state.attempts[task.id] === undefined) {
+      state.attempts[task.id] = 0;
+    }
+    if (state.lastAttemptOutput[task.id] === undefined) {
+      state.lastAttemptOutput[task.id] = "";
+    }
+    if (state.lastAttemptAt[task.id] === undefined) {
+      state.lastAttemptAt[task.id] = null;
+    }
+  }
+
+  function syncStateWithTasks() {
+    for (const task of TASKS) {
+      ensureTaskState(task);
+    }
+  }
+
+  async function loadTasksFromFile() {
+    const response = await fetch(TASKS_DATA_URL, { cache: "no-store" });
+    if (!response.ok) {
+      throw new Error("Task file request failed with status " + response.status);
+    }
+
+    const rawTasks = await response.json();
+    if (!Array.isArray(rawTasks)) {
+      throw new Error("Task file is not a JSON array.");
+    }
+
+    const normalized = rawTasks
+      .map((task) => normalizeTask(task))
+      .filter((task) => task !== null);
+
+    if (!normalized.length) {
+      throw new Error("No valid tasks found in task file.");
+    }
+
+    TASKS = normalized;
+    syncStateWithTasks();
+  }
 
   const taskGrid = document.getElementById("py_task_grid");
   const modal = document.getElementById("py_task_modal");
@@ -272,7 +226,7 @@
   }
 
   function updateScoreDisplay() {
-    const completed = Object.values(state.challenges).filter(Boolean).length;
+    const completed = TASKS.filter((task) => state.challenges[task.id] === true).length;
     const total = TASKS.length;
     state.score = completed;
 
@@ -567,28 +521,57 @@
     }
 
     updateScoreDisplay();
-    updateAttemptMetaDisplay(currentTask ? currentTask.id : TASKS[0].id);
+    if (currentTask) {
+      updateAttemptMetaDisplay(currentTask.id);
+    }
     saveState();
     output.textContent = "Progress reset.";
   }
 
   function renderTaskCards() {
-    const cards = TASKS.map((task, index) => {
+    if (!TASKS.length) {
+      taskGrid.innerHTML = "<p class=\"text-sm opacity-80\">No tasks loaded yet.</p>";
+      return;
+    }
+
+    const grouped = TASKS.reduce((acc, task) => {
+      if (!acc[task.category]) {
+        acc[task.category] = [];
+      }
+      acc[task.category].push(task);
+      return acc;
+    }, {});
+
+    const sections = Object.entries(grouped).map(([category, tasks]) => {
+      const cards = tasks.map((task) => {
+        return `
+          <div class="card shadow-md bg-[#e0f2fe] text-base-content border border-[#7dd3fc] w-full">
+            <span class="w-full p-3">
+              
+              <p class="font-semibold pb-1">${task.title}</p>
+                
+              
+              <div class="flex items-center justify-between gap-1 mb-1">
+                <button class="btn btn-sm btn-primary" type="button" data-open-task="${task.id}">
+                  <i class="fa-solid fa-up-right-from-square"></i>
+                  <span id="${task.id}_status" class="ml-1"><i class="fa-regular fa-square text-error"></i></span>
+                </button>
+                <span class="badge badge-outline text-xs">${"⭐".repeat(Math.max(1, Math.min(3, Number(task.difficulty) || 1)))}</span>
+              </div>
+            </span>
+          </div>
+        `;
+      }).join("");
+
       return `
-        <div class="card shadow-md bg-[#e0f2fe] text-base-content border border-[#7dd3fc] w-full">
-          <span class="w-full p-3">
-            <p class="font-semibold mb-2">Task ${index + 1}: ${task.title}</p>
-            <p class="text-sm mb-3">${task.prompt}</p>
-            <button class="btn btn-sm btn-primary" type="button" data-open-task="${task.id}">
-              Open Task
-              <span id="${task.id}_status" class="ml-1"><i class="fa-regular fa-square text-error"></i></span>
-            </button>
-          </span>
-        </div>
+        <section class="mb-5">
+          <h2 class="text-base font-bold mb-3">${category}</h2>
+          <div class="grid gap-4 sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-3">${cards}</div>
+        </section>
       `;
     }).join("");
 
-    taskGrid.innerHTML = cards;
+    taskGrid.innerHTML = sections;
 
     taskGrid.querySelectorAll("[data-open-task]").forEach((btn) => {
       btn.addEventListener("click", () => {
@@ -610,6 +593,21 @@
     output.textContent = state.lastAttemptOutput[task.id] || "Press Run Tests to check your function.";
     updateAttemptMetaDisplay(task.id);
     modal.showModal();
+  }
+
+  async function initializeTasksAndUI() {
+    loadState();
+
+    try {
+      await loadTasksFromFile();
+      renderTaskCards();
+      updateScoreDisplay();
+      saveState();
+    } catch (err) {
+      console.error("Failed to load external task file:", err);
+      taskGrid.innerHTML = "<p class=\"text-sm text-error\">Could not load task file. Check /files/ks4_python_function_tasks.json.</p>";
+      output.textContent = "Task file failed to load. Please refresh after fixing the JSON file.";
+    }
   }
 
   function attachTextareaIndentShortcuts(textarea) {
@@ -873,8 +871,7 @@ json.dumps(result)
   runBtn.addEventListener("click", runTestsForCurrentTask);
   attachTextareaIndentShortcuts(codeInput);
 
-  renderTaskCards();
-  loadState();
+  initializeTasksAndUI();
   initializeRuntime();
 })();
 </script>

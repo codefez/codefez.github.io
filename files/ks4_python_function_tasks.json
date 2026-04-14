@@ -1,0 +1,142 @@
+[
+  {
+    "id": "sumup_1",
+    "title": "sumup(a, b)",
+    "prompt": "Write a function called sumup that takes 2 parameters and returns their sum.",
+    "functionName": "sumup",
+    "category": "Core Functions",
+    "difficulty": 1,
+    "starterCode": "def sumup(a, b):\n    # your code here\n    return 0",
+    "tests": [
+      { "args": [2, 2], "expected": 4 },
+      { "args": [0.5, 0.5], "expected": 1.0 },
+      { "args": [5, 5], "expected": 10 }
+    ]
+  },
+  {
+    "id": "diff_1",
+    "title": "difference(a, b)",
+    "prompt": "Write a function called difference that returns a - b.",
+    "functionName": "difference",
+    "category": "Core Functions",
+    "difficulty": 1,
+    "starterCode": "def difference(a, b):\n    # your code here\n    return 0",
+    "tests": [
+      { "args": [10, 3], "expected": 7 },
+      { "args": [3, 10], "expected": -7 },
+      { "args": [0, 0], "expected": 0 }
+    ]
+  },
+  {
+    "id": "is_even_1",
+    "title": "is_even(n)",
+    "prompt": "Write a function called is_even that returns True when n is even, otherwise False.",
+    "functionName": "is_even",
+    "category": "Selection",
+    "difficulty": 1,
+    "starterCode": "def is_even(n):\n    # your code here\n    return False",
+    "tests": [
+      { "args": [4], "expected": true },
+      { "args": [7], "expected": false },
+      { "args": [0], "expected": true }
+    ]
+  },
+  {
+    "id": "max_of_three_1",
+    "title": "max_of_three(a, b, c)",
+    "prompt": "Write a function called max_of_three that returns the largest of 3 numbers.",
+    "functionName": "max_of_three",
+    "category": "Selection",
+    "difficulty": 2,
+    "starterCode": "def max_of_three(a, b, c):\n    # your code here\n    return 0",
+    "tests": [
+      { "args": [1, 9, 3], "expected": 9 },
+      { "args": [5, 5, 2], "expected": 5 },
+      { "args": [-1, -4, -2], "expected": -1 }
+    ]
+  },
+  {
+    "id": "factorial_1",
+    "title": "factorial(n)",
+    "prompt": "Write a function called factorial that returns n! for n >= 0.",
+    "functionName": "factorial",
+    "category": "Iteration",
+    "difficulty": 2,
+    "starterCode": "def factorial(n):\n    # your code here\n    return 1",
+    "tests": [
+      { "args": [0], "expected": 1 },
+      { "args": [1], "expected": 1 },
+      { "args": [5], "expected": 120 }
+    ]
+  },
+  {
+    "id": "reverse_text_1",
+    "title": "reverse_text(text)",
+    "prompt": "Write a function called reverse_text that returns the text reversed.",
+    "functionName": "reverse_text",
+    "category": "Strings",
+    "difficulty": 1,
+    "starterCode": "def reverse_text(text):\n    # your code here\n    return text",
+    "tests": [
+      { "args": ["Code"], "expected": "edoC" },
+      { "args": ["Python"], "expected": "nohtyP" },
+      { "args": [""], "expected": "" }
+    ]
+  },
+  {
+    "id": "count_vowels_1",
+    "title": "count_vowels(text)",
+    "prompt": "Write a function called count_vowels that counts vowels (a, e, i, o, u), case-insensitive.",
+    "functionName": "count_vowels",
+    "category": "Strings",
+    "difficulty": 2,
+    "starterCode": "def count_vowels(text):\n    # your code here\n    return 0",
+    "tests": [
+      { "args": ["codefez"], "expected": 3 },
+      { "args": ["PYTHON"], "expected": 1 },
+      { "args": ["rhythm"], "expected": 0 }
+    ]
+  },
+  {
+    "id": "area_rectangle_1",
+    "title": "area_rectangle(width, height)",
+    "prompt": "Write a function called area_rectangle that returns width * height.",
+    "functionName": "area_rectangle",
+    "category": "Core Functions",
+    "difficulty": 1,
+    "starterCode": "def area_rectangle(width, height):\n    # your code here\n    return 0",
+    "tests": [
+      { "args": [3, 4], "expected": 12 },
+      { "args": [5.5, 2], "expected": 11.0 },
+      { "args": [0, 9], "expected": 0 }
+    ]
+  },
+  {
+    "id": "clamp_1",
+    "title": "clamp(value, low, high)",
+    "prompt": "Write a function called clamp that keeps value between low and high.",
+    "functionName": "clamp",
+    "category": "Selection",
+    "difficulty": 3,
+    "starterCode": "def clamp(value, low, high):\n    # your code here\n    return value",
+    "tests": [
+      { "args": [5, 1, 10], "expected": 5 },
+      { "args": [-2, 1, 10], "expected": 1 },
+      { "args": [100, 1, 10], "expected": 10 }
+    ]
+  },
+  {
+    "id": "average_1",
+    "title": "average(nums)",
+    "prompt": "Write a function called average that returns the mean of a list of numbers.",
+    "functionName": "average",
+    "category": "Lists",
+    "difficulty": 2,
+    "starterCode": "def average(nums):\n    # your code here\n    return 0",
+    "tests": [
+      { "args": [[2, 4, 6]], "expected": 4 },
+      { "args": [[1, 1, 2, 2]], "expected": 1.5 },
+      { "args": [[10]], "expected": 10 }
+    ]
+  }
+]
