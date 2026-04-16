@@ -33,12 +33,12 @@
     "prompt": "Write a function called nx_next_to_y that takes 3 parameters and returns a string of X n number of times next to Y.\nFor example, nx_next_to_y(3, 'a', 'b') should return 'aaab'.",
     "functionName": "nx_next_to_y",
     "category": "Core Functions",
-    "difficulty": 1,
+    "difficulty": 2,
     "starterCode": "def nx_next_to_y(n, x, y):\n    # your code here\n    return 0",
     "tests": [
-      { "args": [3, 'a', 'b'], "expected": "aaab" },
-      { "args": [1, 'x', 'y'], "expected": "xy" },
-      { "args": [4, 'p', 'q'], "expected": "ppppq" }
+      { "args": [3, "a", "b"], "expected": "aaab" },
+      { "args": [1, "x", "y"], "expected": "xy" },
+      { "args": [4, "p", "q"], "expected": "ppppq" }
     ]
   },
   {
