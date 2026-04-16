@@ -1,7 +1,7 @@
 [
   {
     "id": "sumup_1",
-    "title": "sumup(a, b)",
+    "title": "Sum Up",
     "prompt": "Write a function called sumup that takes 2 parameters and returns their sum.",
     "functionName": "sumup",
     "category": "Core Functions",
@@ -14,8 +14,36 @@
     ]
   },
   {
+    "id": "next_to_1",
+    "title": "Next To",
+    "prompt": "Write a function called next_to that takes 2 parameters and returns a string of the 2 values next to each other.",
+    "functionName": "next_to",
+    "category": "Core Functions",
+    "difficulty": 1,
+    "starterCode": "def next_to(a, b):\n    # your code here\n    return 0",
+    "tests": [
+      { "args": [2, 2], "expected": "22" },
+      { "args": ["a", 0.5], "expected": "a0.5" },
+      { "args": ["a", "b"], "expected": "ab" }
+    ]
+  },
+  {
+    "id": "nx_next_to_y",
+    "title": "nX Next To Y",
+    "prompt": "Write a function called nx_next_to_y that takes 3 parameters and returns a string of X n number of times next to Y.\nFor example, nx_next_to_y(3, 'a', 'b') should return 'aaab'.",
+    "functionName": "nx_next_to_y",
+    "category": "Core Functions",
+    "difficulty": 1,
+    "starterCode": "def nx_next_to_y(n, x, y):\n    # your code here\n    return 0",
+    "tests": [
+      { "args": [3, 'a', 'b'], "expected": "aaab" },
+      { "args": [1, 'x', 'y'], "expected": "xy" },
+      { "args": [4, 'p', 'q'], "expected": "ppppq" }
+    ]
+  },
+  {
     "id": "diff_1",
-    "title": "difference(a, b)",
+    "title": "Difference",
     "prompt": "Write a function called difference that returns a - b.",
     "functionName": "difference",
     "category": "Core Functions",
@@ -29,7 +57,7 @@
   },
   {
     "id": "is_even_1",
-    "title": "is_even(n)",
+    "title": "is even",
     "prompt": "Write a function called is_even that returns True when n is even, otherwise False.",
     "functionName": "is_even",
     "category": "Selection",
@@ -43,7 +71,7 @@
   },
   {
     "id": "max_of_three_1",
-    "title": "max_of_three(a, b, c)",
+    "title": "max of three",
     "prompt": "Write a function called max_of_three that returns the largest of 3 numbers.",
     "functionName": "max_of_three",
     "category": "Selection",
@@ -57,7 +85,7 @@
   },
   {
     "id": "factorial_1",
-    "title": "factorial(n)",
+    "title": "factorial",
     "prompt": "Write a function called factorial that returns n! for n >= 0.",
     "functionName": "factorial",
     "category": "Iteration",
@@ -71,7 +99,7 @@
   },
   {
     "id": "reverse_text_1",
-    "title": "reverse_text(text)",
+    "title": "reverse text",
     "prompt": "Write a function called reverse_text that returns the text reversed.",
     "functionName": "reverse_text",
     "category": "Strings",
@@ -85,7 +113,7 @@
   },
   {
     "id": "count_vowels_1",
-    "title": "count_vowels(text)",
+    "title": "count vowels",
     "prompt": "Write a function called count_vowels that counts vowels (a, e, i, o, u), case-insensitive.",
     "functionName": "count_vowels",
     "category": "Strings",
@@ -99,7 +127,7 @@
   },
   {
     "id": "area_rectangle_1",
-    "title": "area_rectangle(width, height)",
+    "title": "area rectangle",
     "prompt": "Write a function called area_rectangle that returns width * height.",
     "functionName": "area_rectangle",
     "category": "Core Functions",
@@ -113,7 +141,7 @@
   },
   {
     "id": "clamp_1",
-    "title": "clamp(value, low, high)",
+    "title": "clamp value",
     "prompt": "Write a function called clamp that keeps value between low and high.",
     "functionName": "clamp",
     "category": "Selection",
@@ -127,7 +155,7 @@
   },
   {
     "id": "average_1",
-    "title": "average(nums)",
+    "title": "average",
     "prompt": "Write a function called average that returns the mean of a list of numbers.",
     "functionName": "average",
     "category": "Lists",
