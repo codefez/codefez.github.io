@@ -56,6 +56,20 @@
     ]
   },
   {
+    "id": "nbeetween_1",
+    "title": "n in between",
+    "prompt": "Write a function called nbetween that returns n number of spaces in between 2 other arguments.\nFor example, nbetween(3, 'a', 'b') should return 'a   b'.",
+    "functionName": "nbetween",
+    "category": "Core Functions",
+    "difficulty": 2,
+    "starterCode": "def nbetween(n, a, b):\n    # your code here\n    return False",
+    "tests": [
+      { "args": [5, 1, 10], "expected": "1     10" },
+      { "args": [0, "a", "b"], "expected": "ab" },
+      { "args": [10, "x", "y"], "expected": "x          y" }
+    ]
+  },
+  {
     "id": "is_even_1",
     "title": "is even",
     "prompt": "Write a function called is_even that returns True when n is even, otherwise False.",
@@ -159,12 +173,54 @@
     "prompt": "Write a function called average that returns the mean of a list of numbers.",
     "functionName": "average",
     "category": "Lists",
-    "difficulty": 2,
+    "difficulty": 1,
     "starterCode": "def average(nums):\n    # your code here\n    return 0",
     "tests": [
       { "args": [[2, 4, 6]], "expected": 4 },
       { "args": [[1, 1, 2, 2]], "expected": 1.5 },
       { "args": [[10]], "expected": 10 }
+    ]
+  },
+  {
+    "id": "duplicates_1",
+    "title": "find duplicates",
+    "prompt": "Write a function called duplicates that returns a list of duplicate elements in a list.",
+    "functionName": "duplicates",
+    "category": "Lists",
+    "difficulty": 2,
+    "starterCode": "def duplicates(lst):\n    # your code here\n    return []",
+    "tests": [
+      { "args": [["Tracy", "Stacy", "Stacy", "Lacy", "Macy","Tracy"]], "expected": ["Stacy", "Tracy"] },
+      { "args": [[1, 1, 2, 2]], "expected": [1, 2] },
+      { "args": [[10]], "expected": [] }
+    ]
+  },
+  {
+    "id": "duplicates_2",
+    "title": "remove duplicates",
+    "prompt": "Write a function called duplicates that returns a list of elements in a list after removing duplicates.",
+    "functionName": "duplicates",
+    "category": "Lists",
+    "difficulty": 2,
+    "starterCode": "def duplicates(lst):\n    # your code here\n    return []",
+    "tests": [
+      { "args": [["Tracy", "Stacy", "Stacy", "Lacy", "Macy","Tracy"]], "expected": ["Tracy", "Stacy", "Lacy", "Macy"] },
+      { "args": [[1, 1, 2, 2]], "expected": [1, 2] },
+      { "args": [[10]], "expected": [10] }
+    ]
+  },
+  {
+    "id": "nbeetween_2",
+    "title": "n in between",
+    "prompt": "Write a function called nbetween that returns n number of spaces in between 2 characters of a string.\nFor example, nbetween(3, 'ab') should return 'a   b'.",
+    "functionName": "nbetween",
+    "category": "Strings",
+    "difficulty": 2,
+    "starterCode": "def nbetween(n, a):\n    # your code here\n    return False",
+    "tests": [
+      { "args": [5, "13"], "expected": "1     3" },
+      { "args": [2, "ab"], "expected": "a  b" },
+      { "args": [10, "xy"], "expected": "x          y" }
     ]
   }
 ]
