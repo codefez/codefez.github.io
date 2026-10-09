@@ -11,9 +11,16 @@ I have now switched the site to run on docker locally
 - remember! `css/daisy.css` updates some daisyUI defaults 
 - Firebase API key is stored as a Github secret
 
+# Modals to-do
+- [ ] random methods - choice
+- [ ] list methods - sort
+- [ ] list methods - reverse
+- [ ] string methods - reverse
+
 # to-do still
 - [ ] Dark mode code background on pseudocode modals
 - [ ] pseudocode lessons
 - [ ] download progress for pseudocode/python lessons
 - [ ] upload progress for pseudocode/python lessons
 - [ ] Python lessons for KS4 (convert from Python roadmap?)
+
