@@ -15,7 +15,15 @@ I have now switched the site to run on docker locally
 - [ ] random methods - choice
 - [ ] list methods - sort
 - [ ] list methods - reverse
+- [ ] joining lists
 - [ ] string methods - reverse
+- [ ] classes - constructor method
+- [ ] methods within classes
+- [ ] instance vs class attributes
+- [ ] class inheritance
+- [ ] class polymorphism
+- [ ] class encapsulation (setter)
+- [ ] class encapsulation (getter)
 
 # to-do still
 - [ ] Dark mode code background on pseudocode modals
@@ -23,4 +31,6 @@ I have now switched the site to run on docker locally
 - [ ] download progress for pseudocode/python lessons
 - [ ] upload progress for pseudocode/python lessons
 - [ ] Python lessons for KS4 (convert from Python roadmap?)
+
+
 
