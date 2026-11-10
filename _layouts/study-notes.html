@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Study Notes</title>
+<link href="https://fonts.cdnfonts.com/css/dion" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/study-notes.css">
+</head>
+
+<body>
+<main class="sheet">
+
+    {{ content }}
+
+    <!-- Example content 
+  <header>
+    <span class="doodle left" aria-hidden="true">✦</span>
+    <span class="doodle right" aria-hidden="true">✎</span>
+    <p class="eyebrow">KS5 · Computer Science</p>
+    <h1>Super-Curriculum</h1>
+    <p class="intro">Pick an activity, explore an idea, and go a little further than the lesson.</p>
+  </header>
+
+  <h2 class="section-title"><span class="swash">📚 Read &amp; Explore</span></h2>
+  <div class="grid">
+    <article class="note">
+      <h3>The Register</h3>
+      <p>Keep up to date with British technology news and opinion.</p>
+      <a href="https://www.theregister.co.uk">Visit the website ↗</a>
+      <br><span class="tag">Reading</span>
+    </article>
+
+  <h2 class="section-title pink"><span class="swash">💡 Watch, Listen &amp; Think</span></h2>
+  <div class="grid">
+    <article class="note">
+      <h3>AI at MIT</h3>
+      <p>Explore Patrick Winston’s lecture series on artificial intelligence.</p>
+      <a href="https://cutt.ly/on0XERi">Open the lecture link ↗</a>
+      <br><span class="tag">Watching</span>
+    </article>
+  </div>
+
+  <div class="recap">
+    <strong>Quick recap ✨</strong>
+    <p>Read · Watch · Listen · Code · Create · Investigate · Visit</p>
+  </div>
+  -->
+  <footer>Tip: use your browser’s Print option and select “Save as PDF” for an A4 copy.</footer>
+  <script>
+  const tagFilter = document.getElementById('note-tag-filter');
+  const keyStageFilter = document.getElementById('note-key-stage-filter');
+  const noMatchingNotes = document.getElementById('no-matching-notes');
+  const notes = Array.from(document.querySelectorAll('.note'));
+  const sections = Array.from(document.querySelectorAll('.section-title'));
+  const tags = [...new Set(notes.flatMap(note =>
+    Array.from(note.querySelectorAll('.tag:not(.key-stage)'), tag => tag.textContent.trim())
+  ))].filter(Boolean).sort();
+
+  tags.forEach(tag => {
+    const option = document.createElement('option');
+    option.value = tag;
+    option.textContent = tag;
+    tagFilter.appendChild(option);
+  });
+
+  function filterNotesByTag() {
+    notes.forEach(note => {
+      const matchesTag = tagFilter.value === '' || Array.from(note.querySelectorAll('.tag:not(.key-stage)'))
+        .some(tag => tag.textContent.trim() === tagFilter.value);
+      const matchesKeyStage = keyStageFilter.value === '' || Array.from(note.querySelectorAll('.key-stage'))
+        .some(stage => stage.textContent.trim() === keyStageFilter.value);
+      note.hidden = !matchesTag || !matchesKeyStage;
+    });
+
+    noMatchingNotes.hidden = notes.some(note => !note.hidden);
+
+    sections.forEach(section => {
+      const grid = section.nextElementSibling;
+      const hasVisibleNotes = Array.from(grid.querySelectorAll('.note')).some(note => !note.hidden);
+      section.hidden = !hasVisibleNotes;
+      grid.hidden = !hasVisibleNotes;
+    });
+  }
+
+  tagFilter.addEventListener('change', filterNotesByTag);
+  keyStageFilter.addEventListener('change', filterNotesByTag);
+  tagFilter.parentElement.hidden = false;
+</script>
+</main>
+</body>
+</html>
+
+
