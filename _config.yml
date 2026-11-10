@@ -46,3 +46,5 @@ plugins:
 exclude:
   - node_modules
   - functions/node_modules
+  - vendor
+  - env
