@@ -1,54 +1,44 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Study Notes</title>
-<link href="https://fonts.cdnfonts.com/css/dion" rel="stylesheet">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/css/study-notes.css">
-</head>
-
-<body>
+<html data-theme="emerald">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    {% feed_meta %}
+    {% seo %}
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5.0.0-beta.1/daisyui.css" rel="stylesheet" type="text/css" />
+    <!-- <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script> -->
+    <script src="https://cdn.tailwindcss.com"></script>
+        <script>
+          tailwind.config = {
+            darkMode: ['selector', '[data-theme="dark"]'],
+          }
+        </script>
+    <link rel="stylesheet" href="/css/site.css">
+    <script src="/js/color-scheme.js" data-website-url="{{ site.url }}" async></script>
+    <title>Study Notes</title>
+    <link href="https://fonts.cdnfonts.com/css/dion" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/study-notes.css">
+    
+    <script src="{{ '/js/theme-switcher.js' | relative_url }}" defer></script>
+    
+  </head>
+  <body>
+    <nav>
+      <!-- class="container mx-auto px-4 md:container md:mx-auto" -->
+      <section>
+        {% include navbar.html %}
+      </section>
+    </nav>
+    
 <main class="sheet">
 
     {{ content }}
 
-    <!-- Example content 
-  <header>
-    <span class="doodle left" aria-hidden="true">✦</span>
-    <span class="doodle right" aria-hidden="true">✎</span>
-    <p class="eyebrow">KS5 · Computer Science</p>
-    <h1>Super-Curriculum</h1>
-    <p class="intro">Pick an activity, explore an idea, and go a little further than the lesson.</p>
-  </header>
-
-  <h2 class="section-title"><span class="swash">📚 Read &amp; Explore</span></h2>
-  <div class="grid">
-    <article class="note">
-      <h3>The Register</h3>
-      <p>Keep up to date with British technology news and opinion.</p>
-      <a href="https://www.theregister.co.uk">Visit the website ↗</a>
-      <br><span class="tag">Reading</span>
-    </article>
-
-  <h2 class="section-title pink"><span class="swash">💡 Watch, Listen &amp; Think</span></h2>
-  <div class="grid">
-    <article class="note">
-      <h3>AI at MIT</h3>
-      <p>Explore Patrick Winston’s lecture series on artificial intelligence.</p>
-      <a href="https://cutt.ly/on0XERi">Open the lecture link ↗</a>
-      <br><span class="tag">Watching</span>
-    </article>
-  </div>
-
-  <div class="recap">
-    <strong>Quick recap ✨</strong>
-    <p>Read · Watch · Listen · Code · Create · Investigate · Visit</p>
-  </div>
-  -->
+    
   <footer>Tip: use your browser’s Print option and select “Save as PDF” for an A4 copy.</footer>
   <script>
   const tagFilter = document.getElementById('note-tag-filter');
